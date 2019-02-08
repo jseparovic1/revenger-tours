@@ -1,0 +1,36 @@
+.swiper-container {
+    .swiper-slide {
+        img {
+            filter: brightness(70%);
+            transform-origin: 20% 80%;
+            transition: transform 120s linear 0s;
+        }
+        img.active {
+            transform: scale(1.4);
+        }
+    }
+}
+
+.slider-control {
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    z-index: 10;
+    cursor: pointer;
+    &--next {
+        background-color: config('colors.brand');
+        @apply rounded;
+        transition: all .3s ease;
+        &:hover {
+            @apply bg-brand-darker;
+        }
+    }
+    &--prev {
+        background-color: config('colors.brand');
+        @apply rounded;
+        transition: all .3s ease;
+        &:hover {
+            @apply bg-brand-darker;
+        }
+    }
+}

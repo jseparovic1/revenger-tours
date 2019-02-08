@@ -38,6 +38,10 @@ let swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     spaceBetween: 0,
     loop: true,
+    lazy: {
+        loadPrevNext: true,
+    },
+    preloadImages: false,
     effect: 'fade',
     fadeEffect: {
         crossFade: true
@@ -53,8 +57,24 @@ let swiper = new Swiper('.swiper-container', {
         nextEl: '.slider-control--next',
         prevEl: '.slider-control--prev',
     },
-});
+    on: {
+        slideChange: function () {
+            let images = document.querySelectorAll('.swiper-slide-active > img');
+            images.forEach((element) => {
+                element.classList = 'image-bg reset';
+            });
 
-swiper.on('slideChange', function () {
-    console.log('slide changed');
+            let activeImage = document.querySelector('.swiper-slide-active > img');
+            if (activeImage) {
+                console.log("yeste");
+                console.log(activeImage);
+                activeImage.classList = 'image-bg active';
+            }
+            if (!activeImage) {
+                let firstImage = document.querySelector('.swiper-slide > img');
+                console.log(firstImage);
+                firstImage.classList += 'image-bg active';
+            }
+        }
+    }
 });

@@ -1,0 +1,15 @@
+.btn {
+    @apply font-bold py-2 px-4 rounded;
+    &-sm {
+        @apply py-1 px-2;
+    }
+    &-lg {
+        @apply py-4 px-8;
+    }
+}
+.btn-primary {
+    @apply bg-brand-dark text-white;
+}
+.btn-primary:hover {
+    @apply bg-brand-darkest;
+}

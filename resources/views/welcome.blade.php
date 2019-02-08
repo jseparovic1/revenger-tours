@@ -8,10 +8,11 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden">
+<body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-base">
 <div id="app" class="flex flex-col">
     @include('partials.nav')
     @include('partials.slider')
+    @include('partials.featured.tours')
     @include('partials.footer')
 </div>
 @yield('javascript')

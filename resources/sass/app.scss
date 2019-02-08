@@ -1,50 +1,11 @@
-/**
- * This injects Tailwind's base styles, which is a combination of
- * Normalize.css and some additional base styles.
- *
- * You can see the styles here:
- * https://github.com/tailwindcss/tailwindcss/blob/master/css/preflight.css
- */
 @tailwind preflight;
-
-/**
- * Here you would add any of your custom component classes; stuff that you'd
- * want loaded *before* the utilities so that the utilities could still
- * override them.
- *
- * Example:
- *
- * .btn { ... }
- * .form-input { ... }
- *
- * Or if using a preprocessor:
- *
- * @import "components/buttons";
- * @import "components/forms";
- */
 @tailwind components;
-
-/**
- * This injects all of Tailwind's utility classes, generated based on your
- * config file.
- */
 @tailwind utilities;
 
-/**
- * Here you would add any custom utilities you need that don't come out of the
- * box with Tailwind.
- *
- * Example :
- *
- * .bg-pattern-graph-paper { ... }
- * .skew-45 { ... }
- *
- * Or if using a preprocessor..
- *
- * @import "utilities/background-patterns";
- * @import "utilities/skew-transforms";
- */
 @import "~swiper/dist/css/swiper.min.css";
+@import "components/buttons";
+@import "components/slider";
+@import "components/tour";
 
 a {
     text-decoration: none;
@@ -68,10 +29,6 @@ a:hover {
     }
 }
 
-.bg-shade {
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, .2);
-}
-
 .left-50 {
     left: 50%;
 }
@@ -80,44 +37,8 @@ a:hover {
     left: -50%;
 }
 
-.swiper-container {
-    .swiper-slide {
-        img {
-            filter: brightness(70%);
-            transform-origin: 20% 80%;
-            transition: transform 60s linear;
-        }
-        img.active {
-            transform: scale(1.4);
-        }
-    }
-}
-
-.slider-control {
-    position: absolute;
-    right: 5%;
-    top: 50%;
-    z-index: 10;
-    cursor: pointer;
-    &--next {
-        background-color: config('colors.brand');
-        @apply rounded;
-        transition: all .3s ease;
-        &:hover {
-            @apply bg-brand-darker;
-        }
-    }
-    &--prev {
-        background-color: config('colors.brand');
-        @apply rounded;
-        transition: all .3s ease;
-        &:hover {
-            @apply bg-brand-darker;
-        }
-    }
-}
-
 .image-bg {
+    object-fit: cover;
     position: fixed;
     top: 0;
     left: 0;
