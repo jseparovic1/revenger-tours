@@ -85,7 +85,10 @@ a:hover {
         img {
             filter: brightness(70%);
             transform-origin: 20% 80%;
-            transition: transform 70s linear;
+            transition: transform 60s linear;
+        }
+        img.active {
+            transform: scale(1.4);
         }
     }
 }

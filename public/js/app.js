@@ -2317,7 +2317,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return this;
         }
-
 // eslint-disable-next-line
         function removeAttr(attr) {
             for (let i = 0; i < this.length; i += 1) {
@@ -2325,7 +2324,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return this;
         }
-
 // eslint-disable-next-line
         function prop(props, value) {
             if (arguments.length === 1 && typeof props === 'string') {
@@ -2442,7 +2440,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return dom;
         }
-
 // Transforms
 // eslint-disable-next-line
         function transform(transform) {
@@ -2465,7 +2462,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return this;
         }
-
 // Events
         function on(...args) {
             let [eventType, targetSelector, listener, capture] = args;
@@ -2654,7 +2650,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return this;
         }
-
 // Sizing/Styles
         function width() {
             if (this[0] === ssr_window__WEBPACK_IMPORTED_MODULE_0__["window"]) {
@@ -2780,7 +2775,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return arr;
         }
-
 // Iterate over the collection passing elements to `callback`
         function each(callback) {
             // Don't bother continuing without a callback
@@ -2829,7 +2823,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return new Dom7(modifiedItems);
         }
-
 // eslint-disable-next-line
         function html(html) {
             if (typeof html === 'undefined') {
@@ -2841,7 +2834,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return this;
         }
-
 // eslint-disable-next-line
         function text(text) {
             if (typeof text === 'undefined') {
@@ -2905,7 +2897,6 @@ __webpack_require__.r(__webpack_exports__);
             }
             return undefined;
         }
-
 // eslint-disable-next-line
         function eq(index) {
             if (typeof index === 'undefined') return this;
@@ -3263,7 +3254,6 @@ __webpack_require__.r(__webpack_exports__);
                 requestAnimationFrame(render);
             });
         }
-
 // scrollTop(top, duration, easing, callback) {
         function scrollTop(...args) {
             let [top, duration, easing, callback] = args;
@@ -3580,7 +3570,7 @@ __webpack_require__.r(__webpack_exports__);
 
         function scroll(...args) {
             return eventShortcut.bind(this)('scroll', ...args);
-}
+        }
 
 
         /***/
@@ -43404,7 +43394,6 @@ var app = new Vue({
             }
         });
         swiper.on('slideChange', function () {
-            //Get current slide and add zooom
             console.log('slide changed');
         });
 

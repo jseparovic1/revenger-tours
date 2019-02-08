@@ -56,6 +56,5 @@ let swiper = new Swiper('.swiper-container', {
 });
 
 swiper.on('slideChange', function () {
-    //Get current slide and add zooom
     console.log('slide changed');
 });

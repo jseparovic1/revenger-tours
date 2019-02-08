@@ -5355,9 +5355,14 @@ a:hover {
     filter: brightness(70%);
     -webkit-transform-origin: 20% 80%;
     transform-origin: 20% 80%;
-    transition: -webkit-transform 70s linear;
-    transition: transform 70s linear;
-    transition: transform 70s linear, -webkit-transform 70s linear;
+    transition: -webkit-transform 60s linear;
+    transition: transform 60s linear;
+    transition: transform 60s linear, -webkit-transform 60s linear;
+}
+
+.swiper-container .swiper-slide img.active {
+    -webkit-transform: scale(1.4);
+    transform: scale(1.4);
 }
 
 .slider-control {

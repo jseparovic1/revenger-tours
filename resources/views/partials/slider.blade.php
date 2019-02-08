@@ -19,13 +19,13 @@
                         </button>
                     </div>
                 </div>
-                <img class="image-bg" src="{{ asset('images/header/tour.jpg') }}"/>
+                <img class="image-bg active" src="{{ asset('images/header/tour.jpg') }}"/>
             </div>
             <div class="swiper-slide">
-                <img class="image-bg" src="{{ asset('images/header/zrak.jpg') }}"/>
+                <img class="image-bg " src="{{ asset('images/header/zrak.jpg') }}"/>
             </div>
             <div class="swiper-slide">
-                <img class="image-bg" src="{{ asset('images/header/boat.jpg') }}"/>
+                <img class="image-bg " src="{{ asset('images/header/boat.jpg') }}"/>
             </div>
         </div>
         <div class="slider-control -mt-12">
