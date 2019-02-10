@@ -7,9 +7,11 @@
         @apply py-4 px-8;
     }
 }
+
 .btn-primary {
     @apply bg-brand-dark text-white;
 }
+
 .btn-primary:hover {
     @apply bg-brand-darkest;
 }

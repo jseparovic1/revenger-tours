@@ -11,6 +11,16 @@
 <body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-base">
 <div id="app" class="flex flex-col">
     @include('partials.nav')
+    <section class="md:hidden">
+        <div class="hero flex justify-center sm:justify-start">
+            @include('partials.hero', [
+            'title' => 'Find best tours',
+            'shortDescription' => 'Feel the vibe',
+            'description' => ' Sail around beautiful islands of Split',
+            'callToAction' => "LET'S GO"
+        ])
+        </div>
+    </section>
     @include('partials.slider')
     @include('partials.featured.tours')
     @include('partials.footer')
