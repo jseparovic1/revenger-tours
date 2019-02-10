@@ -27,12 +27,12 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
 const app = new Vue({
     el: '#app'
 });
 
 import Swiper from "swiper";
+
 
 let swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
@@ -46,9 +46,9 @@ let swiper = new Swiper('.swiper-container', {
     fadeEffect: {
         crossFade: true
     },
-    // autoplay: {
-    //     delay: 5000,
-    // },
+    autoplay: {
+        delay: 5000,
+    },
     pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -58,23 +58,12 @@ let swiper = new Swiper('.swiper-container', {
         prevEl: '.slider-control--prev',
     },
     on: {
-        slideChange: function () {
-            let images = document.querySelectorAll('.swiper-slide-active > img');
-            images.forEach((element) => {
-                element.classList = 'image-bg reset';
+        init: function () {
+            setTimeout(() => {
+                const animation = 'animation: zoom 100s ease infinite';
+                let images = document.querySelectorAll('.swiper-slide > img');
+                images.forEach(img => img.style = animation);
             });
-
-            let activeImage = document.querySelector('.swiper-slide-active > img');
-            if (activeImage) {
-                console.log("yeste");
-                console.log(activeImage);
-                activeImage.classList = 'image-bg active';
-            }
-            if (!activeImage) {
-                let firstImage = document.querySelector('.swiper-slide > img');
-                console.log(firstImage);
-                firstImage.classList += 'image-bg active';
-            }
-        }
+        },
     }
 });

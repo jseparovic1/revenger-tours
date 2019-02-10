@@ -13,7 +13,7 @@ a {
 }
 
 a:hover {
-    color: config('colors.brand');
+    color: config('colors.brand-dark');
 }
 
 .navigation {
@@ -21,11 +21,11 @@ a:hover {
         @apply border-b-4 border-transparent;
         transition: all 0.3s ease;
         &:hover {
-            @apply border-brand-light text-brand-light;
+            @apply border-brand-darker text-brand-darkest;
         }
     }
     .active {
-        @apply border-brand-light;
+        @apply border-brand-darker;
     }
 }
 
@@ -44,4 +44,43 @@ a:hover {
     left: 0;
     min-width: 100%;
     min-height: 100%;
+}
+
+.heading-description {
+    @apply text-grey-darkest max-w-md mb-12 text-center;
+}
+
+.heading-title {
+    @apply text-4xl text-grey-darkest leading-tight p-4 mb-3;
+    background-image: url("/images/line.png");
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    position: relative;
+    z-index: 30;
+    &::after {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 110px;
+        height: 1px;
+        bottom: 3.8px;
+        left: -170px;
+        right: 0;
+        margin: 0 auto;
+        background: hsl(41, 13%, 23%) none repeat scroll 0 0;
+        z-index: 20;
+    }
+    &::before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 110px;
+        height: 1px;
+        bottom: 3.8px;
+        left: 170px;
+        right: 0;
+        margin: 0 auto;
+        background: #454545 none repeat scroll 0 0;
+        z-index: 20;
+    }
 }

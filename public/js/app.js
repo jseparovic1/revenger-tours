@@ -40052,9 +40052,9 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-contain
   fadeEffect: {
     crossFade: true
   },
-  // autoplay: {
-  //     delay: 5000,
-  // },
+  autoplay: {
+    delay: 5000
+  },
   pagination: {
     el: '.swiper-pagination',
     clickable: true
@@ -40064,24 +40064,14 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-contain
     prevEl: '.slider-control--prev'
   },
   on: {
-    slideChange: function slideChange() {
-      var images = document.querySelectorAll('.swiper-slide-active > img');
-      images.forEach(function (element) {
-        element.classList = 'image-bg reset';
+    init: function init() {
+      setTimeout(function () {
+        var animation = 'animation: zoom 100s ease infinite';
+        var images = document.querySelectorAll('.swiper-slide > img');
+        images.forEach(function (img) {
+          return img.style = animation;
+        });
       });
-      var activeImage = document.querySelector('.swiper-slide-active > img');
-
-      if (activeImage) {
-        console.log("yeste");
-        console.log(activeImage);
-        activeImage.classList = 'image-bg active';
-      }
-
-      if (!activeImage) {
-        var firstImage = document.querySelector('.swiper-slide > img');
-        console.log(firstImage);
-        firstImage.classList += 'image-bg active';
-      }
     }
   }
 });
