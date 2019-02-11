@@ -6,11 +6,11 @@
     <section class="md:hidden m-0 p-0">
         <div class="hero flex justify-center sm:justify-start">
             @include('partials.hero', [
-            'title' => 'Find best tours',
-            'shortDescription' => 'Feel the vibe',
-            'description' => ' Sail around beautiful islands of Split',
-            'callToAction' => "LET'S GO"
-        ])
+                'title' => $single->hero_title,
+               'shortDescription' => $single->hero_short_description,
+               'description' => $single->hero_description,
+               'callToAction' => "LET'S GO"
+            ])
         </div>
     </section>
     @include('partials.featured.tours')

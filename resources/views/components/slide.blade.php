@@ -5,5 +5,5 @@
             {{ $slot }}
         </div>
     </div>
-    <img class="image-bg" src="{{ $image }}"/>
+    {{ $image }}
 </div>

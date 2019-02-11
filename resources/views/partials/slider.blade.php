@@ -1,30 +1,19 @@
 <section class="h-full m-0 p-0">
     <div class="hidden md:block swiper-container h-screen border-b">
         <div class="swiper-wrapper">
-            @component('components.slide', ['image' => asset('images/header/boat.jpg')])
-                @include('partials.hero', [
-                   'title' => 'Pakleni islands',
-                   'shortDescription' => 'Feel the vibe',
-                   'description' => ' Sailing around the labyrinth of Pakleni islands! Find hidden beautiful beaches and deserted lagoons',
-                   'callToAction' => "LET'S GO"
-               ])
-            @endcomponent
-            @component('components.slide', ['image' => asset('images/header/zrak.jpg')])
-                @include('partials.hero', [
-                   'title' => 'Pakleni islands',
-                   'shortDescription' => 'Feel the vibe',
-                   'description' => ' Sailing around the labyrinth of Pakleni islands! Find hidden beautiful beaches and deserted lagoons',
-                   'callToAction' => "LET'S GO"
-               ])
-            @endcomponent
-            @component('components.slide', ['image' => asset('images/header/tour.jpg')])
-                @include('partials.hero', [
-                   'title' => 'Pakleni islands',
-                   'shortDescription' => 'Feel the vibe',
-                   'description' => ' Sailing around the labyrinth of Pakleni islands! Find hidden beautiful beaches and deserted lagoons',
-                   'callToAction' => "LET'S GO"
-               ])
-            @endcomponent
+            @foreach($featured as $tour)
+                @component('components.slide')
+                    @include('partials.hero', [
+                       'title' => $tour->hero_title,
+                       'shortDescription' => $tour->hero_short_description,
+                       'description' => $tour->hero_description,
+                       'callToAction' => "LET'S GO"
+                   ])
+                    @slot('image')
+                        {{ $tour->getFirstMedia('hero') }}
+                    @endslot
+                @endcomponent
+            @endforeach
         </div>
         <div class="slider-control -mt-12">
             <div class="slider-control--next mb-2 px-4 flex flex-col justify-center items-center">

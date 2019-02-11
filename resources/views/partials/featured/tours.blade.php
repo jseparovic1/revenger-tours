@@ -6,18 +6,13 @@
                 Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan
             </p>
             <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch mb-4">
-                @include('partials.featured.tour', [
-                    'title' => 'Blue lagoon tour',
-                    'description' => 'Awesome crusing trought dalmatia'
-                ])
-                @include('partials.featured.tour', [
-                   'title' => 'Blue lagoon tour',
-                   'description' => 'Awesome crusing trought dalmatia'
-               ])
-                @include('partials.featured.tour', [
-                   'title' => 'Blue lagoon tour',
-                   'description' => 'Awesome crusing trought dalmatia'
-               ])
+                @foreach($recommended as $tour)
+                    @include('partials.featured.tour', [
+                        'title' => $tour->title,
+                        'description' => $tour->hero_description,
+                        'media' => $tour->getFirstMedia('hero')
+                    ])
+                @endforeach
             </div>
         </div>
     </div>
