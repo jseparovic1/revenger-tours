@@ -5407,6 +5407,10 @@ table {
   z-index: -10;
 }
 
+.navigation {
+  transition: all .2s ease-in;
+}
+
 .navigation a {
   border-bottom-width: 4px;
   border-color: transparent;

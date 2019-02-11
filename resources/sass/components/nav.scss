@@ -1,4 +1,5 @@
 .navigation {
+    transition: all .2s ease-in;
     a {
         @apply border-b-4 border-transparent;
         transition: all 0.3s ease;

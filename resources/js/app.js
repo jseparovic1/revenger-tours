@@ -31,7 +31,6 @@ const app = new Vue({
 
 import Swiper from "swiper";
 
-
 let swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
     spaceBetween: 0,
@@ -63,5 +62,21 @@ let swiper = new Swiper('.swiper-container', {
                 images.forEach(img => img.style = animation);
             });
         },
+    }
+});
+
+
+const nav = document.querySelector('.navigation');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY >= 600) {
+        nav.classList.remove('absolute');
+        nav.classList.add('fixed');
+        nav.classList.add('bg-black');
+    } else {
+        nav.classList.remove('fixed');
+        nav.classList.remove('bg-black');
+        nav.classList.add('bg-transparent');
+        nav.classList.add('absolute');
     }
 });

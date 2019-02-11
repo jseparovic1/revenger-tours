@@ -1,8 +1,8 @@
 <nav class="navigation text-center absolute pin-t pin-r pin-l z-20">
-    <div class="flex justify-between items-center relative py-5 max-w-5xl px-4 md:px-10 mx-auto">
+    <div class="flex justify-between items-center relative py-2 md:py-4 max-w-5xl px-4 md:px-10 mx-auto">
             <div>
                 <span class="text-brand font-bold text-xl">Revenger</span>
-                <span class="text-black font-bold text-xl">Tours</span>
+                <span class="text-white font-bold text-xl">Tours</span>
             </div>
             <ul class="hidden lg:flex list-reset text-white">
                 <li class="flex active">
@@ -29,7 +29,7 @@
                     <span></span>
                 </label>
                 <nav>
-                    <div class="pt-6">
+                    <div class="pt-2">
                         <span class="text-brand font-bold text-xl">Revenger</span>
                         <span class="text-white font-bold text-xl">Tours</span>
                     </div>

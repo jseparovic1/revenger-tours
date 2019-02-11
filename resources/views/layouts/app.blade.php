@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-base">
+<body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-sm md:text-base">
 <div id="app" class="flex flex-col overflow-x-hidden">
     @yield('content')
 </div>
