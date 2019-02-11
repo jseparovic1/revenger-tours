@@ -4,11 +4,11 @@
         @apply border-b-4 border-transparent;
         transition: all 0.3s ease;
         &:hover {
-            @apply text-brand-darkest;
+            @apply text-brand-dark;
         }
     }
     .active {
-        @apply border-brand-darker;
+        @apply border-brand-dark;
     }
     .nav-toggle {
         input {

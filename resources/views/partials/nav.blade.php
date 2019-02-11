@@ -1,24 +1,24 @@
 <nav class="navigation text-center absolute pin-t pin-r pin-l z-20">
-    <div class="flex justify-between items-center relative py-2 md:py-4 max-w-5xl px-4 md:px-10 mx-auto">
+    <div class="flex justify-between items-center relative max-w-5xl px-4 md:px-10 mx-auto">
             <div>
                 <span class="text-brand font-bold text-xl">Revenger</span>
                 <span class="text-white font-bold text-xl">Tours</span>
             </div>
             <ul class="hidden lg:flex list-reset text-white">
                 <li class="flex active">
-                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-brand-dark tracking-wide font-bold hover:border-brand-darkest">HOME</a>
+                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-brand-dark tracking-wide font-bold hover:border-brand-dark">HOME</a>
                 </li>
                 <li class="flex">
-                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">TOURS</a>
+                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">TOURS</a>
                 </li>
                 <li class="flex">
-                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">PRIVATE TOURS</a>
+                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">PRIVATE TOURS</a>
                 </li>
                 <li class="flex">
-                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">TRANSFERS</a>
+                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">TRANSFERS</a>
                 </li>
                 <li class="flex">
-                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">CONTACT</a>
+                    <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">CONTACT</a>
                 </li>
             </ul>
             <div class="lg:hidden nav-toggle">

@@ -5418,11 +5418,11 @@ table {
 }
 
 .navigation a:hover {
-  color: #780a0a;
+  color: #a61b1b;
 }
 
 .navigation .active {
-  border-color: #911111;
+  border-color: #a61b1b;
 }
 
 .navigation .nav-toggle input {
@@ -5527,10 +5527,6 @@ table {
 .featured-tour {
   background-image: url("/images/cave.jpg");
   background-size: cover;
-}
-
-* {
-  transition: visibility .3s ease, opacity .3s ease-out;
 }
 
 a {
