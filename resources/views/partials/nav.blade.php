@@ -1,5 +1,5 @@
 <nav class="navigation text-center absolute pin-t pin-r pin-l z-20">
-    <div class="flex justify-between items-center relative max-w-5xl px-4 md:px-10 mx-auto">
+    <div class="flex justify-between items-center relative my-2 lg:my-0 max-w-5xl px-4 md:px-10 mx-auto">
             <div>
                 <span class="text-brand font-bold text-xl">Revenger</span>
                 <span class="text-white font-bold text-xl">Tours</span>
