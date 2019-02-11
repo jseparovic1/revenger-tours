@@ -70,7 +70,13 @@ section {
 }
 
 .heading-title {
-    @apply text-4xl text-grey-darkest leading-tight p-4 mb-3;
+    @apply text-2xl text-grey-darkest leading-tight p-4 mb-3;
+    @screen md {
+        @apply text-3xl;
+    }
+    @screen lg {
+        @apply text-4xl;
+    }
     background-image: url("/images/line.png");
     background-repeat: no-repeat;
     background-position: center bottom;

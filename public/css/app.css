@@ -5606,7 +5606,7 @@ section {
 }
 
 .heading-title {
-  font-size: 2.25rem;
+  font-size: 1.5rem;
   color: #423d33;
   line-height: 1.25;
   padding: 1rem;
@@ -5615,6 +5615,18 @@ section {
   background-repeat: no-repeat;
   background-position: center bottom;
   position: relative;
+}
+
+@media (min-width: 768px) {
+  .heading-title {
+    font-size: 1.875rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .heading-title {
+    font-size: 2.25rem;
+  }
 }
 
 .heading-title::after {
