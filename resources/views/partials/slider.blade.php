@@ -1,4 +1,4 @@
-<section class="h-full">
+<section class="h-full m-0 p-0">
     <div class="hidden md:block swiper-container h-screen border-b">
         <div class="swiper-wrapper">
             <div class="swiper-slide">

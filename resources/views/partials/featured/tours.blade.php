@@ -1,6 +1,6 @@
 <section>
     <div class="container">
-        <div class="my-5 lg:my-24 flex flex-col items-center space-between px-4">
+        <div class="flex flex-col items-center space-between">
             <h1 class="heading-title text-center">Chose from our recommended tours</h1>
             <p class="heading-description">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan

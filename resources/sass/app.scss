@@ -6,10 +6,14 @@
 @import "components/buttons";
 @import "components/slider";
 @import "components/tour";
+@import "components/hero";
+@import "components/nav";
+@import "components/featuredTour";
 
 * {
     transition: visibility .3s ease, opacity .3s ease-out;
 }
+
 a {
     text-decoration: none;
     transition: color 0.3s ease;
@@ -19,16 +23,28 @@ a:hover {
     color: config('colors.brand-dark');
 }
 
-.navigation {
-    a {
-        @apply border-b-4 border-transparent;
-        transition: all 0.3s ease;
-        &:hover {
-            @apply border-brand-darker text-brand-darkest;
-        }
+section {
+    @apply py-4 px-5;
+    @screen md {
+        @apply py-10 px-5;
     }
-    .active {
-        @apply border-brand-darker;
+}
+
+.heading-content {
+    h1 {
+        @apply text-4xl leading-tight font-bold;
+    }
+    h2 {
+        @apply py-1;
+    }
+    h3 {
+        @apply py-1;
+    }
+    p {
+        @apply py-3 font-semibold;
+    }
+    &--white {
+        @apply text-white;
     }
 }
 
@@ -47,25 +63,6 @@ a:hover {
     left: 0;
     min-width: 100%;
     min-height: 100%;
-}
-
-.hero {
-    position: relative;
-    z-index: 10;
-    overflow-x: hidden;
-    &::after {
-        content: "";
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background: url('/images/header/boat.jpg');
-        background-size: cover;
-        background-position: center;
-        filter: brightness(50%);
-        z-index: -10;
-    }
 }
 
 .heading-description {

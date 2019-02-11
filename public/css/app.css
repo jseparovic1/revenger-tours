@@ -5291,6 +5291,12 @@ table {
   padding-right: 2rem;
 }
 
+.btn-outline-primary {
+  border-width: 4px;
+  border-color: #a61b1b;
+  color: #faf9f7;
+}
+
 .btn-primary {
   background-color: #a61b1b;
   color: #faf9f7;
@@ -5380,52 +5386,6 @@ table {
           transform: scale(1.009);
 }
 
-* {
-  transition: visibility .3s ease, opacity .3s ease-out;
-}
-
-a {
-  text-decoration: none;
-  transition: color .3s ease;
-}
-
-a:hover {
-  color: #a61b1b;
-}
-
-.navigation a {
-  border-bottom-width: 4px;
-  border-color: transparent;
-  transition: all .3s ease;
-}
-
-.navigation a:hover {
-  border-color: #911111;
-  color: #780a0a;
-}
-
-.navigation .active {
-  border-color: #911111;
-}
-
-.left-50 {
-  left: 50%;
-}
-
-.-left-50 {
-  left: -50%;
-}
-
-.image-bg {
-  -o-object-fit: cover;
-     object-fit: cover;
-  position: fixed;
-  top: 0;
-  left: 0;
-  min-width: 100%;
-  min-height: 100%;
-}
-
 .hero {
   position: relative;
   z-index: 10;
@@ -5445,6 +5405,99 @@ a:hover {
   -webkit-filter: brightness(50%);
           filter: brightness(50%);
   z-index: -10;
+}
+
+.navigation a {
+  border-bottom-width: 4px;
+  border-color: transparent;
+  transition: all .3s ease;
+}
+
+.navigation a:hover {
+  border-color: #911111;
+  color: #780a0a;
+}
+
+.navigation .active {
+  border-color: #911111;
+}
+
+.featured-tour {
+  background-image: url("/images/cave.jpg");
+  background-size: cover;
+}
+
+* {
+  transition: visibility .3s ease, opacity .3s ease-out;
+}
+
+a {
+  text-decoration: none;
+  transition: color .3s ease;
+}
+
+a:hover {
+  color: #a61b1b;
+}
+
+section {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+}
+
+.heading-content h1 {
+  font-size: 2.25rem;
+  line-height: 1.25;
+  font-weight: 700;
+}
+
+.heading-content h2 {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.heading-content h3 {
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+.heading-content p {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-weight: 600;
+}
+
+.heading-content--white {
+  color: #faf9f7;
+}
+
+.left-50 {
+  left: 50%;
+}
+
+.-left-50 {
+  left: -50%;
+}
+
+.image-bg {
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .heading-description {

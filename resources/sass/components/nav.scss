@@ -1,0 +1,12 @@
+.navigation {
+    a {
+        @apply border-b-4 border-transparent;
+        transition: all 0.3s ease;
+        &:hover {
+            @apply border-brand-darker text-brand-darkest;
+        }
+    }
+    .active {
+        @apply border-brand-darker;
+    }
+}
