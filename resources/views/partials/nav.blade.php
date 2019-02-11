@@ -1,28 +1,46 @@
-<nav class="navigation container text-center absolute pin-t z-20 left-50 px-4 sm:px-0 pin-r pin-l">
-    <div class="flex justify-between items-center relative -left-50 py-5">
+<nav class="navigation container text-center absolute pin-t pin-r pin-l z-20">
+    <div class="flex justify-between items-center relative py-5 px-4">
         <div>
             <span class="text-brand font-bold text-xl">Revenger</span>
             <span class="text-black font-bold text-xl">Tours</span>
         </div>
-        <ul class="hidden lg:flex list-reset">
+        <ul class="hidden lg:flex list-reset text-white">
             <li class="flex active">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-3 text-brand-dark tracking-wide font-bold">HOME</a>
+                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-brand-dark tracking-wide font-bold hover:border-brand-darkest">HOME</a>
             </li>
             <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-3 text-white tracking-wide font-bold">TOURS</a>
+                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">TOURS</a>
             </li>
             <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-3 text-white tracking-wide font-bold">PRIVATE TOURS</a>
+                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">PRIVATE TOURS</a>
             </li>
             <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-3 text-white tracking-wide font-bold">TRANSFERS</a>
+                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">TRANSFERS</a>
             </li>
             <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-3 text-white tracking-wide font-bold">CONTACT</a>
+                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-darkest">CONTACT</a>
             </li>
         </ul>
-        <div class="lg:hidden text-brand-darkest">
-            @include('svg/menu')
+        <div class="lg:hidden nav-toggle">
+            <input id="burger" type="checkbox" />
+            <label for="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav>
+                <div class="pt-6">
+                    <span class="text-brand font-bold text-xl">Revenger</span>
+                    <span class="text-white font-bold text-xl">Tours</span>
+                </div>
+                <ul class="list-reset">
+                    <li><a href="#" class="hover:bg-brand-darkest hover:border-0">HOME</a></li>
+                    <li><a href="#" class="hover:bg-brand-darkest hover:border-0">TOURS</a></li>
+                    <li><a href="#" class="hover:bg-brand-darkest hover:border-0">PRIVATE TOURS</a></li>
+                    <li><a href="#" class="hover:bg-brand-darkest hover:border-0">TRANSFERS</a></li>
+                    <li><a href="#" class="hover:bg-brand-darkest hover:border-0">CONTACT</a></li>
+                </ul>
+            </nav>
         </div>
     </div>
 </nav>

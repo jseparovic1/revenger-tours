@@ -75,7 +75,6 @@ section {
     background-repeat: no-repeat;
     background-position: center bottom;
     position: relative;
-    z-index: 30;
     &::after {
         position: absolute;
         content: '';
@@ -87,7 +86,7 @@ section {
         right: 0;
         margin: 0 auto;
         background: hsl(41, 13%, 23%) none repeat scroll 0 0;
-        z-index: 20;
+        z-index: 1;
     }
     &::before {
         position: absolute;
@@ -100,6 +99,6 @@ section {
         right: 0;
         margin: 0 auto;
         background: #454545 none repeat scroll 0 0;
-        z-index: 20;
+        z-index: 1;
     }
 }
