@@ -10,7 +10,6 @@
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-base">
 <div id="app" class="flex flex-col overflow-x-hidden">
-    {{--<nav-modal></nav-modal>--}}
     @yield('content')
 </div>
     @yield('javascript')
