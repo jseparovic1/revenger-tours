@@ -1,12 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    @include('partials.nav')
     @include('partials.slider')
     <section class="md:hidden m-0 p-0">
         <div class="hero flex justify-center sm:justify-start">
             @include('partials.hero', [
-                'title' => $single->hero_title,
+                'title' => $single->title,
                'shortDescription' => $single->hero_short_description,
                'description' => $single->hero_description,
                'callToAction' => "LET'S GO"
@@ -20,5 +19,4 @@
         'callToAction' => 'INFO'
     ])
     @include('partials.why')
-    @include('partials.footer')
 @endsection

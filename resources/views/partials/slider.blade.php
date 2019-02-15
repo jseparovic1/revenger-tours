@@ -4,7 +4,7 @@
             @foreach($featured as $tour)
                 @component('components.slide')
                     @include('partials.hero', [
-                       'title' => $tour->hero_title,
+                       'title' => $tour->title,
                        'shortDescription' => $tour->hero_short_description,
                        'description' => $tour->hero_description,
                        'callToAction' => "LET'S GO"

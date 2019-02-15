@@ -10,7 +10,15 @@
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal overflow-x-hidden text-sm md:text-base">
 <div id="app" class="flex flex-col overflow-x-hidden">
+    @if(isset($navFixed))
+        @include('partials.nav', ['fixed' => $navFixed])
+    @else
+        @include('partials.nav')
+    @endif
+
     @yield('content')
+
+    @include('partials.footer')
 </div>
     @yield('javascript')
     <script src="{{ mix('js/app.js') }}"></script>

@@ -8,7 +8,6 @@
 @import "components/tour";
 @import "components/hero";
 @import "components/nav";
-@import "components/featuredTour";
 
 a {
     text-decoration: none;
@@ -42,6 +41,10 @@ section {
     &--white {
         @apply text-white;
     }
+}
+
+.link-reset {
+    text-decoration: none;
 }
 
 .left-50 {

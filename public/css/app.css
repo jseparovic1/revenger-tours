@@ -2761,6 +2761,10 @@ table {
   height: 100%;
 }
 
+.h-half {
+  height: 50vh;
+}
+
 .h-screen {
   height: 100vh;
 }
@@ -5399,7 +5403,7 @@ table {
   position: absolute;
   top: 0;
   left: 0;
-  background: url("/images/header/boat.jpg");
+  background: url("/images/header/omis.jpg");
   background-size: cover;
   background-position: center;
   -webkit-filter: brightness(50%);
@@ -5524,11 +5528,6 @@ table {
   transition-delay: .5s;
 }
 
-.featured-tour {
-  background-image: url("/images/cave.jpg");
-  background-size: cover;
-}
-
 a {
   text-decoration: none;
   transition: color .3s ease;
@@ -5578,6 +5577,10 @@ section {
 
 .heading-content--white {
   color: #faf9f7;
+}
+
+.link-reset {
+  text-decoration: none;
 }
 
 .left-50 {
@@ -7161,6 +7164,10 @@ section {
 
   .sm\:h-full {
     height: 100%;
+  }
+
+  .sm\:h-half {
+    height: 50vh;
   }
 
   .sm\:h-screen {
@@ -11161,6 +11168,10 @@ section {
     height: 100%;
   }
 
+  .md\:h-half {
+    height: 50vh;
+  }
+
   .md\:h-screen {
     height: 100vh;
   }
@@ -15159,6 +15170,10 @@ section {
     height: 100%;
   }
 
+  .lg\:h-half {
+    height: 50vh;
+  }
+
   .lg\:h-screen {
     height: 100vh;
   }
@@ -19155,6 +19170,10 @@ section {
 
   .xl\:h-full {
     height: 100%;
+  }
+
+  .xl\:h-half {
+    height: 50vh;
   }
 
   .xl\:h-screen {

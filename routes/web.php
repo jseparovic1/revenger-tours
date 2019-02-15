@@ -26,6 +26,14 @@ return function (Router $router) {
         ]);
     });
 
+    $router->get('/tours', function () {
+        $tours = Tour::query()
+            ->where('type', '=', 'normal')
+            ->get();
+
+        return response()->view('tours.index', compact('tours'));
+    })->name('tours.index');
+
     $router->view('/tailwind', 'tailwind');
     $router->view('/test', 'playground');
 };
