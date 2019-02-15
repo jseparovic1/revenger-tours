@@ -5415,17 +5415,11 @@ table {
   transition: all .2s ease-in;
 }
 
-.navigation a {
-  border-bottom-width: 4px;
-  border-color: transparent;
+.navigation li {
   transition: all .3s ease;
 }
 
-.navigation a:hover {
-  color: #a61b1b;
-}
-
-.navigation .active {
+.navigation li.active {
   border-color: #a61b1b;
 }
 
@@ -5526,6 +5520,23 @@ table {
 .navigation .nav-toggle input:checked ~ nav > ul > li {
   opacity: 1;
   transition-delay: .5s;
+}
+
+.img-zoom-wrapper {
+  overflow: hidden;
+  font-size: 0;
+}
+
+.img-zoom-wrapper .img-zoom {
+  overflow: hidden;
+  transition: -webkit-transform .3s ease-in;
+  transition: transform .3s ease-in;
+  transition: transform .3s ease-in, -webkit-transform .3s ease-in;
+}
+
+.img-zoom-wrapper .img-zoom:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 a {

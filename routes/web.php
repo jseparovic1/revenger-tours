@@ -22,7 +22,7 @@ return function (Router $router) {
         return response()->view('main', [
             'single' => $single,
             'featured' => $featured,
-            'recommended' => $recommended
+            'recommended' => $recommended,
         ]);
     });
 

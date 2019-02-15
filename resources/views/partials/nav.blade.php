@@ -6,25 +6,26 @@
                 <span class="text-white font-bold text-xl">Tours</span>
             </a>
         </div>
-        <ul class="hidden lg:flex list-reset text-white">
-            <li class="flex active">
-                <a href="#"
-                   class="px-2 xl:px-5 py-5 mx-2 text-brand-dark tracking-wide font-bold hover:border-brand-dark">HOME</a>
-            </li>
-            <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">TOURS</a>
-            </li>
-            <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">PRIVATE
-                    TOURS</a>
-            </li>
-            <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">TRANSFERS</a>
-            </li>
-            <li class="flex">
-                <a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold hover:border-brand-dark">CONTACT</a>
-            </li>
-        </ul>
+        {!! $menu->render() !!}
+        {{--<ul class="hidden lg:flex list-reset text-white border-transparent">--}}
+            {{--<li class="flex active hover:border-brand-dark border-b-4 border-transparent">--}}
+                {{--<a href="#"--}}
+                   {{--class="px-2 xl:px-5 py-5 mx-2 text-brand-dark tracking-wide font-bold">HOME</a>--}}
+            {{--</li>--}}
+            {{--<li class="flex hover:border-brand-dark border-b-4 border-transparent">--}}
+                {{--<a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold">TOURS</a>--}}
+            {{--</li>--}}
+            {{--<li class="flex hover:border-brand-dark border-b-4 border-transparent">--}}
+                {{--<a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold">PRIVATE--}}
+                    {{--TOURS</a>--}}
+            {{--</li>--}}
+            {{--<li class="flex hover:border-brand-dark border-b-4 border-transparent">--}}
+                {{--<a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold">TRANSFERS</a>--}}
+            {{--</li>--}}
+            {{--<li class="flex hover:border-brand-dark border-b-4 border-transparent">--}}
+                {{--<a href="#" class="px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold">CONTACT</a>--}}
+            {{--</li>--}}
+        {{--</ul>--}}
         <div class="lg:hidden nav-toggle">
             <input id="burger" type="checkbox"/>
             <label for="burger">

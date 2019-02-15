@@ -1,13 +1,9 @@
 .navigation {
     transition: all .2s ease-in;
-    a {
-        @apply border-b-4 border-transparent;
+    li {
         transition: all 0.3s ease;
-        &:hover {
-            @apply text-brand-dark;
-        }
     }
-    .active {
+    li.active {
         @apply border-brand-dark;
     }
     .nav-toggle {

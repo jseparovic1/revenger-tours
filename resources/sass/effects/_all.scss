@@ -1,0 +1,13 @@
+.img-zoom-wrapper {
+    overflow: hidden;
+    font-size: 0;
+
+    .img-zoom {
+        overflow: hidden;
+        transition: transform .3s ease-in;
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
