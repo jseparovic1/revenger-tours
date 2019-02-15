@@ -18,25 +18,39 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(View $view)
     {
-        $menu = Menu::new()
-            ->addClass('hidden lg:flex list-reset')
-            ->add(Link::to('/', 'HOME'))
-            ->add(Link::to('/tours', 'TOURS'))
-            ->add(Link::to('/tours/private', 'PRIVATE TOURS'))
-            ->add(Link::to('/transfers', 'TRANSFERS'))
-            ->add(Link::to('/contact', 'CONTACT'))
-            ->setActiveFromRequest()
-            ->applyToAll(function (Link $link) {
-                $link->setActive(function (Link $item) {
-                    return ltrim(app(Request::class)->path(), '/') === ltrim($item->url(), '/');
-                });
+        $menuItems = [
+            '/' => 'HOME',
+            '/tours' => 'TOURS',
+            '/tours/private' => 'PRIVATE TOURS',
+            '/transfers' => 'TRANSFERS',
+            '/contact' => 'CONTACT',
+        ];
 
-                $link->addClass('px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold');
-                $link->addParentClass('flex hover:border-brand-dark border-b-4 border-transparent');
-            })
-        ;
+        $menu = Menu::build($menuItems, function (Menu $menu, $label, $link) {
+            $menu
+                ->addClass('hidden lg:flex list-reset')
+                ->add(
+                    Link::to($link, $label)
+                        ->addClass('px-2 xl:px-5 py-5 mx-2 text-white tracking-wide font-bold')
+                        ->addParentClass('flex hover:border-brand-dark border-b-4 border-transparent')
+                        ->setActive(function (Link $item) {
+                            return ltrim(app(Request::class)->path(), '/') === ltrim($item->url(), '/');
+                        })
+                );
+        });
+
+        $menuResponsive = Menu::build($menuItems, function (Menu $menu, $label, $link) {
+            $menu
+                ->addClass('list-reset')
+                ->add(
+                    Link::to($link, $label)
+                        ->addClass('hover:bg-brand-darkest hover:border-0')
+                        ->addParentClass('list-reset')
+                );
+        });
 
         $view->share('menu', $menu);
+        $view->share('menuResponsive', $menuResponsive);
     }
 
     /**
