@@ -1,4 +1,4 @@
-<nav class="navigation text-center  pin-t pin-r pin-l z-20 {{ isset($navFixed) ? 'bg-black': 'absolute' }}">
+<nav class="navigation text-center  pin-t pin-r pin-l z-20 absolute">
     <div class="flex justify-between items-center relative my-2 lg:my-0 max-w-5xl px-4 md:px-10 mx-auto">
         <div>
             <a href="/" class="link-reset">

@@ -1,18 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.page', [
+    'title' => 'Tours',
+    'breadcrumbUrl' => route('tours.index'),
+    'imageUrl' => asset('images/header/omis.jpg'),
+])
 
-@section('content')
-    <section class="min-h-half pt-32 bg-black flex justify-center md:justify-start"
-             style="background-image: url({{ asset('images/header/omis.jpg') }}); background-size: cover;">
-        <div class="h-full flex flex-col pb-32 md:pl-20">
-            <div class="text-4xl text-white font-extrabold">Tours</div>
-            <div class="text-2xl">
-                <a href="/" class="text-white">Home</a>
-                <span class="text-white font-bold">/</span>
-                <a href="{{ route('tours.index') }}" class="text-white">Tours</a>
-            </div>
-        </div>
-    </section>
-
+@section('page')
     <section class="mx-auto">
         <div class="container">
             <p class="text-grey-darker font-semibold">
