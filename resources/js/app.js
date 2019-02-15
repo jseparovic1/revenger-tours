@@ -68,8 +68,7 @@ let swiper = new Swiper('.swiper-container', {
 
 const nav = document.querySelector('.navigation');
 
-window.addEventListener('scroll', _.throttle(function () {
-    console.log("Scrroling!");
+function menuToggle() {
     if (window.scrollY >= 600) {
         nav.classList.remove('absolute');
         nav.classList.add('fixed');
@@ -80,4 +79,6 @@ window.addEventListener('scroll', _.throttle(function () {
         nav.classList.add('bg-transparent');
         nav.classList.add('absolute');
     }
-}), 10000);
+}
+
+window.addEventListener('scroll', _.throttle(menuToggle, 300));
