@@ -40111,7 +40111,9 @@ var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-contain
   }
 });
 var nav = document.querySelector('.navigation');
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', _.throttle(function () {
+  console.log("Scrroling!");
+
   if (window.scrollY >= 600) {
     nav.classList.remove('absolute');
     nav.classList.add('fixed');
@@ -40122,7 +40124,7 @@ window.addEventListener('scroll', function () {
     nav.classList.add('bg-transparent');
     nav.classList.add('absolute');
   }
-});
+}), 10000);
 
 /***/ }),
 

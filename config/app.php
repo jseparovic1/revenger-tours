@@ -174,7 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Spatie\Menu\Laravel\MenuServiceProvider::class,
+        App\Providers\MenuServiceProvider::class,
     ],
 
     /*
@@ -223,7 +223,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Menu' => Spatie\Menu\Laravel\Facades\Menu::class,
     ],
 
 ];
