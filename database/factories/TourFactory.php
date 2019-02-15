@@ -11,6 +11,6 @@ $factory->define(App\Tour::class, function (Faker $faker) {
         'title' => 'Blue cave',
         'featured' => true,
         'recommended' => true,
-        'card_description' => $faker->paragraph,
+        'card_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
     ];
 });

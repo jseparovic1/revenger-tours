@@ -13,6 +13,11 @@
                         'media' => $tour->getFirstMedia('hero')
                     ])
                 @endforeach
+                    @include('partials.featured.tour', [
+                        'title' => 'Private tour',
+                        'description' => 'You chose where, we drive!',
+                        'media' => asset('images/tour-private/card.jpg')
+                    ])
             </div>
         </div>
     </div>

@@ -13,7 +13,7 @@ class ToursSeeder extends Seeder
         ]);
 
         $blueLagoon
-            ->addMedia(public_path('images/header/boat.jpg'))
+            ->addMedia(public_path('images/blue-lagoon/hero.jpg'))
             ->preservingOriginal()
             ->withResponsiveImages()
             ->toMediaCollection('hero')
@@ -26,44 +26,7 @@ class ToursSeeder extends Seeder
         ]);
 
         $blueCave
-            ->addMedia(public_path('images/header/tour.jpg'))
-            ->preservingOriginal()
-            ->withResponsiveImages()
-            ->toMediaCollection('hero')
-        ;
-
-        /** @var Tour $blueLagoon */
-        $pakleniIslands = factory(\App\Tour::class)->create([
-            'title' => 'Pakleni islands',
-            'hero_short_description' => 'Feel beautiful Hvar',
-        ]);
-
-        $pakleniIslands
-            ->addMedia(public_path('images/header/zrak.jpg'))
-            ->preservingOriginal()
-            ->withResponsiveImages()
-            ->toMediaCollection('hero')
-        ;
-
-        /** @var Tour $blueLagoon */
-        $tour4 = factory(\App\Tour::class)->create([
-            'title' => 'One more Blue lagoon',
-        ]);
-
-        $tour4
-            ->addMedia(public_path('images/header/boat.jpg'))
-            ->preservingOriginal()
-            ->withResponsiveImages()
-            ->toMediaCollection('hero')
-        ;
-
-        /** @var Tour $blueLagoon */
-        $tour5 = factory(\App\Tour::class)->create([
-            'title' => 'Tour 5',
-        ]);
-
-        $tour5
-            ->addMedia(public_path('images/header/boat.jpg'))
+            ->addMedia(public_path('images/blue-cave/hero.jpg'))
             ->preservingOriginal()
             ->withResponsiveImages()
             ->toMediaCollection('hero')
