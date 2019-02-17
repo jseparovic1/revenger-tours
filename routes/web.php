@@ -1,6 +1,7 @@
 <?php
 
 use App\Tour;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Router;
 
 return function (Router $router) {
@@ -33,6 +34,14 @@ return function (Router $router) {
 
         return response()->view('tours.index', compact('tours'));
     })->name('tours.index');
+
+    $router->get('/tours/{slug}', function (string $slug) {
+        $tour = Tour::query()
+            ->where('slug', '=', $slug)
+            ->first();
+
+        return response()->view('tours.show', compact('tour'));
+    })->name('tours.show');
 
     $router->view('/tailwind', 'tailwind');
     $router->view('/test', 'playground');

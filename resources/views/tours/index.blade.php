@@ -17,7 +17,7 @@
         <div class="px-2">
             <div class="flex flex-wrap -mx-2">
                 @foreach($tours as $tour)
-                    <a href="{{ $tour->title }}" class="w-full xl:w-1/2 px-2 flex-no-shrink mb-8">
+                    <a href="{{ route('tours.show', $tour->slug) }}" class="w-full xl:w-1/2 px-2 flex-no-shrink mb-8">
                         <div class="h-full flex flex-col sm:flex-row justify-between hover:shadow mb-10">
                             <div class="w-full flex img-zoom-wrapper">
                                 <img class="w-full img-zoom" src="{{ $tour->getFirstMedia('hero')->getUrl('card') }}"/>
