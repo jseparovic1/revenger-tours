@@ -13,6 +13,19 @@ class Tour extends Model implements HasMedia
 {
     use HasMediaTrait, HasSlug;
 
+    protected $casts = [
+        'featured' => 'boolean',
+        'recommended' => 'boolean',
+    ];
+
+    /**
+     * @return mixed|string
+     */
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
     /**
      * Get the options for generating the slug.
      */
@@ -25,12 +38,6 @@ class Tour extends Model implements HasMedia
             ->slugsShouldBeNoLongerThan(20)
         ;
     }
-
-
-    protected $casts = [
-        'featured' => 'boolean',
-        'recommended' => 'boolean',
-    ];
 
     public function registerMediaCollections()
     {

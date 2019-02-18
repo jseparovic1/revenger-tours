@@ -24,6 +24,9 @@
         "vue-template-compiler": "^2.6.3"
     },
     "dependencies": {
-        "swiper": "^4.4.6"
+        "swiper": "^4.4.6",
+        "tailwindcss-tables": "^0.2.0",
+        "vue-tabs-component": "^1.5.0",
+        "vuejs-datepicker": "^1.5.4"
     }
 }

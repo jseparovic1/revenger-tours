@@ -687,6 +687,9 @@ module.exports = {
         require('tailwindcss/plugins/container')({
             center: true,
         }),
+        require('tailwindcss-tables')({
+            tableBodyBorder: false,
+        }),
     ],
 
 

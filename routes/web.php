@@ -35,13 +35,13 @@ return function (Router $router) {
         return response()->view('tours.index', compact('tours'));
     })->name('tours.index');
 
-    $router->get('/tours/{slug}', function (string $slug) {
-        $tour = Tour::query()
-            ->where('slug', '=', $slug)
-            ->first();
-
+    $router->get('/tours/{tour}', function (Tour $tour) {
         return response()->view('tours.show', compact('tour'));
     })->name('tours.show');
+
+    $router->any('/request', function (Request $request) {
+        dd($request->all());
+    })->name('tour.request');
 
     $router->view('/tailwind', 'tailwind');
     $router->view('/test', 'playground');

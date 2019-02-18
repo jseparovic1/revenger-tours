@@ -3,10 +3,7 @@
  * includes Vue and other libraries. It is a great starting point when
  * building robust, powerful web applications using Vue and Laravel.
  */
-
-
 require('./bootstrap');
-
 window.Vue = require('vue');
 
 /**
@@ -20,13 +17,8 @@ window.Vue = require('vue');
 const files = require.context('./', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 const app = new Vue({
-    el: '#app'
+    el: '#app',
 });
 
 import Swiper from "swiper";
@@ -66,7 +58,11 @@ let swiper = new Swiper('.swiper-container', {
 });
 
 
-const nav = document.querySelector('.navigation');
+const nav = document.querySelector('.navigation.absolute');
+
+if (nav !== null ){
+    window.addEventListener('scroll', _.throttle(menuToggle, 300));
+}
 
 function menuToggle() {
     if (window.scrollY >= 600) {
@@ -81,4 +77,3 @@ function menuToggle() {
     }
 }
 
-window.addEventListener('scroll', _.throttle(menuToggle, 300));

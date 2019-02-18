@@ -18,6 +18,7 @@ class CreateToursTable extends Migration
             $table->string('hero_short_description');
             $table->string('hero_description');
             $table->string('title');
+            $table->text('details')->nullable();
             $table->string('slug');
             $table->string('type')->default('normal');
             $table->boolean('featured');
