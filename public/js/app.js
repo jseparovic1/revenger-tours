@@ -1816,11 +1816,12 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       headings: [],
-      current: {}
+      current: {},
+      elementSelector: '.tour-content h1'
     };
   },
   mounted: function mounted() {
-    this.headings = document.querySelectorAll('.tour-content h1');
+    this.headings = document.querySelectorAll(this.elementSelector);
     this.addHeadingIdOnFly();
     this.findActiveHeading();
     window.addEventListener('scroll', _.throttle(this.findActiveHeading, 200));

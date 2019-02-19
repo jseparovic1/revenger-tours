@@ -19,10 +19,11 @@
             return {
                 headings: [],
                 current: {},
+                elementSelector: '.tour-content h1'
             }
         },
         mounted: function () {
-            this.headings = document.querySelectorAll('.tour-content h1');
+            this.headings = document.querySelectorAll(this.elementSelector);
             this.addHeadingIdOnFly();
 
             this.findActiveHeading();
