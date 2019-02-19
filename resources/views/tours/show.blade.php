@@ -12,13 +12,11 @@
 @section('page')
     <section class="p-0 m-0 relative">
         <div class="container flex flex-col lg:flex-row">
-            <section class="w-full flex-1 p-0">
-                <div class="sticky pin-t tabs w-full flex text-center font-semibold justify-between lg:justify-start mb-4 bg-white">
-                    <div class="tab flex-1 py-4 hover:bg-brand hover:text-white active">Details</div>
-                    <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Price</div>
+            <section class="tour-details w-full flex-1 p-0">
+                <scrool-spy>
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Itinerary</div>
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Map</div>
-                </div>
+                </scrool-spy>
                 <div class="tour-content mb-4">
                     {!! $tour->details !!}
                     @include('tours._partials.price')

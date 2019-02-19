@@ -1,4 +1,4 @@
-<h2>Price list</h2>
+<h1>Price</h1>
 <table class="table">
     <thead class="border-transparent border-0">
     <tr>

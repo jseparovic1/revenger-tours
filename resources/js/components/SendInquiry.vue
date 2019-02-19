@@ -26,13 +26,13 @@
 
     export default {
         props: ['action'],
+        components: {
+            Datepicker,
+        },
         data: function() {
             return {
                 dateInput: ''
             }
-        },
-        components: {
-            Datepicker,
         },
         methods: {
             changeInput: function (value) {

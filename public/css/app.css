@@ -5980,6 +5980,10 @@ form .form-input {
           transform: scale(1.2);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 a {
   text-decoration: none;
   transition: color .3s ease;

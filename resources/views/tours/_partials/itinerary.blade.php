@@ -1,4 +1,4 @@
-<h2>Itinerary</h2>
+<h1>Itinerary</h1>
 <ul class="itinerary-list list-reset max-w-sm">
     <li class="flex items-center my-3">
         <span class="tracking-wide font-semibold w-48">07:30h*</span>

@@ -12,6 +12,10 @@
 @import "components/form";
 @import "effects/all";
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     text-decoration: none;
     transition: color 0.3s ease;
