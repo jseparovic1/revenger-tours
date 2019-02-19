@@ -17,7 +17,7 @@
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Itinerary</div>
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Map</div>
                 </scrool-spy>
-                <div class="tour-content mb-4">
+                <div class="tour-content mb-4 p-4">
                     {!! $tour->details !!}
                     @include('tours._partials.price')
                     @include('tours._partials.itinerary')

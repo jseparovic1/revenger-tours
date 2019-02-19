@@ -1,4 +1,3 @@
-<h2>Summary</h2>
 <div class="details">
     <div class="flex items-center px-4 py-6 border-b">
         <div class="w-1/2"><span class="text-lg font-bold">Departure & Return Location</span></div>

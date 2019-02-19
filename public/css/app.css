@@ -5840,7 +5840,7 @@ th {
 .tour-content h4,
 .tour-content h5,
 .tour-content h6 {
-  margin-top: 1.5rem;
+  margin-top: 2rem;
   margin-bottom: .5rem;
   letter-spacing: -0.05em;
   color: #a61b1b;
@@ -5921,8 +5921,8 @@ form .form-control {
 
 form .form-control input {
   width: 100%;
-  cursor: text;
   color: #a61b1b;
+  cursor: text;
 }
 
 form .form-control input:focus {
@@ -5931,7 +5931,17 @@ form .form-control input:focus {
   font-weight: 500;
 }
 
-form .form-control input ~ label {
+form .form-control input:focus ~ label {
+  top: -30%;
+  background-color: white;
+  font-size: .875rem;
+  padding-left: .5rem;
+  padding-right: .5rem;
+  padding-top: .25rem;
+  padding-bottom: .25rem;
+}
+
+form .form-control .has-content {
   top: -30%;
   background-color: white;
   font-size: .875rem;
@@ -6037,6 +6047,7 @@ section {
 
 .link-reset {
   text-decoration: none;
+  color: #27241d;
 }
 
 .left-50 {

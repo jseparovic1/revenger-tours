@@ -4,15 +4,20 @@ form {
         @apply flex flex-col mb-8;
 
         input {
-            @apply w-full;
+            @apply w-full text-brand-dark;
             cursor: text;
-            @apply text-brand-dark;
             &:focus {
                 @apply outline-none text-brand-dark font-medium;
             }
         }
 
-        input~label {
+        input:focus ~label {
+            top: -30%;
+            background-color: white;
+            @apply text-sm px-2 py-1;
+        }
+
+        .has-content {
             top: -30%;
             background-color: white;
             @apply text-sm px-2 py-1;

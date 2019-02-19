@@ -26,11 +26,11 @@
                 <ul class="list-reset leading-normal">
                     <li class="flex items-center">
                         @include('svg.mail', ['class' => 'h-6 w-6 text-brand'])
-                        <span class="ml-2">jonnykrolj@gmail.com</span>
+                        <span class="ml-2">{{ config('settings.contact.email') }}</span>
                     </li>
                     <li class="">
                         @include('svg.phone', ['class' => 'h-6 w-6 text-brand'])
-                        <span class="ml-2">+385918721211</span>
+                        <span class="ml-2">{{ config('settings.contact.phone') }}</span>
                     </li>
                 </ul>
             </div>

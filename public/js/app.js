@@ -1885,6 +1885,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['action'],
@@ -1893,13 +1894,16 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      dateInput: ''
+      dateInput: '',
+      kids: null,
+      adults: null
     };
   },
   methods: {
     changeInput: function changeInput(value) {
       this.dateInput = value.toISOString();
-    }
+    },
+    handleInput: function handleInput() {}
   }
 });
 
@@ -28291,9 +28295,73 @@ var render = function() {
           1
         ),
         _vm._v(" "),
-        _vm._m(0),
+        _c("div", { staticClass: "form-control md:w-1/2" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.adults,
+                expression: "adults"
+              }
+            ],
+            staticClass: "form-input md:mr-2",
+            attrs: { type: "number", name: "adults", id: "adults" },
+            domProps: { value: _vm.adults },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.adults = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "md:ml-2",
+              class: { "has-content": this.adults },
+              attrs: { for: "adults" }
+            },
+            [_vm._v("Adults")]
+          )
+        ]),
         _vm._v(" "),
-        _vm._m(1),
+        _c("div", { staticClass: "form-control md:w-1/2" }, [
+          _c("input", {
+            directives: [
+              {
+                name: "model",
+                rawName: "v-model",
+                value: _vm.kids,
+                expression: "kids"
+              }
+            ],
+            staticClass: "form-input md:ml-2",
+            attrs: { type: "number", name: "kids", id: "kids" },
+            domProps: { value: _vm.kids },
+            on: {
+              input: function($event) {
+                if ($event.target.composing) {
+                  return
+                }
+                _vm.kids = $event.target.value
+              }
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "label",
+            {
+              staticClass: "md:ml-2",
+              class: { "has-content": this.kids },
+              attrs: { for: "kids" }
+            },
+            [_vm._v("Kids")]
+          )
+        ]),
         _vm._v(" "),
         _c(
           "button",
@@ -28308,36 +28376,7 @@ var render = function() {
     )
   ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control md:w-1/2" }, [
-      _c("input", {
-        staticClass: "form-input md:mr-2",
-        attrs: { type: "number", name: "adults", id: "adults" }
-      }),
-      _vm._v(" "),
-      _c("label", { attrs: { for: "adults" } }, [_vm._v("Adults")])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-control md:w-1/2" }, [
-      _c("input", {
-        staticClass: "form-input md:ml-2",
-        attrs: { type: "number", name: "kids", id: "kids" }
-      }),
-      _vm._v(" "),
-      _c("label", { staticClass: "md:ml-2", attrs: { for: "kids" } }, [
-        _vm._v("Kids")
-      ])
-    ])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
