@@ -9,7 +9,7 @@
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal text-sm md:text-base">
-<div id="app" class="flex flex-col">
+<div id="app" class="flex flex-col {{ $turnOffFixedNav ?? 'overflow-x-hidden'}}">
     @if(isset($turnOffFixedNav) && $turnOffFixedNav)
         @include('partials.nav', ['fixedOff' => true])
     @else

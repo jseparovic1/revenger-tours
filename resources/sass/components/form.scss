@@ -3,18 +3,18 @@ form {
         position: relative;
         @apply flex flex-col mb-8;
 
-        input {
-            @apply w-full text-brand-dark;
+        input, select, textarea {
+            @apply w-full text-black font-semibold;
             cursor: text;
             &:focus {
-                @apply outline-none text-brand-dark font-medium;
+                @apply outline-none text-black font-semibold border border-black;
             }
         }
 
-        input:focus ~label {
+        input:focus ~label , select:focus ~ label, textarea:focus ~ label{
             top: -30%;
-            background-color: white;
-            @apply text-sm px-2 py-1;
+            background-color: config('colors.white');
+            @apply text-sm px-2 py-1 text-black;
         }
 
         .has-content {

@@ -6,9 +6,9 @@
             src="{{ $media->getUrl('card') }}"
         @endif
     />
-    <div class="flex flex-col h-full justify-around p-5">
+    <a class="flex flex-col h-full justify-around p-5 hover:text-brand" href="{{ $action }}">
         <h1 class="text-lg font-semibold text-black mb-2">{{ $title }}</h1>
         <p class="mb-4 text-grey-darkest">{{ $description }}</p>
-        <button class="btn btn-primary">SEE MORE</button>
-    </div>
+        <a class="btn btn-primary link-reset hover:text-white text-center rounded-none" href="{{ $action }}">SEE MORE</a>
+    </a>
 </div>

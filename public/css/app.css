@@ -5919,26 +5919,36 @@ form .form-control {
   margin-bottom: 2rem;
 }
 
-form .form-control input {
+form .form-control input,
+form .form-control select,
+form .form-control textarea {
   width: 100%;
-  color: #a61b1b;
+  color: #27241d;
+  font-weight: 600;
   cursor: text;
 }
 
-form .form-control input:focus {
+form .form-control input:focus,
+form .form-control select:focus,
+form .form-control textarea:focus {
   outline: 0;
-  color: #a61b1b;
-  font-weight: 500;
+  color: #27241d;
+  font-weight: 600;
+  border-width: 1px;
+  border-color: #27241d;
 }
 
-form .form-control input:focus ~ label {
+form .form-control input:focus ~ label,
+form .form-control select:focus ~ label,
+form .form-control textarea:focus ~ label {
   top: -30%;
-  background-color: white;
+  background-color: #faf9f7;
   font-size: .875rem;
   padding-left: .5rem;
   padding-right: .5rem;
   padding-top: .25rem;
   padding-bottom: .25rem;
+  color: #27241d;
 }
 
 form .form-control .has-content {
@@ -6047,7 +6057,6 @@ section {
 
 .link-reset {
   text-decoration: none;
-  color: #27241d;
 }
 
 .left-50 {

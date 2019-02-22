@@ -10,13 +10,15 @@
                     @include('partials.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
-                        'media' => $tour->getFirstMedia('hero')
+                        'media' => $tour->getFirstMedia('hero'),
+                        'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach
                     @include('partials.featured.tour', [
                         'title' => 'Private tour',
                         'description' => 'You chose where, we drive!',
-                        'media' => asset('images/tour-private/card.jpg')
+                        'media' => asset('images/tour-private/card.jpg'),
+                        'action' => '/tours/private',
                     ])
             </div>
         </div>

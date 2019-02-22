@@ -5,9 +5,9 @@
     <section class="md:hidden m-0 p-0">
         <div class="hero flex justify-center sm:justify-start">
             @include('partials.hero', [
-                'title' => $single->title,
-               'shortDescription' => $single->hero_short_description,
-               'description' => $single->hero_description,
+                'title' => $singleFeatured->title,
+               'shortDescription' => $singleFeatured->hero_short_description,
+               'description' => $singleFeatured->hero_description,
                'callToAction' => "LET'S GO"
             ])
         </div>
