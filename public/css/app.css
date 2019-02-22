@@ -5923,8 +5923,6 @@ form .form-control input,
 form .form-control select,
 form .form-control textarea {
   width: 100%;
-  color: #27241d;
-  font-weight: 600;
   cursor: text;
 }
 
@@ -5932,7 +5930,6 @@ form .form-control input:focus,
 form .form-control select:focus,
 form .form-control textarea:focus {
   outline: 0;
-  color: #27241d;
   font-weight: 600;
   border-width: 1px;
   border-color: #27241d;
@@ -5959,6 +5956,34 @@ form .form-control .has-content {
   padding-right: .5rem;
   padding-top: .25rem;
   padding-bottom: .25rem;
+}
+
+form .form-control input::-webkit-input-placeholder {
+  color: #857f72;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+form .form-control input:-ms-input-placeholder {
+  color: #857f72;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+form .form-control input::-ms-input-placeholder {
+  color: #857f72;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .05em;
+}
+
+form .form-control input::placeholder {
+  color: #857f72;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: .05em;
 }
 
 form .form-control label {

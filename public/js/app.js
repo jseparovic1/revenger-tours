@@ -1948,6 +1948,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1973,13 +1983,14 @@ __webpack_require__.r(__webpack_exports__);
         email: '',
         people: ''
       }),
+      showSuccess: false,
       initialDate: null,
       maxNumber: 8
     };
   },
   mounted: function mounted() {
     this.form.people = this.$props.peopleNumber;
-    this.form.dateInput = new Date(this.tripDate);
+    this.form.dateInput = this.tripDate instanceof Date ? new Date(this.tripDate) : '';
   },
   computed: {
     price: function price() {
@@ -1992,15 +2003,18 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     changeInput: function changeInput(value) {
       this.dateInput = value.toISOString();
+      this.form.errors.clear('dateInput');
     },
     handleFormSubmit: function handleFormSubmit() {
       var _this = this;
 
       this.form.submit(this.method, '/tour/request').then(function (data) {
-        console.log(data);
+        return _this.showSuccess = true;
       }).catch(function (errors) {
-        //really dirty hack
+        console.log(errors); //really dirty hack to rerender errors
+
         _this.form.name = _this.form.name + ' ';
+        _this.form.name = _this.form.name.trim();
       });
     }
   }
@@ -2058,13 +2072,21 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
     Datepicker: vuejs_datepicker__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   props: {
-    action: String
+    action: String,
+    tour: String
   },
   data: function data() {
     return {
@@ -28422,269 +28444,301 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c(
-      "form",
-      {
-        staticClass:
-          "mb-4 md:flex md:flex-wrap md:justify-between form-labeled",
-        attrs: { action: this.action, method: "post" },
-        on: {
-          submit: function($event) {
-            $event.preventDefault()
-            return _vm.handleFormSubmit($event)
-          },
-          keyup: function($event) {
-            return _vm.form.errors.clear($event.target.name)
-          }
-        }
-      },
-      [
-        _c(
-          "div",
-          { staticClass: "w-full mb-4 focus:outline-none" },
-          [
-            _c("datepicker", {
-              attrs: {
-                placeholder: "DATE",
-                "input-class": ["form-input", "w-full"],
-                "wrapper-class": ["form-control"]
-              },
-              on: { selected: _vm.changeInput },
-              model: {
-                value: _vm.form.dateInput,
-                callback: function($$v) {
-                  _vm.$set(_vm.form, "dateInput", $$v)
-                },
-                expression: "form.dateInput"
-              }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.form.dateInput,
-                  expression: "form.dateInput"
-                }
-              ],
-              staticClass: "hidden",
-              attrs: { type: "text", id: "trip_date", name: "trip_date" },
-              domProps: { value: _vm.form.dateInput },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.$set(_vm.form, "dateInput", $event.target.value)
-                }
-              }
-            })
-          ],
-          1
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-control w-full" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.people,
-                expression: "form.people"
-              }
-            ],
-            staticClass: "form-input md:mr-2",
-            class: { "border border-danger": _vm.form.errors.get("people") },
-            attrs: {
-              type: "number",
-              name: "people",
-              id: "people",
-              max: this.maxNumber
-            },
-            domProps: { value: _vm.form.people },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "people", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
+    _vm.showSuccess
+      ? _c("div", { staticClass: "text-center" }, [
           _c(
-            "label",
-            {
-              staticClass: "md:ml-2",
-              class: { "has-content": this.form.people },
-              attrs: { for: "people" }
-            },
-            [_vm._v("NUMBER OF PEOPLE")]
+            "h2",
+            { staticClass: "text-success text-xl font-bold leading-loose" },
+            [
+              _vm._v(
+                "\n            Your request has been sent successfully!\n        "
+              )
+            ]
           ),
           _vm._v(" "),
-          _c("p", {
-            staticClass: "text-sm text-danger p-0 m-0",
-            domProps: { textContent: _vm._s(_vm.form.errors.get("people")) }
-          })
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-control w-full" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.name,
-                expression: "form.name"
-              }
-            ],
-            staticClass: "form-input md:mr-2",
-            attrs: { type: "text", name: "name", id: "name" },
-            domProps: { value: _vm.form.name },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "name", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "md:ml-2",
-              class: { "has-content": this.form.name },
-              attrs: { for: "name" }
-            },
-            [_vm._v("NAME")]
-          ),
-          _vm._v(" "),
-          _vm.form.errors.has("name")
-            ? _c("p", {
-                staticClass: "text-sm text-danger p-0 m-0",
-                domProps: { textContent: _vm._s(_vm.form.errors.get("name")) }
-              })
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-control w-full" }, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.email,
-                expression: "form.email"
-              }
-            ],
-            staticClass: "form-input md:mr-2",
-            attrs: { type: "email", name: "email", id: "email" },
-            domProps: { value: _vm.form.email },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "email", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "md:ml-2",
-              class: { "has-content": this.form.email },
-              attrs: { for: "email" }
-            },
-            [_vm._v("EMAIL")]
-          ),
-          _vm._v(" "),
-          _vm.form.errors.has("email")
-            ? _c("p", {
-                staticClass: "text-sm text-danger p-0 m-0",
-                domProps: { textContent: _vm._s(_vm.form.errors.get("email")) }
-              })
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "form-control w-full" }, [
-          _c("textarea", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.form.comment,
-                expression: "form.comment"
-              }
-            ],
-            staticClass: "form-input md:mr-2",
-            attrs: { name: "comment", id: "comment" },
-            domProps: { value: _vm.form.comment },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(_vm.form, "comment", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "md:ml-2",
-              class: { "has-content": this.form.comment },
-              attrs: { for: "comment" }
-            },
-            [_vm._v("COMMENT")]
-          ),
-          _vm._v(" "),
-          _vm.form.errors.has("comment")
-            ? _c("p", {
-                staticClass: "text-sm text-danger p-0 m-0",
-                domProps: {
-                  textContent: _vm._s(_vm.form.errors.get("comment"))
-                }
-              })
-            : _vm._e()
-        ]),
-        _vm._v(" "),
-        this.form.people > 0
-          ? _c("div", { staticClass: "w-full p-4 mb-4 bg-grey text-white" }, [
-              _c("div", { staticClass: "flex items-center" }, [
-                _c("span", { staticClass: "w-24" }, [_vm._v("DEPOSIT")]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "text-xl tracking-wide" }, [
-                  _vm._v("€" + _vm._s(this.deposit))
-                ])
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "flex items-center" }, [
-                _c("span", { staticClass: "w-24" }, [_vm._v("TOTAL")]),
-                _vm._v(" "),
-                _c("h4", { staticClass: "text-xl tracking-wide" }, [
-                  _vm._v("€" + _vm._s(this.price))
-                ])
-              ])
-            ])
-          : _vm._e(),
-        _vm._v(" "),
-        _c(
-          "button",
+          _c("p", [_vm._v("We will contact you shortly :)")])
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.showSuccess
+      ? _c(
+          "form",
           {
             staticClass:
-              "w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight",
-            attrs: { type: "submit" }
+              "mb-4 md:flex md:flex-wrap md:justify-between form-labeled leading-none",
+            attrs: { action: this.action, method: "post" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.handleFormSubmit($event)
+              },
+              keyup: function($event) {
+                return _vm.form.errors.clear($event.target.name)
+              }
+            }
           },
-          [_vm._v("SEND INQUIRY\n        ")]
+          [
+            _c(
+              "div",
+              { staticClass: "w-full mb-4 focus:outline-none mb-8" },
+              [
+                _c("datepicker", {
+                  attrs: {
+                    placeholder: "DATE",
+                    "input-class": ["form-input", "w-full"],
+                    "wrapper-class": ["form-control"]
+                  },
+                  on: { selected: _vm.changeInput },
+                  model: {
+                    value: _vm.form.dateInput,
+                    callback: function($$v) {
+                      _vm.$set(_vm.form, "dateInput", $$v)
+                    },
+                    expression: "form.dateInput"
+                  }
+                }),
+                _vm._v(" "),
+                _c("p", {
+                  staticClass: "text-sm text-danger p-0 -mt-8",
+                  domProps: {
+                    textContent: _vm._s(_vm.form.errors.get("dateInput"))
+                  }
+                }),
+                _vm._v(" "),
+                _c("input", {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.form.dateInput,
+                      expression: "form.dateInput"
+                    }
+                  ],
+                  staticClass: "hidden",
+                  attrs: { type: "text", id: "trip_date", name: "trip_date" },
+                  domProps: { value: _vm.form.dateInput },
+                  on: {
+                    input: function($event) {
+                      if ($event.target.composing) {
+                        return
+                      }
+                      _vm.$set(_vm.form, "dateInput", $event.target.value)
+                    }
+                  }
+                })
+              ],
+              1
+            ),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-control w-full mb-10" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.people,
+                    expression: "form.people"
+                  }
+                ],
+                staticClass: "form-input md:mr-2",
+                attrs: {
+                  type: "number",
+                  name: "people",
+                  id: "people",
+                  max: this.maxNumber
+                },
+                domProps: { value: _vm.form.people },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "people", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "md:ml-2",
+                  class: { "has-content": this.form.people },
+                  attrs: { for: "people" }
+                },
+                [_vm._v("NUMBER OF PEOPLE")]
+              ),
+              _vm._v(" "),
+              _c("p", {
+                staticClass: "text-sm text-danger p-0 m-0",
+                domProps: { textContent: _vm._s(_vm.form.errors.get("people")) }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-control w-full" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.name,
+                    expression: "form.name"
+                  }
+                ],
+                staticClass: "form-input md:mr-2",
+                attrs: { type: "text", name: "name", id: "name" },
+                domProps: { value: _vm.form.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "name", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "md:ml-2",
+                  class: { "has-content": this.form.name },
+                  attrs: { for: "name" }
+                },
+                [_vm._v("NAME")]
+              ),
+              _vm._v(" "),
+              _vm.form.errors.has("name")
+                ? _c("p", {
+                    staticClass: "text-sm text-danger p-0 m-0",
+                    domProps: {
+                      textContent: _vm._s(_vm.form.errors.get("name"))
+                    }
+                  })
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-control w-full" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.email,
+                    expression: "form.email"
+                  }
+                ],
+                staticClass: "form-input md:mr-2",
+                attrs: { type: "email", name: "email", id: "email" },
+                domProps: { value: _vm.form.email },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "email", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "md:ml-2",
+                  class: { "has-content": this.form.email },
+                  attrs: { for: "email" }
+                },
+                [_vm._v("EMAIL")]
+              ),
+              _vm._v(" "),
+              _vm.form.errors.has("email")
+                ? _c("p", {
+                    staticClass: "text-sm text-danger p-0 m-0",
+                    domProps: {
+                      textContent: _vm._s(_vm.form.errors.get("email"))
+                    }
+                  })
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "form-control w-full" }, [
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.form.comment,
+                    expression: "form.comment"
+                  }
+                ],
+                staticClass: "form-input md:mr-2",
+                attrs: { name: "comment", id: "comment" },
+                domProps: { value: _vm.form.comment },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.form, "comment", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "label",
+                {
+                  staticClass: "md:ml-2",
+                  class: { "has-content": this.form.comment },
+                  attrs: { for: "comment" }
+                },
+                [_vm._v("COMMENT")]
+              ),
+              _vm._v(" "),
+              _vm.form.errors.has("comment")
+                ? _c("p", {
+                    staticClass: "text-sm text-danger p-0 m-0",
+                    domProps: {
+                      textContent: _vm._s(_vm.form.errors.get("comment"))
+                    }
+                  })
+                : _vm._e()
+            ]),
+            _vm._v(" "),
+            this.form.people > 0
+              ? _c(
+                  "div",
+                  { staticClass: "w-full p-4 mb-4 bg-grey text-white" },
+                  [
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c("span", { staticClass: "w-24" }, [_vm._v("DEPOSIT")]),
+                      _vm._v(" "),
+                      _c("h4", { staticClass: "text-xl tracking-wide" }, [
+                        _vm._v("€" + _vm._s(this.deposit))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex items-center" }, [
+                      _c("span", { staticClass: "w-24" }, [_vm._v("TOTAL")]),
+                      _vm._v(" "),
+                      _c("h4", { staticClass: "text-xl tracking-wide" }, [
+                        _vm._v("€" + _vm._s(this.price))
+                      ])
+                    ])
+                  ]
+                )
+              : _vm._e(),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight",
+                attrs: { type: "submit" }
+              },
+              [_vm._v("SEND INQUIRY\n        ")]
+            )
+          ]
         )
-      ]
-    )
+      : _vm._e()
   ])
 }
 var staticRenderFns = []
@@ -28726,7 +28780,8 @@ var render = function() {
               attrs: {
                 required: "",
                 placeholder: "DATE",
-                "input-class": ["form-input", "w-full"]
+                "input-class": ["form-input", "w-full"],
+                "wrapper-class": ["form-control"]
               },
               on: { selected: _vm.changeInput }
             }),
@@ -28801,6 +28856,12 @@ var render = function() {
             [_vm._v("NUMBER OF PEOPLE")]
           )
         ]),
+        _vm._v(" "),
+        _c("input", {
+          staticClass: "hidden",
+          attrs: { type: "text", name: "tour", hidden: "" },
+          domProps: { value: this.tour }
+        }),
         _vm._v(" "),
         _c(
           "button",
@@ -42883,6 +42944,7 @@ function () {
   }, {
     key: "clear",
     value: function clear(toClear) {
+      console.log(toClear);
       delete this.errors[toClear];
     }
   }, {

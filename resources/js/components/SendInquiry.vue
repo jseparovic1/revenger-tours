@@ -6,6 +6,7 @@
                     required
                     :placeholder="'DATE'"
                     :input-class="['form-input', 'w-full']"
+                    :wrapper-class="['form-control']"
                     @selected="changeInput"
                 >
                 </datepicker>
@@ -30,6 +31,12 @@
                 >
                 <label for="people" class="md:ml-2" :class="{'has-content' : this.people}">NUMBER OF PEOPLE</label>
             </div>
+            <input class="hidden"
+                   type="text"
+                   name="tour"
+                   hidden
+                   :value="this.tour"
+            >
             <button
                 class="w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight"
                 type="submit">SEND INQUIRY
@@ -47,6 +54,7 @@
         },
         props: {
             action: String,
+            tour: String,
         },
         data: function () {
             return {

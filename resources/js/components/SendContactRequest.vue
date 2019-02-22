@@ -1,13 +1,20 @@
 <template>
     <div>
+        <div v-if="showSuccess" class="text-center">
+            <h2 class="text-success text-xl font-bold leading-loose">
+                Your request has been sent successfully!
+            </h2>
+            <p>We will contact you shortly :)</p>
+        </div>
         <form
-            class="mb-4 md:flex md:flex-wrap md:justify-between form-labeled"
+            v-if="!showSuccess"
+            class="mb-4 md:flex md:flex-wrap md:justify-between form-labeled leading-none"
             :action="this.action"
             method="post"
             @submit.prevent="handleFormSubmit"
             @keyup="form.errors.clear($event.target.name)"
         >
-            <div class="w-full mb-4 focus:outline-none">
+            <div class="w-full mb-4 focus:outline-none mb-8">
                 <datepicker
                     :placeholder="'DATE'"
                     :input-class="['form-input', 'w-full']"
@@ -16,6 +23,7 @@
                     @selected="changeInput"
                 >
                 </datepicker>
+                <p v-text="form.errors.get('dateInput')" class="text-sm text-danger p-0 -mt-8"></p>
                 <input
                     class="hidden"
                     type="text"
@@ -24,9 +32,8 @@
                     v-model="form.dateInput"
                 >
             </div>
-            <div class="form-control w-full">
+            <div class="form-control w-full mb-10">
                 <input class="form-input md:mr-2"
-                       :class="{'border border-danger': form.errors.get('people')}"
                        v-model="form.people"
                        type="number"
                        name="people"
@@ -44,7 +51,8 @@
                        id="name"
                 />
                 <label for="name" class="md:ml-2" :class="{'has-content' : this.form.name}">NAME</label>
-                <p v-if="form.errors.has('name')" v-text="form.errors.get('name')" class="text-sm text-danger p-0 m-0"></p>
+                <p v-if="form.errors.has('name')" v-text="form.errors.get('name')"
+                   class="text-sm text-danger p-0 m-0"></p>
             </div>
             <div class="form-control w-full">
                 <input class="form-input md:mr-2"
@@ -54,7 +62,8 @@
                        id="email"
                 />
                 <label for="email" class="md:ml-2" :class="{'has-content' : this.form.email}">EMAIL</label>
-                <p v-if="form.errors.has('email')" v-text="form.errors.get('email')" class="text-sm text-danger p-0 m-0"></p>
+                <p v-if="form.errors.has('email')" v-text="form.errors.get('email')"
+                   class="text-sm text-danger p-0 m-0"></p>
             </div>
             <div class="form-control w-full">
                 <textarea class="form-input md:mr-2"
@@ -63,7 +72,8 @@
                           id="comment"
                 ></textarea>
                 <label for="comment" class="md:ml-2" :class="{'has-content' : this.form.comment}">COMMENT</label>
-                <p v-if="form.errors.has('comment')" v-text="form.errors.get('comment')" class="text-sm text-danger p-0 m-0"></p>
+                <p v-if="form.errors.has('comment')" v-text="form.errors.get('comment')"
+                   class="text-sm text-danger p-0 m-0"></p>
             </div>
             <div v-if="this.form.people > 0" class="w-full p-4 mb-4 bg-grey text-white">
                 <div class="flex items-center">
@@ -110,36 +120,38 @@
                     email: '',
                     people: '',
                 }),
+                showSuccess: false,
                 initialDate: null,
                 maxNumber: 8,
             }
         },
         mounted: function () {
             this.form.people = this.$props.peopleNumber;
-            this.form.dateInput = new Date(this.tripDate);
+            this.form.dateInput = this.tripDate instanceof Date ? new Date(this.tripDate) : '';
         },
         computed: {
             price: function () {
                 return this.form.people * 100;
             },
             deposit: function () {
-                return this.price * 10/100;
+                return this.price * 10 / 100;
             },
         },
         methods: {
             changeInput: function (value) {
                 this.dateInput = value.toISOString();
+                this.form.errors.clear('dateInput');
             },
             handleFormSubmit: function () {
                 this.form.submit(this.method, '/tour/request')
-                    .then(data => {
-                        console.log(data);
-                    })
+                    .then(data => this.showSuccess = true)
                     .catch(errors => {
-                        //really dirty hack
-                        this.form.name = this.form.name + ' ';
-                    }
-                );
+                        console.log(errors);
+                            //really dirty hack to rerender errors
+                            this.form.name = this.form.name + ' ';
+                            this.form.name = this.form.name.trim();
+                        }
+                    );
             }
         }
     }

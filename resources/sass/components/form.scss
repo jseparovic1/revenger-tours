@@ -4,10 +4,10 @@ form {
         @apply flex flex-col mb-8;
 
         input, select, textarea {
-            @apply w-full text-black font-semibold;
+            @apply w-full;
             cursor: text;
             &:focus {
-                @apply outline-none text-black font-semibold border border-black;
+                @apply outline-none font-semibold border border-black;
             }
         }
 
@@ -21,6 +21,10 @@ form {
             top: -30%;
             background-color: white;
             @apply text-sm px-2 py-1;
+        }
+
+        input::placeholder {
+            @apply text-grey-darker uppercase font-semibold tracking-wide;
         }
 
         label {
