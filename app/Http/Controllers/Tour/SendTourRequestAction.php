@@ -7,15 +7,26 @@ namespace App\Http\Controllers\Tour;
 use App\Dto\TourRequestDto;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SendTourRequest;
-use App\Notifications\TourRequestSubmitted;
-use Illuminate\Support\Facades\Notification;
+use App\Mail\TourRequested;
+use Illuminate\Contracts\Mail\Mailer;
 
 class SendTourRequestAction extends Controller
 {
+    /**
+     * @var Mailer
+     */
+    private $mailer;
+
+    public function __construct(Mailer $mailer)
+    {
+        $this->mailer = $mailer;
+    }
+
     public function __invoke(SendTourRequest $tourRequest)
     {
-        Notification::route('mail', config('settings.contact.email'))
-            ->notify(new TourRequestSubmitted(TourRequestDto::create($tourRequest->validated())));
+        $this->mailer->send(
+            new TourRequested(TourRequestDto::create($tourRequest->validated()))
+        );
 
         return [
             'status' => 200,

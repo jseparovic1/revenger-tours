@@ -12,7 +12,7 @@ class TourRequestDto
     public $date;
 
     /**
-     * @var string
+     * @var int
      */
     public $people;
 
@@ -38,7 +38,7 @@ class TourRequestDto
 
     public function __construct(
         string $date,
-        string $people,
+        int $people,
         string $email,
         ?string $comment = ''
     ) {
