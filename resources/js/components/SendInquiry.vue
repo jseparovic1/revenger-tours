@@ -20,6 +20,7 @@
                 >
             </div>
             <div class="form-control w-full">
+                <label for="people" class="md:ml-2" :class="{'has-content' : this.people}">PEOPLE</label>
                 <input class="form-input md:mr-2"
                        v-model="people"
                        type="number"
@@ -28,8 +29,8 @@
                        min="1"
                        :max="this.maxNumber"
                        required
+                       placeholder="NUMBER OF PEOPLE"
                 >
-                <label for="people" class="md:ml-2" :class="{'has-content' : this.people}">NUMBER OF PEOPLE</label>
             </div>
             <input class="hidden"
                    type="text"

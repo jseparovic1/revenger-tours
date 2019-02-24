@@ -1976,17 +1976,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2071,6 +2060,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuejs_datepicker__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vuejs-datepicker */ "./node_modules/vuejs-datepicker/dist/vuejs-datepicker.esm.js");
+//
 //
 //
 //
@@ -28523,7 +28513,7 @@ var render = function() {
                 staticClass: "w-full mb-4 focus:outline-none mb-8 form-control"
               },
               [
-                _c("label", { attrs: { for: "tour" } }, [_vm._v("DATE")]),
+                _c("label", { attrs: { for: "trip_date" } }, [_vm._v("DATE")]),
                 _vm._v(" "),
                 _c("datepicker", {
                   attrs: {
@@ -28576,25 +28566,6 @@ var render = function() {
             _c("div", { staticClass: "form-control w-full" }, [
               _c("label", { attrs: { for: "tour" } }, [_vm._v("TOUR")]),
               _vm._v(" "),
-              _c("input", {
-                staticClass: "form-input md:mr-2 relative",
-                attrs: {
-                  type: "text",
-                  name: "tour",
-                  id: "tour",
-                  placeholder: "Select tour"
-                },
-                domProps: {
-                  value:
-                    this.selectedTour !== null ? this.selectedTour.title : ""
-                },
-                on: {
-                  click: function($event) {
-                    _vm.showSelect = !_vm.showSelect
-                  }
-                }
-              }),
-              _vm._v(" "),
               _vm.form.errors.has("tour")
                 ? _c("p", {
                     staticClass: "text-sm text-danger p-0 m-0",
@@ -28631,33 +28602,29 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _vm.showSelect
-                ? _c(
-                    "div",
+              _c(
+                "select",
+                {
+                  staticClass: "form-input ",
+                  attrs: { id: "tour" },
+                  on: { click: _vm.handleTourSelect }
+                },
+                _vm._l(this.tours, function(tour) {
+                  return _c(
+                    "option",
                     {
-                      staticClass: "absolute pin-t pin-x mt-8",
-                      attrs: { id: "tourList" },
-                      on: { click: _vm.handleTourSelect }
+                      domProps: { value: tour.id },
+                      on: {
+                        click: function($event) {
+                          _vm.showSelect = !_vm.showSelect
+                        }
+                      }
                     },
-                    _vm._l(this.tours, function(tour) {
-                      return _c(
-                        "div",
-                        {
-                          staticClass:
-                            "w-full bg-brand-dark py-2 px-5 border-b-2 border-white text-white text-xl hover:bg-brand-light cursor-pointer",
-                          attrs: { value: tour.id },
-                          on: {
-                            click: function($event) {
-                              _vm.showSelect = !_vm.showSelect
-                            }
-                          }
-                        },
-                        [_vm._v(_vm._s(tour.title) + "\n                ")]
-                      )
-                    }),
-                    0
+                    [_vm._v(_vm._s(tour.title))]
                   )
-                : _vm._e()
+                }),
+                0
+              )
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-control w-full mb-10" }, [
@@ -28947,6 +28914,16 @@ var render = function() {
         ),
         _vm._v(" "),
         _c("div", { staticClass: "form-control w-full" }, [
+          _c(
+            "label",
+            {
+              staticClass: "md:ml-2",
+              class: { "has-content": this.people },
+              attrs: { for: "people" }
+            },
+            [_vm._v("PEOPLE")]
+          ),
+          _vm._v(" "),
           _c("input", {
             directives: [
               {
@@ -28963,7 +28940,8 @@ var render = function() {
               id: "people",
               min: "1",
               max: this.maxNumber,
-              required: ""
+              required: "",
+              placeholder: "NUMBER OF PEOPLE"
             },
             domProps: { value: _vm.people },
             on: {
@@ -28974,17 +28952,7 @@ var render = function() {
                 _vm.people = $event.target.value
               }
             }
-          }),
-          _vm._v(" "),
-          _c(
-            "label",
-            {
-              staticClass: "md:ml-2",
-              class: { "has-content": this.people },
-              attrs: { for: "people" }
-            },
-            [_vm._v("NUMBER OF PEOPLE")]
-          )
+          })
         ]),
         _vm._v(" "),
         _c("input", {

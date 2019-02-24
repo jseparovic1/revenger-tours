@@ -15,7 +15,7 @@
             @keyup="form.errors.clear($event.target.name)"
         >
             <div class="w-full mb-4 focus:outline-none mb-8 form-control">
-                <label for="tour">DATE</label>
+                <label for="trip_date">DATE</label>
                 <datepicker
                     :placeholder="'SELECT DATE'"
                     :input-class="['form-input', 'w-full']"
@@ -35,14 +35,6 @@
             </div>
             <div class="form-control w-full">
                 <label for="tour">TOUR</label>
-                <input class="form-input md:mr-2 relative"
-                       type="text"
-                       name="tour"
-                       id="tour"
-                       placeholder="Select tour"
-                       :value="this.selectedTour !== null ? this.selectedTour.title : ''"
-                       @click="showSelect = !showSelect"
-                >
                 <p v-if="form.errors.has('tour')" v-text="form.errors.get('tour')" class="text-sm text-danger p-0 m-0"></p>
                 <input class="hidden"
                        type="number"
@@ -51,12 +43,9 @@
                        placeholder="Select tour"
                        v-model="this.form.tour"
                 >
-                <div v-if="showSelect" id="tourList" @click="handleTourSelect" class="absolute pin-t pin-x mt-8">
-                    <div
-                        class="w-full bg-brand-dark py-2 px-5 border-b-2 border-white text-white text-xl hover:bg-brand-light cursor-pointer"
-                         v-for="tour in this.tours" :value="tour.id" @click="showSelect = !showSelect">{{ tour.title }}
-                    </div>
-                </div>
+                <select id="tour" @click="handleTourSelect" class="form-input ">
+                    <option v-for="tour in this.tours" :value="tour.id" @click="showSelect = !showSelect">{{ tour.title }}</option>
+                </select>
             </div>
             <div class="form-control w-full mb-10">
                 <label for="people" :class="{'has-content' : this.form.people}">PEOPLE</label>

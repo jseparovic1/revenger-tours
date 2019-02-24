@@ -22,6 +22,8 @@ class ShowTourRequestAction
             ]);
         }
 
-        return view('contact.request');
+        return view('contact.request',[
+            'tours' => Tour::all(),
+        ]);
     }
 }

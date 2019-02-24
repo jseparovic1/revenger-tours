@@ -1,42 +1,4 @@
 form {
-    .form-control-labeled {
-        position: relative;
-        @apply flex flex-col mb-8;
-
-        input {
-            @apply w-full;
-            cursor: text;
-            &:focus {
-                @apply outline-none font-semibold border border-black;
-            }
-        }
-
-        input:focus ~label , select:focus ~ label, textarea:focus ~ label{
-            //top: -30%;
-            background-color: config('colors.white');
-            @apply text-sm px-2 py-1 text-black;
-        }
-
-        .has-content {
-            top: -30%;
-            background-color: white;
-            @apply text-sm px-2 py-1;
-        }
-
-        input::placeholder {
-            @apply text-grey-darker uppercase font-semibold tracking-wide;
-        }
-
-        label {
-            position: absolute;
-            left: 1em;
-            top: 30%;
-            z-index:10;
-            transition: all .2s ease-in-out;
-            @apply text-grey-light uppercase font-bold tracking-wide;
-        }
-    }
-
     .form-control {
         position: relative;
         @apply flex flex-col mb-8;
@@ -49,11 +11,19 @@ form {
             }
         }
 
-        input:focus ~label , select:focus ~ label, textarea:focus ~ label{
+        select {
+            @apply text-grey-darkest;
+            @apply border-none rounded-none bg-transparent;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            background-color: white;
+        }
+
+        input:focus ~label , textarea:focus ~ label{
             @apply text-sm px-2 py-1 text-black;
         }
 
-        input::placeholder {
+        input::placeholder select::placeholder {
             @apply text-grey-darker uppercase font-semibold tracking-wide;
         }
 
