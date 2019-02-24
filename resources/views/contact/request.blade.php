@@ -1,5 +1,6 @@
 @php
     /** @var \App\Tour $tour */
+    /** @var \App\Tour $selectedTour */
 @endphp
 
 @extends('layouts.page', [
@@ -18,19 +19,6 @@
                     You should only pay <strong>deposit</strong> to reserve your trip.
                 </p>
             </div>
-            @isset($tour)
-                <div>
-                    <div style="background-image: {{ $tour->getFirstMediaUrl('card') }}"></div>
-                    <div>
-                        <h3>
-                            {{$tour->title}}
-                        </h3>
-                        <p>
-                            {{ $tour->hero_description }}
-                        </p>
-                    </div>
-                </div>
-            @endisset
             <div class="bg-white p-10 mb-24">
                 @if(isset($people) && isset($tripDate))
                     <send-contact-request
@@ -38,6 +26,7 @@
                         :people-number="{{ $people }}"
                         :trip-date="'{{ $tripDate }}'"
                         :method="'{{ 'post' }}'"
+                        :tours="{{ $tours }}"
                     >
                     </send-contact-request>
 
@@ -45,6 +34,7 @@
                     <send-contact-request
                         action="{{ route('request.store') }}"
                         :method="'{{ 'post' }}'"
+                        :tours="{{ $tours }}"
                     >
                     </send-contact-request>
                 @endisset

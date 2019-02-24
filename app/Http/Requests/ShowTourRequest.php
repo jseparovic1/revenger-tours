@@ -2,7 +2,6 @@
 
 namespace App\Http\Requests;
 
-use App\Tour;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ShowTourRequest extends FormRequest

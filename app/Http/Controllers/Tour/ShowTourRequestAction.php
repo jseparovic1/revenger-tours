@@ -17,7 +17,8 @@ class ShowTourRequestAction
             return view('contact.request', [
                 'tripDate' => Carbon::parse($request->tripDate())->toDateString(),
                 'people' => $request->people(),
-                'tour' => Tour::findOrFail($request->tourId()),
+                'selectedTour' => Tour::findOrFail($request->tourId()),
+                'tours' => Tour::all(),
             ]);
         }
 

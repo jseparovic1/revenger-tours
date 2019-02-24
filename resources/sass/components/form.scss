@@ -1,9 +1,9 @@
 form {
-    .form-control {
+    .form-control-labeled {
         position: relative;
         @apply flex flex-col mb-8;
 
-        input, select, textarea {
+        input {
             @apply w-full;
             cursor: text;
             &:focus {
@@ -12,7 +12,7 @@ form {
         }
 
         input:focus ~label , select:focus ~ label, textarea:focus ~ label{
-            top: -30%;
+            //top: -30%;
             background-color: config('colors.white');
             @apply text-sm px-2 py-1 text-black;
         }
@@ -34,6 +34,31 @@ form {
             z-index:10;
             transition: all .2s ease-in-out;
             @apply text-grey-light uppercase font-bold tracking-wide;
+        }
+    }
+
+    .form-control {
+        position: relative;
+        @apply flex flex-col mb-8;
+
+        input, select, textarea {
+            @apply w-full;
+            cursor: text;
+            &:focus {
+                @apply outline-none font-semibold border border-black;
+            }
+        }
+
+        input:focus ~label , select:focus ~ label, textarea:focus ~ label{
+            @apply text-sm px-2 py-1 text-black;
+        }
+
+        input::placeholder {
+            @apply text-grey-darker uppercase font-semibold tracking-wide;
+        }
+
+        label {
+            @apply text-grey-light uppercase font-bold tracking-wide px-2 py-2;
         }
     }
 

@@ -19,6 +19,7 @@ class SendTourRequest extends FormRequest
             'people' => 'required|min:1|max:8|int',
             'email' => 'required|email',
             'comment' => 'nullable',
+            'tour' => 'required',
         ];
     }
 

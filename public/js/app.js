@@ -1958,6 +1958,35 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1967,6 +1996,7 @@ __webpack_require__.r(__webpack_exports__);
   props: {
     action: String,
     tripDate: String,
+    tours: Array,
     peopleNumber: {
       type: Number,
       required: false,
@@ -1981,11 +2011,14 @@ __webpack_require__.r(__webpack_exports__);
         comment: '',
         name: '',
         email: '',
-        people: ''
+        people: '',
+        tour: ''
       }),
       showSuccess: false,
       initialDate: null,
-      maxNumber: 8
+      maxNumber: 8,
+      showSelect: false,
+      selectedTour: null
     };
   },
   mounted: function mounted() {
@@ -2016,6 +2049,12 @@ __webpack_require__.r(__webpack_exports__);
         _this.form.name = _this.form.name + ' ';
         _this.form.name = _this.form.name.trim();
       });
+    },
+    handleTourSelect: function handleTourSelect(event) {
+      this.selectedTour = this.tours.find(function (t) {
+        return t.id = event.target.getAttribute('value');
+      });
+      this.form.tour = this.selectedTour.id;
     }
   }
 });
@@ -28480,11 +28519,15 @@ var render = function() {
           [
             _c(
               "div",
-              { staticClass: "w-full mb-4 focus:outline-none mb-8" },
+              {
+                staticClass: "w-full mb-4 focus:outline-none mb-8 form-control"
+              },
               [
+                _c("label", { attrs: { for: "tour" } }, [_vm._v("DATE")]),
+                _vm._v(" "),
                 _c("datepicker", {
                   attrs: {
-                    placeholder: "DATE",
+                    placeholder: "SELECT DATE",
                     "input-class": ["form-input", "w-full"],
                     "wrapper-class": ["form-control"]
                   },
@@ -28530,7 +28573,103 @@ var render = function() {
               1
             ),
             _vm._v(" "),
+            _c("div", { staticClass: "form-control w-full" }, [
+              _c("label", { attrs: { for: "tour" } }, [_vm._v("TOUR")]),
+              _vm._v(" "),
+              _c("input", {
+                staticClass: "form-input md:mr-2 relative",
+                attrs: {
+                  type: "text",
+                  name: "tour",
+                  id: "tour",
+                  placeholder: "Select tour"
+                },
+                domProps: {
+                  value:
+                    this.selectedTour !== null ? this.selectedTour.title : ""
+                },
+                on: {
+                  click: function($event) {
+                    _vm.showSelect = !_vm.showSelect
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.form.errors.has("tour")
+                ? _c("p", {
+                    staticClass: "text-sm text-danger p-0 m-0",
+                    domProps: {
+                      textContent: _vm._s(_vm.form.errors.get("tour"))
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: this.form.tour,
+                    expression: "this.form.tour"
+                  }
+                ],
+                staticClass: "hidden",
+                attrs: {
+                  type: "number",
+                  name: "tourId",
+                  id: "tourId",
+                  placeholder: "Select tour"
+                },
+                domProps: { value: this.form.tour },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(this.form, "tour", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _vm.showSelect
+                ? _c(
+                    "div",
+                    {
+                      staticClass: "absolute pin-t pin-x mt-8",
+                      attrs: { id: "tourList" },
+                      on: { click: _vm.handleTourSelect }
+                    },
+                    _vm._l(this.tours, function(tour) {
+                      return _c(
+                        "div",
+                        {
+                          staticClass:
+                            "w-full bg-brand-dark py-2 px-5 border-b-2 border-white text-white text-xl hover:bg-brand-light cursor-pointer",
+                          attrs: { value: tour.id },
+                          on: {
+                            click: function($event) {
+                              _vm.showSelect = !_vm.showSelect
+                            }
+                          }
+                        },
+                        [_vm._v(_vm._s(tour.title) + "\n                ")]
+                      )
+                    }),
+                    0
+                  )
+                : _vm._e()
+            ]),
+            _vm._v(" "),
             _c("div", { staticClass: "form-control w-full mb-10" }, [
+              _c(
+                "label",
+                {
+                  class: { "has-content": this.form.people },
+                  attrs: { for: "people" }
+                },
+                [_vm._v("PEOPLE")]
+              ),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
@@ -28545,6 +28684,7 @@ var render = function() {
                   type: "number",
                   name: "people",
                   id: "people",
+                  placeholder: "Number of people for trip",
                   max: this.maxNumber
                 },
                 domProps: { value: _vm.form.people },
@@ -28558,16 +28698,6 @@ var render = function() {
                 }
               }),
               _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "md:ml-2",
-                  class: { "has-content": this.form.people },
-                  attrs: { for: "people" }
-                },
-                [_vm._v("NUMBER OF PEOPLE")]
-              ),
-              _vm._v(" "),
               _c("p", {
                 staticClass: "text-sm text-danger p-0 m-0",
                 domProps: { textContent: _vm._s(_vm.form.errors.get("people")) }
@@ -28575,6 +28705,15 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-control w-full" }, [
+              _c(
+                "label",
+                {
+                  class: { "has-content": this.form.name },
+                  attrs: { for: "name" }
+                },
+                [_vm._v("NAME")]
+              ),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
@@ -28585,7 +28724,12 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-input md:mr-2",
-                attrs: { type: "text", name: "name", id: "name" },
+                attrs: {
+                  type: "text",
+                  name: "name",
+                  id: "name",
+                  placeholder: "Your name"
+                },
                 domProps: { value: _vm.form.name },
                 on: {
                   input: function($event) {
@@ -28596,16 +28740,6 @@ var render = function() {
                   }
                 }
               }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "md:ml-2",
-                  class: { "has-content": this.form.name },
-                  attrs: { for: "name" }
-                },
-                [_vm._v("NAME")]
-              ),
               _vm._v(" "),
               _vm.form.errors.has("name")
                 ? _c("p", {
@@ -28618,6 +28752,15 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-control w-full" }, [
+              _c(
+                "label",
+                {
+                  class: { "has-content": this.form.email },
+                  attrs: { for: "email" }
+                },
+                [_vm._v("EMAIL")]
+              ),
+              _vm._v(" "),
               _c("input", {
                 directives: [
                   {
@@ -28628,7 +28771,12 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-input md:mr-2",
-                attrs: { type: "email", name: "email", id: "email" },
+                attrs: {
+                  type: "email",
+                  name: "email",
+                  id: "email",
+                  placeholder: "Your email"
+                },
                 domProps: { value: _vm.form.email },
                 on: {
                   input: function($event) {
@@ -28639,16 +28787,6 @@ var render = function() {
                   }
                 }
               }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "md:ml-2",
-                  class: { "has-content": this.form.email },
-                  attrs: { for: "email" }
-                },
-                [_vm._v("EMAIL")]
-              ),
               _vm._v(" "),
               _vm.form.errors.has("email")
                 ? _c("p", {
@@ -28661,6 +28799,8 @@ var render = function() {
             ]),
             _vm._v(" "),
             _c("div", { staticClass: "form-control w-full" }, [
+              _c("label", { attrs: { for: "comment" } }, [_vm._v("COMMENT")]),
+              _vm._v(" "),
               _c("textarea", {
                 directives: [
                   {
@@ -28682,16 +28822,6 @@ var render = function() {
                   }
                 }
               }),
-              _vm._v(" "),
-              _c(
-                "label",
-                {
-                  staticClass: "md:ml-2",
-                  class: { "has-content": this.form.comment },
-                  attrs: { for: "comment" }
-                },
-                [_vm._v("COMMENT")]
-              ),
               _vm._v(" "),
               _vm.form.errors.has("comment")
                 ? _c("p", {
@@ -42944,7 +43074,6 @@ function () {
   }, {
     key: "clear",
     value: function clear(toClear) {
-      console.log(toClear);
       delete this.errors[toClear];
     }
   }, {

@@ -13,7 +13,6 @@ export default class Errors
     }
 
     clear(toClear) {
-        console.log(toClear);
         delete this.errors[toClear];
     }
 
