@@ -8,6 +8,7 @@
                 'title' => $singleFeatured->title,
                'shortDescription' => $singleFeatured->hero_short_description,
                'description' => $singleFeatured->hero_description,
+               'link' => route('tours.show', ['tour' => $singleFeatured->slug]),
                'callToAction' => "LET'S GO"
             ])
         </div>

@@ -7,9 +7,10 @@
     <div class="text-base md:text-xl text-white flex-1 text-left mb-8 py-4">
         {{ $description }}
     </div>
-    <button
-        class="w-32 bg-brand-dark hover:bg-brand-darkest font-semibold text-white py-1 md:py-4 px-4 md:px-8 rounded self-center sm:self-start">
+    <a
+        href="{{ $link }}"
+        class="w-32 bg-brand-dark hover:bg-brand-darkest font-semibold text-white py-1 md:py-4 px-4 md:px-8 rounded self-center sm:self-start hover:text-white">
         {{ $callToAction }}
-    </button>
+    </a>
 </div>
 

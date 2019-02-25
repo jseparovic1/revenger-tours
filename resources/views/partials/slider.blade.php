@@ -7,7 +7,8 @@
                        'title' => $tour->title,
                        'shortDescription' => $tour->hero_short_description,
                        'description' => $tour->hero_description,
-                       'callToAction' => "LET'S GO"
+                       'callToAction' => "LET'S GO",
+                       'link' => route('tours.show', ['tour' => $singleFeatured->slug]),
                    ])
                     @slot('image')
                         {{ $tour->getFirstMedia('hero') }}
