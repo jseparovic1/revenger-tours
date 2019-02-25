@@ -1824,7 +1824,7 @@ __webpack_require__.r(__webpack_exports__);
     this.headings = document.querySelectorAll(this.elementSelector);
     this.addHeadingIdOnFly();
     this.findActiveHeading();
-    window.addEventListener('scroll', _.throttle(this.findActiveHeading, 200));
+    window.addEventListener('scroll', _.throttle(this.findActiveHeading, 50));
   },
   methods: {
     findActiveHeading: function findActiveHeading() {

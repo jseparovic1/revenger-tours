@@ -4,15 +4,16 @@
 @endphp
 
 @extends('layouts.page', [
-    'title' => 'Tour request',
-    'turnOffFixedNav' => true,
+    'title' => 'Tour booking',
+    'breadcrumbUrl' => route('request.show'),
+    'imageUrl' => asset('images/static/private.jpg'),
 ])
 
 @section('page')
-    <section class="p-0">
+    <section>
         <div class="w-full md:w-2/3 mx-auto">
             <div class="w-2/3 mx-auto mb-10">
-                <h1 class="py-3 text-xl leading-tight">How this works?</h1>
+                <h1 class="py-3 text-xl text-center leading-tight heading-title">How this works?</h1>
                 <p class="mb-2 leading-loose">Since we don't have automated payment system,
                     we will manually check if your date is available to avoid double booking and then send you paypal
                     invoice.
