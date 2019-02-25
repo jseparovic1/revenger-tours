@@ -1,9 +1,9 @@
 .tour-content {
     h1, h2, h3, h4, h5, h6 {
-        @apply mt-8 mb-2 tracking-tight text-brand-dark text-2xl;
+        @apply mb-2 tracking-tight text-brand-dark text-2xl;
     }
     p {
-        @apply leading-loose tracking-normal;
+        @apply leading-loose tracking-normal mb-10;
     }
     p:not(:last-of-type) {
         @apply mb-2;

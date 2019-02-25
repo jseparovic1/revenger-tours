@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace App\Dto;
 
+use Carbon\Carbon;
+
 class TourRequestDto
 {
     /**
@@ -22,7 +24,7 @@ class TourRequestDto
     public $email;
 
     /**
-     * @var string
+     * @var Carbon
      */
     public $comment;
 
@@ -30,7 +32,7 @@ class TourRequestDto
     {
         return new self(
             $payload['dateInput'],
-            $payload['people'],
+            (int) $payload['people'],
             $payload['email'],
             $payload['comment'] ?? null
         );
@@ -42,7 +44,7 @@ class TourRequestDto
         string $email,
         ?string $comment = ''
     ) {
-        $this->date = $date;
+        $this->date = Carbon::parse($date);
         $this->people = $people;
         $this->email = $email;
         $this->comment = $comment;

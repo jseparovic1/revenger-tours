@@ -14,7 +14,7 @@ class ShowTourRequestAction
     public function __invoke(ShowTourRequest $request)
     {
         if ($request->has(['trip_date', 'people'])) {
-            return view('contact.request', [
+            return view('contact.tour', [
                 'tripDate' => Carbon::parse($request->tripDate())->toDateString(),
                 'people' => $request->people(),
                 'selectedTour' => Tour::findOrFail($request->tourId()),
@@ -22,7 +22,7 @@ class ShowTourRequestAction
             ]);
         }
 
-        return view('contact.request',[
+        return view('contact.tour',[
             'tours' => Tour::all(),
         ]);
     }

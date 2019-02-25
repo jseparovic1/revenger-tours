@@ -14,8 +14,8 @@
             </div>
         </section>
     @else
-        <section class="py-5 flex justify-center text-black">
-            <div class="text-3xl font-extrabold heading-title">{{ $title }}</div>
+        <section class="py-5 flex justify-center sm:justify-start">
+            <div class=" text-3xl font-extrabold">{{ $title }}</div>
         </section>
     @endisset
     @yield('page')

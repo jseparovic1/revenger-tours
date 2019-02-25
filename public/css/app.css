@@ -5840,7 +5840,6 @@ th {
 .tour-content h4,
 .tour-content h5,
 .tour-content h6 {
-  margin-top: 2rem;
   margin-bottom: .5rem;
   letter-spacing: -0.05em;
   color: #a61b1b;
@@ -5850,6 +5849,7 @@ th {
 .tour-content p {
   line-height: 2;
   letter-spacing: 0;
+  margin-bottom: 2.5rem;
 }
 
 .tour-content p:not(:last-of-type) {
@@ -5943,6 +5943,7 @@ form .form-control select {
      -moz-appearance: none;
   -webkit-appearance: none;
   background-color: white;
+  height: 100%;
 }
 
 form .form-control input:focus ~ label,

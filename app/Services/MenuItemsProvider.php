@@ -11,7 +11,7 @@ class MenuItemsProvider
         return [
             '/' => 'HOME',
             '/tours' => 'TOURS',
-            '/tours/private' => 'PRIVATE TOURS',
+            '/tour/private' => 'PRIVATE TOURS',
             '/transfers' => 'TRANSFERS',
             '/contact' => 'CONTACT',
         ];

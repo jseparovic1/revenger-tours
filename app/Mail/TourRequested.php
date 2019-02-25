@@ -35,7 +35,7 @@ class TourRequested extends Mailable implements ShouldQueue
     {
         return $this
             ->from('admin@revengertours.com')
-            ->to($this->tourRequest->email)
+            ->to(config('settings.contact.email'))
             ->replyTo($this->tourRequest->email)
             ->markdown('mail.request', [
                 'tourRequest' => $this->tourRequest

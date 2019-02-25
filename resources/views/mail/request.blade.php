@@ -8,10 +8,13 @@
 You have new request from revenger website.
 
 @component('mail::panel')
-    Date {{ $tourRequest->date }}
+    Date {{ $tourRequest->date->format('d.m.Y') }}
+
     Number of people: {{ $tourRequest->people }}
+
     Email: {{ $tourRequest->email }}
-    Comment : {{ $tourRequest->comment }}
+
+    Comment : {{ $tourRequest->comment ?? 'No additional comments'}}
 @endcomponent
 
 Good luck,<br>

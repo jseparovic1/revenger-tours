@@ -20,23 +20,24 @@
                 </p>
             </div>
             <div class="bg-white p-10 mb-24">
-                @if(isset($people) && isset($tripDate))
-                    <send-contact-request
+                @if(isset($people) && isset($tripDate) && isset($selectedTour))
+                    <send-tour-request
                         action="{{ route('request.store') }}"
+                        :tour="{{ $selectedTour }}"
                         :people-number="{{ $people }}"
                         :trip-date="'{{ $tripDate }}'"
                         :method="'{{ 'post' }}'"
                         :tours="{{ $tours }}"
                     >
-                    </send-contact-request>
+                    </send-tour-request>
 
                 @else
-                    <send-contact-request
+                    <send-tour-request
                         action="{{ route('request.store') }}"
                         :method="'{{ 'post' }}'"
                         :tours="{{ $tours }}"
                     >
-                    </send-contact-request>
+                    </send-tour-request>
                 @endisset
             </div>
         </div>
