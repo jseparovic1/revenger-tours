@@ -24,10 +24,12 @@ class CreateToursTable extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('details')->nullable();
-            $table->string('departure_location')->nullable();
-            $table->string('departure_time')->nullable();
-            $table->string('included')->nullable();
-            $table->string('notIncluded')->nullable();
+            $table->json('itinerary');
+            $table->string('departure_location');
+            $table->string('departure_time');
+            $table->string('included');
+            $table->string('excluded');
+            $table->integer('price');
             $table->timestamps();
         });
     }
