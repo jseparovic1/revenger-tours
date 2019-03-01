@@ -5,7 +5,7 @@
 @extends('layouts.page', [
     'title' => $tour->title,
     'breadcrumbUrl' => route('tours.show', $tour->slug),
-    'imageUrl' => asset('images/header/omis.jpg'),
+    'imageUrl' => $tour->getFirstMedia('hero_original')->getFullUrl('hero'),
     'turnOffFixedNav' => true
 ])
 
@@ -29,7 +29,7 @@
                     ])
                 </div>
             </section>
-            <aside class="w:full lg:w-1/3 lg:-mt-32">
+            <aside class="w:full lg:w-1/3 lg:-mt-32 z-10 sticky">
                 @include('tours._partials.book')
                 @include('tours._partials.help', [
                     'title' => 'Need help?',

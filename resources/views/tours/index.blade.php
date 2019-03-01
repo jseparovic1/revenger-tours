@@ -1,7 +1,7 @@
 @extends('layouts.page', [
     'title' => 'Tours',
     'breadcrumbUrl' => route('tours.index'),
-    'imageUrl' => asset('images/header/omis.jpg'),
+    'imageUrl' => ($tours[0])->getFirstMedia('hero_original')->getFullUrl('hero'),
 ])
 
 @section('page')
@@ -20,7 +20,7 @@
                     <a href="{{ route('tours.show', $tour->slug) }}" class="w-full xl:w-1/2 px-2 flex-no-shrink mb-8">
                         <div class="h-full flex flex-col sm:flex-row justify-between hover:shadow mb-10">
                             <div class="w-full flex img-zoom-wrapper">
-                                <img class="w-full img-zoom" src="{{ $tour->getFirstMedia('hero')->getUrl('card') }}"/>
+                                <img class="h-auto w-full img-zoom" src="{{ $tour->getFirstMedia('hero_original')->getUrl('card') }}"/>
                             </div>
                             <div class="w-full lg:w-5/6 flex flex-col justify-around px-5 pb-5">
                                 <h1 class="text-xl font-bold text-black mb-2">{{ $tour->title }}</h1>

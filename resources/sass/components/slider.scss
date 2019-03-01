@@ -1,7 +1,8 @@
 .swiper-container {
     .swiper-slide {
+        @apply flex;
         img {
-            filter: brightness(70%);
+            //filter: brightness(70%);
             transform-origin: 20% 80%;
         }
     }

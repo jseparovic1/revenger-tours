@@ -1,5 +1,5 @@
 <section class="h-full m-0 p-0">
-    <div class="hidden md:block swiper-container h-screen border-b">
+    <div class="hidden md:block swiper-container h-half lg:h-screen border-b">
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
                 @component('components.slide')
@@ -11,7 +11,7 @@
                        'link' => route('tours.show', ['tour' => $singleFeatured->slug]),
                    ])
                     @slot('image')
-                        {{ $tour->getFirstMedia('hero') }}
+                        {{ $tour->getFirstMedia('hero_original')('hero') }}
                     @endslot
                 @endcomponent
             @endforeach

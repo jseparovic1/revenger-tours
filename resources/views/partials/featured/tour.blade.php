@@ -1,5 +1,5 @@
 <div class="tour w-full mx-4 flex flex-col md:shadow-lg mb-4 md:mb-0">
-    <img class="h-64 bg-cover"
+    <img class="h-auto w-full bg-cover"
          @if(is_string($media))
             src="{{$media}}"
          @else

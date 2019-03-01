@@ -16,3 +16,28 @@
         z-index: -10;
     }
 }
+
+.swiper-slide img {
+    @apply w-full h-auto;
+}
+
+.slider-overlay {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+
+    &::before {
+        background: rgba(0, 0, 0, 0.4);
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: all 0.3s ease 0s;
+        width: 100%;
+        z-index: -1;
+    }
+}

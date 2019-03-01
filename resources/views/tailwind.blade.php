@@ -7,6 +7,15 @@
 
     <!-- Fonts -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    <style>
+        .widthSet {
+            max-width: 64px;
+        }
+
+        .heightSet {
+            max-height: 64px;
+        }
+    </style>
 </head>
 <body class="font-sans">
 <section class="container p-10">

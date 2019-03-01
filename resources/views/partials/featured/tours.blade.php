@@ -10,7 +10,7 @@
                     @include('partials.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
-                        'media' => $tour->getFirstMedia('hero'),
+                        'media' => $tour->getFirstMedia('hero_original')->getUrl('hero'),
                         'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach

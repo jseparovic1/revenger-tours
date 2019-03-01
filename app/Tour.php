@@ -88,7 +88,7 @@ class Tour extends Model implements HasMedia
 
     public function registerMediaCollections()
     {
-        $this->addMediaCollection('hero')
+        $this->addMediaCollection('hero_original')
             ->singleFile()
         ;
     }
@@ -97,6 +97,14 @@ class Tour extends Model implements HasMedia
         $this
             ->addMediaConversion('card')
             ->width(400)
-            ->height(250);
+            ->height(250)
+        ;
+
+        $this
+            ->addMediaConversion('hero')
+            ->optimize()
+            ->withResponsiveImages()
+            ->performOnCollections('hero_original')
+        ;
     }
 }
