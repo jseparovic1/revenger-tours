@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Contact\SendContactRequestAction;
 use App\Http\Controllers\ShowHomepageAction;
@@ -44,7 +45,11 @@ return function (Router $router) {
     });
     $router->view('/test', 'playground');
 
-    $router->name('admin.')->middleware('auth')->prefix('admin')->group(function (Router $router) {
-        $router->view('/tours', 'admin/tours/index');
+    /**
+     * Admin Routes
+     */
+    $router->group(['middleware' => 'auth', 'prefix' => 'admin'], function (Router $router) {
+        $router->resource('tours', TourController::class)->names('admin.tours');
     });
 };
+

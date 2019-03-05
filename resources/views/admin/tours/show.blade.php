@@ -33,9 +33,9 @@
                                     <td>{{ $tour->type }} </td>
                                     <td>{{ $tour->updated_at }}</td>
                                     <td class="flex">
-                                        <a class="py-2 px-4 bg-info-dark rounded-full text-white" href="{{ route('admin.tours.show', ['tour' => $tour->slug]) }}">SHOW</a>
-                                        <a class="py-2 px-4 bg-info-dark rounded-full text-white" href="{{ route('admin.tours.edit', ['tour' => $tour->slug]) }}">EDIT</a>
-                                        <form action="{{ route('admin.tours.destroy', ['tour' => $tour]) }}" method="POST">
+                                        <a class="py-2 px-4 bg-info-dark rounded-full text-white" href="{{ route('tours.show', ['tour' => $tour->slug]) }}">SHOW</a>
+                                        <a class="py-2 px-4 bg-info-dark rounded-full text-white" href="{{ route('tours.edit', ['tour' => $tour->slug]) }}">EDIT</a>
+                                        <form action="{{ route('tours.destroy', ['tour' => $tour]) }}" method="POST">
                                             @csrf
                                             @method('delete')
                                             <button class="py-2 px-4 bg-brand-darker rounded-full text-white" onclick="confirm('Are you sure to delete this tour')" >DELETE</button>

@@ -1,8 +1,3 @@
-@if (session('status'))
-    <div class="alert alert-success" role="alert">
-        {{ session('status') }}
-    </div>
-@endif
 <header class="bg-black py-2">
     <div class="flex justify-between">
         <div class="p-1 mx-3 inline-flex">

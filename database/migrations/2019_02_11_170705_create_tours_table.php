@@ -15,6 +15,8 @@ class CreateToursTable extends Migration
     {
         Schema::create('tours', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->text('details')->nullable();
             $table->string('hero_short_description');
             $table->string('hero_description');
             $table->boolean('featured');
@@ -22,8 +24,6 @@ class CreateToursTable extends Migration
             $table->string('type')->default('normal');
             $table->string('card_description');
             $table->string('slug');
-            $table->string('title');
-            $table->text('details')->nullable();
             $table->json('itinerary');
             $table->string('departure_location');
             $table->string('departure_time');
