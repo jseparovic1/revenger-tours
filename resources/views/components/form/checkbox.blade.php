@@ -7,6 +7,6 @@
         name="{{ $name }}"
         id="{{ $name }}"
         {{ old($name) ? 'checked' : '' }}
-        {{ $resource->{$name} ? 'checked': '' }}
+        {{ isset($resource) ? ($resource->{$name} ? 'checked': '') : '' }}
     >
 </div>

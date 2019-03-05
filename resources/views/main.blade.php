@@ -2,8 +2,8 @@
 
 @section('content')
     @include('partials.slider')
-    <section class="md:hidden m-0 p-0">
-        <div class="hero flex justify-center sm:justify-start">
+    <section class="lg:hidden m-0 p-0">
+        <div class="hero flex justify-start px-4">
             @include('partials.hero', [
                 'title' => $singleFeatured->title,
                'shortDescription' => $singleFeatured->hero_short_description,

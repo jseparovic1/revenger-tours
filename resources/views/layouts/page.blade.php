@@ -2,9 +2,9 @@
 
 @section('content')
     @isset($imageUrl)
-        <section class="relative page min-h-half pt-32 bg-black flex justify-center md:justify-start"
+        <section class="relative page min-h-half pt-32 bg-black flex"
                  style="background-image: url({{ $imageUrl }}); background-position: center; background-size: cover">
-            <div class="h-full flex flex-col pb-32 ml-5 lg:ml-20 lg:ml-32 z-10">
+            <div class="h-full flex flex-col pb-32 z-10 w-full max-w-3xl lg:max-w-4xl lg:px-4 mx-auto text-center md:text-left">
                 <div class="text-4xl text-white font-extrabold">{{ $title }}</div>
                 <div class="text-2xl">
                     <a href="/" class="text-white">Home</a>

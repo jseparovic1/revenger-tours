@@ -1,10 +1,11 @@
-<div class="relative swiper-slide">
+<div class="swiper-slide z-50">
     <div
-        class="slide__hero border-brand absolute z-20 pin-x pin-y flex items-center pl-8 lg:pl-32 leading-loose">
-        <div class="flex flex-col text-center w-84 -mt-5 z-10">
+        class="container max-w-4xl px-12 slide__hero border-brand absolute z-20 pin-x pin-y flex items-center leading-loose">
+        <div class="flex flex-col text-center w-84 -mt-5 z-10 xl:ml-5">
             {{ $slot }}
         </div>
-        <div class="slider-overlay"></div>
     </div>
+    <div class="slider-overlay"></div>
     {{ $image }}
 </div>
+

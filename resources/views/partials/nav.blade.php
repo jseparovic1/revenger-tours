@@ -1,6 +1,6 @@
 <nav
-    class="navigation text-center  pin-t pin-r pin-l z-20 {{ isset($fixedOff) ? 'bg-black' : 'absolute'}}">
-    <div class="flex justify-between items-center relative my-2 lg:my-0 max-w-5xl px-4 md:px-10 mx-auto">
+    class="navigation text-center pin-t pin-r pin-l z-20 {{ isset($fixedOff) ? 'bg-black' : 'absolute'}}">
+    <div class="flex justify-between items-center relative my-2 lg:my-0 max-w-4xl px-4 mx-auto">
         <div>
             <a href="/" class="link-reset">
                 <span class="text-brand font-bold text-2xl">Revenger</span>

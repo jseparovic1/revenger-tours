@@ -5673,6 +5673,12 @@ th {
   cursor: pointer;
 }
 
+@media (min-width: 1200px) {
+  .slider-control {
+    right: 13%;
+  }
+}
+
 .slider-control--next {
   background-color: #ba2525;
   border-radius: .25rem;
@@ -5944,7 +5950,13 @@ form .form-control {
   position: relative;
   display: flex;
   flex-direction: column;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 992px) {
+  form .form-control {
+    margin-bottom: 1.5rem;
+  }
 }
 
 form .form-control input,
@@ -6025,12 +6037,19 @@ form .form-control label {
 
 form .form-input {
   border-width: 1px;
-  padding-top: 1.25rem;
-  padding-bottom: 1.25rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
   padding-left: .75rem;
   padding-right: .75rem;
   color: #423d33;
   margin-bottom: .5rem;
+}
+
+@media (min-width: 768px) {
+  form .form-input {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
 }
 
 .img-zoom-wrapper {

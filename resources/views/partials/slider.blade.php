@@ -1,5 +1,5 @@
-<section class="h-full m-0 p-0">
-    <div class="hidden md:block swiper-container h-half lg:h-screen border-b">
+<section class="h-full m-0 p-0 relative">
+    <div class="hidden lg:block swiper-container h-half lg:h-screen">
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
                 @component('components.slide')

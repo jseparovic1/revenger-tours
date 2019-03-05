@@ -1,7 +1,10 @@
 form {
     .form-control {
         position: relative;
-        @apply flex flex-col mb-8;
+        @screen lg {
+            @apply mb-6;
+        }
+        @apply flex flex-col mb-4;
 
         input, select, textarea {
             @apply w-full;
@@ -34,6 +37,9 @@ form {
     }
 
     .form-input {
-        @apply border py-5 px-3 text-grey-darkest mb-2;
+        @apply border py-2 px-3 text-grey-darkest mb-2;
+        @screen md {
+            @apply py-4;
+        }
     }
 }
