@@ -1,5 +1,5 @@
 @php
-    /** @var $tour \App\Tour */
+    /** @var $resource \App\Tour */
     $resource = $tour;
 @endphp
 
@@ -14,10 +14,14 @@
                         <div class="text-xl">Manage tour</div>
                     </div>
                     <div>
-                    @component('components.form.form', [
-                                'method' => 'put',
-                                'action' => route('admin.tours.update', ['tour' => $tour->slug]),
-                            ])
+                        @component('components.form.form', [
+                                    'method' => 'put',
+                                    'action' => route('admin.tours.update', ['tour' => $resource->slug]),
+                                ])
+                            <image-upload
+                                :label="'Hero image'"
+                                :images="{{ $resource->getMedia("hero_original")->toJson() }}"
+                            ></image-upload>
                             <div class="form-control">
                                 @include('components.form.text', ['name' => 'title'])
                             </div>

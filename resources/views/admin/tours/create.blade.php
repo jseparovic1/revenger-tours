@@ -13,6 +13,11 @@
                                     'method' => 'post',
                                     'action' => route('admin.tours.create'),
                                 ])
+                            <image-upload
+                                :label="'Hero image'"
+                                :resource="'{{ \App\Tour::class }}'"
+                            >
+                            </image-upload>
                             <div class="form-control">
                                 @include('components.form.text', ['name' => 'title'])
                             </div>
