@@ -11,7 +11,7 @@
             <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
                 <div class="rounded overflow-hidden bg-white mx-2 w-full">
                     <div class="px-6 py-6">
-                        <div class="text-xl">Manage tour categories</div>
+                        <div class="text-xl">Manage tour</div>
                     </div>
                     <div>
                     @component('components.form.form', [
@@ -22,23 +22,23 @@
                                 @include('components.form.text', ['name' => 'title'])
                             </div>
                             <div class="form-control">
-                                @include('components.form.text', ['name' => 'type', 'help' => 'Allowed types are "normal" and "private"'])
+                                @include('components.form.text', ['name' => 'type', 'placeholder' => 'Tour type "normal" or "private""'])
                             </div>
                             <div class="form-control">
                                 @include('components.form.text', ['name' => 'price'])
                             </div>
 
                             <div class="form-control">
-                                @include('components.form.text', ['type' => 'textarea', 'name' => 'details'])
+                                @include('components.form.textarea', ['name' => 'details'])
                             </div>
                             <div class="form-control">
-                                @include('components.form.text', ['type' => 'textarea', 'name' => 'hero_short_description'])
+                                @include('components.form.text', ['name' => 'hero_short_description'])
                             </div>
                             <div class="form-control">
-                                @include('components.form.text', ['type' => 'textarea', 'name' => 'hero_description'])
+                                @include('components.form.textarea', ['name' => 'hero_description'])
                             </div>
                             <div class="form-control">
-                                @include('components.form.text', ['type' => 'textarea', 'name' => 'card_description'])
+                                @include('components.form.textarea', ['name' => 'card_description'])
                             </div>
                             <div class="form-control">
                                 @include('components.form.text', ['name' => 'departure_time'])

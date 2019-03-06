@@ -49,7 +49,8 @@ return function (Router $router) {
      * Admin Routes
      */
     $router->group(['middleware' => 'auth', 'prefix' => 'admin'], function (Router $router) {
-        $router->resource('tours', TourController::class)->names('admin.tours');
+        $router->resource('tours', TourController::class)
+            ->names('admin.tours');
     });
 };
 

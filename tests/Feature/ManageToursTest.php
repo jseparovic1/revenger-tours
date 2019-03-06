@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Tests\Feature;
 
 use App\Tour;
-use Illuminate\Http\Response;
+use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Tests\TestCase;
 
 class ManageToursTest extends TestCase
 {
+    use InteractsWithDatabase;
+
     /** @test */
     public function it_shows_all_tours()
     {
@@ -20,8 +22,7 @@ class ManageToursTest extends TestCase
             ->get(route('admin.tours.index'))
             ->assertSee($tour->title)
             ->assertViewHas('tours')
-            ->assertOk()
-        ;
+            ->assertOk();
     }
 
     /** @test */
@@ -33,9 +34,34 @@ class ManageToursTest extends TestCase
             ->asAuthenticatedUser()
             ->patch(route('admin.tours.update', ['tour' => $tour->slug]))
             ->assertSessionHasErrors([
-                'title', 'details', 'price',
+                'title',
+                'details',
+                'price',
+            ]);
+    }
+
+    /** @test */
+    public function a_user_can_edit_tour()
+    {
+        $tour = factory(Tour::class)->create();
+
+        $this
+            ->asAuthenticatedUser()
+            ->patch(route('admin.tours.update', ['tour' => $tour->slug]), $attributes = [
+                "title" => "Edited",
+                "details" => "Edited",
+                "price" => "400",
+                "type" => "private",
+                "recommended" => "0",
+                "featured" => "0",
+                "departure_time" => "Edited",
+                "included" => "Edited,Professional",
+                "excluded" => "Edited, Massage",
             ])
+            ->assertSessionHas('status', 'Tour edited successfully.')
         ;
+
+        $this->assertDatabaseHas('tours', $attributes);
     }
 
     /** @test */
@@ -46,8 +72,7 @@ class ManageToursTest extends TestCase
         $this
             ->asAuthenticatedUser()
             ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
-            ->assertRedirect(route('tours.index'))
-        ;
+            ->assertRedirect(route('tours.index'));
     }
 
     /** @test */
@@ -57,7 +82,6 @@ class ManageToursTest extends TestCase
 
         $this
             ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
-            ->assertStatus(Response::HTTP_UNAUTHORIZED);
-        ;
+            ->assertRedirect();
     }
 }

@@ -42,4 +42,10 @@ form {
             @apply py-4;
         }
     }
+    .is-invalid {
+        @apply border border-danger;
+    }
+    .invalid-feedback {
+        @apply text-sm text-danger p-0 m-0;
+    }
 }

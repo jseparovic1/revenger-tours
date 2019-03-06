@@ -20,24 +20,26 @@ class TourResourceRequest extends FormRequest
             'details' => 'required',
             'price' => 'required',
             'type' => 'sometimes|in:normal,private',
-            'itinerary.*' => 'sometimes|required',
-            'departure_location' => 'sometimes|required',
-            'departure_time' => 'sometimes|required',
-            'included' => 'sometimes|required',
-            'excluded' => 'sometimes|required',
+            'itinerary' => 'sometimes|string',
+            'departure_location' => 'sometimes|string',
+            'departure_time' => 'sometimes|string',
+            'recommended' => 'string',
+            'featured' => 'string',
+            'included' => 'nullable|string',
+            'excluded' => 'nullable|string',
+            'hero_short_description' => 'nullable|string',
+            'hero_description' => 'nullable|string',
+            'card_description' => 'nullable|string',
         ];
 
+
         if ($this->input('recommended')) {
-            $rules[] = [
-                'card_description' => 'required',
-            ];
+            $rules['card_description'] = 'required';
         }
 
         if ($this->input('featured')) {
-            $rules[] = [
-                'hero_short_description' => 'required',
-                'hero_description' => 'required',
-            ];
+            $rules['hero_short_description'] = 'required';
+            $rules['hero_description'] = 'required';
         }
 
         return $rules;

@@ -35,14 +35,6 @@ class TourController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     */
-    public function show(Tour $tour)
-    {
-        return view('admin.tours.show', compact('tour'));
-    }
-
-    /**
      * Show the form for editing the specified resource.
      */
     public function edit(Tour $tour)
@@ -59,7 +51,7 @@ class TourController extends Controller
 
         $request->session()->flash('status', 'Tour edited successfully.');
 
-        return view('admin.tours.edit', compact('tour'));
+        return redirect()->route('admin.tours.edit', compact('tour'));
     }
 
     /**

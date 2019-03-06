@@ -4,9 +4,11 @@
     </label>
     <input
         type="checkbox"
+        value="true"
         name="{{ $name }}"
         id="{{ $name }}"
         {{ old($name) ? 'checked' : '' }}
         {{ isset($resource) ? ($resource->{$name} ? 'checked': '') : '' }}
     >
 </div>
+

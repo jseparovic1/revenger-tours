@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -61,7 +60,7 @@ class Tour extends Model implements HasMedia
     protected $casts = [
         'featured' => 'boolean',
         'recommended' => 'boolean',
-        'price' => 'array',
+        'price' => 'integer',
         'itinerary' => 'array',
     ];
 
