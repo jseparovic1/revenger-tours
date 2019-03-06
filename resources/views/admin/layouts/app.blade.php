@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard | Revenger tours</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" />
 </head>
 
 <body class="font-sans">
-    <div class="mx-auto bg-grey-lightest">
+    <div class="mx-auto bg-grey-lightest" id="app">
         <div class="min-h-screen flex flex-col">
             @include('admin._partials.nav')
             <div class="flex flex-1">
@@ -23,7 +24,7 @@
             </footer>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    @yield('javascript')
+    <script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

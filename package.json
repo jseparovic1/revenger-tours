@@ -27,6 +27,7 @@
         "swiper": "^4.4.6",
         "tailwindcss-tables": "^0.2.0",
         "toastr": "^2.1.4",
+        "trix": "^1.1.0",
         "vue-tabs-component": "^1.5.0",
         "vuejs-datepicker": "^1.5.4"
     }

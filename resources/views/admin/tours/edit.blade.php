@@ -29,7 +29,7 @@
                             </div>
 
                             <div class="form-control">
-                                @include('components.form.textarea', ['name' => 'details'])
+                                @include('components.form.wysiwyg', ['name' => 'details'])
                             </div>
                             <div class="form-control">
                                 @include('components.form.text', ['name' => 'hero_short_description'])

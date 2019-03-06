@@ -32,6 +32,7 @@ class TourController extends Controller
      */
     public function store(TourResourceRequest $request)
     {
+
     }
 
     /**
