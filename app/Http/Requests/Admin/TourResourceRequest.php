@@ -44,9 +44,4 @@ class TourResourceRequest extends FormRequest
 
         return $rules;
     }
-
-    protected function failedValidation(Validator $validator)
-    {
-        dd($validator->errors());
-    }
 }

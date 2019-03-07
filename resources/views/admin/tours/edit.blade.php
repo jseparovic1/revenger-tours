@@ -1,6 +1,5 @@
 @php
     /** @var $resource \App\Tour */
-    $resource = $tour;
 @endphp
 
 @extends('admin.layouts.app')

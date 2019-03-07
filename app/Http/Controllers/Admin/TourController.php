@@ -42,7 +42,7 @@ class TourController extends Controller
      */
     public function edit(Tour $tour)
     {
-        return view('admin.tours.edit', compact('tour'));
+        return view('admin.tours.edit', ['resource' => $tour]);
     }
 
     /**
@@ -54,7 +54,7 @@ class TourController extends Controller
 
         $request->session()->flash('status', 'Tour edited successfully.');
 
-        return redirect()->route('admin.tours.edit', compact('tour'));
+        return redirect()->route('admin.tours.edit', ['resource' => $tour]);
     }
 
     /**

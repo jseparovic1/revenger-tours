@@ -4,6 +4,13 @@
     @endphp
 @endif
 
+@php($value = '')
+@if(old($name))
+    @php($value = old($name))
+@elseif(isset($resource) && !$errors->has($name))
+    @php($value = $resource->{$name})
+@endif
+
 <label for="{{ $name }}">{{ $label }}</label>
 <input
     type="{{ $type ?? 'text' }}"
@@ -11,7 +18,7 @@
     class="{{$class ?? 'form-input'}} {{ $errors->has($name) ? 'is-invalid': '' }} {{ old($name) && !$errors->has($name) ? 'is-valid': '' }}"
     id="{{ $name }}"
     name="{{ $name }}"
-    value="{{ isset($resource) ? $resource->{$name} : old($name) }}"
+    value="{{ $value }}"
     aria-describedby="{{ $name }}"
     placeholder="{{ $placeholder ?? "Enter $name" }}"
     value="{{ old($name) }}"

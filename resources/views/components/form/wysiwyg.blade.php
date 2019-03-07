@@ -2,7 +2,7 @@
 
 @php($value = '')
 
-@if(old($name) !== 'null')
+@if(old($name) !== null)
     @php($value = old($name))
 @elseif(isset($resource))
     @php($value = $resource->{$name})
@@ -10,7 +10,7 @@
 
 <wysiwyg
     name="{{ $name }}"
-    old-value='{!! $value !!}'
+    old-value='{{ $value }}'
 >
 </wysiwyg>
 <div class="invalid-feedback">{{ $errors->has($name) ? $errors->first($name) : ''}}</div>
