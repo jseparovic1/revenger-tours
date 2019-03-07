@@ -30,9 +30,17 @@ class TourController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TourResourceRequest $request)
+    public function store(TourResourceRequest $request, Tour $tour)
     {
-        $tour = Tour::create($request->validated());
+        $validatedData = $request->validated();
+
+        $hero = array_pull($validatedData,'hero');
+
+        $tour = Tour::create($validatedData);
+
+        $this->uploadImages($tour, $hero, 'hero_original');
+
+        $request->session()->flash('status', 'Tour created successfully.');
 
         return redirect()->route('admin.tours.edit', $tour->slug);
     }
@@ -50,7 +58,13 @@ class TourController extends Controller
      */
     public function update(TourResourceRequest $request, Tour $tour)
     {
-        $tour->update($request->validated());
+        $validatedData = $request->validated();
+
+        $hero = array_pull($validatedData,'hero');
+
+        $tour->update($validatedData);
+
+        $this->uploadImages($tour, $hero, 'hero_original');
 
         $request->session()->flash('status', 'Tour edited successfully.');
 
@@ -68,5 +82,21 @@ class TourController extends Controller
         $request->session()->flash('status', 'Tour deleted successfully.');
 
         return redirect()->route('tours.index');
+    }
+
+    /**
+     * @param Tour $tour
+     * @param $hero
+     */
+    public function uploadImages(Tour $tour, $hero, $collection): void
+    {
+        $storedMedia = $tour->media->pluck('file_name')->toArray();
+
+        collect($hero)
+            ->reject(function($image) use ($storedMedia) {
+                return in_array($image, $storedMedia);
+            })->each(function ($image) use ($tour, $collection) {
+                $tour->addMedia(storage_path('tmp/uploads/') . $image)->toMediaCollection($collection);
+            });
     }
 }

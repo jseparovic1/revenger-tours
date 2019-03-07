@@ -1,14 +1,12 @@
 <template>
-    <div class="form-control">
-        <label for="file" v-html="label"></label>
+    <div>
         <div v-for="(file, index) in this.input">
-            <input type="text" name="file[]" :value="file.name" :data-index="index" hidden/>
+            <input type="text" :name="`${inputName}[]`" :value="file.name" :data-index="index" hidden/>
         </div>
         <vue-dropzone
             ref="dropzone"
             id="dropzone"
             :options="dropzoneOptions"
-            @vdropzone-file-added="handleImageUpload"
             @vdropzone-removed-file="handleImageDelete"
             @vdropzone-max-files-exceeded="handleMaxFilesExceeded"
             @vdropzone-sending="attachPayloadToFile"
@@ -58,6 +56,9 @@
             isEditAction: {
                 type: Boolean,
                 default: false,
+            },
+            inputName: {
+                type: String,
             }
         },
         data: function () {
@@ -80,6 +81,10 @@
                 this.images.forEach(image => {
                     axios.get(`/admin/media/${image.id}`)
                         .then(({ data }) => {
+                            this.input.push({
+                                'name' : data.name,
+                            });
+
                             this.$refs.dropzone.manuallyAddFile({
                                 'name': data.name,
                                 'size': data.size,
@@ -88,12 +93,19 @@
                         });
                 });
             },
-            handleImageUpload : function (file) {
-                console.log("upload");
-            },
             handleImageDelete: function(file) {
-                console.log("delete");
-                console.log(file);
+                let storedElement = this.images.find(element => {
+                     return element.file_name === file.name;
+                });
+
+                if (typeof storedElement === 'object') {
+                    axios.post(`/admin/media/${storedElement.id}`)
+                        .then(({ data }) => {
+                           console.log(data);
+                        });
+                }
+
+                this.input = this.input.filter(element => element.name !== file.name);
             },
             handleMaxFilesExceeded: function(file) {
                 this.$refs.dropzone.removeAllFiles();
@@ -106,12 +118,6 @@
                 });
             },
             attachPayloadToFile: function(file, xhr, formData) {
-                if (this.isEditAction) {
-                    formData.append("resourceId", this.resourceId);
-                    formData.append("resource", this.resource);
-                    formData.append("collectionName", this.collectionName);
-                }
-
                 formData.append("_token", window.csrfToken.content);
             }
         }

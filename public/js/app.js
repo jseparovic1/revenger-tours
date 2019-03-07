@@ -1800,8 +1800,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue2_dropzone__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue2-dropzone/dist/vue2Dropzone.min.css */ "./node_modules/vue2-dropzone/dist/vue2Dropzone.min.css");
 /* harmony import */ var vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vue2_dropzone_dist_vue2Dropzone_min_css__WEBPACK_IMPORTED_MODULE_1__);
-//
-//
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
 //
 //
 //
@@ -1860,6 +1860,9 @@ __webpack_require__.r(__webpack_exports__);
     isEditAction: {
       type: Boolean,
       default: false
+    },
+    inputName: {
+      type: String
     }
   },
   data: function data() {
@@ -1886,6 +1889,10 @@ __webpack_require__.r(__webpack_exports__);
         axios.get("/admin/media/".concat(image.id)).then(function (_ref) {
           var data = _ref.data;
 
+          _this.input.push({
+            'name': data.name
+          });
+
           _this.$refs.dropzone.manuallyAddFile({
             'name': data.name,
             'size': data.size,
@@ -1894,12 +1901,21 @@ __webpack_require__.r(__webpack_exports__);
         });
       });
     },
-    handleImageUpload: function handleImageUpload(file) {
-      console.log("upload");
-    },
     handleImageDelete: function handleImageDelete(file) {
-      console.log("delete");
-      console.log(file);
+      var storedElement = this.images.find(function (element) {
+        return element.file_name === file.name;
+      });
+
+      if (_typeof(storedElement) === 'object') {
+        axios.post("/admin/media/".concat(storedElement.id)).then(function (_ref2) {
+          var data = _ref2.data;
+          console.log(data);
+        });
+      }
+
+      this.input = this.input.filter(function (element) {
+        return element.name !== file.name;
+      });
     },
     handleMaxFilesExceeded: function handleMaxFilesExceeded(file) {
       this.$refs.dropzone.removeAllFiles();
@@ -1912,12 +1928,6 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     attachPayloadToFile: function attachPayloadToFile(file, xhr, formData) {
-      if (this.isEditAction) {
-        formData.append("resourceId", this.resourceId);
-        formData.append("resource", this.resource);
-        formData.append("collectionName", this.collectionName);
-      }
-
       formData.append("_token", window.csrfToken.content);
     }
   }
@@ -29364,19 +29374,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "form-control" },
     [
-      _c("label", {
-        attrs: { for: "file" },
-        domProps: { innerHTML: _vm._s(_vm.label) }
-      }),
-      _vm._v(" "),
       _vm._l(this.input, function(file, index) {
         return _c("div", [
           _c("input", {
             attrs: {
               type: "text",
-              name: "file[]",
+              name: _vm.inputName + "[]",
               "data-index": index,
               hidden: ""
             },
@@ -29395,7 +29399,6 @@ var render = function() {
             useCustomSlot: true
           },
           on: {
-            "vdropzone-file-added": _vm.handleImageUpload,
             "vdropzone-removed-file": _vm.handleImageDelete,
             "vdropzone-max-files-exceeded": _vm.handleMaxFilesExceeded,
             "vdropzone-sending": _vm.attachPayloadToFile,

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
-use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TourResourceRequest extends FormRequest
@@ -31,6 +30,7 @@ class TourResourceRequest extends FormRequest
             'hero_description' => 'nullable|string',
             'recommended' => 'sometimes',
             'card_description' => 'nullable|string',
+            'hero' => 'required',
         ];
 
         if ($this->input('recommended')) {

@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Admin\GetMediaAction;
-use App\Http\Controllers\Admin\HandleImageUploadAction;
+use App\Http\Controllers\Admin\GetImageAction;
+use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\UploadImageAction;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Contact\SendContactRequestAction;
@@ -51,8 +52,9 @@ return function (Router $router) {
      * Admin Routes
      */
     $router->group(['middleware' => 'auth', 'prefix' => 'admin'], function (Router $router) {
-        $router->post('upload', HandleImageUploadAction::class);
-        $router->get('media/{mediaId}', GetMediaAction::class);
+        $router->post('upload',  [ImageController::class, 'store']);
+        $router->get('media/{mediaId}', [ImageController::class, 'show']);
+        $router->post('media/{mediaId}', [ImageController::class, 'destroy']);
 
         $router->resource('tours', TourController::class)
             ->names('admin.tours');

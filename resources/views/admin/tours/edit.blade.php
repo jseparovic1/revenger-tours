@@ -17,45 +17,14 @@
                                     'method' => 'put',
                                     'action' => route('admin.tours.update', ['tour' => $resource->slug]),
                                 ])
-                            <image-upload
-                                :label="'Hero image'"
-                                :images="{{ $resource->getMedia("hero_original")->toJson() }}"
-                            ></image-upload>
                             <div class="form-control">
-                                @include('components.form.text', ['name' => 'title'])
+                                @include('components.form.imageUpload', [
+                                    'name' => 'hero',
+                                    'images' => $resource->getMedia("hero_original"),
+                                    'label' => 'Hero image'
+                                 ])
                             </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'type', 'placeholder' => 'Tour type "normal" or "private""'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'price'])
-                            </div>
-
-                            <div class="form-control">
-                                @include('components.form.wysiwyg', ['name' => 'details'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'hero_short_description'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.textarea', ['name' => 'hero_description'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.textarea', ['name' => 'card_description'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'departure_time'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'included'])
-                            </div>
-                            <div class="form-control">
-                                @include('components.form.text', ['name' => 'excluded'])
-                            </div>
-                            <div class="form-control flex-row justify-start w-48">
-                                @include('components.form.checkbox', ['name' => 'recommended'])
-                                @include('components.form.checkbox', ['name' => 'featured'])
-                            </div>
+                            @include('admin.tours._form')
                             <div class="form-control">
                                 @component('components.form.submit') UPDATE TOUR @endcomponent
                             </div>
