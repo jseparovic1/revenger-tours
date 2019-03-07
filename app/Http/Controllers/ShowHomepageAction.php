@@ -19,7 +19,7 @@ class ShowHomepageAction
         })->take(3);
         $recommended = $tours->filter(function (Tour $tour) {
             return $tour->recommended;
-        })->take(3);
+        })->take(2);
 
         $single = $featured->first();
 

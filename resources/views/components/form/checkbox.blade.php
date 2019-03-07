@@ -4,7 +4,7 @@
     </label>
     <input
         type="checkbox"
-        value="true"
+        value="1"
         name="{{ $name }}"
         id="{{ $name }}"
         {{ old($name) ? 'checked' : '' }}

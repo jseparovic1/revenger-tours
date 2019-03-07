@@ -4,30 +4,42 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Http\Request;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
+use Illuminate\Support\Str;
 
 class HandleImageUploadAction
 {
+    /**
+     * @var Filesystem
+     */
+    private $filesystem;
+
+    public function __construct(Filesystem $filesystem)
+    {
+        $this->filesystem = $filesystem;
+    }
+
     public function __invoke(Request $request)
     {
-        $resource = $request->input('resource');
-        $resourceId = $request->input('resourceId');
-        $collection = $request->input('collection');
+        $file = $request->file('file');
 
-        if (!class_exists($resource)) {
-            throw new BadRequestHttpException("Resource not found.");
-        }
+        $fileName = sprintf("%s_%s", Str::uuid(), $file->getClientOriginalName());
 
-        /** @var HasMedia $entity */
-        $entity = $resource::find(intval($resourceId));
-
-        $entity->addMedia($request->file('files'))
-            ->toMediaCollection($collection);
+        $file->move($this->storagePath(), $fileName);
 
         return response()->json([
-            'status' => 'ok'
+            'name' => $fileName,
+            'originalName' => $file->getClientOriginalName(),
         ]);
+    }
+
+    protected function storagePath()
+    {
+        return tap(public_path('tmp/uploads'), function ($path) {
+            if (!$this->filesystem->isDirectory($path) ) {
+                mkdir($path, 0777, true);
+            }
+        });
     }
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Requests\Admin;
 
+use Illuminate\Contracts\Validation\Validator;
 use Illuminate\Foundation\Http\FormRequest;
 
 class TourResourceRequest extends FormRequest
@@ -18,20 +19,19 @@ class TourResourceRequest extends FormRequest
         $rules = [
             'title' => 'required',
             'details' => 'required',
-            'price' => 'required',
-            'type' => 'sometimes|in:normal,private',
+            'price' => 'required|numeric',
+            'type' => 'required|in:normal,private',
             'itinerary' => 'sometimes|string',
-            'departure_location' => 'sometimes|string',
-            'departure_time' => 'sometimes|string',
-            'recommended' => 'string',
-            'featured' => 'string',
+            'departure_location' => 'nullable|string',
+            'departure_time' => 'nullable|string',
             'included' => 'nullable|string',
             'excluded' => 'nullable|string',
+            'featured' => 'sometimes',
             'hero_short_description' => 'nullable|string',
             'hero_description' => 'nullable|string',
+            'recommended' => 'sometimes',
             'card_description' => 'nullable|string',
         ];
-
 
         if ($this->input('recommended')) {
             $rules['card_description'] = 'required';
@@ -43,5 +43,10 @@ class TourResourceRequest extends FormRequest
         }
 
         return $rules;
+    }
+
+    protected function failedValidation(Validator $validator)
+    {
+        dd($validator->errors());
     }
 }

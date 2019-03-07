@@ -1823,6 +1823,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1836,10 +1840,26 @@ __webpack_require__.r(__webpack_exports__);
       default: 4
     },
     images: {
-      type: Array
+      type: Array,
+      default: function _default() {
+        return [];
+      }
     },
     label: {
       type: String
+    },
+    resourceId: {
+      type: String
+    },
+    resource: {
+      type: String
+    },
+    collectionName: {
+      type: String
+    },
+    isEditAction: {
+      type: Boolean,
+      default: false
     }
   },
   data: function data() {
@@ -1850,12 +1870,17 @@ __webpack_require__.r(__webpack_exports__);
         maxFiles: this.numberOfImages,
         acceptedFiles: 'image/*',
         thumbnailWidth: 300
-      }
+      },
+      input: []
     };
   },
   methods: {
     attachExistingFiles: function attachExistingFiles() {
       var _this = this;
+
+      if (this.images.length === 0) {
+        return;
+      }
 
       this.images.forEach(function (image) {
         axios.get("/admin/media/".concat(image.id)).then(function (_ref) {
@@ -1870,7 +1895,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     handleImageUpload: function handleImageUpload(file) {
-      console.log("upload"); // console.log(file)
+      console.log("upload");
     },
     handleImageDelete: function handleImageDelete(file) {
       console.log("delete");
@@ -1880,11 +1905,19 @@ __webpack_require__.r(__webpack_exports__);
       this.$refs.dropzone.removeAllFiles();
       this.$refs.dropzone.manuallyAddFile(file);
     },
+    handleUploadSuccess: function handleUploadSuccess(file, response) {
+      this.input.push({
+        'name': response.name,
+        'originalName': response.originalName
+      });
+    },
     attachPayloadToFile: function attachPayloadToFile(file, xhr, formData) {
-      console.log(formData);
-      formData.append("resource", "App\\Tour");
-      formData.append("resourceId", 1);
-      formData.append("collection", "hero_original");
+      if (this.isEditAction) {
+        formData.append("resourceId", this.resourceId);
+        formData.append("resource", this.resource);
+        formData.append("collectionName", this.collectionName);
+      }
+
       formData.append("_token", window.csrfToken.content);
     }
   }
@@ -2400,12 +2433,17 @@ __webpack_require__.r(__webpack_exports__);
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['name', 'value', 'placeholder'],
+  props: ['name', 'oldValue', 'placeholder'],
+  data: function data() {
+    return {
+      'inputValue': ''
+    };
+  },
   mounted: function mounted() {
     var _this = this;
 
     this.$refs.trix.addEventListener('trix-change', function (event) {
-      _this.value = event.target.value;
+      _this.inputValue = event.target.value;
     });
   }
 });
@@ -29329,8 +29367,22 @@ var render = function() {
     { staticClass: "form-control" },
     [
       _c("label", {
-        attrs: { for: "upload" },
+        attrs: { for: "file" },
         domProps: { innerHTML: _vm._s(_vm.label) }
+      }),
+      _vm._v(" "),
+      _vm._l(this.input, function(file, index) {
+        return _c("div", [
+          _c("input", {
+            attrs: {
+              type: "text",
+              name: "file[]",
+              "data-index": index,
+              hidden: ""
+            },
+            domProps: { value: file.name }
+          })
+        ])
       }),
       _vm._v(" "),
       _c(
@@ -29347,7 +29399,8 @@ var render = function() {
             "vdropzone-removed-file": _vm.handleImageDelete,
             "vdropzone-max-files-exceeded": _vm.handleMaxFilesExceeded,
             "vdropzone-sending": _vm.attachPayloadToFile,
-            "vdropzone-mounted": _vm.attachExistingFiles
+            "vdropzone-mounted": _vm.attachExistingFiles,
+            "vdropzone-success": _vm.handleUploadSuccess
           }
         },
         [
@@ -29367,7 +29420,7 @@ var render = function() {
         ]
       )
     ],
-    1
+    2
   )
 }
 var staticRenderFns = []
@@ -30263,7 +30316,7 @@ var render = function() {
     [
       _c("input", {
         attrs: { id: "trix", type: "hidden", name: _vm.name },
-        domProps: { value: _vm.value }
+        domProps: { value: _vm.oldValue ? _vm.oldValue : _vm.inputValue }
       }),
       _vm._v(" "),
       _c("trix-editor", {

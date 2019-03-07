@@ -1,17 +1,3 @@
-@php
-/**
-props
-    label
-    name
-    type
-    name
-    placeholder
-    required
-    autofocus
-    help
-**/
-@endphp
-
 @if(!isset($label))
     @php
         $label = \Illuminate\Support\Str::ucfirst(implode(' ', explode('_', $name)))
@@ -25,10 +11,10 @@ props
     class="{{$class ?? 'form-input'}} {{ $errors->has($name) ? 'is-invalid': '' }} {{ old($name) && !$errors->has($name) ? 'is-valid': '' }}"
     id="{{ $name }}"
     name="{{ $name }}"
-    value="{{ $resource->{$name} ?? null }}"
+    value="{{ isset($resource) ? $resource->{$name} : old($name) }}"
     aria-describedby="{{ $name }}"
     placeholder="{{ $placeholder ?? "Enter $name" }}"
-    value="{{ $oldValue ?? old($name) }}"
+    value="{{ old($name) }}"
     {{ ($required ?? null) ? 'required' : '' }}
     {{ ($autofocus ?? null) ? 'autofocus' : '' }}
 >

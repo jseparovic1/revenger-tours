@@ -8,10 +8,8 @@
     </thead>
     <tbody>
     <tr>
-        @foreach($prices as $price)
-                <td class="text-brand-darkest font-bold">{{ $price['low'] }}</td>
-                <td class="text-brand-darkest font-bold ">{{ $price['high'] }}</td>
-        @endforeach
+        <td class="text-brand-darkest font-bold">€{{ $price }}</td>
+        <td class="text-brand-darkest font-bold ">€{{ $priceOffSeasons }}</td>
     </tr>
     </tbody>
 </table>

@@ -8,10 +8,14 @@
                        'shortDescription' => $tour->hero_short_description,
                        'description' => $tour->hero_description,
                        'callToAction' => "LET'S GO",
-                       'link' => route('tours.show', ['tour' => $singleFeatured->slug]),
+                       'link' => route('tours.show', ['tour' => $tour->slug]),
                    ])
                     @slot('image')
-                        {{ $tour->getFirstMedia('hero_original')('hero') }}
+                        @if($tour->getFirstMedia('hero_original'))
+                            {{ $tour->getFirstMedia('hero_original')('hero') }}
+                        @else
+                            <img src="{{ asset('images/default/tour.jpg') }}">
+                        @endif
                     @endslot
                 @endcomponent
             @endforeach

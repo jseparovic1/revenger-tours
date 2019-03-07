@@ -1,17 +1,3 @@
-@php
-    /**
-    props
-        label
-        name
-        type
-        name
-        placeholder
-        required
-        autofocus
-        help
-    **/
-@endphp
-
 @if(!isset($label))
     @php
         $label = \Illuminate\Support\Str::ucfirst(implode(' ', explode('_', $name)))
@@ -26,7 +12,7 @@
     name="{{ $name }}"
     aria-describedby="{{ $name }}"
     placeholder="{{ $placeholder ?? "Enter $name" }}"
->{{ $resource->{$name} ?? old($name) }}</textarea>
+>{{ isset($resource) ? $resource->{$name} : old($name) }}</textarea>
 <div class="invalid-feedback">{{ $errors->has($name) ? $errors->first($name) : ''}}</div>
 @isset($help)
     <small id="{{ $name }}" class="form-text text-grey">{{ $help }}</small>

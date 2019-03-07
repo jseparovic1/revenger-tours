@@ -11,11 +11,11 @@
                     <div>
                         @component('components.form.form', [
                                     'method' => 'post',
-                                    'action' => route('admin.tours.create'),
+                                    'action' => route('admin.tours.store'),
                                 ])
                             <image-upload
-                                :label="'Hero image'"
-                                :resource="'{{ \App\Tour::class }}'"
+                                label="Hero image"
+                                inputName="hero"
                             >
                             </image-upload>
                             <div class="form-control">

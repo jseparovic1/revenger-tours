@@ -32,7 +32,9 @@ class TourController extends Controller
      */
     public function store(TourResourceRequest $request)
     {
+        $tour = Tour::create($request->validated());
 
+        return redirect()->route('admin.tours.edit', $tour->slug);
     }
 
     /**

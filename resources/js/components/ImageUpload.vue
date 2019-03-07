@@ -1,6 +1,9 @@
 <template>
     <div class="form-control">
-        <label for="upload" v-html="label"></label>
+        <label for="file" v-html="label"></label>
+        <div v-for="(file, index) in this.input">
+            <input type="text" name="file[]" :value="file.name" :data-index="index" hidden/>
+        </div>
         <vue-dropzone
             ref="dropzone"
             id="dropzone"
@@ -10,6 +13,7 @@
             @vdropzone-max-files-exceeded="handleMaxFilesExceeded"
             @vdropzone-sending="attachPayloadToFile"
             @vdropzone-mounted="attachExistingFiles"
+            @vdropzone-success="handleUploadSuccess"
             :useCustomSlot=true
         >
         <div class="dropzone-custom-content">
@@ -37,9 +41,23 @@
             },
             images: {
                 type: Array,
+                default: () => [],
             },
             label: {
                 type: String,
+            },
+            resourceId: {
+              type: String,
+            },
+            resource: {
+                type: String,
+            },
+            collectionName: {
+                type: String,
+            },
+            isEditAction: {
+                type: Boolean,
+                default: false,
             }
         },
         data: function () {
@@ -50,11 +68,15 @@
                     maxFiles: this.numberOfImages,
                     acceptedFiles: 'image/*',
                     thumbnailWidth: 300,
-                }
+                },
+                input: [],
             }
         },
         methods: {
             attachExistingFiles: function () {
+                if (this.images.length === 0) {
+                    return;
+                }
                 this.images.forEach(image => {
                     axios.get(`/admin/media/${image.id}`)
                         .then(({ data }) => {
@@ -68,7 +90,6 @@
             },
             handleImageUpload : function (file) {
                 console.log("upload");
-                // console.log(file)
             },
             handleImageDelete: function(file) {
                 console.log("delete");
@@ -78,11 +99,19 @@
                 this.$refs.dropzone.removeAllFiles();
                 this.$refs.dropzone.manuallyAddFile(file);
             },
+            handleUploadSuccess: function(file, response) {
+                this.input.push({
+                    'name' : response.name,
+                    'originalName': response.originalName
+                });
+            },
             attachPayloadToFile: function(file, xhr, formData) {
-                console.log(formData);
-                formData.append("resource", "App\\Tour");
-                formData.append("resourceId", 1);
-                formData.append("collection", "hero_original");
+                if (this.isEditAction) {
+                    formData.append("resourceId", this.resourceId);
+                    formData.append("resource", this.resource);
+                    formData.append("collectionName", this.collectionName);
+                }
+
                 formData.append("_token", window.csrfToken.content);
             }
         }
