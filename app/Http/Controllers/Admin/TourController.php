@@ -81,7 +81,7 @@ class TourController extends Controller
 
         $request->session()->flash('status', 'Tour deleted successfully.');
 
-        return redirect()->route('tours.index');
+        return redirect()->route('admin.tours.index');
     }
 
     /**

@@ -11,6 +11,16 @@ use Spatie\Menu\Link;
 
 class MenuFactory extends AbstractMenuFactory
 {
+    /**
+     * @var MenuItemsProvider
+     */
+    protected $itemsProvider;
+
+    public function __construct(MenuItemsProvider $itemsProvider)
+    {
+        $this->itemsProvider = $itemsProvider;
+    }
+
     public function create(): MenuDto
     {
         $menu = Menu::build($this->itemsProvider->all(), function (Menu $menu, $label, $link) {

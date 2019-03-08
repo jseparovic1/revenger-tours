@@ -9,8 +9,9 @@
         <div class="flex flex-col">
             <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
                 <div class="rounded overflow-hidden bg-white mx-2 w-full">
-                    <div class="px-6 py-6">
+                    <div class="px-6 py-6 flex justify-between">
                         <div class="text-xl">Manage tour categories</div>
+                        <a href="{{ route('admin.tours.create') }}" class="py-2 px-4 border rounded-full text-black hover:border-brand">+ CREATE TOUR</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table text-black">
@@ -31,14 +32,14 @@
                                     <td>{{ \Illuminate\Support\Str::words($tour->hero_description, 6) }}</td>
                                     <td>€ {{ $tour->price }} </td>
                                     <td>{{ $tour->type }} </td>
-                                    <td>{{ $tour->updated_at }}</td>
+                                    <td>{{ $tour->updated_at->diffForHumans() }}</td>
                                     <td class="flex">
-                                        <a class="py-2 px-4 bg-grey-darkest rounded-full text-white" href="{{ route('tours.show', ['tour' => $tour->slug]) }}">SHOW</a>
-                                        <a class="py-2 px-4 bg-info-dark rounded-full text-white" href="{{ route('admin.tours.edit', ['tour' => $tour->slug]) }}">EDIT</a>
+                                        <a class="py-2 px-4 border rounded-full text-black hover:text-grey" href="{{ route('tours.show', ['tour' => $tour->slug]) }}">SHOW</a>
+                                        <a class="py-2 px-4 border rounded-full text-black hover:text-grey" href="{{ route('admin.tours.edit', ['tour' => $tour->slug]) }}">EDIT</a>
                                         <form action="{{ route('admin.tours.destroy', ['tour' => $tour]) }}" method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <button class="py-2 px-4 bg-brand-darker rounded-full text-white" onclick="confirm('Are you sure to delete this tour')" >DELETE</button>
+                                            @method('DELETE')
+                                            <button class="py-2 px-4 bg-brand-darker rounded-full text-white hover:text-grey">DELETE</button>
                                         </form>
                                     </td>
                                 </tr>

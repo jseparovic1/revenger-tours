@@ -21,7 +21,11 @@
                                 @include('components.form.imageUpload', [
                                     'name' => 'hero',
                                     'images' => $resource->getMedia("hero_original"),
-                                    'label' => 'Hero image'
+                                    'label' => 'Hero image',
+                                    'edit' => 1,
+                                    'resource' => $resource,
+                                    'collectionName' => 'hero_original',
+                                    'resourceId' => $resource->id
                                  ])
                             </div>
                             @include('admin.tours._form')

@@ -6,6 +6,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
 use Illuminate\Filesystem\Filesystem;
 
@@ -37,6 +38,21 @@ class ImageController
     public function store(Request $request)
     {
         $file = $request->file('file');
+
+        if ($request->has('resource')) {
+            $resource = $request->input('resource');
+            $collectionName = $request->input('collectionName');
+            $id = $request->input('resourceId');
+
+            /** @var HasMedia $resourceFromDb */
+            $resourceFromDb = $resource::findOrFail($id);
+            $resourceFromDb->addMedia($file)->toMediaCollection($collectionName);
+
+             return response()->json([
+                 'name' => $file->getClientOriginalName(),
+                 'originalName' => $file->getClientOriginalName(),
+             ]);
+        }
 
         $fileName = sprintf("%s_%s", Str::uuid(), $file->getClientOriginalName());
 

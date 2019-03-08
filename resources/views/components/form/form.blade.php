@@ -1,12 +1,3 @@
-@php
-    /**
-    props
-        action
-        method
-        class
-    **/
-@endphp
-
 @if(mb_strtolower($method) === 'put' || mb_strtolower($method) === 'patch')
     @php
         $methodHelper = mb_strtoupper($method);

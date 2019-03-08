@@ -10,8 +10,8 @@
         </li>
         <li class="w-full h-full py-3 px-2 border-b align-bottom">
         <li class="w-full h-full py-3 px-2">
-            <form action="{{ route('auth.logout') }}">
-                @method('post')
+            <form action="{{ route('auth.logout') }}" method="post">
+                @csrf
                 <button type="submit" class=" font-hairline hover:font-normal text-sm text-nav-item no-underline font-semibold text-white">
                     Log Out
                 </button>

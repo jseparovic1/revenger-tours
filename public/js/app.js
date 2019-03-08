@@ -1837,7 +1837,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   props: {
     numberOfImages: {
       type: Number,
-      default: 4
+      default: 1
     },
     images: {
       type: Array,
@@ -1922,12 +1922,19 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
       this.$refs.dropzone.manuallyAddFile(file);
     },
     handleUploadSuccess: function handleUploadSuccess(file, response) {
+      console.log(response);
       this.input.push({
         'name': response.name,
         'originalName': response.originalName
       });
     },
     attachPayloadToFile: function attachPayloadToFile(file, xhr, formData) {
+      if (this.isEditAction) {
+        formData.append("resourceId", this.resourceId);
+        formData.append("resource", this.resource);
+        formData.append("collectionName", this.collectionName);
+      }
+
       formData.append("_token", window.csrfToken.content);
     }
   }
