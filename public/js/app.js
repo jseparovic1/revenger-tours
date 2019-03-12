@@ -2089,7 +2089,8 @@ __webpack_require__.r(__webpack_exports__);
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
-    action: String
+    action: String,
+    privateTour: String
   },
   data: function data() {
     return {
@@ -2101,6 +2102,9 @@ __webpack_require__.r(__webpack_exports__);
       }),
       showSuccess: false
     };
+  },
+  mounted: function mounted() {
+    this.form.subject = this.$props.privateTour;
   },
   methods: {
     handleFormSubmit: function handleFormSubmit() {

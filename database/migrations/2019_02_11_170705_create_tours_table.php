@@ -21,10 +21,10 @@ class CreateToursTable extends Migration
             $table->integer('price');
             $table->string('type')->default('normal');
             $table->boolean('featured')->default(1);
-            $table->string('hero_short_description')->nullable();
-            $table->string('hero_description')->nullable();
+            $table->text('hero_short_description')->nullable();
+            $table->text('hero_description')->nullable();
             $table->boolean('recommended')->default(1);
-            $table->string('card_description')->nullable();
+            $table->text('card_description')->nullable();
             $table->json('itinerary')->nullable();
             $table->string('departure_location')->nullable();
             $table->string('departure_time')->nullable();

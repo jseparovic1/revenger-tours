@@ -1,6 +1,5 @@
 @tailwind preflight;
 @tailwind components;
-@tailwind utilities;
 
 @import "~swiper/dist/css/swiper.min.css";
 @import "components/buttons";
@@ -128,3 +127,5 @@ section {
         z-index: 2;
     }
 }
+
+@tailwind utilities;

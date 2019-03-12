@@ -73,6 +73,7 @@
     export default {
         props: {
             action: String,
+            privateTour: String,
         },
         data: function () {
             return {
@@ -84,6 +85,9 @@
                 }),
                 showSuccess: false,
             }
+        },
+        mounted: function () {
+            this.form.subject = this.$props.privateTour;
         },
         methods: {
             handleFormSubmit: function () {

@@ -4,6 +4,10 @@
     'imageUrl' => asset('images/static/private.jpg'),
 ])
 
+@php
+/** @var $tour \App\Tour */
+@endphp
+
 @section('page')
     <section>
         <div class="container flex flex-col lg:flex-row">
@@ -12,6 +16,18 @@
                 <p>We offer you private tours to any destination on the beautiful Adriatic coast. If you are a bigger or smaller group and you want to enyoj the islands by yourself, witouth other passengers, just contact us. Tell us which islands you want to visit, or let us organize and recommend you a day trip, to your needs and budget.</p>
                 <p>During the tour our professional team will take care of you, to make your holidays unforgettable. Exploring the natural beauty of islands like Hvar, Brac, Pakleni islands or Vis will create magical moments for you! We promise you best quality for the best price!
                 <a class="text-brand text-bold" href="{{ route('request.general.show') }}">Contact us!</a></p>
+                <p>We recommend you following private tours</p>
+                @forelse($tours as $tour)
+                    <a class="flex flex-col bg-white px-4 py-2 text-black hover:text-black border hover:border-brand"
+                       href="{{ route('request.general.show', ['tour' => $tour->id]) }}"
+                    >
+                        <h4 class="text-black">{{ $tour->title }}</h4>
+                        <p class="m-0">{{ $tour->card_description }}</p>
+                    </a>
+                @empty
+                    <p>...</p>
+                @endforelse
+
             </main>
             <aside class="w:full lg:w-1/3">
                 @include('tours._partials.help')
