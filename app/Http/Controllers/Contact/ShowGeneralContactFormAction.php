@@ -13,10 +13,11 @@ class ShowGeneralContactFormAction
     {
         if($request->has('tour')) {
             $tour = Tour::findOrFail($request->get('tour'));
+            $privateTour = "Private tour request for {$tour->title}";
         }
 
         return response()->view('contact.general', [
-            'privateTour' => "Private tour request for {$tour->title}" ?? ''
+            'privateTour' =>  $privateTour ?? ''
         ]);
     }
 }
