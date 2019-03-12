@@ -9,7 +9,7 @@ class ToursSeeder extends Seeder
     {
         /** @var Tour $blueLagoon */
         $blueLagoon = factory(\App\Tour::class)->create([
-            'title' => 'Blue lagoon',
+            'title' => 'Trogir - Blue lagoon',
         ]);
 
         $blueLagoon
@@ -29,5 +29,21 @@ class ToursSeeder extends Seeder
             ->preservingOriginal()
             ->toMediaCollection('hero_original')
         ;
+
+        /**
+         * Private Tours
+         */
+        factory(\App\Tour::class)->create([
+            'title' => 'Blue Cave private tour',
+            'price' => '800',
+            'type' => 'private',
+            'hero_short_description' => '3 islands tour',
+        ]);
+        factory(\App\Tour::class)->create([
+            'title' => 'Hvar blue lagoon private tour',
+            'price' => '500',
+            'type' => 'private',
+            'hero_short_description' => '3 islands tour',
+        ]);
     }
 }

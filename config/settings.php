@@ -23,16 +23,15 @@ return [
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet, neque ac pharetra porta,dui ligula volutpat enim, et tempus libero mauris et nulla. Maecenas sit amet nisi eu risus viverra rhoncus ut et massa.',
     ],
 
-
     'tours_index_title' => "Enjoy beautiful tours carefully created to give you best experience. Bla Bla",
 
     'help_box_tour' => [
         'title' => 'Need help?',
         'description' => 'If you need any help regarding trip booking feel free to contact us.'
     ],
+
     'help_box_private' => [
         'title' => '',
         'description' => ''
     ],
-
 ];

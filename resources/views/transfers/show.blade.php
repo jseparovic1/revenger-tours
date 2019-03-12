@@ -7,7 +7,7 @@
 @section('page')
     <section>
         <div class="container flex flex-col lg:flex-row tour-content">
-            <main class="w-full flex-1 mb-10 pr-4 text-lg">
+            <main class="w-full flex-1 mb-10 pr-4">
                 <h1 class="mt-0">Transfers</h1>
                 <div>
                     <p class="pb-10">Do you need a transfer to an island? Lot of luggage?
