@@ -12,7 +12,7 @@ $factory->define(App\Tour::class, function (Faker $faker) {
         'featured' => true,
         'type' => 'normal',
         'recommended' => true,
-        'card_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
+        'short_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
         'itinerary' => [
             [
                 'hour' => '07:30h*',

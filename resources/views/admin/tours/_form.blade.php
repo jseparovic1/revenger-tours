@@ -17,7 +17,7 @@
     @include('components.form.textarea', ['name' => 'hero_description'])
 </div>
 <div class="form-control">
-    @include('components.form.textarea', ['name' => 'card_description'])
+    @include('components.form.textarea', ['name' => 'short_description'])
 </div>
 <div class="form-control">
     @include('components.form.text', ['name' => 'departure_time'])

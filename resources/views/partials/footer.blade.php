@@ -6,8 +6,7 @@
                     <span class="text-brand font-bold text-lg">Revenger</span>
                     <span class="text-white font-bold text-lg">Tours</span>
                 </div>
-                <p class="text-white">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet, neque ac pharetra porta, dui ligula volutpat enim, et tempus libero mauris et nulla. Maecenas sit amet nisi eu risus viverra rhoncus ut et massa. </p>
+                <p class="text-white">{{ config('settings.footer.description') }}</p>
                 <div class="mt-4 flex">
                     <a>@include('svg.fb', ['class' => 'h-6 w-6 text-white hover:text-brand-light'])</a>
                 </div>

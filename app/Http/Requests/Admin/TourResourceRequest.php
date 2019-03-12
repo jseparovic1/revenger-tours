@@ -29,13 +29,9 @@ class TourResourceRequest extends FormRequest
             'hero_short_description' => 'nullable|string',
             'hero_description' => 'nullable|string',
             'recommended' => 'sometimes',
-            'card_description' => 'nullable|string',
+            'short_description' => 'required|string',
             'hero' => 'required',
         ];
-
-        if ($this->input('recommended')) {
-            $rules['card_description'] = 'required';
-        }
 
         if ($this->input('featured')) {
             $rules['hero_short_description'] = 'required';

@@ -1,4 +1,6 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'description' => config('settings.main_description'),
+])
 
 @section('content')
     @include('partials.slider')
@@ -15,9 +17,10 @@
     </section>
     @include('partials.featured.tours')
     @include('partials.singleFeaturedTour', [
-        'title' => 'Blue cave trip',
-        'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
-        'callToAction' => 'INFO'
+        'title' => config('settings.main_featured_tour.title'),
+        'description' => config('settings.main_featured_tour.description'),
+        'callToAction' => config('settings.main_featured_tour.action'),
+        'background' => config('settings.main_featured_tour.background'),
     ])
     @include('partials.why')
 @endsection

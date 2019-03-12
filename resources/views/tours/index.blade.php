@@ -7,9 +7,7 @@
 @section('page')
     <section class="mx-auto">
         <div class="container">
-            <p class="text-grey-darker font-semibold">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales.
-            </p>
+            <p class="text-grey-darker font-semibold">{{ config('settings.tours_index_title') }}</p>
         </div>
     </section>
 
@@ -27,8 +25,8 @@
                             </div>
                             <div class="w-full lg:w-5/6 flex flex-col justify-around px-5 pb-5">
                                 <h1 class="text-xl font-bold text-black mb-2">{{ $tour->title }}</h1>
-                                <p class="text-lg mb-4 text-grey-darker">{{ str_limit($tour->card_description, 100, '...') }}</p>
-                                <button class="btn btn-primary rounded-b-full">BOOK NOW</button>
+                                <p class="text-lg mb-4 text-grey-darker">{{ str_limit($tour->short_description, 100, '...') }}</p>
+                                <button class="btn btn-primary rounded-full">BOOK NOW</button>
                             </div>
                         </div>
                     </a>

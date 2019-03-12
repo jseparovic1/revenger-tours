@@ -22,7 +22,7 @@
                        href="{{ route('request.general.show', ['tour' => $tour->id]) }}"
                     >
                         <h4 class="text-black">{{ $tour->title }}</h4>
-                        <p class="m-0">{{ $tour->card_description }}</p>
+                        <p class="m-0">{{ $tour->short_description }}</p>
                     </a>
                 @empty
                     <p>...</p>

@@ -24,7 +24,7 @@ class CreateToursTable extends Migration
             $table->text('hero_short_description')->nullable();
             $table->text('hero_description')->nullable();
             $table->boolean('recommended')->default(1);
-            $table->text('card_description')->nullable();
+            $table->text('short_description')->nullable();
             $table->json('itinerary')->nullable();
             $table->string('departure_location')->nullable();
             $table->string('departure_time')->nullable();

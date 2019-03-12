@@ -6,6 +6,7 @@
     'title' => $tour->title,
     'breadcrumbUrl' => route('tours.show', $tour->slug),
     'imageUrl' => optional($tour->getFirstMedia('hero_original'))->getFullUrl('hero'),
+    'description' => $tour->short_description,
     'turnOffFixedNav' => true
 ])
 
@@ -37,8 +38,8 @@
             <aside class="w:full lg:w-1/3 lg:-mt-32 z-10 sticky">
                 @include('tours._partials.book')
                 @include('tours._partials.help', [
-                    'title' => 'Need help?',
-                    'description' => 'If you need any help regarding trip booking feel free to contact us.'
+                    'title' => config('settings.settings.help_box_tour.title'),
+                    'description' => config('settings.settings.help_box_tour.description'),
                 ])
             </aside>
         </div>
