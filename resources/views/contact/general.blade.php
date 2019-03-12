@@ -18,16 +18,22 @@
                 </div>
             </main>
             <aside class="w:full lg:w-1/3">
-                <h1 class="text-2xl">Other contact channels</h1>
-                <div class="pt-4">
-                    <h4 class="mt-2">Address</h4>
-                    <span>Jonijeva 31, Split</span>
-
-                    <h4 class="mt-2">Number</h4>
-                    {{ config('settings.contact.phone') }}
-
-                    <h4 class="mt-2">Email</h4>
-                    {{ config('settings.contact.email') }}
+                <div class="pt-4 justify-between md:flex md:flex-row lg:flex-col">
+                    @include('contact._channel', [
+                        'title' => 'Make A Call',
+                        'svg' => 'svg.phone',
+                        'text' => config('settings.contact.email')
+                    ])
+                    @include('contact._channel', [
+                       'title' => 'Send A Mail',
+                       'svg' => 'svg.mail',
+                       'text' => config('settings.contact.email')
+                   ])
+                    @include('contact._channel', [
+                       'title' => 'Find Us',
+                       'svg' => 'svg.phone',
+                       'text' => config('settings.contact.phone')
+                   ])
                 </div>
             </aside>
         </div>
