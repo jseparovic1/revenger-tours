@@ -7,6 +7,7 @@ namespace Tests\Feature\Tour;
 use App\Tour;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Storage;
 
 class CreateTourTest extends TestCase
 {
@@ -35,15 +36,6 @@ class CreateTourTest extends TestCase
         ])->assertSessionHasErrors([
             'title', 'details', 'price', 'type',
         ]);
-    }
-
-    /** @test */
-    public function tour_requires_additional_data_when_marked_as_recommended()
-    {
-        $this->createTour([
-            'card_description' => '',
-            'recommended' => 'true'
-        ])->assertSessionHasErrors(['card_description']);
     }
 
     /** @test */

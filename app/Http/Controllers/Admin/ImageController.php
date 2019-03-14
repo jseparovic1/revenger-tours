@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Services\FileNameGenerator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Contracts\Filesystem\Factory as Filesystem;
 
 class ImageController
 {
@@ -17,12 +17,18 @@ class ImageController
      */
     private $filesystem;
 
-    public function __construct(Filesystem $filesystem)
+    /**
+     * @var FileNameGenerator
+     */
+    private $fileNameGenerator;
+
+    public function __construct(Filesystem $filesystem, FileNameGenerator $fileNameGenerator)
     {
         $this->filesystem = $filesystem;
+        $this->fileNameGenerator = $fileNameGenerator;
     }
 
-    public function show(string $mediaId, Request $request)
+    public function show(string $mediaId)
     {
         /** @var Media $media */
         $media = Media::findOrFail($mediaId);
@@ -38,9 +44,9 @@ class ImageController
     public function store(Request $request)
     {
         $file = $request->file('file');
+        $resource = $request->input('resource');
 
-        if ($request->has('resource')) {
-            $resource = $request->input('resource');
+        if ($resource) {
             $collectionName = $request->input('collectionName');
             $id = $request->input('resourceId');
 
@@ -54,9 +60,11 @@ class ImageController
              ]);
         }
 
-        $fileName = sprintf("%s_%s", Str::uuid(), $file->getClientOriginalName());
-
-        $file->move($this->storagePath(), $fileName);
+        $file->storeAs(
+            '.',
+            $fileName = $this->fileNameGenerator->forImage($file->getClientOriginalName()),
+            ['disk' => 'temporary']
+        );
 
         return response()->json([
             'name' => $fileName,
