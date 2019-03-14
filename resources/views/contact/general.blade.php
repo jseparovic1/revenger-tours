@@ -5,10 +5,10 @@
 ])
 
 @section('page')
-    <section class="max-w-4xl mx-auto">
-        <div class="flex flex-col lg:flex-row">
-            <main class="w-full flex-1 pr-4 text-lg bg-w">
-                <div class="p-10 bg-white">
+    <section class="w-full">
+        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row">
+            <main class="flex-1 pr-4 text-lg">
+                <div class="p-6 lg:p-10 bg-white">
                     <send-contact-request
                         action='{{ route("request.general.store")}}'
                         private-tour='{{ $privateTour }}'
@@ -16,7 +16,7 @@
                     </send-contact-request>
                 </div>
             </main>
-            <aside class="w:full lg:w-1/3">
+            <aside class="w-full lg:w-1/3">
                 <div class="pt-4 justify-between md:flex md:flex-row lg:flex-col">
                     @include('contact._channel', [
                         'title' => 'Make A Call',
