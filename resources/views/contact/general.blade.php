@@ -8,7 +8,6 @@
     <section>
         <div class="container flex flex-col lg:flex-row">
             <main class="w-full flex-1 pr-4 text-lg bg-w">
-                <h1 class="text-2xl">Contact</h1>
                 <div class="p-10 bg-white">
                     <send-contact-request
                         action='{{ route("request.general.store")}}'

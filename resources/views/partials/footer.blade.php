@@ -1,5 +1,5 @@
 <footer class="w-full bg-black mx-auto">
-    <section class="container text-grey">
+    <section class="max-w-3xl mx-auto text-grey">
         <div class="sm:flex mb-4 justify-between">
             <div class="sm:w-1/3 sm:mt-0 mt-8 h-auto mb-5">
                 <div class="mb-2">

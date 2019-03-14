@@ -32,14 +32,17 @@ form {
         }
 
         label {
-            @apply text-grey-light uppercase font-bold tracking-wide px-2 py-2;
+            @apply text-grey-light uppercase font-bold px-2 py-2 text-sm;
+            @md {
+                @apply text-base;
+            }
         }
     }
 
     .form-input {
-        @apply border py-2 px-3 text-grey-darkest mb-2;
+        @apply border py-2 px-3 text-grey-darkest mb-2 text-sm;
         @screen md {
-            @apply py-4;
+            @apply py-4 text-base;
         }
     }
     .is-invalid {

@@ -11,11 +11,11 @@
         </div>
     </section>
 
-    <section class="container focus:bg-grey-light">
+    <section class="max-w-3xl mx-auto focus:bg-grey-light">
         <div class="px-2">
             <div class="flex flex-wrap -mx-2">
                 @foreach($tours as $tour)
-                    <a href="{{ route('tours.show', $tour->slug) }}" class="w-full xl:w-1/2 px-2 flex-no-shrink mb-8">
+                    <a href="{{ route('tours.show', $tour->slug) }}" class="w-full max-w-xl lg:w-1/2 px-2 flex-no-shrink mb-8 mx-auto">
                         <div class="h-full flex flex-col sm:flex-row justify-between hover:shadow mb-10">
                             <div class="w-full flex img-zoom-wrapper">
                                 <img

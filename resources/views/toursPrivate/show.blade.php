@@ -10,7 +10,7 @@
 
 @section('page')
     <section>
-        <div class="container flex flex-col lg:flex-row">
+        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row">
             <main class="w-full flex-1 mb-10 pr-4 ">
                 <div class="tour-content">
                     <h1>Private tour</h1>
@@ -25,7 +25,7 @@
                         >
                             <h3 class="text-black">{{ $tour->title }}</h3>
                             <p class="mt-2">{{ $tour->short_description }}</p>
-                            <div class="mt-5 md:absolute md:mb-24 md:mr-5 md:pin-r md:pin-b text-center">
+                            <div class="mt-5 lg:absolute lg:mb-20 lg:mr-5 lg:pin-r lg:pin-b text-center">
                                 <span class="btn btn-primary text-lg"><span class="text-sm">from</span> {{ $tour->price }} €</span>
                             </div>
                         </a>

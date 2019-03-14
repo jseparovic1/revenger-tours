@@ -1,5 +1,5 @@
 <section class="bg-white md:bg-transparent">
-    <div class="container">
+    <div class="max-w-3xl mx-auto">
         <div class="flex flex-col items-center space-between">
             <h1 class="heading-title text-center">Chose from our recommended tours</h1>
             <p class="heading-description">
