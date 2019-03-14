@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constants\Disk;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TourResourceRequest;
 use App\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TourController extends Controller
 {
@@ -30,7 +32,7 @@ class TourController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TourResourceRequest $request, Tour $tour)
+    public function store(TourResourceRequest $request)
     {
         $validatedData = $request->validated();
 
@@ -78,7 +80,6 @@ class TourController extends Controller
     public function destroy(Tour $tour, Request $request)
     {
         $tour->delete();
-
         $request->session()->flash('status', 'Tour deleted successfully.');
 
         return redirect()->route('admin.tours.index');
@@ -88,7 +89,7 @@ class TourController extends Controller
      * @param Tour $tour
      * @param $hero
      */
-    public function uploadImages(Tour $tour, $hero, $collection): void
+    private function uploadImages(Tour $tour, $hero, $collection): void
     {
         $storedMedia = $tour->media->pluck('file_name')->toArray();
 
@@ -96,7 +97,7 @@ class TourController extends Controller
             ->reject(function($image) use ($storedMedia) {
                 return in_array($image, $storedMedia);
             })->each(function ($image) use ($tour, $collection) {
-                $tour->addMedia(storage_path('tmp/uploads/') . $image)->toMediaCollection($collection);
+                $tour->addMedia(Storage::disk(Disk::TEMPORARY)->path($image))->toMediaCollection($collection);
             });
     }
 }

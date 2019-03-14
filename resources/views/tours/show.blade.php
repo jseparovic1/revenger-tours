@@ -25,7 +25,7 @@
                         'priceOffSeasons' => '130'
                     ])
                     @isset($tour->itinerary)
-                        @include('tours._partials.itinerary', ['itinerary' => $tour->itinerary])
+                        @includeIf($tour->itinerary, 'tours._partials.itinerary', ['itinerary' => $tour->itinerary])
                     @endisset
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,

@@ -7,10 +7,59 @@ namespace Tests\Feature;
 use App\Tour;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Tests\TestCase;
+use Illuminate\Support\Facades\Storage;
+use App\Constants\Disk;
+use Illuminate\Http\UploadedFile;
 
 class ManageToursTest extends TestCase
 {
     use InteractsWithDatabase;
+
+    /** @test */
+    public function tour_create_request_is_validated()
+    {
+        $this->createTour([
+            'title' => '',
+            'details' => '',
+            'price' => null,
+            'type' => '',
+        ])->assertSessionHasErrors([
+            'title',
+            'details',
+            'price',
+            'type',
+        ]);
+    }
+
+    /** @test */
+    public function tour_requires_additional_data_when_marked_as_featured()
+    {
+        $this->createTour([
+            'hero_description' => '',
+            'hero_short_description' => '',
+            'featured' => 'true'
+        ])->assertSessionHasErrors(['hero_description', 'hero_short_description']);
+    }
+
+    /** @test */
+    public function a_user_can_create_tour()
+    {
+        $this->uploadFakeImage($image = 'revenger.jpg');
+
+        $this->createTour($attributes = [
+            'title' => 'Tour title',
+            'type' => 'normal',
+            'hero' => [$image]
+        ])
+            ->assertRedirect(route('admin.tours.edit', ['tour' => 'tour-title']));
+
+        array_forget($attributes, 'hero');
+
+        $this->assertDatabaseHas('tours', $attributes);
+
+        $this->get(route('tours.show', ['tour' => 'tour-title']))
+            ->assertSee($attributes['title']);
+    }
 
     /** @test */
     public function it_shows_all_tours()
@@ -26,6 +75,29 @@ class ManageToursTest extends TestCase
     }
 
     /** @test */
+    public function a_user_can_delete_tour()
+    {
+        $tour = factory(Tour::class)->create();
+
+        $this->withoutExceptionHandling();
+
+        $this
+            ->asAuthenticatedUser()
+            ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
+            ->assertRedirect(route('admin.tours.index'));
+    }
+
+    /** @test */
+    public function a_guest_cant_delete_tour()
+    {
+        $tour = factory(Tour::class)->create();
+
+        $this
+            ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
+            ->assertRedirect();
+    }
+
+    /** @test */
     public function a_user_cant_edit_tour_with_invalid_data()
     {
         $tour = factory(Tour::class)->create();
@@ -37,51 +109,60 @@ class ManageToursTest extends TestCase
                 'title',
                 'details',
                 'price',
+                'type',
+                'short_description',
+                'hero'
             ]);
     }
 
     /** @test */
-    public function a_user_can_edit_tour()
+    public function a_user_can_edit_tour_with_invalid_data()
     {
         $tour = factory(Tour::class)->create();
+
+        $this->uploadFakeImage($image = 'revenger.jpg');
 
         $this
             ->asAuthenticatedUser()
             ->patch(route('admin.tours.update', ['tour' => $tour->slug]), $attributes = [
-                "title" => "Edited",
-                "details" => "Edited",
-                "price" => "400",
-                "type" => "private",
-                "recommended" => "0",
-                "featured" => "0",
-                "departure_time" => "Edited",
-                "included" => "Edited,Professional",
-                "excluded" => "Edited, Massage",
+                'title' => 'Edited',
+                'hero' => [$image],
+                'details' => 'Edited',
+                'short_description' => 'Short description edited',
+                'price' => '400',
+                'type' => 'private',
+                'recommended' => '0',
+                'featured' => '0',
+                'departure_time' => 'Edited',
+                'included' => 'Edited,Professional',
+                'excluded' => 'Edited, Massage',
             ])
-            ->assertSessionHas('status', 'Tour edited successfully.')
-        ;
+            ->assertSessionHas('status', 'Tour edited successfully.');
+
+        array_forget($attributes, 'hero');
 
         $this->assertDatabaseHas('tours', $attributes);
     }
 
-    /** @test */
-    public function a_user_can_delete_tour()
+    protected function uploadFakeImage(string $image): void
     {
-        $tour = factory(Tour::class)->create();
-
-        $this
-            ->asAuthenticatedUser()
-            ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
-            ->assertRedirect(route('tours.index'));
+        Storage::fake(Disk::TEMPORARY);
+        Storage::disk(Disk::TEMPORARY)->putFileAs(
+            '',
+            UploadedFile::fake()->image($image),
+            $image
+        );
     }
 
-    /** @test */
-    public function a_guest_cant_delete_tour()
+    private function createTour($overrides = [])
     {
-        $tour = factory(Tour::class)->create();
+        $tour = factory(Tour::class)->make($overrides);
 
-        $this
-            ->delete(route('admin.tours.destroy', ['tour' => $tour->slug]))
-            ->assertRedirect();
+        $data = $tour->toArray();
+        $data['itinerary'] = json_encode($data['itinerary']);
+
+        return $this
+            ->asAuthenticatedUser()
+            ->post(route('admin.tours.store'), $data);
     }
 }

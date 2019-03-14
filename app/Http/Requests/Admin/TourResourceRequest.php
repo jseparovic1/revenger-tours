@@ -26,8 +26,6 @@ class TourResourceRequest extends FormRequest
             'included' => 'nullable|string',
             'excluded' => 'nullable|string',
             'featured' => 'sometimes',
-            'hero_short_description' => 'nullable|string',
-            'hero_description' => 'nullable|string',
             'recommended' => 'sometimes',
             'short_description' => 'required|string',
             'hero' => 'required',

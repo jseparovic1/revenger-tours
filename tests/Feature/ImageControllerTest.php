@@ -11,14 +11,13 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
 use Tests\TestCase;
 use Illuminate\Http\UploadedFile;
-use Mockery;
 
 class ImageControllerTest extends TestCase
 {
     /** @test */
     public function it_stores_temporary_uploaded_image()
     {
-        $this->mock(FileNameGenerator::class, function (Mockery\Mock $mock) {
+        $this->mock(FileNameGenerator::class, function ($mock) {
              $mock
                 ->shouldReceive('forImage')
                 ->with('revenger.jpg')
