@@ -7,7 +7,6 @@ namespace Tests\Feature\Tour;
 use App\Tour;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
 use Tests\TestCase;
-use Illuminate\Support\Facades\Storage;
 
 class CreateTourTest extends TestCase
 {

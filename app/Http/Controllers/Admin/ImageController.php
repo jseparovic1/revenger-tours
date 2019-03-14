@@ -4,27 +4,21 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers\Admin;
 
+use App\Constants\Disk;
 use App\Services\FileNameGenerator;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\Models\Media;
-use Illuminate\Contracts\Filesystem\Factory as Filesystem;
 
 class ImageController
 {
-    /**
-     * @var Filesystem
-     */
-    private $filesystem;
-
     /**
      * @var FileNameGenerator
      */
     private $fileNameGenerator;
 
-    public function __construct(Filesystem $filesystem, FileNameGenerator $fileNameGenerator)
+    public function __construct(FileNameGenerator $fileNameGenerator)
     {
-        $this->filesystem = $filesystem;
         $this->fileNameGenerator = $fileNameGenerator;
     }
 
@@ -63,7 +57,7 @@ class ImageController
         $file->storeAs(
             '.',
             $fileName = $this->fileNameGenerator->forImage($file->getClientOriginalName()),
-            ['disk' => 'temporary']
+            ['disk' => Disk::TEMPORARY]
         );
 
         return response()->json([
@@ -83,14 +77,5 @@ class ImageController
             'status' => 200,
             'message' => 'Image deleted'
         ]);
-    }
-
-    protected function storagePath()
-    {
-        return tap(storage_path('tmp/uploads'), function ($path) {
-            if (!$this->filesystem->isDirectory($path) ) {
-                mkdir($path, 0777, true);
-            }
-        });
     }
 }
