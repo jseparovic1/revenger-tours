@@ -2501,9 +2501,8 @@ form .form-control input:focus,
 form .form-control select:focus,
 form .form-control textarea:focus {
   outline: 0;
-  font-weight: 600;
   border-width: 1px;
-  border-color: #27241d;
+  border-color: #d64545;
 }
 
 form .form-control select {

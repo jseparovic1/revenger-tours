@@ -20,7 +20,6 @@
                        type="text"
                        name="name"
                        id="name"
-                       placeholder="Your name"
                 />
                 <p v-if="form.errors.has('name')" v-text="form.errors.get('name')"
                    class="text-sm text-danger p-0 m-0"></p>
@@ -32,7 +31,6 @@
                        type="email"
                        name="email"
                        id="email"
-                       placeholder="Your email"
                 />
                 <p v-if="form.errors.has('email')" v-text="form.errors.get('email')"
                    class="text-sm text-danger p-0 m-0"></p>
@@ -55,7 +53,6 @@
                           v-model="form.message"
                           name="message"
                           id="message"
-                          placeholder="Your message"
                 ></textarea>
                 <p v-if="form.errors.has('message')" v-text="form.errors.get('message')" class="text-sm text-danger p-0 m-0"></p>
             </div>

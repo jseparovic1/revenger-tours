@@ -10,7 +10,7 @@ form {
             @apply w-full;
             cursor: text;
             &:focus {
-                @apply outline-none font-semibold border border-black;
+                @apply outline-none border border-brand-light;
             }
         }
 

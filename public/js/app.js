@@ -2083,9 +2083,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -29555,12 +29552,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-input md:mr-2",
-                attrs: {
-                  type: "text",
-                  name: "name",
-                  id: "name",
-                  placeholder: "Your name"
-                },
+                attrs: { type: "text", name: "name", id: "name" },
                 domProps: { value: _vm.form.name },
                 on: {
                   input: function($event) {
@@ -29602,12 +29594,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-input md:mr-2",
-                attrs: {
-                  type: "email",
-                  name: "email",
-                  id: "email",
-                  placeholder: "Your email"
-                },
+                attrs: { type: "email", name: "email", id: "email" },
                 domProps: { value: _vm.form.email },
                 on: {
                   input: function($event) {
@@ -29690,11 +29677,7 @@ var render = function() {
                   }
                 ],
                 staticClass: "form-input md:mr-2",
-                attrs: {
-                  name: "message",
-                  id: "message",
-                  placeholder: "Your message"
-                },
+                attrs: { name: "message", id: "message" },
                 domProps: { value: _vm.form.message },
                 on: {
                   input: function($event) {
