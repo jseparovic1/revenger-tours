@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @include('layouts._favicon')
-
+    @includeIf(env('APP.ENV') === 'production', 'layouts._analytics')
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal text-sm md:text-base">
     <div id="app" class="flex flex-col {{ $turnOffFixedNav ?? 'overflow-x-hidden'}}">
