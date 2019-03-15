@@ -56,9 +56,6 @@ class ManageToursTest extends TestCase
         array_forget($attributes, 'hero');
 
         $this->assertDatabaseHas('tours', $attributes);
-
-        $this->get(route('tours.show', ['tour' => 'tour-title']))
-            ->assertSee($attributes['title']);
     }
 
     /** @test */
