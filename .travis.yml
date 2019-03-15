@@ -20,7 +20,9 @@ cache:
     - $HOME/.composer/cache
 
 before_script:
+  - cp .env.travis .env
   - rm composer.lock
+  - composer self-update
   - composer install --no-progress --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
 
