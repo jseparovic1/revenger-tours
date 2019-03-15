@@ -13,10 +13,10 @@
     <section>
         <div class="w-full md:w-2/3 mx-auto">
             <div class="w-2/3 mx-auto mb-10">
-                <h1 class="py-3 text-xl text-center leading-tight heading-title">How this works?</h1>
+                <h1 class="py-3 text-center leading-tight heading-title">How this works?</h1>
                 <p class="mb-2 leading-loose">Since we don't have automated payment system,
                     we will manually check if your date is available to avoid double booking and then send you paypal
-                    invoice.
+                    invoice or bank account number.
                     You should only pay <strong>deposit</strong> to reserve your trip.
                 </p>
             </div>
