@@ -11,7 +11,7 @@
 @section('page')
     <section>
         <div class="max-w-3xl mx-auto flex flex-col lg:flex-row">
-            <main class="w-full flex-1 mb-10 pr-4 ">
+            <main class="w-full flex-1 mb-10 mr-0 lg:mr-12 ">
                 <div class="tour-content">
                     <h1>Private tour</h1>
                     <p>We offer you private tours to any destination on the beautiful Adriatic coast. If you are a bigger or smaller group and you want to enyoj the islands by yourself, witouth other passengers, just contact us. Tell us which islands you want to visit, or let us organize and recommend you a day trip, to your needs and budget.</p>

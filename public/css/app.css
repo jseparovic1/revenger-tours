@@ -2208,7 +2208,7 @@ th {
 
 @media (min-width: 1600px) {
   .slider-control {
-    right: 13%;
+    right: 15%;
   }
 }
 
@@ -2233,9 +2233,7 @@ th {
 }
 
 .tour {
-  transition: -webkit-transform .1s ease;
-  transition: transform .1s ease;
-  transition: transform .1s ease, -webkit-transform .1s ease;
+  transition: all .4s ease;
 }
 
 .tour:hover {
@@ -2618,8 +2616,8 @@ form .invalid-feedback {
 }
 
 .img-zoom-wrapper .img-zoom:hover {
-  -webkit-transform: scale(1.2);
-          transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
 }
 
 html {
@@ -4095,7 +4093,7 @@ section {
 }
 
 .font-sans {
-  font-family: Montserrat, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Lato, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 .font-serif {
@@ -5924,7 +5922,7 @@ section {
 }
 
 .shadow {
-  box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
 }
 
 .shadow-md {
@@ -5948,7 +5946,7 @@ section {
 }
 
 .hover\:shadow:hover {
-  box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
 }
 
 .hover\:shadow-md:hover {
@@ -5972,7 +5970,7 @@ section {
 }
 
 .focus\:shadow:focus {
-  box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+  box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
 }
 
 .focus\:shadow-md:focus {
@@ -8112,7 +8110,7 @@ section {
   }
 
   .sm\:font-sans {
-    font-family: Montserrat, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Lato, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .sm\:font-serif {
@@ -9933,7 +9931,7 @@ section {
   }
 
   .sm\:shadow {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .sm\:shadow-md {
@@ -9957,7 +9955,7 @@ section {
   }
 
   .sm\:hover\:shadow:hover {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .sm\:hover\:shadow-md:hover {
@@ -9981,7 +9979,7 @@ section {
   }
 
   .sm\:focus\:shadow:focus {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .sm\:focus\:shadow-md:focus {
@@ -12114,7 +12112,7 @@ section {
   }
 
   .md\:font-sans {
-    font-family: Montserrat, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Lato, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .md\:font-serif {
@@ -13935,7 +13933,7 @@ section {
   }
 
   .md\:shadow {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .md\:shadow-md {
@@ -13959,7 +13957,7 @@ section {
   }
 
   .md\:hover\:shadow:hover {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .md\:hover\:shadow-md:hover {
@@ -13983,7 +13981,7 @@ section {
   }
 
   .md\:focus\:shadow:focus {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .md\:focus\:shadow-md:focus {
@@ -16116,7 +16114,7 @@ section {
   }
 
   .lg\:font-sans {
-    font-family: Montserrat, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Lato, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .lg\:font-serif {
@@ -17937,7 +17935,7 @@ section {
   }
 
   .lg\:shadow {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .lg\:shadow-md {
@@ -17961,7 +17959,7 @@ section {
   }
 
   .lg\:hover\:shadow:hover {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .lg\:hover\:shadow-md:hover {
@@ -17985,7 +17983,7 @@ section {
   }
 
   .lg\:focus\:shadow:focus {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .lg\:focus\:shadow-md:focus {
@@ -20118,7 +20116,7 @@ section {
   }
 
   .xl\:font-sans {
-    font-family: Montserrat, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: Lato, system-ui, BlinkMacSystemFont, -apple-system, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   }
 
   .xl\:font-serif {
@@ -21939,7 +21937,7 @@ section {
   }
 
   .xl\:shadow {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .xl\:shadow-md {
@@ -21963,7 +21961,7 @@ section {
   }
 
   .xl\:hover\:shadow:hover {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .xl\:hover\:shadow-md:hover {
@@ -21987,7 +21985,7 @@ section {
   }
 
   .xl\:focus\:shadow:focus {
-    box-shadow: 0 15px 35px 0 rgba(42, 51, 83, .12), 0 5px 15px rgba(0, 0, 0, .06)!important;;
+    box-shadow: 0 4px 6px 0 hsla(0, 0%, 0%, .2)!important;;
   }
 
   .xl\:focus\:shadow-md:focus {

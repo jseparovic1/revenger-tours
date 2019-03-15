@@ -135,12 +135,11 @@ module.exports = {
 
     fonts: {
         'sans': [
-            'Montserrat',
+            'Lato',
             'system-ui',
             'BlinkMacSystemFont',
             '-apple-system',
             'Segoe UI',
-            'Roboto',
             'Oxygen',
             'Ubuntu',
             'Cantarell',
@@ -498,7 +497,7 @@ module.exports = {
     | Class name: .shadow-{size?}
     */
     shadows: {
-        default: '0 15px 35px 0 rgba(42,51,83,.12), 0 5px 15px rgba(0,0,0,.06)!important;',
+        default: '0 4px 6px 0 hsla(0, 0%, 0%, 0.2)!important;',
         'md': '0 4px 8px 0 rgba(0,0,0,0.12), 0 2px 4px 0 rgba(0,0,0,0.08)',
         'lg': '0 15px 30px 0 rgba(0,0,0,0.11), 0 5px 15px 0 rgba(0,0,0,0.08)',
         'inner': 'inset 0 2px 4px 0 rgba(0,0,0,0.06)',

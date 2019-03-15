@@ -24,7 +24,7 @@
             <div class="slider-control--next mb-2 px-4 flex flex-col justify-center items-center">
                 <span class="text-white text-4xl">></span>
             </div>
-            <div class="slider-control--prev px-4  flex flex-col justify-center items-center">
+            <div class="slider-control--prev px-4 flex flex-col justify-center items-center">
                 <span class="text-white text-4xl"><</span>
             </div>
         </div>

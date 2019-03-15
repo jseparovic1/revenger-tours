@@ -4,7 +4,8 @@
 
 @section('content')
     @include('partials.slider')
-    <section class="lg:hidden m-0 p-0">
+    {{--Small screen header--}}
+        <section class="lg:hidden m-0 p-0">
         <div class="hero flex justify-start px-4">
             @include('partials.hero', [
                 'title' => $singleFeatured->title,
@@ -15,6 +16,7 @@
             ])
         </div>
     </section>
+    {{--/Small screen header--}}
     @include('partials.featured.tours')
     @include('partials.singleFeaturedTour', [
         'title' => config('settings.main_featured_tour.title'),

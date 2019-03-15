@@ -16,7 +16,7 @@
             <div class="flex flex-wrap -mx-2">
                 @foreach($tours as $tour)
                     <a href="{{ route('tours.show', $tour->slug) }}" class="w-full max-w-xl lg:w-1/2 px-8 flex-no-shrink mb-10 mx-auto">
-                        <div class="h-full flex flex-col sm:flex-row justify-between hover:shadow mb-10">
+                        <div class="tour h-full flex flex-col sm:flex-row justify-between shadow mb-10 overflow-hidden rounded-lg">
                             <div class="w-full flex img-zoom-wrapper">
                                 <img
                                     class="h-auto w-full img-zoom"
