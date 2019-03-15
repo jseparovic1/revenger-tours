@@ -1,7 +1,7 @@
 @extends('admin.layouts.full')
 
 @section('content')
-    <div class="w-full max-w-md bg-black px-32 pt-6 pb-8 mb-4 rounded shadow-lg">
+    <div class="w-full max-w-lg px-32 pt-6 pb-8 mb-4 rounded shadow-lg" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="text-center py-4">
             <span class="text-brand font-bold text-2xl">Revenger</span>
             <span class="text-white font-bold text-2xl">Tours</span>
