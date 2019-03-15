@@ -7,14 +7,14 @@
             </p>
             <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch mb-4">
                 @foreach($recommended as $tour)
-                    @include('partials.featured.tour', [
+                    @include('home.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
                         'media' => optional($tour->getFirstMedia('hero_original'))->getUrl('hero') ?? asset('/images/default/tour.jpg'),
                         'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach
-                @include('partials.featured.tour', [
+                @include('home.featured.tour', [
                     'title' => 'Private tour',
                     'description' => 'You chose where, we drive!',
                     'media' => asset('images/tour-private/card.jpg'),

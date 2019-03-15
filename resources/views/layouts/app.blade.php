@@ -15,13 +15,13 @@
 <body class="font-sans font-normal antialiased text-black leading-normal text-sm md:text-base">
     <div id="app" class="flex flex-col {{ $turnOffFixedNav ?? 'overflow-x-hidden'}}">
         @if(isset($turnOffFixedNav) && $turnOffFixedNav)
-            @include('partials.nav', ['fixedOff' => true])
+            @include('layouts._nav', ['fixedOff' => true])
         @else
-            @include('partials.nav')
+            @include('layouts._nav')
         @endif
 
         @yield('content')
-        @include('partials.footer')
+        @include('layouts._footer')
     </div>
     @yield('javascript')
     <script src="{{ mix('js/app.js') }}"></script>

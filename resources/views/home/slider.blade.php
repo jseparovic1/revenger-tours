@@ -3,7 +3,7 @@
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
                 @component('components.slide')
-                    @include('partials.hero', [
+                    @include('home.hero', [
                        'title' => $tour->title,
                        'shortDescription' => $tour->hero_short_description,
                        'description' => $tour->hero_description,
