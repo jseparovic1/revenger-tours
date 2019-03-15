@@ -18,10 +18,16 @@ services:
 cache:
   directories:
     - $HOME/.composer/cache
+    - node_modules
 
 before_script:
+  - cp .env.travis .env
   - rm composer.lock
+  - composer self-update
   - composer install --no-progress --no-interaction --prefer-dist --no-suggest
+  - php artisan key:generate
+  - npm install
+  - npm run prod
 
 script:
   - vendor/bin/phpunit

@@ -5,8 +5,8 @@
 ])
 
 @section('page')
-    <section class="w-full">
-        <div class="max-w-4xl mx-auto flex flex-col lg:flex-row">
+    <section>
+        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row">
             <main class="flex-1 pr-4 text-lg">
                 <div class="p-6 lg:p-10 bg-white">
                     <send-contact-request

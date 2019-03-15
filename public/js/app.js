@@ -30335,6 +30335,7 @@ var render = function() {
       _vm._v(" "),
       _c("trix-editor", {
         ref: "trix",
+        staticClass: "tour-content",
         attrs: { input: "trix", placeholder: _vm.placeholder }
       })
     ],
