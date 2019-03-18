@@ -8,6 +8,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Contact\SendContactRequestAction;
 use App\Http\Controllers\Contact\ShowGeneralContactFormAction;
 use App\Http\Controllers\ShowHomepageAction;
+use App\Http\Controllers\Tour\CalculatePriceAction;
 use App\Http\Controllers\Tour\PrepareTourRequestAction;
 use App\Http\Controllers\Tour\SendTourRequestAction;
 use App\Http\Controllers\Tour\ShowPrivateTours;
@@ -31,6 +32,7 @@ return function (Router $router) {
     $router->get('/tour/request/prepare', PrepareTourRequestAction::class)->name('request.prepare');
     $router->get('/tour/request', ShowTourRequestAction::class)->name('request.show');
     $router->post('/tour/request', SendTourRequestAction::class)->name('request.store');
+    $router->get('/tour/price', CalculatePriceAction::class)->name('request.price');
 
     $router->get('/contact', ShowGeneralContactFormAction::class)->name('request.general.show');
     $router->post('/contact', SendContactRequestAction::class)->name('request.general.store');

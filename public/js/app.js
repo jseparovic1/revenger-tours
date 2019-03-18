@@ -2411,23 +2411,34 @@ __webpack_require__.r(__webpack_exports__);
         people: '',
         tour: ''
       }),
+      priceNow: 0,
       showSuccess: false,
       initialDate: null,
       maxNumber: 8
     };
   },
   mounted: function mounted() {
+    var _this = this;
+
     this.form.people = this.$props.peopleNumber;
     this.form.dateInput = typeof this.$props.tripDate === 'string' ? new Date(this.$props.tripDate) : '';
-    console.log(this.$props.selectedTour);
     this.form.tour = this.$props.tour instanceof Object ? this.$props.tour.id : '';
+    this.priceNow = this.tours[0].price_now;
+
+    if (this.form.tour !== '') {
+      this.priceNow = this.tours.filter(function (tour) {
+        return tour.id === _this.form.tour;
+      }).map(function (t) {
+        return t.price_now;
+      });
+    }
   },
   computed: {
     price: function price() {
-      return this.form.people * 100;
+      return this.form.people * this.priceNow;
     },
     deposit: function deposit() {
-      return this.price * 10 / 100;
+      return (this.price * 10 / 100).toFixed(0);
     }
   },
   methods: {
@@ -2436,15 +2447,24 @@ __webpack_require__.r(__webpack_exports__);
       this.form.errors.clear('dateInput');
     },
     handleFormSubmit: function handleFormSubmit() {
-      var _this = this;
+      var _this2 = this;
 
       this.form.submit(this.method, '/tour/request').then(function (data) {
-        return _this.showSuccess = true;
+        return _this2.showSuccess = true;
       }).catch(function (errors) {
         console.log(errors); //really dirty hack to rerender errors
 
-        _this.form.name = _this.form.name + ' ';
-        _this.form.name = _this.form.name.trim();
+        _this2.form.name = _this2.form.name + ' ';
+        _this2.form.name = _this2.form.name.trim();
+      });
+    },
+    setTourPrice: function setTourPrice() {
+      var _this3 = this;
+
+      this.priceNow = this.tours.filter(function (tour) {
+        return tour.id === _this3.form.tour;
+      }).map(function (t) {
+        return t.price_now;
       });
     }
   }
@@ -30145,23 +30165,26 @@ var render = function() {
                     staticClass: "form-input m-0 p-0 flex",
                     attrs: { id: "tour" },
                     on: {
-                      change: function($event) {
-                        var $$selectedVal = Array.prototype.filter
-                          .call($event.target.options, function(o) {
-                            return o.selected
-                          })
-                          .map(function(o) {
-                            var val = "_value" in o ? o._value : o.value
-                            return val
-                          })
-                        _vm.$set(
-                          _vm.form,
-                          "tour",
-                          $event.target.multiple
-                            ? $$selectedVal
-                            : $$selectedVal[0]
-                        )
-                      }
+                      change: [
+                        function($event) {
+                          var $$selectedVal = Array.prototype.filter
+                            .call($event.target.options, function(o) {
+                              return o.selected
+                            })
+                            .map(function(o) {
+                              var val = "_value" in o ? o._value : o.value
+                              return val
+                            })
+                          _vm.$set(
+                            _vm.form,
+                            "tour",
+                            $event.target.multiple
+                              ? $$selectedVal
+                              : $$selectedVal[0]
+                          )
+                        },
+                        _vm.setTourPrice
+                      ]
                     }
                   },
                   [
@@ -30369,20 +30392,22 @@ var render = function() {
                   "div",
                   { staticClass: "w-full p-4 mb-4 bg-grey text-white" },
                   [
-                    _c("div", { staticClass: "flex items-center" }, [
-                      _c("span", { staticClass: "w-24" }, [_vm._v("DEPOSIT")]),
-                      _vm._v(" "),
-                      _c("h4", { staticClass: "text-xl tracking-wide" }, [
-                        _vm._v("€" + _vm._s(_vm.deposit))
-                      ])
-                    ]),
-                    _vm._v(" "),
-                    _c("div", { staticClass: "flex items-center" }, [
+                    _c("div", { staticClass: "flex items-center mb-4" }, [
                       _c("span", { staticClass: "w-24" }, [_vm._v("TOTAL")]),
                       _vm._v(" "),
-                      _c("h4", { staticClass: "text-xl tracking-wide" }, [
-                        _vm._v("€" + _vm._s(_vm.price))
-                      ])
+                      _c("h4", {
+                        staticClass: "tracking-wide",
+                        domProps: { innerHTML: _vm._s("€" + _vm.price) }
+                      })
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "flex items-center font-bold" }, [
+                      _c("span", { staticClass: "w-24" }, [_vm._v("DEPOSIT")]),
+                      _vm._v(" "),
+                      _c("h4", {
+                        staticClass: "tracking-wide",
+                        domProps: { innerHTML: _vm._s("€" + _vm.deposit) }
+                      })
                     ])
                   ]
                 )

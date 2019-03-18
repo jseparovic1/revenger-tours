@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Services\TimeProvider;
+use Carbon\Carbon;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -16,6 +18,10 @@ class Tour extends Model implements HasMedia
 {
     use HasMediaTrait, HasSlug;
 
+    protected $appends = [
+        'price_now'
+    ];
+
     protected $casts = [
         'featured' => 'boolean',
         'recommended' => 'boolean',
@@ -29,6 +35,29 @@ class Tour extends Model implements HasMedia
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    /**
+     * Find tour price based on current date
+     * @return int
+     */
+    public function priceNow(): int
+    {
+        $start = Carbon::create(now()->year, 7, 1);
+        $end = Carbon::create(now()->year, 9, 5);
+
+        $now = app(TimeProvider::class)->now();
+
+        if ($now->between($start, $end)) {
+            return $this->price;
+        }
+
+        return $this->price_off;
+    }
+
+    public function getPriceNowAttribute(): int
+    {
+        return $this->attributes['price_now'] = $this->priceNow();
     }
 
     /**

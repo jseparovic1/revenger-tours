@@ -5,6 +5,8 @@ use Illuminate\Database\Eloquent\Factory as EloquentFactory;
 
 /** @var EloquentFactory $factory */
 $factory->define(App\Tour::class, function (Faker $faker) {
+    $price = $faker->numberBetween(100, 500);
+
     return [
         'hero_short_description' => 'Feel the vibe',
         'hero_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
@@ -32,7 +34,7 @@ $factory->define(App\Tour::class, function (Faker $faker) {
         'departure_time' => '07:00, Every day',
         'included' => 'Boat Ride,Professional Crew,Drinks on Boat,Snorkeling Equipment,Warm Jacket And Blanket,Entrance Tickets',
         'excluded' => 'Gole tete,Massage',
-        'price' => 110,
-        'price_off' => 100,
+        'price' => $price,
+        'price_off' => $price - 30,
     ];
 });

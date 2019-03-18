@@ -36,7 +36,7 @@
             <div class="form-control w-full">
                 <label for="tour">TOUR</label>
                 <div class="border flex">
-                    <select v-model="form.tour" id="tour" class="form-input m-0 p-0 flex" >
+                    <select v-model="form.tour" id="tour" class="form-input m-0 p-0 flex" @change="setTourPrice">
                         <option value="" disabled selected>Please select tour</option>
                         <option v-for="tour in this.tours" :value="tour.id">{{ tour.title }}</option>
                     </select>
@@ -90,13 +90,13 @@
                    class="text-sm text-danger p-0 m-0"></p>
             </div>
             <div v-if="form.people > 0" class="w-full p-4 mb-4 bg-grey text-white">
-                <div class="flex items-center">
-                    <span class="w-24">DEPOSIT</span>
-                    <h4 class="text-xl tracking-wide">€{{ deposit}}</h4>
-                </div>
-                <div class="flex items-center">
+                <div class="flex items-center mb-4">
                     <span class="w-24">TOTAL</span>
-                    <h4 class="text-xl tracking-wide">€{{ price}}</h4>
+                    <h4 class="tracking-wide" v-html="`€${price}`"></h4>
+                </div>
+                <div class="flex items-center font-bold">
+                    <span class="w-24">DEPOSIT</span>
+                    <h4 class="tracking-wide" v-html="`€${deposit}`"></h4>
                 </div>
             </div>
             <button
@@ -137,6 +137,7 @@
                     people: '',
                     tour: '',
                 }),
+                priceNow: 0,
                 showSuccess: false,
                 initialDate: null,
                 maxNumber: 8,
@@ -145,18 +146,25 @@
         mounted: function () {
             this.form.people = this.$props.peopleNumber;
             this.form.dateInput = typeof this.$props.tripDate === 'string' ? new Date(this.$props.tripDate) : '';
-            console.log(this.$props.selectedTour);
             this.form.tour =
                 this.$props.tour instanceof Object
                     ? this.$props.tour.id
                     : ''
+
+            this.priceNow = this.tours[0].price_now;
+
+            if (this.form.tour !== '') {
+                this.priceNow = this.tours
+                    .filter(tour => tour.id === this.form.tour)
+                    .map(t => t.price_now);
+            }
         },
         computed: {
             price: function () {
-                return this.form.people * 100;
+                return this.form.people * this.priceNow;
             },
             deposit: function () {
-                return this.price * 10 / 100;
+                return (this.price * 10 / 100).toFixed(0);
             },
         },
         methods: {
@@ -175,6 +183,11 @@
                         }
                     );
             },
+            setTourPrice: function () {
+                this.priceNow = this.tours
+                    .filter(tour => tour.id === this.form.tour)
+                    .map(t => t.price_now);
+            }
         }
     }
 </script>
