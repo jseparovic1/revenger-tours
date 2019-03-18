@@ -1967,10 +1967,34 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialData: {
-      type: Array,
       default: function _default() {
         return [{
           hour: '',
@@ -1985,7 +2009,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.itinerary = this.$props.initialData;
+    this.itinerary = JSON.parse(this.$props.initialData);
   },
   computed: {
     itineraryStringify: function itineraryStringify() {
@@ -29525,99 +29549,127 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "form-control" },
+    { staticClass: "mb-8" },
     [
       _c("input", {
         attrs: { name: "itinerary", type: "hidden", id: "itinerary" },
         domProps: { value: _vm.itineraryStringify }
       }),
       _vm._v(" "),
-      _c("label", { attrs: { for: "itinerary" } }, [_vm._v("Itinerary")]),
+      _vm._m(0),
       _vm._v(" "),
       _vm._l(this.itinerary, function(singleItinerary) {
         return _c("div", [
-          _c("label", { attrs: { for: "hour" } }, [_vm._v("Hour")]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
+          _c("div", { staticClass: "flex flex-row items-center" }, [
+            _c("div", { staticClass: "form-group w-1/5 mr-5" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: singleItinerary.hour,
+                    expression: "singleItinerary.hour"
+                  }
+                ],
+                staticClass: "form-input w-full",
+                attrs: {
+                  id: "hour",
+                  type: "text",
+                  name: "hour",
+                  placeholder: "Hour"
+                },
+                domProps: { value: singleItinerary.hour },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(singleItinerary, "hour", $event.target.value)
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "flex w-3/5 items-center" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: singleItinerary.description,
+                    expression: "singleItinerary.description"
+                  }
+                ],
+                staticClass: "form-input w-full",
+                attrs: {
+                  id: "description",
+                  type: "text",
+                  name: "description",
+                  placeholder: "Description"
+                },
+                domProps: { value: singleItinerary.description },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(
+                      singleItinerary,
+                      "description",
+                      $event.target.value
+                    )
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "div",
               {
-                name: "model",
-                rawName: "v-model",
-                value: singleItinerary.hour,
-                expression: "singleItinerary.hour"
-              }
-            ],
-            staticClass: "form-input",
-            attrs: { id: "hour", type: "text", name: "hour" },
-            domProps: { value: singleItinerary.hour },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
+                staticClass:
+                  "ml-2 text-brand font-bolder hover:text-brand-darkest cursor-pointer",
+                attrs: { title: "Remove intiernary" },
+                on: {
+                  click: function($event) {
+                    return _vm.removeItinerary(singleItinerary)
+                  }
                 }
-                _vm.$set(singleItinerary, "hour", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c("label", { attrs: { for: "description" } }, [
-            _vm._v("Description")
-          ]),
-          _vm._v(" "),
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: singleItinerary.description,
-                expression: "singleItinerary.description"
-              }
-            ],
-            staticClass: "form-input",
-            attrs: { id: "description", type: "text", name: "description" },
-            domProps: { value: singleItinerary.description },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.$set(singleItinerary, "description", $event.target.value)
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "div",
-            {
-              on: {
-                click: function($event) {
-                  return _vm.removeItinerary(singleItinerary)
-                }
-              }
-            },
-            [_vm._v("Remove")]
-          )
+              },
+              [_vm._v("\n                X\n            ")]
+            )
+          ])
         ])
       }),
       _vm._v(" "),
-      _c(
-        "button",
-        {
-          staticClass: "btn",
-          on: {
-            click: function($event) {
-              $event.preventDefault()
-              return _vm.addItinerary($event)
+      _c("div", { staticClass: "mx-2 mt-4" }, [
+        _c(
+          "a",
+          {
+            staticClass: "btn btn-outline",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                return _vm.addItinerary($event)
+              }
             }
-          }
-        },
-        [_vm._v("Add")]
-      )
+          },
+          [_vm._v("+ Add itinerary")]
+        )
+      ])
     ],
     2
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "label" }, [
+      _c("label", { attrs: { for: "itinerary" } }, [_vm._v("Itinerary")])
+    ])
+  }
+]
 render._withStripped = true
 
 

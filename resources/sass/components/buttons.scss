@@ -7,6 +7,13 @@
         @apply py-4 px-8;
     }
 }
+.btn-outline {
+    @apply border rounded-full text-black;
+
+    &:hover {
+        @apply border-brand;
+    }
+}
 
 .btn-outline-primary {
     @apply border-4 border-brand-dark text-white;

@@ -29,7 +29,6 @@
                                  ])
                             </div>
                             @include('admin.tours._form')
-                            <intiernary-input :initial-data='@json($resource->itinerary)'></intiernary-input>
                             <div class="form-control">
                                 @component('components.form.submit') UPDATE TOUR @endcomponent
                             </div>

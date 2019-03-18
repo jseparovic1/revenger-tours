@@ -1,10 +1,14 @@
 form {
+    .label {
+        @apply text-grey-light uppercase font-bold px-2 py-2 text-sm;
+    }
+
     .form-control {
         position: relative;
         @screen lg {
             @apply mb-6;
         }
-        @apply flex flex-col mb-4;
+        @apply flex flex-col mb-1;
 
         input, select, textarea {
             @apply w-full;

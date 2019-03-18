@@ -19,6 +19,7 @@
 <div class="form-control">
     @include('components.form.textarea', ['name' => 'short_description'])
 </div>
+<intiernary-input :initial-data='@json($resource->itinerary)'></intiernary-input>
 <div class="form-control">
     @include('components.form.text', ['name' => 'departure_time'])
 </div>

@@ -1,16 +1,41 @@
 <template>
-    <div class="form-control">
+    <div class="mb-8">
         <input name="itinerary" type="hidden" id="itinerary" :value="itineraryStringify"/>
-        <label for="itinerary">Itinerary</label>
-        <div v-for="singleItinerary in this.itinerary">
-            <label for="hour">Hour</label>
-            <input id="hour" type="text" name="hour" v-model="singleItinerary.hour" class="form-input">
-
-            <label for="description">Description</label>
-            <input id="description" type="text" name="description" v-model="singleItinerary.description" class="form-input">
-            <div @click="removeItinerary(singleItinerary)">Remove</div>
+        <div class="label">
+            <label for="itinerary">Itinerary</label>
         </div>
-        <button class="btn" @click.prevent="addItinerary">Add</button>
+        <div v-for="singleItinerary in this.itinerary">
+            <div class="flex flex-row items-center">
+                <div class="form-group w-1/5 mr-5">
+                    <input class="form-input w-full"
+                           id="hour"
+                           type="text"
+                           name="hour"
+                           v-model="singleItinerary.hour"
+                           placeholder="Hour"
+                    >
+                </div>
+                <div class="flex w-3/5 items-center">
+                    <input
+                        class="form-input w-full"
+                        id="description"
+                        type="text"
+                        name="description"
+                        v-model="singleItinerary.description"
+                        placeholder="Description"
+                    >
+                </div>
+                <div
+                    @click="removeItinerary(singleItinerary)"
+                    title="Remove intiernary"
+                    class="ml-2 text-brand font-bolder hover:text-brand-darkest cursor-pointer">
+                    X
+                </div>
+            </div>
+        </div>
+        <div class="mx-2 mt-4">
+            <a class="btn btn-outline" @click.prevent="addItinerary">+ Add itinerary</a>
+        </div>
     </div>
 </template>
 
@@ -18,7 +43,6 @@
     export default {
         props: {
             initialData: {
-                type: Array,
                 default: function () {
                     return [
                         {
@@ -35,7 +59,7 @@
             }
         },
         mounted: function () {
-            this.itinerary = this.$props.initialData;
+            this.itinerary = JSON.parse(this.$props.initialData);
         },
         computed: {
             itineraryStringify: function () {
