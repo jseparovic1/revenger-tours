@@ -19,6 +19,7 @@ class CreateToursTable extends Migration
             $table->string('slug');
             $table->text('details')->nullable();
             $table->integer('price');
+            $table->integer('price_off');
             $table->string('type')->default('normal');
             $table->boolean('featured')->default(1);
             $table->text('hero_short_description')->nullable();

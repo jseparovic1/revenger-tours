@@ -22,7 +22,7 @@
                     {!! $tour->details !!}
                     @include('tours._partials.price', [
                         'price' => $tour->price,
-                        'priceOffSeasons' => '130'
+                        'priceOffSeasons' => $tour->price_off
                     ])
                     @isset($tour->itinerary)
                         @include('tours._partials.itinerary', ['itinerary' => $tour->itinerary])

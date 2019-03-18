@@ -113,7 +113,7 @@ class ManageToursTest extends TestCase
     }
 
     /** @test */
-    public function a_user_can_edit_tour_with_invalid_data()
+    public function a_user_can_edit_tour_with_valid_data()
     {
         $tour = factory(Tour::class)->create();
 
@@ -127,6 +127,7 @@ class ManageToursTest extends TestCase
                 'details' => 'Edited',
                 'short_description' => 'Short description edited',
                 'price' => '400',
+                'price_off' => '300',
                 'type' => 'private',
                 'recommended' => '0',
                 'featured' => '0',

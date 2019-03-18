@@ -33,5 +33,6 @@ $factory->define(App\Tour::class, function (Faker $faker) {
         'included' => 'Boat Ride,Professional Crew,Drinks on Boat,Snorkeling Equipment,Warm Jacket And Blanket,Entrance Tickets',
         'excluded' => 'Gole tete,Massage',
         'price' => 110,
+        'price_off' => 100,
     ];
 });
