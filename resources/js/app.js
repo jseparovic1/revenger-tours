@@ -7,7 +7,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.config.ignoredElements = ['trix-editor']
+Vue.config.ignoredElements = ['trix-editor'];
 
 /**
  * The following block of code may be used to automatically register your
