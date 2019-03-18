@@ -30093,9 +30093,7 @@ var render = function() {
           [
             _c(
               "div",
-              {
-                staticClass: "w-full mb-4 focus:outline-none mb-8 form-control"
-              },
+              { staticClass: "w-full focus:outline-none form-control mb-8" },
               [
                 _c("label", { attrs: { for: "trip_date" } }, [_vm._v("DATE")]),
                 _vm._v(" "),
@@ -30147,7 +30145,7 @@ var render = function() {
               1
             ),
             _vm._v(" "),
-            _c("div", { staticClass: "form-control w-full" }, [
+            _c("div", { staticClass: "form-control w-full mt-8 lg:mt-0" }, [
               _c("label", { attrs: { for: "tour" } }, [_vm._v("TOUR")]),
               _vm._v(" "),
               _c("div", { staticClass: "border flex" }, [

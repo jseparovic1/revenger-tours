@@ -14,7 +14,7 @@
             @submit.prevent="handleFormSubmit"
             @keyup="form.errors.clear($event.target.name)"
         >
-            <div class="w-full mb-4 focus:outline-none mb-8 form-control">
+            <div class="w-full focus:outline-none form-control mb-8">
                 <label for="trip_date">DATE</label>
                 <datepicker
                     :placeholder="'Chose trip date'"
@@ -33,7 +33,7 @@
                     v-model="form.dateInput"
                 >
             </div>
-            <div class="form-control w-full">
+            <div class="form-control w-full mt-8 lg:mt-0">
                 <label for="tour">TOUR</label>
                 <div class="border flex">
                     <select v-model="form.tour" id="tour" class="form-input m-0 p-0 flex" @change="setTourPrice">
