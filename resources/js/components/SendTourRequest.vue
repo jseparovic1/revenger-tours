@@ -100,9 +100,10 @@
                 </div>
             </div>
             <button
-                class="w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight"
-                type="submit">SEND INQUIRY
+                class="w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight mb-4"
+            type="submit">SEND INQUIRY
             </button>
+            <spinner v-if="this.form.isLoading"></spinner>
         </form>
     </div>
 </template>
@@ -110,10 +111,11 @@
 <script>
     import Datepicker from 'vuejs-datepicker';
     import Form from "../core/Form";
+    import Spinner from "../components/Spinner";
 
     export default {
         components: {
-            Datepicker,
+            Datepicker, Spinner
         },
         props: {
             action: String,

@@ -57,9 +57,10 @@
                 <p v-if="form.errors.has('message')" v-text="form.errors.get('message')" class="text-sm text-danger p-0 m-0"></p>
             </div>
             <button
-                class="w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight"
+                class="w-full bg-brand hover:bg-brand-dark text-white uppercase text-lg mx-auto p-4 rounded font-bold tracking-tight mb-4"
                 type="submit">SEND
             </button>
+            <spinner v-if="this.form.isLoading"></spinner>
         </form>
     </div>
 </template>
@@ -88,6 +89,7 @@
         },
         methods: {
             handleFormSubmit: function () {
+                this.form.isLoading = true;
                 this.form.submit('post', this.action)
                     .then(data => this.showSuccess = true)
                     .catch(errors => {
@@ -96,7 +98,8 @@
                             this.form.name = this.form.name + ' ';
                             this.form.name = this.form.name.trim();
                         }
-                    );
+                    )
+                    .finally(() => this.form.isLoading = false);
             },
         }
     }
