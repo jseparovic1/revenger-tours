@@ -24,34 +24,46 @@
                         <tr>
                             <th scope="col">Start</th>
                             <th scope="col">Destination</th>
-                            <th scope="col">Price</th>
+                            <th scope="col">Offseason price</th>
+                            <th scope="col">Seasson price</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr class="hover:text-white hover:bg-brand font-semibold">
                                 <td>Split</td>
-                                <td>Trogir (Airport)</td>
-                                <td class="text-brand-darkest font-bold">180€</td>
+                                <td>Brač (Bol)</td>
+                                <td class="text-brand-darkest font-bold">€260</td>
+                                <td class="text-brand-darkest font-bold">€280</td>
                             </tr>
                             <tr class="hover:text-white hover:bg-brand font-semibold">
                                 <td>Split</td>
-                                <td>Brač</td>
-                                <td class="text-brand-darkest font-bold">350€</td>
+                                <td>Brač (Milna)</td>
+                                <td class="text-brand-darkest font-bold">€230</td>
+                                <td class="text-brand-darkest font-bold">€250</td>
                             </tr>
                             <tr class="hover:text-white hover:bg-brand font-semibold">
                                 <td>Split</td>
-                                <td>Hvar</td>
-                                <td class="text-brand-darkest font-bold">400€</td>
+                                <td>Šolta</td>
+                                <td class="text-brand-darkest font-bold">€130</td>
+                                <td class="text-brand-darkest font-bold">€150</td>
                             </tr>
                             <tr class="hover:text-white hover:bg-brand font-semibold">
                                 <td>Split</td>
-                                <td>Vis</td>
-                                <td class="text-brand-darkest font-bold">550€</td>
+                                <td>Trogir</td>
+                                <td class="text-brand-darkest font-bold">€130</td>
+                                <td class="text-brand-darkest font-bold">€150</td>
                             </tr>
                             <tr class="hover:text-white hover:bg-brand font-semibold">
                                 <td>Split</td>
-                                <td>Korčula</td>
-                                <td class="text-brand-darkest font-bold">950€</td>
+                                <td>Split (Airport)</td>
+                                <td class="text-brand-darkest font-bold">€100</td>
+                                <td class="text-brand-darkest font-bold">€120</td>
+                            </tr>
+                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                                <td>Split</td>
+                                <td>Hvar (Airport)</td>
+                                <td class="text-brand-darkest font-bold">€280</td>
+                                <td class="text-brand-darkest font-bold">€300</td>
                             </tr>
                         </tbody>
                     </table>
