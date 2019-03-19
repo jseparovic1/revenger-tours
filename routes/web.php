@@ -15,7 +15,6 @@ use App\Http\Controllers\Tour\ShowPrivateTours;
 use App\Http\Controllers\Tour\ShowTourAction;
 use App\Http\Controllers\Tour\ShowTourRequestAction;
 use App\Http\Controllers\Tour\ShowToursListAction;
-use Carbon\Carbon;
 use Illuminate\Routing\Router;
 
 return function (Router $router) {

@@ -22,24 +22,4 @@ class SendTourRequest extends FormRequest
             'tour' => 'required',
         ];
     }
-
-    public function name(): string
-    {
-        return $this->validated()['name'];
-    }
-
-    public function people(): int
-    {
-        return $this->validated()['people'];
-    }
-
-    public function email(): string
-    {
-        return $this->validated()['email'];
-    }
-
-    public function comment(): ?string
-    {
-        return $this->validated()['comment'];
-    }
 }

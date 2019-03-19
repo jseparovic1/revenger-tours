@@ -3,6 +3,7 @@
 namespace App\Mail;
 
 use App\Dto\TourRequestDto;
+use App\Http\Requests\Admin\TourResourceRequest;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
