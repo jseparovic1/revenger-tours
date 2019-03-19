@@ -8,6 +8,7 @@
 You have new request from revenger website.
 
 @component('mail::panel')
+    {{ $tourRequest->tour->title }}
     Tour date {{ $tourRequest->date->format('d.m.Y') }}
 
     Number of people: {{ $tourRequest->people }}
