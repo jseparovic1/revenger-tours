@@ -91,9 +91,8 @@
             handleFormSubmit: function () {
                 this.form.isLoading = true;
                 this.form.submit('post', this.action)
-                    .then(data => this.showSuccess = true)
-                    .catch(errors => {
-                            console.log(errors);
+                    .then(() => this.showSuccess = true)
+                    .catch(() => {
                             //really dirty hack to rerender errors
                             this.form.name = this.form.name + ' ';
                             this.form.name = this.form.name.trim();
