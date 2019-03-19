@@ -13,7 +13,7 @@ return [
      *  You can provide your own class given that it implements the
      *  CacheProfile interface.
      */
-    'cache_profile' => Spatie\ResponseCache\CacheProfiles\CacheAllSuccessfulGetRequests::class,
+    'cache_profile' => \App\Services\Cache\RevengerCacheProfile::class,
 
     /*
      * When using the default CacheRequestFilter this setting controls the
@@ -26,7 +26,7 @@ return [
      * with the cache time should be added to a cached response. This
      * can be handy when debugging.
      */
-    'add_cache_time_header' => env('APP_DEBUG', true),
+    'add_cache_time_header' => true,
 
     /*
      * Here you may define the cache store that should be used to store
