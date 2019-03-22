@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Tour;
 
 class ShowHomepageAction
@@ -14,9 +15,12 @@ class ShowHomepageAction
             ->orWhere('recommended', true)
             ->get();
 
+        $posts = Post::take(3)->latest()->get();
+
         $featured = $tours->filter(function (Tour $tour) {
             return $tour->featured;
         })->take(3);
+
         $recommended = $tours->filter(function (Tour $tour) {
             return $tour->recommended;
         })->take(2);
@@ -27,6 +31,7 @@ class ShowHomepageAction
             'singleFeatured' => $single,
             'featured' => $featured,
             'recommended' => $recommended,
+            'posts' => $posts
         ]);
     }
 }

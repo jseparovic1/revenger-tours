@@ -79,6 +79,7 @@ class Tour extends Model implements HasMedia
             ->singleFile()
         ;
     }
+
     public function registerMediaConversions(Media $media = null)
     {
         $this

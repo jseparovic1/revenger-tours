@@ -13,6 +13,7 @@ class MenuItemsProvider
             '/tours' => 'TOURS',
             '/tour/private' => 'PRIVATE TOURS',
             '/transfers' => 'TRANSFERS',
+            '/blog' => 'BLOG',
             '/contact' => 'CONTACT',
         ];
     }

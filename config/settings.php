@@ -5,7 +5,7 @@ return [
         'phone' => '+3859189121',
         'email' => 'johnykrolj@gmail.com',
     ],
-    'mainDescription' => 'Revenger tours is travel agency from Split  specialized in  daily excursions,as well as sea transfers from Split to nearby islands.',
+    'main_description' => 'Revenger tours is travel agency from Split  specialized in  daily excursions,as well as sea transfers from Split to nearby islands.',
     'main_chose_us' => [
         'title' => 'Why chose us?',
         'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan',
@@ -18,6 +18,10 @@ return [
         'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
         'action' => 'INFO',
         'background' => "/images/cave.jpg",
+    ],
+    'main_blog' => [
+        'title' => 'Learn more from our travel blog posts',
+        'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
     ],
     'footer' => [
         'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet, neque ac pharetra porta,dui ligula volutpat enim, et tempus libero mauris et nulla. Maecenas sit amet nisi eu risus viverra rhoncus ut et massa.',

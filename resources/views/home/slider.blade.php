@@ -14,7 +14,7 @@
                         @if($tour->getFirstMedia('hero_original'))
                             {{ $tour->getFirstMedia('hero_original')('hero') }}
                         @else
-                            <img src="{{ asset('images/default/tour.jpg') }}">
+                            <img src="{{ asset('images/default/tour.jpg') }}" alt="{{ $tour->title }}">
                         @endif
                     @endslot
                 @endcomponent

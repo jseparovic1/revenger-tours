@@ -1,5 +1,6 @@
 <div class="tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden">
     <img class="h-auto w-full bg-cover"
+         alt="{{ $title }}"
          @if(is_string($media))
          src="{{$media}}"
          @else
