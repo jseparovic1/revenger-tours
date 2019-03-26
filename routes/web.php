@@ -44,6 +44,8 @@ return function (Router $router) {
     $router->get('/blog', ShowPostListAction::class)->name('post.index');
     $router->get('/blog/{slug}', ShowPostAction::class)->name('post.show');
 
+    $router->view('/full', 'full');
+
     /**
      * Admin Routes
      */
