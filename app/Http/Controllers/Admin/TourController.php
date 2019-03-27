@@ -61,7 +61,7 @@ class TourController extends Controller
     public function update(TourResourceRequest $request, Tour $tour)
     {
         $validatedData = $request->validated();
-
+        dd($validatedData);
         $hero = array_pull($validatedData,'hero');
 
         $tour->update($validatedData);

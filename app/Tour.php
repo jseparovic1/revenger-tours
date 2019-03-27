@@ -38,6 +38,17 @@ class Tour extends Model implements HasMedia
     }
 
     /**
+     * Itinerary mutator
+     *
+     * @param string $itiernaryAsJson
+     * @return mixed
+     */
+    public function getItineraryAttribute(string $itineraryAsJson)
+    {
+        return json_decode($itineraryAsJson, true);
+    }
+
+    /**
      * Find tour price based on current date
      * @return int
      */

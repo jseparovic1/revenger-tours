@@ -46,6 +46,11 @@ return function (Router $router) {
 
     $router->view('/full', 'full');
 
+    $router->get('test', function () {
+        $tour = \App\Tour::first();
+        $tour->itinerary;
+    });
+
     /**
      * Admin Routes
      */
