@@ -1,9 +1,13 @@
 .swiper-container {
     .swiper-slide {
-        @apply flex;
         img {
-            //filter: brightness(70%);
-            transform-origin: 20% 80%;
+            min-height: 100%;
+            width: 100%;
+            height: auto;
+
+            position: fixed;
+            top: 0;
+            left: 0;
         }
     }
 }

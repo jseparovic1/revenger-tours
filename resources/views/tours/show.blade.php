@@ -24,8 +24,9 @@
                         'price' => $tour->price,
                         'priceOffSeasons' => $tour->price_off
                     ])
+
                     @if($tour->itinerary !== 'null')
-                        @include('tours._partials.itinerary', ['itinerary' => $tour->itinerary])
+                        @include('tours._partials.itinerary', ['itinerary' => json_decode($tour->itinerary, true)])
                     @endisset
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,

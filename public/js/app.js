@@ -1976,7 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : null;
+    this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : [];
   },
   computed: {
     itineraryStringify: function itineraryStringify() {
@@ -2167,11 +2167,10 @@ __webpack_require__.r(__webpack_exports__);
       var _this = this;
 
       this.form.isLoading = true;
-      this.form.submit('post', this.action).then(function (data) {
+      this.form.submit('post', this.action).then(function () {
         return _this.showSuccess = true;
-      }).catch(function (errors) {
-        console.log(errors); //really dirty hack to rerender errors
-
+      }).catch(function () {
+        //really dirty hack to rerender errors
         _this.form.name = _this.form.name + ' ';
         _this.form.name = _this.form.name.trim();
       }).finally(function () {
@@ -44694,15 +44693,14 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************!*\
   !*** ./resources/js/components/Spinner.vue ***!
   \*********************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Spinner_vue_vue_type_template_id_7ae326fe___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Spinner.vue?vue&type=template&id=7ae326fe& */ "./resources/js/components/Spinner.vue?vue&type=template&id=7ae326fe&");
 /* harmony import */ var _Spinner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Spinner.vue?vue&type=script&lang=js& */ "./resources/js/components/Spinner.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Spinner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Spinner_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -44732,7 +44730,7 @@ component.options.__file = "resources/js/components/Spinner.vue"
 /*!**********************************************************************!*\
   !*** ./resources/js/components/Spinner.vue?vue&type=script&lang=js& ***!
   \**********************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
