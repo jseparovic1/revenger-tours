@@ -1976,7 +1976,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   mounted: function mounted() {
-    this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : null;
+    this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : [];
   },
   computed: {
     itineraryStringify: function itineraryStringify() {

@@ -2165,13 +2165,13 @@ th {
   background-color: #780a0a;
 }
 
-.swiper-container .swiper-slide {
-  display: flex;
-}
-
 .swiper-container .swiper-slide img {
-  -webkit-transform-origin: 20% 80%;
-          transform-origin: 20% 80%;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 @-webkit-keyframes zoom {
