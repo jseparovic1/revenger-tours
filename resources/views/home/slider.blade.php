@@ -2,7 +2,7 @@
     <div class="hidden lg:block swiper-container h-half lg:h-screen">
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
-                @component('components.slide')
+                @component('components.slide', ['image' => $tour->getFirstMediaUrl('hero_original', 'hero')])
                     @include('home.hero', [
                        'title' => $tour->title,
                        'shortDescription' => $tour->hero_short_description,
@@ -10,13 +10,6 @@
                        'callToAction' => "LET'S GO",
                        'link' => route('tours.show', ['tour' => $tour->slug]),
                    ])
-                    @slot('image')
-                        @if($tour->getFirstMedia('hero_original'))
-                            {{ $tour->getFirstMedia('hero_original')('hero') }}
-                        @else
-                            <img src="{{ asset('images/default/tour.jpg') }}">
-                        @endif
-                    @endslot
                 @endcomponent
             @endforeach
         </div>

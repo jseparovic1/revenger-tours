@@ -59,7 +59,7 @@
             }
         },
         mounted: function () {
-            this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : null;
+            this.itinerary = typeof this.$props.initialData === 'string' ? JSON.parse(this.$props.initialData) : [];
         },
         computed: {
             itineraryStringify: function () {
