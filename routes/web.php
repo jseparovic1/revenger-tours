@@ -5,6 +5,8 @@ use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\UploadImageAction;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Blog\ShowPostListAction;
+use App\Http\Controllers\Blog\ShowPostAction;
 use App\Http\Controllers\Contact\SendContactRequestAction;
 use App\Http\Controllers\Contact\ShowGeneralContactFormAction;
 use App\Http\Controllers\ShowHomepageAction;
@@ -38,6 +40,9 @@ return function (Router $router) {
 
     $router->get('/transfers', function () {return view('transfers.show');})->name('transfers.show');
     $router->get('/tour/private', ShowPrivateTours::class)->name('toursPrivate.show');
+
+    $router->get('/blog', ShowPostListAction::class)->name('post.index');
+    $router->get('/blog/{post}', ShowPostAction::class)->name('post.show');
 
     /**
      * Admin Routes

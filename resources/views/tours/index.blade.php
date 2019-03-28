@@ -20,6 +20,7 @@
                             <div class="w-full flex img-zoom-wrapper">
                                 <img
                                     class="h-auto w-full img-zoom"
+                                    alt="{{ $tour->title }}"
                                     src="{{ optional($tour->getFirstMedia('hero_original'))->getUrl('card') ?? asset('images/default/card.jpg')}}"
                                 />
                             </div>
