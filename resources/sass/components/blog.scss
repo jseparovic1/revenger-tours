@@ -1,0 +1,26 @@
+.blog-content {
+    @apply text-xl tracking-1 text-grey-darkest;
+
+    h1, h2, h3, h4, h5, h6 {
+        @apply tracking-tight text-2xl mb-1;
+    }
+
+    p {
+        @apply tracking-1 text-grey-darkest pb-6;
+    }
+
+    p:not(:last-of-type) {
+        @apply mb-2;
+    }
+
+    ul, ol {
+        @apply mt-2 mb-6;
+        li {
+            @apply p-1;
+        }
+    }
+
+    blockquote {
+        @apply border-l-4 border-brand pl-8 pr-16 ml-4 mb-6;
+    }
+}

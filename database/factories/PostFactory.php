@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Factory;
 $factory->define(Post::class, function (Faker $faker) {
     return [
         'description' => $faker->text(100),
-        'content' => $faker->realText(200),
+        'content' => file_get_contents(database_path('content/post.html')),
         'title' => $faker->text(40),
     ];
 });
