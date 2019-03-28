@@ -24,3 +24,9 @@
         @apply border-l-4 border-brand pl-8 pr-16 ml-4 mb-6;
     }
 }
+
+.title-brand {
+    h1, h2, h3, h4, h5, h6 {
+        @apply text-brand-dark;
+    }
+}

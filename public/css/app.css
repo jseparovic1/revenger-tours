@@ -2675,6 +2675,15 @@ form .invalid-feedback {
   margin-bottom: 1.5rem;
 }
 
+.title-brand h1,
+.title-brand h2,
+.title-brand h3,
+.title-brand h4,
+.title-brand h5,
+.title-brand h6 {
+  color: #a61b1b;
+}
+
 .img-zoom-wrapper {
   overflow: hidden;
   font-size: 0;
