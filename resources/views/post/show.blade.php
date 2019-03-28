@@ -10,7 +10,7 @@
             <main class="w-full flex-1 mb-10 mr-0 lg:mr-12 ">
                 <div>
                     <h1 class="text-brand-darker">{{ $post->title }}</h1>
-                    <div class="text-grey -mt-2 mb-4">
+                    <div class="text-grey mb-4">
                         Đoni Rogošić {{ $post->updated_at->diffForHumans() }}
                     </div>
                     <div class="blog-content">
