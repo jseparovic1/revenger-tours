@@ -14,6 +14,12 @@ class Post extends Model implements HasMedia
 
     const COVER_COLLECTION = 'cover';
 
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+
     public function getSlugOptions(): SlugOptions
     {
         return SlugOptions::create()
@@ -27,5 +33,10 @@ class Post extends Model implements HasMedia
     {
         $this->addMediaCollection(self::COVER_COLLECTION)
             ->singleFile();
+    }
+
+    public function coverImageUrl(): ?string
+    {
+        return $this->getFirstMediaUrl(self::COVER_COLLECTION);
     }
 }

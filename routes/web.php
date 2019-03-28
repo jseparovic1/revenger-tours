@@ -5,8 +5,8 @@ use App\Http\Controllers\Admin\ImageController;
 use App\Http\Controllers\Admin\UploadImageAction;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Blog\ShowPostAction;
 use App\Http\Controllers\Blog\ShowPostListAction;
+use App\Http\Controllers\Blog\ShowPostAction;
 use App\Http\Controllers\Contact\SendContactRequestAction;
 use App\Http\Controllers\Contact\ShowGeneralContactFormAction;
 use App\Http\Controllers\ShowHomepageAction;
@@ -20,9 +20,6 @@ use App\Http\Controllers\Tour\ShowToursListAction;
 use Illuminate\Routing\Router;
 
 return function (Router $router) {
-    $this->get('login', 'Auth\LoginController@showLoginForm')->name('login');
-    $this->post('login', 'Auth\LoginController@login');
-    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
     /**
      * Auth
      */
@@ -45,14 +42,7 @@ return function (Router $router) {
     $router->get('/tour/private', ShowPrivateTours::class)->name('toursPrivate.show');
 
     $router->get('/blog', ShowPostListAction::class)->name('post.index');
-    $router->get('/blog/{slug}', ShowPostAction::class)->name('post.show');
-
-    $router->view('/full', 'full');
-
-    $router->get('test', function () {
-        $tour = \App\Tour::first();
-        $tour->itinerary;
-    });
+    $router->get('/blog/{post}', ShowPostAction::class)->name('post.show');
 
     /**
      * Admin Routes
