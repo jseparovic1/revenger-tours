@@ -1,5 +1,5 @@
 <section>
-    <div class="container">
+    <div class="container ">
         <div class="flex flex-col items-center space-between">
             <h1 class="heading-title text-center">{{ config('settings.main_chose_us.title') }}</h1>
             <p class="heading-description">{{ config('settings.main_chose_us.description') }}</p>

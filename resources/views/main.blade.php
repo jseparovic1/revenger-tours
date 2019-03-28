@@ -12,5 +12,6 @@
         'callToAction' => config('settings.main_featured_tour.action'),
         'background' => config('settings.main_featured_tour.background'),
     ])
+    @include('home.blog')
     @include('home.why')
 @endsection

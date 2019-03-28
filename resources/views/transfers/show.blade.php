@@ -6,7 +6,7 @@
 
 @section('page')
     <section>
-        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row tour-content">
+        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row blog-content title-brand">
             <main class="w-full flex-1 mb-10 mr-0 lg:mr-12">
                 <h1 class="mt-0">Transfers</h1>
                 <div>

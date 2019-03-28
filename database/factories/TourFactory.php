@@ -15,7 +15,7 @@ $factory->define(App\Tour::class, function (Faker $faker) {
         'type' => 'normal',
         'recommended' => true,
         'short_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
-        'itinerary' => [
+        'itinerary' => json_encode([
             [
                 'hour' => '07:30h*',
                 'description' => 'Boat guide'
@@ -28,7 +28,7 @@ $factory->define(App\Tour::class, function (Faker $faker) {
                 'hour' => '20:00 – 20:30',
                 'description' => 'Kući leć'
             ],
-        ],
+        ]),
         'details' => file_get_contents(database_path('content/tour.html')),
         'departure_location' => 'Split, Riva',
         'departure_time' => '07:00, Every day',

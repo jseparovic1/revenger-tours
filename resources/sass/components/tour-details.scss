@@ -1,13 +1,17 @@
 .tour-content {
+    @apply text-xl tracking-1 text-grey-darkest;
+
     h1, h2, h3, h4, h5, h6 {
-        @apply mb-2 tracking-tight text-brand-dark text-2xl;
+        @apply tracking-tight text-2xl text-brand-dark;
     }
     p {
-        @apply leading-loose tracking-normal mb-10;
+        @apply tracking-1 mb-6 text-grey-darkest;
     }
+
     p:not(:last-of-type) {
         @apply mb-2;
     }
+
     ul, ol {
         @apply mt-2 mb-4;
         li {
