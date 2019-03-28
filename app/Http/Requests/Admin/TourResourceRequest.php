@@ -39,15 +39,4 @@ class TourResourceRequest extends FormRequest
 
         return $rules;
     }
-
-    protected function validationData()
-    {
-        $validationData = parent::validationData();
-//
-//        if (array_key_exists('itinerary', $validationData)) {
-//            $validationData['itinerary'] = json_decode($validationData['itinerary'], true);
-//        }
-
-        return $validationData;
-    }
 }

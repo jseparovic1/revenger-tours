@@ -6,27 +6,31 @@
 
 @section('page')
     <section class="max-w-3xl mx-auto">
-        <div class="px-8">
-            <div class="flex flex-wrap -mx-8">
-                @foreach($posts as $post)
-                    <a href="{{ route('post.show', $post->slug) }}" class="w-full md:w-1/2 lg:w-1/3 px-6 mb-8">
-                        <div class="tour flex flex-col shadow mb-4 lg:mb-8 rounded-lg overflow-hidden">
-                            <div class="img-zoom-wrapper mb-4">
-                                <img
-                                    class="h-auto w-full img-zoom"
-                                    alt="{{ $post->title }}"
-                                    src="{{ $post->getFirstMediaUrl(\App\Post::COVER_COLLECTION) }}"
-                                />
-                            </div>
-                            <div class="h-full w-auto flex flex-col justify-start px-5 pb-5">
-                                <h1 class="text-lg font-bold text-black mb-2">{{ $post->title }}</h1>
-                                <p class="mb-4 text-grey-darker">{{ str_limit($post->description, 100, '...') }}</p>
-                                <button class="link-reset" href="{{ $post->slug }}">READ MORE</button>
-                            </div>
+        <div class="flex flex-wrap -mx-4 overflow-hidden">
+            @foreach($posts as $post)
+                <div class="flex my-8 px-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/3">
+                    <div class="tour flex flex-col shadow rounded-lg overflow-hidden flex-1">
+                        <div class="img-zoom-wrapper mb-4 h-auto">
+                            <img
+                                class="h-auto w-full img-zoom"
+                                alt="{{ $post->title }}"
+                                src="{{ $post->getFirstMediaUrl(\App\Post::COVER_COLLECTION) }}"
+                            />
                         </div>
-                    </a>
-                @endforeach
-            </div>
+                        <div class="flex flex-col px-5 mb-4 justify-between flex-1">
+                            <div class="flex-1">
+                                <h1 class="text-lg font-bold text-black mb-2">{{ $post->title }}</h1>
+                                <p class="text-grey-darker mb-4">{{ str_limit($post->description, 100, '...') }}</p>
+                            </div>
+                            <button
+                                class="text-left text-grey text-sm hover:text-brand cursor-pointer focus:outline-none"
+                                onclick='window.location.href = {{ $post->slug }}'>
+                                READ MORE
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 @endsection
