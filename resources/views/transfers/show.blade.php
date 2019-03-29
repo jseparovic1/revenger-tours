@@ -29,41 +29,41 @@
                         </tr>
                         </thead>
                         <tbody>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
-                                <td>Split</td>
-                                <td>Brač (Bol)</td>
-                                <td class="text-brand-darkest font-bold">€260</td>
-                                <td class="text-brand-darkest font-bold">€280</td>
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
+                                <td >Split</td>
+                                <td >Brač (Bol)</td>
+                                <td>€260</td>
+                                <td>€280</td>
                             </tr>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Brač (Milna)</td>
-                                <td class="text-brand-darkest font-bold">€230</td>
-                                <td class="text-brand-darkest font-bold">€250</td>
+                                <td>€230</td>
+                                <td>€250</td>
                             </tr>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Šolta</td>
-                                <td class="text-brand-darkest font-bold">€130</td>
-                                <td class="text-brand-darkest font-bold">€150</td>
+                                <td>€130</td>
+                                <td>€150</td>
                             </tr>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Trogir</td>
-                                <td class="text-brand-darkest font-bold">€130</td>
-                                <td class="text-brand-darkest font-bold">€150</td>
+                                <td>€130</td>
+                                <td>€150</td>
                             </tr>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Split (Airport)</td>
-                                <td class="text-brand-darkest font-bold">€100</td>
-                                <td class="text-brand-darkest font-bold">€120</td>
+                                <td>€100</td>
+                                <td>€120</td>
                             </tr>
-                            <tr class="hover:text-white hover:bg-brand font-semibold">
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Hvar (Airport)</td>
-                                <td class="text-brand-darkest font-bold">€280</td>
-                                <td class="text-brand-darkest font-bold">€300</td>
+                                <td>€280</td>
+                                <td>€300</td>
                             </tr>
                         </tbody>
                     </table>
