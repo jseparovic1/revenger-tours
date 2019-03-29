@@ -19,6 +19,7 @@ use App\Http\Controllers\Tour\ShowTourRequestAction;
 use App\Http\Controllers\Tour\ShowToursListAction;
 use Illuminate\Routing\Router;
 
+
 return function (Router $router) {
     /**
      * Auth
