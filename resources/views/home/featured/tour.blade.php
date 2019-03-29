@@ -1,4 +1,6 @@
-<div class="group tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden">
+<div
+        onclick="window.location.href='{{ $action }}'"
+        class="block group tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden cursor-pointer">
     <img class="h-auto w-full bg-cover"
          alt="{{ $title . ' image' }}"
          @if(is_string($media))

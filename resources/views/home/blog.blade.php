@@ -10,10 +10,14 @@
                              alt="{{ $post->title . ' image' }}"
                              src="{{ $post->getFirstMediaUrl(\App\Post::COVER_COLLECTION) }}"
                         />
-                        <a class="flex flex-col h-full justify-around p-5 hover:text-brand rounded-b-lg" href="{{ $post->slug }}">
+                        <a class="flex flex-col h-full justify-around p-5 hover:text-brand rounded-b-lg"
+                           href="{{ $post->slug }}">
                             <h1 class="text-lg font-semibold text-black mb-2">{{ $post->title }}</h1>
                             <p class="text-grey-darkest">{{ $post->description }}</p>
-                            <a class="text-grey text-sm p-5 group-hover:text-brand" href="{{ $post->slug }}">READ MORE</a>
+                            <a class="text-grey text-sm p-5 group-hover:text-brand"
+                               href="{{ route('post.show', ['post' => $post->slug]) }}">
+                                READ MORE
+                            </a>
                         </a>
                     </div>
                 @endforeach
