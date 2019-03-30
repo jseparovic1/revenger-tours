@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\GetImageAction;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UploadImageAction;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
@@ -54,6 +55,9 @@ return function (Router $router) {
 
         $router->resource('tours', TourController::class)
             ->names('admin.tours');
+
+        $router->resource('posts', PostController::class)
+            ->names('admin.posts');
     });
 };
 
