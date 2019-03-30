@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\Shared\Field;
+namespace App\Shared\Field\Text;
+
+use App\Shared\Field\BaseField;
 
 class Text extends BaseField
 {

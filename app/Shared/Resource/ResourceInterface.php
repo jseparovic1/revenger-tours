@@ -6,6 +6,10 @@ namespace App\Shared\Resource;
 
 interface ResourceInterface
 {
+    public function except(): array;
+
+    public function only(): array;
+
     public function fields();
 
     public function name(): string;

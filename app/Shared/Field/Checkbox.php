@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace App\Shared\Field;
 
-use Illuminate\Support\Str;
-
-class Checkbox
+class Checkbox extends BaseField
 {
-
+    public function type(): string
+    {
+        return 'checkbox';
+    }
 }
