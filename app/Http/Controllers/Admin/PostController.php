@@ -2,24 +2,55 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Constants\Disk;
+use App\Http\Controllers\Admin\ViewModel\PostViewModel;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\PostResourceRequest;
-use App\Http\Requests\Admin\TourResourceRequest;
 use App\Post;
-use App\Tour;
+use App\Services\ImageUploader;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
+    protected $resourceRouteKey = 'posts';
+    protected $resourceName = 'Post';
+    protected $identifier = 'slug';
+    protected $fields = ['title', 'description', 'updated_at'];
+    protected $imageFields = ['cover'];
+    protected $resource = Post::class;
+    protected $viewModel = PostViewModel::class;
+    protected $requestClass = PostResourceRequest::class;
+
+    /**
+     * @var ImageUploader
+     */
+    private $imageUploader;
+
+    public function __construct(ImageUploader $imageUploader)
+    {
+        $this->imageUploader = $imageUploader;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.posts.index', [
-            'posts' => Post::all(),
+        return view("admin.{$this->resourceRouteKey}.index", [
+            'fields' => $this->fields,
+            'headers' => property_exists($this, 'headers')
+                ? $this->headers
+                : array_merge(
+                    array_map(function ($header) {
+                        return Str::ucfirst($header);
+                    }, $this->fields),
+                    ['Actions']
+                ),
+            'resourceName' => $this->resourceName,
+            'resourceRouteKey' => $this->resourceRouteKey,
+            'resources' => $this->resource::all()->map(function ($resource) {
+                return $this->viewModel::createFromModel($resource);
+            }),
         ]);
     }
 
@@ -28,78 +59,92 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view("admin.{$this->resourceRouteKey}.create", [
+            'resourceName' => $this->resourceName,
+            'imageFields' => $this->imageFields
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(TourResourceRequest $request)
+    public function store(Request $request)
     {
-        $validatedData = $request->validated();
+        $validatedData = (app($this->requestClass))->validated();
 
-//        $hero = array_pull($validatedData,'hero');
+        $dataWithoutImages = array_filter($validatedData, function ($key) {
+            return ! in_array($key, $this->imageFields);
+        }, ARRAY_FILTER_USE_KEY);
 
-        $post = Post::create($validatedData);
+        $resource = $this->resource::create($dataWithoutImages);
 
-//        $this->uploadImages($tour, $hero, 'hero_original');
+        foreach ($this->imageFields as $imageField) {
+            $images = array_pull($validatedData, $imageField);
+            $this->imageUploader->uploadForResource($resource, $imageField, $images);
+        }
 
-        $request->session()->flash('status', 'Post created successfully.');
+        $request->session()->flash('status', "{$this->resourceName} created successfully.");
 
-        return redirect()->route('admin.posts.edit', $post->slug);
+        return redirect()->route("admin.{$this->resourceRouteKey}.edit", [
+            Str::lower($this->resourceName) => $resource->{$this->identifier}
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Post $post)
+    public function edit(Request $request)
     {
-        return view('admin.posts.edit', ['resource' => $post]);
+        $resource = $this->resource::where(
+            $this->identifier,
+            $request->route(Str::lower($this->resourceName))
+        )->firstOrFail();
+
+        return view("admin.{$this->resourceRouteKey}.edit", [
+            'resource' => $resource
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(PostResourceRequest $request, Post $post)
+    public function update(Request $request)
     {
-        $validatedData = $request->validated();
+        $resource = $this->resource::where(
+            $this->identifier,
+            $request->route(Str::lower($this->resourceName))
+        )->firstOrFail();
 
-//        $hero = array_pull($validatedData,'hero');
+        $validatedData = (app($this->requestClass))->validated();
+        $resource->update($validatedData);
 
-        $post->update($validatedData);
+        foreach ($this->imageFields as $imageField) {
+            $images = array_pull($validatedData, $imageField);
+            $this->imageUploader->uploadForResource($resource, $imageField, $images);
+        }
 
-//        $this->uploadImages($post, $hero, 'hero_original');
+        $request->session()->flash('status', "{$this->resourceName} edited successfully.");
 
-        $request->session()->flash('status', 'Post edited successfully.');
-
-        return redirect()->route('admin.posts.edit', ['resource' => $post]);
+        return redirect()->route("admin.{$this->resourceRouteKey}.edit", [
+            Str::lower($this->resourceName) => $resource->{$this->identifier}
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      * @throws \Exception
      */
-    public function destroy(Post $post, Request $request)
+    public function destroy(Request $request)
     {
-        $post->delete();
-        $request->session()->flash('status', 'Post deleted successfully.');
+        $resource = $this->resource::where(
+            $this->identifier,
+            $request->route(Str::lower($this->resourceName))
+        )->firstOrFail();
 
-        return redirect()->route('admin.posts.index');
-    }
+        $resource->delete();
 
-    /**
-     * @param Tour $tour
-     * @param $hero
-     */
-    private function uploadImages(Post $post, $hero, $collection): void
-    {
-        $storedMedia = $post->media->pluck('file_name')->toArray();
+        $request->session()->flash('status', "{$this->resourceName} deleted successfully.");
 
-        collect($hero)
-            ->reject(function($image) use ($storedMedia) {
-                return in_array($image, $storedMedia);
-            })->each(function ($image) use ($post, $collection) {
-                $post->addMedia(Storage::disk(Disk::TEMPORARY)->path($image))->toMediaCollection($collection);
-            });
+        return redirect()->route("admin.{$this->resourceRouteKey}.index");
     }
 }

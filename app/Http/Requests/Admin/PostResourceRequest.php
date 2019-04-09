@@ -19,6 +19,8 @@ class PostResourceRequest extends FormRequest
             'title' => 'required',
             'description' => 'required',
             'content' => 'required',
+            'cover' => 'nullable',
+            'slug' => 'required',
         ];
     }
 }

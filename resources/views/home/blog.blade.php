@@ -15,7 +15,7 @@
                             <h1 class="text-lg font-semibold text-black mb-2">{{ $post->title }}</h1>
                             <p class="text-grey-darkest">{{ $post->description }}</p>
                             <a class="text-grey text-sm p-5 group-hover:text-brand"
-                               href="{{ route('post.show', ['post' => $post->slug]) }}">
+                               href="{{ route('posts.show', ['post' => $post->slug]) }}">
                                 READ MORE
                             </a>
                         </a>

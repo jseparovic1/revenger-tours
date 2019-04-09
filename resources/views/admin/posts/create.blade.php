@@ -6,19 +6,25 @@
             <div class="flex flex-1 flex-col md:flex-row lg:flex-row mx-2">
                 <div class="rounded overflow-hidden bg-white mx-2 w-full">
                     <div class="px-6 py-6">
-                        <div class="text-xl">Create tour</div>
+                        <div class="text-xl">Create {{ $resourceName }}</div>
                     </div>
                     <div>
                         @component('components.form.form', [
                                     'method' => 'post',
-                                    'action' => route('admin.tours.store'),
+                                    'action' => route('admin.posts.store'),
                                 ])
+                            @foreach($imageFields as $image)
+                                <div class="form-control">
+                                    @include('components.form.imageUpload', [
+                                        'name' => $image,
+                                        'label' => \Illuminate\Support\Str::ucfirst($image)]
+                                    )
+                                </div>
+                            @endforeach
+                            @include('admin.posts._form')
                             <div class="form-control">
-                                @include('components.form.imageUpload', ['name' => 'hero', 'label' => 'Hero image'])
-                            </div>
-                            @include('admin.tours._form')
-                            <div class="form-control">
-                                @component('components.form.submit') CREATE TOUR @endcomponent
+                                @component('components.form.submit')
+                                    CREATE {{ \Illuminate\Support\Str::upper($resourceName) }} @endcomponent
                             </div>
                         @endcomponent
                     </div>

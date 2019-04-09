@@ -17,17 +17,17 @@
                                     'method' => 'put',
                                     'action' => route('admin.posts.update', ['post' => $resource->slug]),
                                 ])
-                            {{--<div class="form-control">--}}
-                                {{--@include('components.form.imageUpload', [--}}
-                                    {{--'name' => 'hero',--}}
-                                    {{--'images' => $resource->getMedia("hero_original"),--}}
-                                    {{--'label' => 'Hero image',--}}
-                                    {{--'edit' => 1,--}}
-                                    {{--'resource' => $resource,--}}
-                                    {{--'collectionName' => 'hero_original',--}}
-                                    {{--'resourceId' => $resource->id--}}
-                                 {{--])--}}
-                            {{--</div>--}}
+                            <div class="form-control">
+                                @include('components.form.imageUpload', [
+                                    'name' => 'Cover',
+                                    'images' => $resource->getMedia("cover"),
+                                    'label' => 'Cover image',
+                                    'edit' => 1,
+                                    'resource' => $resource,
+                                    'collectionName' => 'cover',
+                                    'resourceId' => $resource->id
+                                 ])
+                            </div>
                             @include('admin.posts._form')
                             <div class="form-control">
                                 @component('components.form.submit') UPDATE POST @endcomponent

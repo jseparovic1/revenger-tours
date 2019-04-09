@@ -42,8 +42,8 @@ return function (Router $router) {
     $router->get('/transfers', function () {return view('transfers.show');})->name('transfers.show');
     $router->get('/tour/private', ShowPrivateTours::class)->name('toursPrivate.show');
 
-    $router->get('/blog', ShowPostListAction::class)->name('post.index');
-    $router->get('/blog/{post}', ShowPostAction::class)->name('post.show');
+    $router->get('/blog', ShowPostListAction::class)->name('posts.index');
+    $router->get('/blog/{post}', ShowPostAction::class)->name('posts.show');
 
     /**
      * Admin Routes

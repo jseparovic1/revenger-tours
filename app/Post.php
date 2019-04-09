@@ -2,7 +2,6 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Sluggable\HasSlug;
@@ -18,7 +17,6 @@ class Post extends Model implements HasMedia
     {
         return 'slug';
     }
-
 
     public function getSlugOptions(): SlugOptions
     {
