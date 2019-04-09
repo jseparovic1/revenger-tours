@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\AdminMenuFactory;
-use App\Services\MenuFactory;
-use App\Services\ResponsiveMenuFactory;
+use App\Menu\Factory\MenuFactory;
+use App\Menu\Factory\ResponsiveMenuFactory;
+use App\Menu\Factory\AdminMenuFactory;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

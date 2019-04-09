@@ -2,12 +2,13 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Menu\Factory;
 
 use App\Dto\MenuDto;
 use Illuminate\Http\Request;
 use Spatie\Menu\Laravel\Menu;
 use Spatie\Menu\Link;
+use App\Menu\ItemsProvider\MenuItemsProvider;
 
 class MenuFactory extends AbstractMenuFactory
 {

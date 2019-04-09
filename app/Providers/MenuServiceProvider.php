@@ -2,9 +2,9 @@
 
 namespace App\Providers;
 
-use App\Services\AbstractMenuFactory;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\View\Factory as View;
+use App\Menu\Factory\AbstractMenuFactory;
 
 class MenuServiceProvider extends ServiceProvider
 {
