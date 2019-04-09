@@ -132,4 +132,8 @@ section {
     }
 }
 
+.admin__sidebar .active {
+    @apply border-brand;
+}
+
 @tailwind utilities;

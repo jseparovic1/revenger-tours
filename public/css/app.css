@@ -2911,6 +2911,10 @@ section {
   z-index: 2;
 }
 
+.admin__sidebar .active {
+  border-color: #ba2525;
+}
+
 .list-reset {
   list-style: none;
   padding: 0;

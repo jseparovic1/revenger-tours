@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\AdminMenuFactory;
 use App\Services\MenuFactory;
 use App\Services\ResponsiveMenuFactory;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +16,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->tag([MenuFactory::class, ResponsiveMenuFactory::class], 'menu_factory');
+        $this->app->tag([
+            MenuFactory::class,
+            ResponsiveMenuFactory::class,
+            AdminMenuFactory::class,
+        ], 'menu_factory');
     }
 
     /**
