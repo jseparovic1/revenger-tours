@@ -11,20 +11,13 @@
                     <div>
                         @component('components.form.form', [
                                     'method' => 'post',
-                                    'action' => route('admin.posts.store'),
+                                    'action' => route("admin.{$resourceRouteKey}.store"),
                                 ])
-                            @foreach($imageFields as $image)
-                                <div class="form-control">
-                                    @include('components.form.imageUpload', [
-                                        'name' => $image,
-                                        'label' => \Illuminate\Support\Str::ucfirst($image)]
-                                    )
-                                </div>
-                            @endforeach
-                            @include('admin.posts._form')
+                            @include("admin.{$resourceRouteKey}._form")
                             <div class="form-control">
                                 @component('components.form.submit')
-                                    CREATE {{ \Illuminate\Support\Str::upper($resourceName) }} @endcomponent
+                                    CREATE {{ \Illuminate\Support\Str::upper($resourceName) }}
+                                @endcomponent
                             </div>
                         @endcomponent
                     </div>

@@ -75,7 +75,6 @@ class ResourceController extends Controller
      */
     private $imageUploader;
 
-
     /**
      * ResourceController constructor.
      * @param ImageUploader $imageUploader
@@ -90,7 +89,7 @@ class ResourceController extends Controller
      */
     public function index()
     {
-        return view("admin.{$this->resourceRouteKey()}.index", [
+        return view("admin.resource.index", [
             'fields' => $this->fields,
             'headers' => property_exists($this, 'headers')
                 ? $this->headers
@@ -113,9 +112,11 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        return view("admin.{$this->resourceRouteKey()}.create", [
+        return view("admin.resource.create", [
             'resourceName' => $this->resourceName(),
-            'imageFields' => $this->imageFields
+            'imageFields' => $this->imageFields,
+            'resourceRouteKey' => $this->resourceRouteKey(),
+            'action' => 'create',
         ]);
     }
 
@@ -154,10 +155,13 @@ class ResourceController extends Controller
             $request->route(Str::lower($this->resourceName()))
         )->firstOrFail();
 
-        return view(sprintf("admin.%s.edit", $this->resourceRouteKey()), [
+        return view("admin.resource.edit", [
             'resource' => $resource,
             'resourceName' => $this->resourceName(),
-            'imageFields' => $this->imageFields
+            'resourceRouteKey' => $this->resourceRouteKey(),
+            'imageFields' => $this->imageFields,
+            'identifier' => $this->identifier,
+            'action' => 'edit',
         ]);
     }
 

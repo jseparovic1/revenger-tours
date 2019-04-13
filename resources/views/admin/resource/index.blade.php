@@ -16,6 +16,7 @@
                 @endforeach
                 <td class="flex">
                     <a class="py-2 px-4 border rounded-full text-black hover:text-grey"
+                       target="_blank"
                        href="{{ route("{$resourceRouteKey}.show", [$resourceRouteKey => $resource->slug()]) }}">SHOW</a>
                     <a class="py-2 px-4 border rounded-full text-black hover:text-grey"
                        href="{{ route("admin.{$resourceRouteKey}.edit", [$resourceRouteKey => $resource->slug()]) }}">EDIT</a>
