@@ -14,7 +14,7 @@
     <section class="p-0 m-0 relative">
         <div class="max-w-3xl mx-auto flex flex-col lg:flex-row">
             <section class="tour-details w-full flex-1 p-0">
-                <scrool-spy class="z-30">
+                <scrool-spy class="z-10">
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Itinerary</div>
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Map</div>
                 </scrool-spy>

@@ -2,7 +2,6 @@
     'title' => 'Blog',
     'breadcrumbUrl' => route('posts.index'),
     'imageUrl' => asset('images/default/blog.jpg'),
-    'turnOffFixedNav' => true,
 ])
 
 @section('page')

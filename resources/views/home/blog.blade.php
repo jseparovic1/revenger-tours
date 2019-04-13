@@ -5,21 +5,20 @@
             <p class="heading-description">{{ config('settings.main_blog.description') }}</p>
             <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch mb-4">
                 @foreach($posts as $post)
-                    <div class="tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden group">
+                    <a class="tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden group"
+                       href="{{ route('posts.show', ['post' => $post->slug]) }}">
                         <img class="h-auto w-full bg-cover"
                              alt="{{ $post->title . ' image' }}"
                              src="{{ $post->getFirstMediaUrl(\App\Post::COVER_COLLECTION) }}"
                         />
-                        <a class="flex flex-col h-full justify-around p-5 hover:text-brand rounded-b-lg"
-                           href="{{ $post->slug }}">
+                        <div class="flex flex-col h-full justify-around p-5 hover:text-brand rounded-b-lg">
                             <h1 class="text-lg font-semibold text-black mb-2">{{ $post->title }}</h1>
                             <p class="text-grey-darkest">{{ $post->description }}</p>
-                            <a class="text-grey text-sm p-5 group-hover:text-brand"
-                               href="{{ route('posts.show', ['post' => $post->slug]) }}">
+                            <div class="text-grey text-sm p-5 group-hover:text-brand">
                                 READ MORE
-                            </a>
-                        </a>
-                    </div>
+                            </div>
+                        </div>
+                    </a>
                 @endforeach
             </div>
         </div>

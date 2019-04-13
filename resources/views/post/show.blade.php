@@ -1,7 +1,7 @@
 @extends('layouts.page', [
     'title' => $post->title,
     'breadcrumbUrl' => route('posts.show', ['post' => $post->slug]),
-    'imageUrl' => asset('images/static/post.jpg'),
+    'imageUrl' => $post->getFirstMediaUrl(\App\Post::COVER_COLLECTION),
 ])
 
 @section('page')
