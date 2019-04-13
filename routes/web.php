@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\GetImageAction;
 use App\Http\Controllers\Admin\ImageController;
+use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\UploadImageAction;
 use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
@@ -41,8 +42,8 @@ return function (Router $router) {
     $router->get('/transfers', function () {return view('transfers.show');})->name('transfers.show');
     $router->get('/tour/private', ShowPrivateTours::class)->name('toursPrivate.show');
 
-    $router->get('/blog', ShowPostListAction::class)->name('post.index');
-    $router->get('/blog/{post}', ShowPostAction::class)->name('post.show');
+    $router->get('/blog', ShowPostListAction::class)->name('posts.index');
+    $router->get('/blog/{post}', ShowPostAction::class)->name('posts.show');
 
     /**
      * Admin Routes
@@ -54,6 +55,9 @@ return function (Router $router) {
 
         $router->resource('tours', TourController::class)
             ->names('admin.tours');
+
+        $router->resource('posts', PostController::class)
+            ->names('admin.posts');
     });
 };
 

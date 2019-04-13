@@ -2,11 +2,11 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use App\Events\ResourceChanged;
 
 class Post extends Model implements HasMedia
 {
@@ -14,11 +14,14 @@ class Post extends Model implements HasMedia
 
     const COVER_COLLECTION = 'cover';
 
+    protected $dispatchesEvents = [
+        'saved' => ResourceChanged::class,
+    ];
+
     public function getRouteKeyName()
     {
         return 'slug';
     }
-
 
     public function getSlugOptions(): SlugOptions
     {

@@ -1,6 +1,6 @@
 @extends('layouts.page', [
     'title' => 'Blog',
-    'breadcrumbUrl' => route('post.index'),
+    'breadcrumbUrl' => route('posts.index'),
     'imageUrl' => asset('images/default/blog.jpg'),
 ])
 
@@ -8,7 +8,7 @@
     <section class="max-w-3xl mx-auto">
         <div class="flex flex-wrap -mx-4 overflow-hidden">
             @foreach($posts as $post)
-                <a href="{{ route('post.show', ['post' => $post->slug]) }}" class="flex my-8 px-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/3 group">
+                <a href="{{ route('posts.show', ['post' => $post->slug]) }}" class="flex my-8 px-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/3 group">
                     <div class="tour flex flex-col shadow rounded-lg overflow-hidden flex-1">
                         <div class="img-zoom-wrapper mb-4 h-auto">
                             <img
@@ -24,7 +24,7 @@
                             </div>
                             <button
                                 class="text-left text-grey text-sm hover:text-brand cursor-pointer focus:outline-none group-hover:text-brand"
-                                onclick='window.location.href="{{ route('post.show', ['post' => $post->slug]) }}"'>
+                                onclick='window.location.href="{{ route('posts.show', ['post' => $post->slug]) }}"'>
                                 READ MORE
                             </button>
                         </div>

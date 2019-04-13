@@ -2,11 +2,12 @@
 
 declare(strict_types=1);
 
-namespace App\Services;
+namespace App\Menu\Factory;
 
 use Spatie\Menu\Laravel\Link;
 use Spatie\Menu\Laravel\Menu;
 use App\Dto\MenuDto;
+use App\Menu\ItemsProvider\MenuItemsProvider;
 
 class ResponsiveMenuFactory extends AbstractMenuFactory
 {

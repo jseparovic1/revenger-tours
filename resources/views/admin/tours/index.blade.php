@@ -28,7 +28,7 @@
                             <tbody>
                             @foreach($tours as $tour)
                                 <tr class="border-none">
-                                    <th class="border-none">{{ $tour->title }}</th>
+                                    <td>{{ $tour->title }}</td>
                                     <td>{{ \Illuminate\Support\Str::words($tour->hero_description, 6) }}</td>
                                     <td>€ {{ $tour->price }} </td>
                                     <td>{{ $tour->type }} </td>
