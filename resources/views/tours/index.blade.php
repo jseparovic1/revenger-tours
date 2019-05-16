@@ -1,7 +1,7 @@
 @extends('layouts.page', [
     'title' => 'Tours',
     'breadcrumbUrl' => route('tours.index'),
-    'imageUrl' => asset('images/default/tour.jpg'),
+    'imageUrl' => asset('images/static/tour.jpg'),
 ])
 
 @section('page')
@@ -21,7 +21,7 @@
                                 <img
                                     class="h-auto w-full img-zoom"
                                     alt="{{ $tour->title }}"
-                                    src="{{ optional($tour->getFirstMedia('hero_original'))->getUrl('card') ?? asset('images/default/card.jpg')}}"
+                                    src="{{ optional($tour->getFirstMedia('hero_original'))->getUrl('card') ?? asset('images/static/tour.jpg')}}"
                                 />
                             </div>
                             <div class="w-full lg:w-5/6 flex flex-col justify-around px-5 pb-5 group">

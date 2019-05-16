@@ -1,7 +1,7 @@
 @extends('layouts.page', [
     'title' => 'Blog',
     'breadcrumbUrl' => route('posts.index'),
-    'imageUrl' => asset('images/default/blog.jpg'),
+    'imageUrl' => asset('images/static/blog.jpg'),
 ])
 
 @section('page')
