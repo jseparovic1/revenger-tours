@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
     @include('layouts._favicon')
-    @includeIf(env('APP.ENV') === 'production', 'layouts._analytics')
+    @includeIf(env('APP.ENV') !== 'local', 'layouts._analytics')
     <meta name="csrf-token" content="{{ csrf_token() }}">
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal text-sm md:text-base">
