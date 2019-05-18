@@ -3,8 +3,8 @@
         <div class="sm:flex mb-4 justify-between">
             <div class="sm:w-1/3 sm:mt-0 mt-8 h-auto mb-5">
                 <div class="mb-2">
-                    <span class="text-brand font-bold text-lg">Revenger</span>
-                    <span class="text-white font-bold text-lg">Tours</span>
+                    <span class="text-brand font-bold text-xl">Revenger</span>
+                    <span class="text-white font-bold text-xl">Tours</span>
                 </div>
                 <p class="text-white">{{ config('settings.footer.description') }}</p>
                 <div class="mt-4 flex">
@@ -15,11 +15,11 @@
             <div class="sm:w-1/4 h-auto mb-5">
                 <div class="text-white font-bold mb-2 text-lg">Contact</div>
                 <ul class="list-reset leading-normal">
-                    <li class="flex items-center">
+                    <li class="flex items-center py-1">
                         @include('svg.mail', ['class' => 'h-6 w-6 text-brand'])
                         <span class="ml-2">{{ config('settings.contact.email') }}</span>
                     </li>
-                    <li class="">
+                    <li class="py-1">
                         @include('svg.phone', ['class' => 'h-6 w-6 text-brand'])
                         <span class="ml-2">{{ config('settings.contact.phone') }}</span>
                     </li>
@@ -28,10 +28,10 @@
             <div class="sm:w-1/4 h-auto mb-5">
                 <div class="text-white font-bold mb-2 text-lg">Quick links</div>
                 <ul class="list-reset leading-normal">
-                    <li class=""><a href="{{ route('tours.index') }}" class="link-reset text-white">Tours</a></li>
-                    <li class=""><a href="{{ route('toursPrivate.show') }}" class="link-reset text-white">Private Tours</a></li>
-                    <li class=""><a href="{{ route('transfers.show') }}" class="link-reset text-white">Boat transfers</a></li>
-                    <li class=""><a href="{{ route('request.general.show') }}" class="link-reset text-white">Contact</a></li>
+                    <li class="py-1"><a href="{{ route('tours.index') }}" class="link-reset text-white flex">Tours</a></li>
+                    <li class="py-1"><a href="{{ route('toursPrivate.show') }}" class="link-reset text-white flex">Private Tours</a></li>
+                    <li class="py-1"><a href="{{ route('transfers.show') }}" class="link-reset text-white flex">Boat transfers</a></li>
+                    <li class="py-1"><a href="{{ route('request.general.show') }}" class="link-reset text-white flex">Contact</a></li>
                 </ul>
             </div>
         </div>

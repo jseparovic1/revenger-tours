@@ -4,6 +4,7 @@ namespace App;
 
 use App\Services\TimeProvider;
 use Carbon\Carbon;
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
@@ -101,6 +102,7 @@ class Tour extends Model implements HasMedia
 
         $this
             ->addMediaConversion('hero')
+            ->fit(Manipulations::FIT_CONTAIN, 1920, 1080)
             ->optimize()
             ->withResponsiveImages()
             ->performOnCollections('hero_original')

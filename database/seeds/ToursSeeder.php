@@ -39,6 +39,7 @@ class ToursSeeder extends Seeder
             'type' => 'private',
             'hero_short_description' => '3 islands tour',
         ]);
+
         factory(\App\Tour::class)->create([
             'title' => 'Hvar blue lagoon private tour',
             'price' => '500',
