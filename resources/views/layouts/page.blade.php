@@ -6,7 +6,7 @@
                  style="background-image: url({{ $imageUrl }}); background-position: center; background-size: cover">
             <div class="h-full flex flex-col pb-32 z-10 w-full max-w-3xl lg:max-w-3xl mx-auto text-center md:text-left">
                 <div class="text-4xl text-white font-extrabold">{{ $title }}</div>
-                <div class="text-2xl">
+                <div class="hidden lg:block text-2xl ">
                     <a href="/" class="text-white">Home</a>
                     <span class="text-white font-bold">/</span>
                     <span class="text-white">{{ $title }}</span>

@@ -24,8 +24,8 @@
                         <tr>
                             <th scope="col">Start</th>
                             <th scope="col">Destination</th>
-                            <th scope="col">Offseason price</th>
-                            <th scope="col">Seasson price</th>
+                            <th scope="col">Offseason <span class="hidden md:block">price</span></th>
+                            <th scope="col">Seasson <span class="hidden md:block">price</span></th>
                         </tr>
                         </thead>
                         <tbody>

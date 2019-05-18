@@ -1,13 +1,16 @@
 @extends('layouts.page', [
     'title' => 'Contact',
     'breadcrumbUrl' => route('request.general.show'),
-    'imageUrl' => asset('images/static/transfers.jpg'),
+    'imageUrl' => asset('images/static/contact.jpg'),
 ])
 
 @section('page')
     <section>
         <div class="max-w-3xl mx-auto flex flex-col lg:flex-row">
             <main class="flex-1 pr-4 text-lg">
+                <div class="title-brand blog-content">
+                    <h1 class="mt-0">Contact</h1>
+                </div>
                 <div class="p-6 lg:p-10 bg-white">
                     <send-contact-request
                         action='{{ route("request.general.store")}}'

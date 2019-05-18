@@ -37,6 +37,7 @@ class ToursSeeder extends Seeder
             'title' => 'Blue Cave private tour',
             'price' => '800',
             'type' => 'private',
+            'featured' => false,
             'hero_short_description' => '3 islands tour',
         ]);
 
