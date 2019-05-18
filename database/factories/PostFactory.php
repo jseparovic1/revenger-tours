@@ -16,5 +16,6 @@ $factory->define(Post::class, function (Faker $faker) {
 $factory->afterMaking(Post::class, function(Post $post, Faker $faker) {
     $post
         ->addMediaFromUrl($faker->imageUrl())
+        ->withResponsiveImages()
         ->toMediaCollection(Post::COVER_COLLECTION);
 });
