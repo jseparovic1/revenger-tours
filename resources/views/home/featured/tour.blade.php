@@ -3,11 +3,7 @@
         class="block group tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden cursor-pointer">
     <img class="h-auto w-full bg-cover"
          alt="{{ $title . ' image' }}"
-         @if(is_string($media))
-         src="{{$media}}"
-         @else
-         src="{{ $media->getUrl('card') }}"
-         @endif
+         src="{{ $imageSrc }}"
     />
     <a class="flex flex-col h-full justify-around p-5 rounded-b-lg" href="{{ $action }}">
         <h1 class="text-lg font-semibold text-black mb-2">{{ $title }}</h1>

@@ -15,7 +15,6 @@ class ToursSeeder extends Seeder
         $blueLagoon
             ->addMedia(public_path('images/blue-lagoon/hero.jpg'))
             ->preservingOriginal()
-            ->withResponsiveImages()
             ->toMediaCollection('hero_original')
         ;
 
@@ -28,7 +27,6 @@ class ToursSeeder extends Seeder
         $blueCave
             ->addMedia(public_path('images/blue-cave/hero.jpg'))
             ->preservingOriginal()
-            ->withResponsiveImages()
             ->toMediaCollection('hero_original')
         ;
 

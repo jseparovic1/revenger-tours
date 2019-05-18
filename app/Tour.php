@@ -95,16 +95,15 @@ class Tour extends Model implements HasMedia
     public function registerMediaConversions(Media $media = null)
     {
         $this
-            ->addMediaConversion('card')
-            ->width(400)
-            ->height(250)
+            ->addMediaConversion('hero')
+            ->focalCrop(1920, 1080, 0 , 0)
+            ->withResponsiveImages()
         ;
 
         $this
-            ->addMediaConversion('hero')
-            ->optimize()
+            ->addMediaConversion('card')
+            ->fit(Manipulations::FIT_CONTAIN, 800, 600)
             ->withResponsiveImages()
-            ->performOnCollections('hero_original')
         ;
     }
 }

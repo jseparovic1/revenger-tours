@@ -10,14 +10,14 @@
                     @include('home.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
-                        'media' => optional($tour->getFirstMedia('hero_original'))->getUrl('hero') ?? asset('/images/default/tour.jpg'),
+                        'imageSrc' => optional($tour->getFirstMedia('hero_original'))->getUrl('card') ?? asset('/images/default/tour.jpg'),
                         'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach
                 @include('home.featured.tour', [
                     'title' => 'Private tour',
                     'description' => 'You chose where, we drive! Get best tour expirence with amazing captian Johny and woderfull views.',
-                    'media' => asset('images/tour-private/card.jpg'),
+                    'imageSrc' => asset('images/tour-private/card.jpg'),
                     'action' => route('toursPrivate.show'),
                 ])
             </div>
