@@ -16,7 +16,7 @@
                 @endforeach
                 @include('home.featured.tour', [
                     'title' => 'Private tour',
-                    'description' => 'You chose where, we drive!',
+                    'description' => 'You chose where, we drive! Get best tour expirence with amazing captian Johny and woderfull views.',
                     'media' => asset('images/tour-private/card.jpg'),
                     'action' => route('toursPrivate.show'),
                 ])
