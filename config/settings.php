@@ -17,7 +17,7 @@ return [
         'title' => 'Blue cave trip',
         'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
         'action' => 'INFO',
-        'background' => "/images/cave.jpg",
+        'background' => "/images/featured.jpg",
     ],
     'main_blog' => [
         'title' => 'Learn more from our travel blog posts',

@@ -102,7 +102,6 @@ class Tour extends Model implements HasMedia
 
         $this
             ->addMediaConversion('hero')
-            ->fit(Manipulations::FIT_CONTAIN, 1920, 1080)
             ->optimize()
             ->withResponsiveImages()
             ->performOnCollections('hero_original')
