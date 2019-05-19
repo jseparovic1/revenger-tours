@@ -4,6 +4,11 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
+var lozad = require('lozad')
+
+const el = document.querySelectorAll('img');
+const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
+observer.observe();
 
 window.Vue = require('vue');
 

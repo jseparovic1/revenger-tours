@@ -2165,49 +2165,6 @@ th {
   background-color: #780a0a;
 }
 
-.swiper-container .swiper-slide img {
-  min-height: 100%;
-  width: 100%;
-  height: auto;
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
-@-webkit-keyframes zoom {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-
-  50% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-  }
-
-  100% {
-    -webkit-transform: scale(1.6);
-            transform: scale(1.6);
-  }
-}
-
-@keyframes zoom {
-  0% {
-    -webkit-transform: scale(1);
-            transform: scale(1);
-  }
-
-  50% {
-    -webkit-transform: scale(1.3);
-            transform: scale(1.3);
-  }
-
-  100% {
-    -webkit-transform: scale(1.6);
-            transform: scale(1.6);
-  }
-}
-
 .slider-control {
   position: absolute;
   right: 5%;
@@ -2259,7 +2216,7 @@ th {
   position: absolute;
   top: 0;
   left: 0;
-  background: url("/images/header/omis.jpg");
+  background: url("/images/static/mobile-hero.jpg");
   background-size: cover;
   background-position: center;
   -webkit-filter: brightness(50%);

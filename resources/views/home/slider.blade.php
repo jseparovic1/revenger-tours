@@ -2,7 +2,7 @@
     <div class="hidden lg:block swiper-container h-half lg:h-screen">
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
-                @component('components.slide', ['image' => $tour->getFirstMediaUrl('hero_original', 'hero')])
+                @component('components.slide', ['image' => $tour->getHeroImageUrl()])
                     @include('home.hero', [
                        'title' => $tour->title,
                        'shortDescription' => $tour->hero_short_description,

@@ -10,7 +10,6 @@
                     @include('home.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
-                        'imageSrc' => optional($tour->getFirstMedia('hero_original'))->getUrl('card') ?? asset('/images/default/tour.jpg'),
                         'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach

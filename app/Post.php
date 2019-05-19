@@ -2,8 +2,10 @@
 
 namespace App;
 
+use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Spatie\MediaLibrary\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 use App\Events\ResourceChanged;
@@ -35,11 +37,24 @@ class Post extends Model implements HasMedia
     public function registerMediaCollections()
     {
         $this->addMediaCollection(self::COVER_COLLECTION)
-            ->singleFile();
+            ->singleFile()
+            ->registerMediaConversions(function(Media $media) {
+                $this
+                    ->addMediaConversion('thumb')
+                    ->fit(Manipulations::FIT_CONTAIN, 640, 460)
+                    ->withResponsiveImages()
+                ;
+            })
+        ;
     }
 
     public function coverImageUrl(): ?string
     {
         return $this->getFirstMediaUrl(self::COVER_COLLECTION);
+    }
+
+    public function getThumbImg($attributes = [])
+    {
+        return self::getFirstMedia(self::COVER_COLLECTION)->img('thumb', $attributes);
     }
 }

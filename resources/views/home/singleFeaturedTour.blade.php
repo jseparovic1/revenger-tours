@@ -1,4 +1,4 @@
-<section style='background-image: url({{$background}}); background-size: cover;'>
+<section style='background-size: cover;' data-background-image="url({{ $background }})" class="loadz">
     <div class="w-full h-64 flex items-center justify-center md:justify-start my-16 md:my-32 max-w-3xl mx-auto">
         <div class="heading-content heading-content--white max-w-sm w-sm">
             <h1>{{ $title }}</h1>
