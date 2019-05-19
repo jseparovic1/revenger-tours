@@ -2,7 +2,7 @@
         onclick="window.location.href='{{ $action }}'"
         class="block group tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden cursor-pointer">
     @if(isset($imageSrc))
-        <img src="{{$imageSrc}}" alt="{{ $tour->title }}" class="h-auto w-full bg-cover">
+        <img data-src="{{$imageSrc}}" alt="{{ $tour->title }}" class="h-auto w-full bg-cover">
     @else
         {!! $tour->getFirstMedia('hero_original')->img('card', ['class' => 'h-auto w-full bg-cover lozad']) !!}
     @endif
