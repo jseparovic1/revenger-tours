@@ -44165,6 +44165,8 @@ webpackContext.id = "./resources/js sync recursive \\.vue$/";
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! swiper */ "./node_modules/swiper/dist/js/swiper.esm.bundle.js");
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! lozad */ "./node_modules/lozad/dist/lozad.min.js");
+/* harmony import */ var lozad__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(lozad__WEBPACK_IMPORTED_MODULE_1__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -44172,12 +44174,6 @@ __webpack_require__.r(__webpack_exports__);
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-var lozad = __webpack_require__(/*! lozad */ "./node_modules/lozad/dist/lozad.min.js");
-
-var el = document.querySelectorAll('img');
-var observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
-
-observer.observe();
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 Vue.config.ignoredElements = ['trix-editor'];
 /**
@@ -44196,6 +44192,7 @@ files.keys().map(function (key) {
 var app = new Vue({
   el: '#app'
 });
+
 
 var swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"]('.swiper-container', {
   slidesPerView: 1,
@@ -44250,6 +44247,12 @@ function menuToggle() {
     nav.classList.add('absolute');
   }
 }
+
+var el = document.querySelectorAll('img');
+var observer = lozad__WEBPACK_IMPORTED_MODULE_1___default()('.lozad', {
+  treshold: 0.1
+});
+observer.observe();
 
 /***/ }),
 

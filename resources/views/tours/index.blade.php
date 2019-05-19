@@ -19,7 +19,7 @@
                         <div class="tour h-full flex flex-col sm:flex-row justify-between shadow mb-4 lg:mb-8 overflow-hidden rounded-lg">
                             <div class="w-full flex img-zoom-wrapper">
                                 {!! $tour->getFirstMedia('hero_original')->img('card', [
-                                    'class' => 'h-auto w-full img-zoom',
+                                    'class' => 'h-auto w-full img-zoom lozad',
                                     'alt' => $tour->title . 'image'
                                 ]) !!}
                             </div>

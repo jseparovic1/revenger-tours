@@ -4,7 +4,7 @@
     @if(isset($imageSrc))
         <img src="{{$imageSrc}}" alt="{{ $tour->title }}" class="h-auto w-full bg-cover">
     @else
-        {!! $tour->getFirstMedia('hero_original')->img('card', ['class' => 'h-auto w-full bg-cover']) !!}
+        {!! $tour->getFirstMedia('hero_original')->img('card', ['class' => 'h-auto w-full bg-cover lozad']) !!}
     @endif
     <a class="flex flex-col h-full justify-around p-5 rounded-b-lg" href="{{ $action }}">
         <h1 class="text-lg font-semibold text-black mb-2">{{ $title }}</h1>

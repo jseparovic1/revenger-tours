@@ -11,7 +11,7 @@
                 <a href="{{ route('posts.show', ['post' => $post->slug]) }}" class="flex my-8 px-4 w-full md:w-1/2 lg:w-1/3 xl:w-1/3 group">
                     <div class="tour flex flex-col shadow rounded-lg overflow-hidden flex-1">
                         <div class="img-zoom-wrapper mb-4 h-auto">
-                            {!! $post->getThumbImg(['class' => 'h-auto w-full img-zoom', 'alt' => $post->title . 'image' ]) !!}
+                            {!! $post->getThumbImg(['class' => 'h-auto w-full img-zoom lozad', 'alt' => $post->title . 'image' ]) !!}
                         </div>
                         <div class="flex flex-col px-5 mb-4 justify-between flex-1">
                             <div class="flex-1">

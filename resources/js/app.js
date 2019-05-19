@@ -4,11 +4,8 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 require('./bootstrap');
-var lozad = require('lozad')
 
-const el = document.querySelectorAll('img');
-const observer = lozad(el); // passing a `NodeList` (e.g. `document.querySelectorAll()`) is also valid
-observer.observe();
+
 
 window.Vue = require('vue');
 
@@ -30,6 +27,8 @@ const app = new Vue({
 });
 
 import Swiper from "swiper";
+import lozad from "lozad";
+
 
 let swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
@@ -85,3 +84,8 @@ function menuToggle() {
     }
 }
 
+const el = document.querySelectorAll('img');
+const observer = lozad('.lozad', {
+    treshold: 0.1
+});
+observer.observe();
