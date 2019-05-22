@@ -28,10 +28,10 @@
             <div class="sm:w-1/4 h-auto mb-5">
                 <div class="text-white font-bold mb-2 text-lg">Quick links</div>
                 <ul class="list-reset leading-normal">
-                    <li class="py-1"><a href="{{ route('tours.index') }}" class="link-reset text-white flex">Tours</a></li>
-                    <li class="py-1"><a href="{{ route('toursPrivate.show') }}" class="link-reset text-white flex">Private Tours</a></li>
-                    <li class="py-1"><a href="{{ route('transfers.show') }}" class="link-reset text-white flex">Boat transfers</a></li>
-                    <li class="py-1"><a href="{{ route('request.general.show') }}" class="link-reset text-white flex">Contact</a></li>
+                    <li class="py-1"><a href="{{ route('tours.index') }}" class="link-reset text-white flex py-1">Tours</a></li>
+                    <li class="py-1"><a href="{{ route('toursPrivate.show') }}" class="link-reset text-white flex py-1">Private Tours</a></li>
+                    <li class="py-1"><a href="{{ route('transfers.show') }}" class="link-reset text-white flex py-1">Boat transfers</a></li>
+                    <li class="py-1"><a href="{{ route('request.general.show') }}" class="link-reset text-white flex py-1">Contact</a></li>
                 </ul>
             </div>
         </div>

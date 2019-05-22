@@ -5,7 +5,7 @@
             <p class="heading-description">
                 Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan
             </p>
-            <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch mb-4">
+            <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch flex-1 mb-4 h-75">
                 @foreach($recommended as $tour)
                     @include('home.featured.tour', [
                         'title' => $tour->title,

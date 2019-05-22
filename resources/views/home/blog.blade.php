@@ -5,7 +5,7 @@
             <p class="heading-description">{{ config('settings.main_blog.description') }}</p>
             <div class="featured flex flex-row flex-wrap md:flex-no-wrap -mx-4 self-stretch mb-4">
                 @foreach($posts as $post)
-                    <a class="tour w-full mx-4 flex flex-col md:shadow mb-4 md:mb-0 rounded-lg overflow-hidden group"
+                    <a class="tour w-full mx-4 flex flex-col shadow mb-4 md:mb-0 rounded-lg overflow-hidden group"
                        href="{{ route('posts.show', ['post' => $post->slug]) }}">
                         {!! $post->getThumbImg(['class' => 'h-auto w-full bg-cover lozad', 'alt' => $post->title . 'image' ]) !!}
                         <div class="flex flex-col h-full justify-around p-5 hover:text-brand rounded-b-lg">

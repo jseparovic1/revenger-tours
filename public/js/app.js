@@ -1804,11 +1804,11 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
   props: {
     numberOfImages: {
       type: Number,
-      default: 1
+      "default": 1
     },
     images: {
       type: Array,
-      default: function _default() {
+      "default": function _default() {
         return [];
       }
     },
@@ -1826,7 +1826,7 @@ function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterat
     },
     isEditAction: {
       type: Boolean,
-      default: false
+      "default": false
     },
     inputName: {
       type: String
@@ -1962,7 +1962,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialData: {
-      default: function _default() {
+      "default": function _default() {
         return [{
           hour: '',
           description: ''
@@ -2169,11 +2169,11 @@ __webpack_require__.r(__webpack_exports__);
       this.form.isLoading = true;
       this.form.submit('post', this.action).then(function () {
         return _this.showSuccess = true;
-      }).catch(function () {
+      })["catch"](function () {
         //really dirty hack to rerender errors
         _this.form.name = _this.form.name + ' ';
         _this.form.name = _this.form.name.trim();
-      }).finally(function () {
+      })["finally"](function () {
         return _this.form.isLoading = false;
       });
     }
@@ -2404,7 +2404,7 @@ __webpack_require__.r(__webpack_exports__);
     peopleNumber: {
       type: Number,
       required: false,
-      default: null
+      "default": null
     },
     method: String
   },
@@ -2458,7 +2458,7 @@ __webpack_require__.r(__webpack_exports__);
 
       this.form.submit(this.method, '/tour/request').then(function (data) {
         return _this2.showSuccess = true;
-      }).catch(function (errors) {
+      })["catch"](function (errors) {
         console.log(errors); //really dirty hack to rerender errors
 
         _this2.form.name = _this2.form.name + ' ';
@@ -44187,7 +44187,7 @@ Vue.config.ignoredElements = ['trix-editor'];
 var files = __webpack_require__("./resources/js sync recursive \\.vue$/");
 
 files.keys().map(function (key) {
-  return Vue.component(key.split('/').pop().split('.')[0], files(key).default);
+  return Vue.component(key.split('/').pop().split('.')[0], files(key)["default"]);
 });
 var app = new Vue({
   el: '#app'
@@ -45062,7 +45062,7 @@ function () {
           _this.onSuccess(response.data);
 
           resolve(response.data);
-        }).catch(function (error) {
+        })["catch"](function (error) {
           console.log(error);
 
           _this.onFail(error.response.data.errors);
