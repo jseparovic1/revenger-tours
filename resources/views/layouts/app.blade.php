@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
-    @if(env('APP_ENV') === 'production')
+    @if(env('APP_ENV') !== 'local')
         @include('layouts._analytics')
     @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
