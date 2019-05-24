@@ -19,7 +19,7 @@ return [
         'title' => 'Blue cave trip',
         'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
         'action' => 'INFO',
-        'background' => "/images/featured.jpg",
+        'background' => asset("/images/static/featured.jpg"),
     ],
 
     'main_blog' => [
@@ -28,7 +28,7 @@ return [
     ],
 
     'footer' => [
-        'description' => 'New company specialized in boat tours on town Split area in Croatia.We offer tours and service for people who are willing to experience Croatian sea and islands.We give extra effort for each individual tour we provide and aim for our customers to have memorable times during their stay in Split.',
+        'description' => 'We are new company specialized in boat tours on town Split area in Croatia. We offer tours and service for people who are willing to experience Croatian sea and islands. We give extra effort for each individual tour we provide and aim for our customers to have memorable times during their stay in Split.',
     ],
 
     'tours_index_title' => "Enjoy beautiful tours carefully created to give you best experience.",

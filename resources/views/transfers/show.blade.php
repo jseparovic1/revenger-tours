@@ -14,7 +14,7 @@
                         Speedboat transfers are fast and reliable option for people who wants to avoid traffic jams and slow ferry lines.
                         Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">7</span>.
                     </p>
-                    <h3 class="text-lg">Included</h3>
+                    <h3>Included</h3>
                     <ul>
                         <li>speedboat with crew</li>
                         <li>safety equipment</li>
@@ -22,7 +22,7 @@
                         <li>fuel</li>
                     </ul>
 
-                    <h3>Pricing</h3>
+                    <h3 class="mb-4">Pricing</h3>
                     <table class="table">
                         <thead class="border-transparent border-0">
                         <tr>
@@ -71,14 +71,13 @@
                             </tr>
                         </tbody>
                     </table>
-                    <p class="text-grey">Those are high season prices, you may get lower price if demand is low.</p>
                 </div>
                 <div class="flex items-center">
                     <span class="flex">@include('svg.important', ['class' => 'h-5 w-5 inline-block text-brand-dark'])</span>
-                    <h2 class="ml-2">Important note</h2>
+                    <h3 class="ml-2">Important note</h3>
                 </div>
                 <p>In case of bad weather we hold the right to cancel the transfer.
-                    Captain is the decision maker in this case. Safety comes first!</p>
+                        Captain is the decision maker in this case. Safety comes first!</p>
             </main>
             <aside class="w:full lg:w-1/3">
                 @include('tours._partials.help')
