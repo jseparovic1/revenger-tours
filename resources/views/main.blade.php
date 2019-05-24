@@ -10,7 +10,7 @@
         'title' => config('settings.main_featured_tour.title'),
         'description' => config('settings.main_featured_tour.description'),
         'callToAction' => config('settings.main_featured_tour.action'),
-        'background' => config('settings.main_featured_tour.background'),
+        'background' => asset(config('settings.main_featured_tour.background')),
     ])
     @include('home.blog')
     @include('home.why')
