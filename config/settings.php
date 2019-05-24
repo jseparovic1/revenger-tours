@@ -21,15 +21,17 @@ return [
         'action' => 'INFO',
         'background' => "/images/featured.jpg",
     ],
+
     'main_blog' => [
         'title' => 'Learn more from our travel blog posts',
         'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula',
     ],
+
     'footer' => [
-        'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet, neque ac pharetra porta,dui ligula volutpat enim, et tempus libero mauris et nulla. Maecenas sit amet nisi eu risus viverra rhoncus ut et massa.',
+        'description' => 'New company specialized in boat tours on town Split area in Croatia.We offer tours and service for people who are willing to experience Croatian sea and islands.We give extra effort for each individual tour we provide and aim for our customers to have memorable times during their stay in Split.',
     ],
 
-    'tours_index_title' => "Enjoy beautiful tours carefully created to give you best experience. Bla Bla",
+    'tours_index_title' => "Enjoy beautiful tours carefully created to give you best experience.",
 
     'help_box_tour' => [
         'title' => 'Need help?',
