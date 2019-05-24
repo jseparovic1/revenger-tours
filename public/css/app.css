@@ -2587,20 +2587,26 @@ form .invalid-feedback {
 }
 
 .blog-content h1,
-.blog-content h2,
-.blog-content h3,
-.blog-content h4,
-.blog-content h5,
-.blog-content h6 {
+.blog-content h2 {
   letter-spacing: -0.05em;
   font-size: 1.5rem;
   margin-bottom: .25rem;
 }
 
+.blog-content h3,
+.blog-content h4,
+.blog-content h5,
+.blog-content h6 {
+  letter-spacing: -0.05em;
+  font-size: 1.125rem;
+  margin-bottom: .25rem;
+  color: #27241d;
+}
+
 .blog-content p {
   letter-spacing: -0.063px;
   color: #423d33;
-  padding-bottom: 1.5rem;
+  padding-bottom: 1rem;
 }
 
 .blog-content p:not(:last-of-type) {

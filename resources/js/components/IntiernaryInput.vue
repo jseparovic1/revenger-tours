@@ -6,15 +6,6 @@
         </div>
         <div v-for="singleItinerary in this.itinerary">
             <div class="flex flex-row items-center">
-                <div class="form-group w-1/5 mr-5">
-                    <input class="form-input w-full"
-                           id="hour"
-                           type="text"
-                           name="hour"
-                           v-model="singleItinerary.hour"
-                           placeholder="Hour"
-                    >
-                </div>
                 <div class="flex w-3/5 items-center">
                     <input
                         class="form-input w-full"
@@ -46,7 +37,6 @@
                 default: function () {
                     return [
                         {
-                            hour: '',
                             description: ''
                         }
                     ]
@@ -69,7 +59,6 @@
         methods: {
             addItinerary: function () {
                 this.itinerary.push({
-                    'hour': '',
                     'description': ''
                 })
             },

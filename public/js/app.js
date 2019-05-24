@@ -1950,21 +1950,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     initialData: {
       "default": function _default() {
         return [{
-          hour: '',
           description: ''
         }];
       }
@@ -1986,7 +1976,6 @@ __webpack_require__.r(__webpack_exports__);
   methods: {
     addItinerary: function addItinerary() {
       this.itinerary.push({
-        'hour': '',
         'description': ''
       });
     },
@@ -29551,35 +29540,6 @@ var render = function() {
       _vm._l(this.itinerary, function(singleItinerary) {
         return _c("div", [
           _c("div", { staticClass: "flex flex-row items-center" }, [
-            _c("div", { staticClass: "form-group w-1/5 mr-5" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: singleItinerary.hour,
-                    expression: "singleItinerary.hour"
-                  }
-                ],
-                staticClass: "form-input w-full",
-                attrs: {
-                  id: "hour",
-                  type: "text",
-                  name: "hour",
-                  placeholder: "Hour"
-                },
-                domProps: { value: singleItinerary.hour },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(singleItinerary, "hour", $event.target.value)
-                  }
-                }
-              })
-            ]),
-            _vm._v(" "),
             _c("div", { staticClass: "flex w-3/5 items-center" }, [
               _c("input", {
                 directives: [
@@ -30593,7 +30553,7 @@ var render = function() {
       _vm._v(" "),
       _c("trix-editor", {
         ref: "trix",
-        staticClass: "tour-content bg-white",
+        staticClass: "trix-content tour-content",
         attrs: { input: "trix", placeholder: _vm.placeholder }
       })
     ],

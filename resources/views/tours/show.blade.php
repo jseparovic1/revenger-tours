@@ -34,7 +34,6 @@
                         'included'  => explode(',', $tour->included),
                         'excluded'  => explode(',', $tour->excluded)
                     ])
-
                     @include('tours._partials.note')
                 </div>
             </section>

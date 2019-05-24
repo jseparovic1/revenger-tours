@@ -4,7 +4,7 @@
         <div class="w-1/2"><span>{{ $departureLocation }}</span></div>
     </div>
     <div class="flex items-center px-4 py-6 border-b">
-        <div class="w-1/2"><span class="text-lg font-bold">Departure Time</span></div>
+        <div class="w-1/2"><span class="text-lg font-bold">Departure</span></div>
         <div class="w-1/2"><span>{{ $departureTime }}</span></div>
     </div>
     <div class="flex items-center px-4 py-6">
