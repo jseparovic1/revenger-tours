@@ -2,8 +2,10 @@
 
 return [
     'contact' => [
-        'phone' => '+3859189121',
+        'phone' => '+385 95 392 3476',
         'email' => 'revengertours@gmail.com',
+        'company_address' => 'Šegedinova 12',
+        'company_city' => '21000 Split',
     ],
     'main_description' => 'Revenger tours is travel agency from Split  specialized in  daily excursions,as well as sea transfers from Split to nearby islands.',
     'main_chose_us' => [
