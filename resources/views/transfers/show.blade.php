@@ -1,24 +1,28 @@
 @extends('layouts.page', [
-    'title' => 'Transfers from split',
+    'title' => 'Transfers from Split',
     'breadcrumbUrl' => route('transfers.show'),
     'imageUrl' => asset('images/static/transfers.jpg'),
 ])
 
 @section('page')
     <section>
-        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row blog-content title-brand">
+        <div class="max-w-3xl mx-auto flex flex-col lg:flex-row blog-content">
             <main class="w-full flex-1 mb-10 mr-0 lg:mr-12">
-                <h1 class="mt-0">Transfers</h1>
+                <h1 class="mt-0 text-brand">Speedboat transfers</h1>
                 <div>
-                    <p class="pb-10">Do you need a transfer to an island? Lot of luggage?
-                        No problem! We offer you transfers and pick ups from and to all croatian islands! With a water
-                        taxi you will reach all Croatian islands in the fastest way! You will enyoj the ride with our
-                        comfortbale and fast water taxi !
-                        The price depends on the nummber of passengers and miles. The price includes fuel and skipper!
-                        Contact us for more information about the price and reservation ! Your departure can be from
-                        other islands!
+                    <p class="pb-10">
+                        Speedboat transfers are fast and reliable option for people who wants to avoid traffic jams and slow ferry lines.
+                        Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">7</span>.
                     </p>
+                    <h3 class="text-lg">Included</h3>
+                    <ul>
+                        <li>speedboat with crew</li>
+                        <li>safety equipment</li>
+                        <li>bottled water</li>
+                        <li>fuel</li>
+                    </ul>
 
+                    <h3>Pricing</h3>
                     <table class="table">
                         <thead class="border-transparent border-0">
                         <tr>
@@ -69,7 +73,12 @@
                     </table>
                     <p class="text-grey">Those are high season prices, you may get lower price if demand is low.</p>
                 </div>
-
+                <div class="flex items-center">
+                    <span class="flex">@include('svg.important', ['class' => 'h-5 w-5 inline-block text-brand-dark'])</span>
+                    <h2 class="ml-2">Important note</h2>
+                </div>
+                <p>In case of bad weather we hold the right to cancel the transfer.
+                    Captain is the decision maker in this case. Safety comes first!</p>
             </main>
             <aside class="w:full lg:w-1/3">
                 @include('tours._partials.help')

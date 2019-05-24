@@ -14,9 +14,10 @@
             <main class="w-full flex-1 mb-10 mr-0 lg:mr-12 ">
                 <div class="blog-content title-brand">
                     <h1>Private tour</h1>
-                    <p>We offer you private tours to any destination on the beautiful Adriatic coast. If you are a bigger or smaller group and you want to enyoj the islands by yourself, witouth other passengers, just contact us. Tell us which islands you want to visit, or let us organize and recommend you a day trip, to your needs and budget.</p>
-                    <p>During the tour our professional team will take care of you, to make your holidays unforgettable. Exploring the natural beauty of islands like Hvar, Brac, Pakleni islands or Vis will create magical moments for you! We promise you best quality for the best price!
-                    <a class="text-brand text-bold" href="{{ route('request.general.show') }}">Contact us!</a></p>
+                    <p>Your wish is our command! Being smaller or larger group, we offer you tour where you can tell us your ideas where you wanna go and with our help,
+                        together we can make special tour designed to your needs. Don't hesitate to <a class="text-brand text-bold" href="{{ route('request.general.show') }}">contact</a> us.
+                        We will do our best to give you the best experience and quality for reasonable price.
+                    </p>
                 </div>
                 <div>
                     @forelse($tours as $tour)
