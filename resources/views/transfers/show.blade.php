@@ -12,7 +12,7 @@
                 <div>
                     <p class="pb-10">
                         Speedboat transfers are fast and reliable option for people who wants to avoid traffic jams and slow ferry lines.
-                        Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">7</span>.
+                        Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">8</span>.
                     </p>
                     <h3>Included</h3>
                     <ul>
@@ -28,48 +28,59 @@
                         <tr>
                             <th scope="col">Start</th>
                             <th scope="col">Destination</th>
-                            <th scope="col">Offseason <span class="hidden md:block">price</span></th>
-                            <th scope="col">Seasson <span class="hidden md:block">price</span></th>
+                            <th scope="col">Duration</th>
+                            <th scope="col">Price</th>
                         </tr>
                         </thead>
                         <tbody>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
-                                <td >Split</td>
-                                <td >Brač (Bol)</td>
-                                <td>€260</td>
-                                <td>€280</td>
+                                <td>Split (Riva)</td>
+                                <td>Split (Airport)</td>
+                                <td>15 min</td>
+                                <td>110€</td>
                             </tr>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
-                                <td>Split</td>
-                                <td>Brač (Milna)</td>
-                                <td>€230</td>
-                                <td>€250</td>
+                                <td>Split (Riva)</td>
+                                <td>Trogir</td>
+                                <td>20 min</td>
+                                <td>130€</td>
                             </tr>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
                                 <td>Šolta</td>
-                                <td>€130</td>
-                                <td>€150</td>
+                                <td>25 min</td>
+                                <td>150€</td>
                             </tr>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
-                                <td>Trogir</td>
-                                <td>€130</td>
-                                <td>€150</td>
+                                <td>Hvar</td>
+                                <td>1 hour</td>
+                                <td>280€</td>
                             </tr>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
-                                <td>Split (Airport)</td>
-                                <td>€100</td>
-                                <td>€120</td>
+                                <td>Brač (Supetar)</td>
+                                <td>25 min</td>
+                                <td>150€</td>
+                            </tr>
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
+                                <td >Split</td>
+                                <td >Brač (Bol)</td>
+                                <td>70 min</td>
+                                <td>330€</td>
                             </tr>
                             <tr class="transition hover:bg-brand hover:text-white font-semibold">
                                 <td>Split</td>
-                                <td>Hvar (Airport)</td>
-                                <td>€280</td>
-                                <td>€300</td>
+                                <td>Brač (Milna)</td>
+                                <td>30 min</td>
+                                <td>200€</td>
                             </tr>
-                        </tbody>
+                            <tr class="transition hover:bg-brand hover:text-white font-semibold">
+                                <td>Split</td>
+                                <td>Vis</td>
+                                <td>90 min</td>
+                                <td>450€</td>
+                            </tr>
                     </table>
                 </div>
                 <div class="flex items-center">
