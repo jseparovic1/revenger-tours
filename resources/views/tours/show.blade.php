@@ -22,7 +22,6 @@
                     {!! $tour->details !!}
                     @include('tours._partials.price', [
                         'price' => $tour->price,
-                        'priceOffSeasons' => $tour->price_off
                     ])
 
                     @if($tour->itinerary !== 'null')

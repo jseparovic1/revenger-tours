@@ -8,9 +8,6 @@
     @include('components.form.text', ['name' => 'price'])
 </div>
 <div class="form-control">
-    @include('components.form.text', ['name' => 'price_off'])
-</div>
-<div class="form-control">
     @include('components.form.wysiwyg', ['name' => 'details'])
 </div>
 <div class="form-control">
