@@ -10,10 +10,10 @@ return [
     'main_description' => 'Revenger tours is travel agency from Split  specialized in  daily excursions,as well as sea transfers from Split to nearby islands.',
     'main_chose_us' => [
         'title' => 'Why chose us?',
-        'description' => 'Lorem ipsum dolor sit amet consectetur adipiscing elit Etiam at ipsum at ligula vestibulum sodales Sed luctus orci vel nibh aliquam laoreet Aenean accumsan',
+        'description' => 'Enjoy beautiful islands of Croatia by choosing one of our carefully crafted tour.',
         'customers' => 'Happy Customers',
-        'boat' => 'We do care',
-        'price' => 'Save money'
+        'boat' => 'Attractive and new speedboat',
+        'price' => 'Get best value for money'
     ],
     'main_featured_tour' => [
         'title' => 'Blue cave trip',
