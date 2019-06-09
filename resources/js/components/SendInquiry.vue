@@ -62,7 +62,7 @@
             return {
                 dateInput: null,
                 people: null,
-                maxNumber: 8,
+                maxNumber: 10,
             }
         },
         methods: {

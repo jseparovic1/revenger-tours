@@ -8,8 +8,8 @@
     </thead>
     <tbody>
     <tr>
-        <td class="text-brand-darkest font-bold">€{{ $price }}</td>
-        <td class="text-brand-darkest font-bold ">€{{ $priceOffSeasons }}</td>
+        <td class="text-brand-darkest font-bold">€{{ $price }} per person</td>
+        <td class="text-brand-darkest font-bold ">€{{ $priceOffSeasons }} per person</td>
     </tr>
     </tbody>
 </table>

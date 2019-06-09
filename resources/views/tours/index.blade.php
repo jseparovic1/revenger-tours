@@ -26,7 +26,7 @@
                             <div class="w-full lg:w-5/6 flex flex-col justify-around px-5 pb-5 group">
                                 <h1 class="text-lg font-bold text-black mb-2">{{ $tour->title }}</h1>
                                 <p class="mb-4 text-grey-darker">{{ str_limit($tour->short_description, 100, '...') }}</p>
-                                <button class="btn btn-primary rounded-full">BOOK</button>
+                                <button class="btn btn-primary rounded-full">BOOK NOW</button>
                             </div>
                         </div>
                     </a>

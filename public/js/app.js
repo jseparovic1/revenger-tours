@@ -2243,7 +2243,7 @@ __webpack_require__.r(__webpack_exports__);
     return {
       dateInput: null,
       people: null,
-      maxNumber: 8
+      maxNumber: 10
     };
   },
   methods: {
