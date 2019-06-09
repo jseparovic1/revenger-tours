@@ -55,16 +55,7 @@ class Tour extends Model implements HasMedia
      */
     public function priceNow(): int
     {
-        $start = Carbon::create(now()->year, 7, 1);
-        $end = Carbon::create(now()->year, 9, 5);
-
-        $now = app(TimeProvider::class)->now();
-
-        if ($now->between($start, $end)) {
-            return $this->price;
-        }
-
-        return $this->price_off;
+        return $this->price;
     }
 
     public function getPriceNowAttribute(): int

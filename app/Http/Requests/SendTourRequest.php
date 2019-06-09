@@ -16,7 +16,7 @@ class SendTourRequest extends FormRequest
         return [
             'dateInput' => 'required',
             'name' => 'required',
-            'people' => 'required|min:1|max:8|integer',
+            'people' => 'required|min:1|max:10|integer',
             'email' => 'required|email',
             'comment' => 'nullable',
             'tour' => 'required',
