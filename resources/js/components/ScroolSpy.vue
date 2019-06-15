@@ -27,7 +27,7 @@
             this.addHeadingIdOnFly();
 
             this.findActiveHeading();
-            window.addEventListener('scroll', _.throttle(this.findActiveHeading, 50));
+            window.addEventListener('scroll', _.throttle(this.findActiveHeading, 1));
         },
         methods: {
             findActiveHeading: function() {
