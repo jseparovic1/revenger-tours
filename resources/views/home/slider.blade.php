@@ -5,7 +5,6 @@
                 @component('components.slide', ['image' => $tour->getHeroImageUrl()])
                     @include('home.hero', [
                        'title' => $tour->title,
-                       'shortDescription' => $tour->hero_short_description,
                        'description' => $tour->hero_description,
                        'callToAction' => "LET'S GO",
                        'link' => route('tours.show', ['tour' => $tour->slug]),

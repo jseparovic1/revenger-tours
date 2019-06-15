@@ -36,9 +36,8 @@ class ManageToursTest extends TestCase
     {
         $this->createTour([
             'hero_description' => '',
-            'hero_short_description' => '',
             'featured' => 'true'
-        ])->assertSessionHasErrors(['hero_description', 'hero_short_description']);
+        ])->assertSessionHasErrors(['hero_description']);
     }
 
     /** @test */

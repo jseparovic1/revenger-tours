@@ -2377,6 +2377,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 
 
@@ -2407,7 +2411,7 @@ __webpack_require__.r(__webpack_exports__);
         people: '',
         tour: ''
       }),
-      priceNow: 0,
+      price: 0,
       showSuccess: false,
       initialDate: null,
       maxNumber: 8
@@ -2419,22 +2423,22 @@ __webpack_require__.r(__webpack_exports__);
     this.form.people = this.$props.peopleNumber;
     this.form.dateInput = typeof this.$props.tripDate === 'string' ? new Date(this.$props.tripDate) : '';
     this.form.tour = this.$props.tour instanceof Object ? this.$props.tour.id : '';
-    this.priceNow = this.tours[0].price_now;
+    this.price = this.tours[0].price;
 
     if (this.form.tour !== '') {
-      this.priceNow = this.tours.filter(function (tour) {
+      this.price = this.tours.filter(function (tour) {
         return tour.id === _this.form.tour;
       }).map(function (t) {
-        return t.price_now;
+        return t.price;
       });
     }
   },
   computed: {
-    price: function price() {
-      return this.form.people * this.priceNow;
+    priceTotal: function priceTotal() {
+      return this.form.people * this.price;
     },
     deposit: function deposit() {
-      return (this.price * 10 / 100).toFixed(0);
+      return (this.priceTotal * 10 / 100).toFixed(0);
     }
   },
   methods: {
@@ -2457,10 +2461,10 @@ __webpack_require__.r(__webpack_exports__);
     setTourPrice: function setTourPrice() {
       var _this3 = this;
 
-      this.priceNow = this.tours.filter(function (tour) {
+      this.price = this.tours.filter(function (tour) {
         return tour.id === _this3.form.tour;
       }).map(function (t) {
-        return t.price_now;
+        return t.price;
       });
     }
   }
@@ -30404,7 +30408,9 @@ var render = function() {
                   { staticClass: "w-full p-4 mb-4 bg-grey text-white" },
                   [
                     _c("div", { staticClass: "flex items-center mb-4" }, [
-                      _c("span", { staticClass: "w-24" }, [_vm._v("TOTAL")]),
+                      _c("span", { staticClass: "w-32" }, [
+                        _vm._v("PER PERSON")
+                      ]),
                       _vm._v(" "),
                       _c("h4", {
                         staticClass: "tracking-wide",
@@ -30412,8 +30418,17 @@ var render = function() {
                       })
                     ]),
                     _vm._v(" "),
+                    _c("div", { staticClass: "flex items-center mb-4" }, [
+                      _c("span", { staticClass: "w-32" }, [_vm._v("TOTAL")]),
+                      _vm._v(" "),
+                      _c("h4", {
+                        staticClass: "tracking-wide",
+                        domProps: { innerHTML: _vm._s("€" + _vm.priceTotal) }
+                      })
+                    ]),
+                    _vm._v(" "),
                     _c("div", { staticClass: "flex items-center font-bold" }, [
-                      _c("span", { staticClass: "w-24" }, [_vm._v("DEPOSIT")]),
+                      _c("span", { staticClass: "w-32" }, [_vm._v("DEPOSIT")]),
                       _vm._v(" "),
                       _c("h4", {
                         staticClass: "tracking-wide",
@@ -44208,10 +44223,7 @@ function menuToggle() {
   }
 }
 
-var el = document.querySelectorAll('img');
-var observer = lozad__WEBPACK_IMPORTED_MODULE_1___default()('.lozad', {
-  treshold: 0.1
-});
+var observer = lozad__WEBPACK_IMPORTED_MODULE_1___default()('.lozad', {});
 observer.observe();
 
 /***/ }),

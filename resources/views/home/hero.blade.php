@@ -1,5 +1,4 @@
 <div class="flex flex-col text-center py-8 mt-16 lg:p-0 lg:mt-0 z-50">
-    <div class="text-base lg:text-2xl text-white tracking-tight flex-1 text-left">{{ $shortDescription }}</div>
     <div
         class="text-3xl lg:text-6xl text-white tracking-tight font-bold flex-1 text-left border-l-4 lg:border-l-8 border-brand pl-2 lg:pl-5">
         {{ $title }}

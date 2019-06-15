@@ -21,7 +21,6 @@ class ToursSeeder extends Seeder
         /** @var Tour $blueCave */
         $blueCave = factory(\App\Tour::class)->create([
             'title' => 'Blue cave',
-            'hero_short_description' => '3 islands tour',
         ]);
 
         $blueCave
@@ -38,7 +37,6 @@ class ToursSeeder extends Seeder
             'price' => '800',
             'type' => 'private',
             'featured' => false,
-            'hero_short_description' => '3 islands tour',
         ]);
 
         factory(\App\Tour::class)->create([
@@ -46,7 +44,6 @@ class ToursSeeder extends Seeder
             'price' => '500',
             'type' => 'private',
             'featured' => false,
-            'hero_short_description' => '3 islands tour',
         ]);
     }
 }

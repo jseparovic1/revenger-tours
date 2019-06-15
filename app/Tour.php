@@ -19,10 +19,6 @@ class Tour extends Model implements HasMedia
 {
     use HasMediaTrait, HasSlug;
 
-    protected $appends = [
-        'price_now'
-    ];
-
     protected $casts = [
         'featured' => 'boolean',
         'recommended' => 'boolean',
@@ -47,20 +43,6 @@ class Tour extends Model implements HasMedia
     public function getItineraryAttribute(string $itineraryAsJson)
     {
         return json_decode($itineraryAsJson, true);
-    }
-
-    /**
-     * Find tour price based on current date
-     * @return int
-     */
-    public function priceNow(): int
-    {
-        return $this->price;
-    }
-
-    public function getPriceNowAttribute(): int
-    {
-        return $this->attributes['price_now'] = $this->priceNow();
     }
 
     /**

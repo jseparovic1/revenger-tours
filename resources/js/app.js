@@ -5,8 +5,6 @@
  */
 require('./bootstrap');
 
-
-
 window.Vue = require('vue');
 
 Vue.config.ignoredElements = ['trix-editor'];
@@ -84,8 +82,6 @@ function menuToggle() {
     }
 }
 
-const el = document.querySelectorAll('img');
-const observer = lozad('.lozad', {
-    treshold: 0.1
-});
+
+const observer = lozad('.lozad', {});
 observer.observe();

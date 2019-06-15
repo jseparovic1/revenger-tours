@@ -91,11 +91,15 @@
             </div>
             <div v-if="form.people > 0" class="w-full p-4 mb-4 bg-grey text-white">
                 <div class="flex items-center mb-4">
-                    <span class="w-24">TOTAL</span>
+                    <span class="w-32">PER PERSON</span>
                     <h4 class="tracking-wide" v-html="`€${price}`"></h4>
                 </div>
+                <div class="flex items-center mb-4">
+                    <span class="w-32">TOTAL</span>
+                    <h4 class="tracking-wide" v-html="`€${priceTotal}`"></h4>
+                </div>
                 <div class="flex items-center font-bold">
-                    <span class="w-24">DEPOSIT</span>
+                    <span class="w-32">DEPOSIT</span>
                     <h4 class="tracking-wide" v-html="`€${deposit}`"></h4>
                 </div>
             </div>
@@ -139,7 +143,7 @@
                     people: '',
                     tour: '',
                 }),
-                priceNow: 0,
+                price: 0,
                 showSuccess: false,
                 initialDate: null,
                 maxNumber: 8,
@@ -153,20 +157,20 @@
                     ? this.$props.tour.id
                     : ''
 
-            this.priceNow = this.tours[0].price_now;
+            this.price = this.tours[0].price;
 
             if (this.form.tour !== '') {
-                this.priceNow = this.tours
+                this.price = this.tours
                     .filter(tour => tour.id === this.form.tour)
-                    .map(t => t.price_now);
+                    .map(t => t.price);
             }
         },
         computed: {
-            price: function () {
-                return this.form.people * this.priceNow;
+            priceTotal: function () {
+                return this.form.people * this.price;
             },
             deposit: function () {
-                return (this.price * 10 / 100).toFixed(0);
+                return (this.priceTotal * 10 / 100).toFixed(0);
             },
         },
         methods: {
@@ -186,9 +190,9 @@
                     );
             },
             setTourPrice: function () {
-                this.priceNow = this.tours
+                this.price = this.tours
                     .filter(tour => tour.id === this.form.tour)
-                    .map(t => t.price_now);
+                    .map(t => t.price);
             }
         }
     }

@@ -8,7 +8,6 @@ $factory->define(App\Tour::class, function (Faker $faker) {
     $price = $faker->numberBetween(100, 500);
 
     return [
-        'hero_short_description' => 'Feel the vibe',
         'hero_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
         'title' => 'Blue cave',
         'featured' => true,
