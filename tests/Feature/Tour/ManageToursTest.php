@@ -126,7 +126,6 @@ class ManageToursTest extends TestCase
                 'details' => 'Edited',
                 'short_description' => 'Short description edited',
                 'price' => '400',
-                'price_off' => '300',
                 'type' => 'private',
                 'recommended' => '0',
                 'featured' => '0',

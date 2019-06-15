@@ -19,7 +19,6 @@ class TourResourceRequest extends FormRequest
             'title' => 'required',
             'details' => 'required',
             'price' => 'required|numeric',
-            'price_off' => 'required|numeric',
             'type' => 'required|in:normal,private',
             'itinerary' => 'sometimes|string',
             'departure_location' => 'nullable|string',
@@ -33,7 +32,6 @@ class TourResourceRequest extends FormRequest
         ];
 
         if ($this->input('featured')) {
-            $rules['hero_short_description'] = 'required';
             $rules['hero_description'] = 'required';
         }
 
