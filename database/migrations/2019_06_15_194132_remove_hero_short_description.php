@@ -26,7 +26,9 @@ class RemoveHeroShortDescription extends Migration
     public function down()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->string('hero_short_description')->nullable();
+            $table->string('hero_short_description')
+                ->nullable()
+                ->default('');
         });
     }
 }

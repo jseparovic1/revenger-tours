@@ -14,7 +14,9 @@ class RemoveOffseassonPrice extends Migration
     public function up()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->dropColumn('price_off');
+            if (Schema::hasColumn('tours', 'price_off')) {
+                $table->dropColumn('price_off');
+            }
         });
 
     }
@@ -27,7 +29,9 @@ class RemoveOffseassonPrice extends Migration
     public function down()
     {
         Schema::table('tours', function (Blueprint $table) {
-            $table->integer('price_off');
+            if (Schema::hasColumn('tours', 'price_off')) {
+                $table->integer('price_off');
+            }
         });
     }
 }
