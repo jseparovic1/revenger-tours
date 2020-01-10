@@ -7,9 +7,7 @@ use Tests\TestCase;
 
 class TourTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_shows_valid_sassoon_price()
     {
         /** @var Tour $tour */

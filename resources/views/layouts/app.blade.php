@@ -15,13 +15,8 @@
     @include('layouts._favicon')
 </head>
 <body class="font-sans font-normal antialiased text-black leading-normal text-sm md:text-base">
-    <div id="app" class="flex flex-col {{ $turnOffFixedNav ?? 'overflow-x-hidden'}}">
-        @if(isset($turnOffFixedNav) && $turnOffFixedNav)
-            @include('layouts._nav', ['fixedOff' => true])
-        @else
-            @include('layouts._nav')
-        @endif
-
+    <div id="app" class="flex flex-col overflow-x-hidden">
+        @include('layouts._nav')
         @yield('content')
         @include('layouts._footer')
     </div>
