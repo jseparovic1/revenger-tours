@@ -2,8 +2,6 @@
 
 namespace App;
 
-use App\Services\TimeProvider;
-use Carbon\Carbon;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -11,10 +9,6 @@ use Spatie\MediaLibrary\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-/**
- * Class Tour
- * @package App
- */
 class Tour extends Model implements HasMedia
 {
     use HasMediaTrait, HasSlug;
@@ -26,10 +20,7 @@ class Tour extends Model implements HasMedia
         'itinerary' => 'array',
     ];
 
-    /**
-     * @return mixed|string
-     */
-    public function getRouteKeyName()
+    public function getRouteKeyName(): string
     {
         return 'slug';
     }
@@ -45,9 +36,6 @@ class Tour extends Model implements HasMedia
         return json_decode($itineraryAsJson, true);
     }
 
-    /**
-     * Get the options for generating the slug.
-     */
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -58,7 +46,7 @@ class Tour extends Model implements HasMedia
         ;
     }
 
-    public function registerMediaCollections()
+    public function registerMediaCollections(): void
     {
         $this
             ->addMediaCollection('hero_original')
@@ -77,8 +65,10 @@ class Tour extends Model implements HasMedia
         ;
     }
 
-    public function getHeroImageUrl(): string
+    public function getHeroImageUrl(): ?string
     {
-        return $this->getFirstMedia('hero_original')->getUrl('hero');
+        return $this->getFirstMedia('hero_original') !== null
+            ? $this->getFirstMedia('hero_original')->getUrl('hero')
+            : null;
     }
 }
