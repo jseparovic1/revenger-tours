@@ -94,7 +94,7 @@ return [
     'options' => [
         'application' => env('APP_NAME', 'Laravel'),
         'repository' => 'git@github.com:jseparovic1/revenger-tours.git',
-        'php_fpm_service' => 'php7.2-fpm',
+        'php_fpm_service' => 'php7.4-fpm',
     ],
 
     /*
@@ -109,8 +109,8 @@ return [
     */
 
     'hosts' => [
-        '165.22.95.112' => [
-            'deploy_path' => '/home/forge/revengertours.com',
+        '46.101.232.182' => [
+            'deploy_path' => '/home/forge/default',
             'user' => 'forge',
             'branch' => 'master',
             'configFile'   => '~/.ssh/config',

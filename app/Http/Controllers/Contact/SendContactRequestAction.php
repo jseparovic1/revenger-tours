@@ -11,9 +11,7 @@ use Illuminate\Contracts\Mail\Mailer;
 
 class SendContactRequestAction
 {
-    /**
-     * @var Mailer
-     */
+    /** @var Mailer */
     private $mailer;
 
     public function __construct(Mailer $mailer)
