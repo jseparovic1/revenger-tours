@@ -2799,28 +2799,28 @@
         },
         {
             "name": "spatie/laravel-menu",
-            "version": "3.3.1",
+            "version": "3.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-menu.git",
-                "reference": "235eaf5aad88f4f7f76862ae9d8aa768be76626d"
+                "reference": "999ceeb9923c8687146249d3325ecb2c311f1876"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/235eaf5aad88f4f7f76862ae9d8aa768be76626d",
-                "reference": "235eaf5aad88f4f7f76862ae9d8aa768be76626d",
+                "url": "https://api.github.com/repos/spatie/laravel-menu/zipball/999ceeb9923c8687146249d3325ecb2c311f1876",
+                "reference": "999ceeb9923c8687146249d3325ecb2c311f1876",
                 "shasum": ""
             },
             "require": {
-                "illuminate/auth": "~5.5.40|~5.6.0|~5.7.0|~5.8.0",
-                "illuminate/contracts": "~5.5.40|~5.6.0|~5.7.0|~5.8.0",
-                "illuminate/support": "~5.5.40|~5.6.0|~5.7.0|~5.8.0",
+                "illuminate/auth": "~5.5.40|~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "illuminate/contracts": "~5.5.40|~5.6.0|~5.7.0|~5.8.0|^6.0",
+                "illuminate/support": "~5.5.40|~5.6.0|~5.7.0|~5.8.0|^6.0",
                 "php": "^7.1",
                 "spatie/menu": "^2.2.2"
             },
             "require-dev": {
                 "fzaninotto/faker": "^1.6",
-                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0",
+                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|^4.0",
                 "phpunit/phpunit": "^7.0|^8.0"
             },
             "type": "library",
@@ -2857,7 +2857,7 @@
                 "laravel-menu",
                 "spatie"
             ],
-            "time": "2019-02-27T12:08:18+00:00"
+            "time": "2019-09-03T17:39:24+00:00"
         },
         {
             "name": "spatie/laravel-responsecache",
