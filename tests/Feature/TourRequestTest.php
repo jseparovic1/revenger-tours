@@ -11,9 +11,7 @@ use Tests\TestCase;
 
 class TourRequestTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_validates_contact_request()
     {
         $response = $this->postJson(route('request.store'), []);
@@ -31,9 +29,7 @@ class TourRequestTest extends TestCase
         ]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_sends_email_to_site_owner()
     {
         Mail::fake();

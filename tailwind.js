@@ -11,7 +11,7 @@
 |
 */
 
-let defaultConfig = require('tailwindcss/defaultConfig')()
+let defaultConfig = require('tailwindcss/defaultConfig')();
 
 
 /*
@@ -31,13 +31,13 @@ let defaultConfig = require('tailwindcss/defaultConfig')()
 */
 
 let colors = {
-    'brand-lightest': '#FFEEEE',
-    'brand-lighter': '#F29B9B',
-    'brand-light': '#D64545',
-    'brand': '#BA2525',
-    'brand-dark': '#A61B1B',
-    'brand-darker': '#911111',
-    'brand-darkest': '#780A0A',
+    'brand-lightest': '#EBF8FF',
+    'brand-lighter': '#BEE3F8',
+    'brand-light': '#63B3ED',
+    'brand': '#2C5282',
+    'brand-dark': '#3182CE',
+    'brand-darker': '#2C5282',
+    'brand-darkest': '#2A4365',
 
     'transparent': 'transparent',
 
@@ -708,4 +708,4 @@ module.exports = {
         important: false,
         separator: ':',
     },
-}
+};
