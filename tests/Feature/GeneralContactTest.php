@@ -9,9 +9,7 @@ use Tests\TestCase;
 
 class GeneralContactTest extends TestCase
 {
-    /**
-     * @test
-     */
+    /** @test */
     public function it_validates_general_contact_form()
     {
         $response = $this->postJson(route('request.general.store'), []);
@@ -28,9 +26,7 @@ class GeneralContactTest extends TestCase
         ]);
     }
 
-    /**
-     * @test
-     */
+    /** @test */
     public function it_sends_general_contact_email_to_site_owner()
     {
         Mail::fake();

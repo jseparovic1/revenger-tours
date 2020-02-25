@@ -1,9 +1,9 @@
 <nav
-    class="navigation text-center pin-t pin-r pin-l z-20 {{ isset($fixedOff) ? 'bg-black' : 'absolute'}}">
+    class="navigation text-center pin-t pin-r pin-l z-20 bg-black">
     <div class="flex justify-between items-center relative my-2 lg:my-0 max-w-3xl px-4 lg:px-0 mx-auto">
         <div>
             <a href="/" class="link-reset">
-                <span class="text-brand font-bold text-2xl">Revenger</span>
+                <span class="text-brand font-bold text-2xl">Blue lagoon</span>
                 <span class="text-white font-bold text-2xl">Tours</span>
             </a>
         </div>
