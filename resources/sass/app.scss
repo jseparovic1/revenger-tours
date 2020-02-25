@@ -1,7 +1,6 @@
 @tailwind preflight;
 @tailwind components;
 
-@import "~swiper/dist/css/swiper.min.css";
 @import "components/buttons";
 @import "components/slider";
 @import "components/tour";
@@ -13,6 +12,8 @@
 @import "effects/all";
 
 @import "~trix/dist/trix.css";
+@import "~swiper/dist/css/swiper.min.css";
+
 
 html {
     scroll-behavior: smooth;
