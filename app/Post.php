@@ -8,17 +8,12 @@ use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
-use App\Events\ResourceChanged;
 
 class Post extends Model implements HasMedia
 {
     use HasMediaTrait, HasSlug;
 
     const COVER_COLLECTION = 'cover';
-
-    protected $dispatchesEvents = [
-        'saved' => ResourceChanged::class,
-    ];
 
     public function getRouteKeyName()
     {

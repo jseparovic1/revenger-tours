@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Admin\ViewModel;
 
 use App\Post;
+use Illuminate\Support\Str;
 
 class PostViewModel
 {
@@ -35,7 +36,7 @@ class PostViewModel
 
     public function description(): string
     {
-        return str_limit($this->model->description, '50', '...');
+        return Str::limit($this->model->description, '50', '...');
     }
 
     public function updated_at(): string
