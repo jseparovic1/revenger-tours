@@ -6,6 +6,7 @@ namespace Tests\Feature;
 
 use App\Tour;
 use Illuminate\Foundation\Testing\Concerns\InteractsWithDatabase;
+use Illuminate\Support\Arr;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Storage;
 use App\Constants\Disk;
@@ -52,7 +53,7 @@ class ManageToursTest extends TestCase
         ])
             ->assertRedirect(route('admin.tours.edit', ['tour' => 'tour-title']));
 
-        array_forget($attributes, 'hero');
+        Arr::forget($attributes, 'hero');
 
         $this->assertDatabaseHas('tours', $attributes);
     }
@@ -135,7 +136,7 @@ class ManageToursTest extends TestCase
             ])
             ->assertSessionHas('status', 'Tour edited successfully.');
 
-        array_forget($attributes, 'hero');
+        Arr::forget($attributes, 'hero');
 
         $this->assertDatabaseHas('tours', $attributes);
     }
