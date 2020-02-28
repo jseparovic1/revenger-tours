@@ -61,7 +61,7 @@ return [
             'artisan:view:clear',
             'artisan:cache:clear',
             'artisan:config:cache',
-            'artisan queue:restart',
+            'artisan:queue:restart',
             'artisan:migrate',
         ],
 
