@@ -39,7 +39,7 @@ return function (Router $router) {
     $router->get('/contact', ShowGeneralContactFormAction::class)->name('request.general.show');
     $router->post('/contact', SendContactRequestAction::class)->name('request.general.store');
 
-    $router->get('/transfers', function () {return view('transfers.show');})->name('transfers.show');
+    $router->view('/transfers','transfers.show')->name('transfers.show');
     $router->get('/tour/private', ShowPrivateTours::class)->name('toursPrivate.show');
 
     $router->get('/blog', ShowPostListAction::class)->name('posts.index');
