@@ -8,7 +8,7 @@ class ToursSeeder extends Seeder
     public function run()
     {
         /** @var Tour $blueLagoon */
-        $blueLagoon = factory(\App\Tour::class)->create([
+        $blueLagoon = factory(Tour::class)->create([
             'title' => 'Trogir - Blue lagoon',
         ]);
 
@@ -19,7 +19,7 @@ class ToursSeeder extends Seeder
         ;
 
         /** @var Tour $blueCave */
-        $blueCave = factory(\App\Tour::class)->create([
+        $blueCave = factory(Tour::class)->create([
             'title' => 'Blue cave',
         ]);
 
@@ -32,14 +32,14 @@ class ToursSeeder extends Seeder
         /**
          * Private Tours
          */
-        factory(\App\Tour::class)->create([
+        factory(Tour::class)->create([
             'title' => 'Blue Cave private tour',
             'price' => '800',
             'type' => 'private',
             'featured' => false,
         ]);
 
-        factory(\App\Tour::class)->create([
+        factory(Tour::class)->create([
             'title' => 'Hvar blue lagoon',
             'price' => '500',
             'type' => 'private',

@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ViewModel\DefaultResourceParameters;
 use App\Http\Controllers\Controller;
 use App\Services\ImageUploader;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 
 class ResourceController extends Controller
@@ -134,7 +135,7 @@ class ResourceController extends Controller
         $resource = $this->resource::create($dataWithoutImages);
 
         foreach ($this->imageFields as $imageField) {
-            $images = array_pull($validatedData, $imageField);
+            $images = Arr::pull($validatedData, $imageField);
             $this->imageUploader->uploadForResource($resource, $imageField, $images);
         }
 
@@ -184,7 +185,7 @@ class ResourceController extends Controller
         $resource->update($dataWithoutImages);
 
         foreach ($this->imageFields as $imageField) {
-            $images = array_pull($validatedData, $imageField);
+            $images = Arr::pull($validatedData, $imageField);
             $this->imageUploader->uploadForResource($resource, $imageField, $images);
         }
 

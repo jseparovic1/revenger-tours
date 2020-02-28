@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TourResourceRequest;
 use App\Tour;
 use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Storage;
 
 class TourController extends Controller
@@ -36,7 +37,7 @@ class TourController extends Controller
     {
         $validatedData = $request->validated();
 
-        $hero = array_pull($validatedData,'hero');
+        $hero = Arr::pull($validatedData,'hero');
 
         $tour = Tour::create($validatedData);
 
@@ -62,7 +63,7 @@ class TourController extends Controller
     {
         $validatedData = $request->validated();
 
-        $hero = array_pull($validatedData,'hero');
+        $hero = Arr::pull($validatedData,'hero');
 
         $tour->update($validatedData);
 

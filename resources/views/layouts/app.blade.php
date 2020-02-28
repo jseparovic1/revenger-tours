@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ Illuminate\Support\Str::replaceFirst('_', '-', app()->getLocale()) }}">
 <head>
     <title>{{ $title ?? 'Home' }} | Revenger Tours</title>
     @isset($description) <meta name="description" content="{{ $description }}"/>@endisset

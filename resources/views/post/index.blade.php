@@ -16,7 +16,7 @@
                         <div class="flex flex-col px-5 mb-4 justify-between flex-1">
                             <div class="flex-1">
                                 <h1 class="text-lg font-bold text-black mb-2">{{ $post->title }}</h1>
-                                <p class="text-grey-darker mb-4">{{ str_limit($post->description, 100, '...') }}</p>
+                                <p class="text-grey-darker mb-4">{{ Illuminate\Support\Str::limit($post->description, 100, '...') }}</p>
                             </div>
                             <button
                                 class="text-left text-grey text-sm hover:text-brand cursor-pointer focus:outline-none group-hover:text-brand"

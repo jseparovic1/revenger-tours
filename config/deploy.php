@@ -62,6 +62,7 @@ return [
             'artisan:cache:clear',
             'artisan:config:cache',
             'artisan:migrate',
+//            'artisan queue:restart'
         ],
 
         // Deployment is done and live
@@ -93,7 +94,7 @@ return [
 
     'options' => [
         'application' => env('APP_NAME', 'Laravel'),
-        'repository' => 'git@github.com:jseparovic1/revenger-tours.git',
+        'repository' => 'git@github.com:jseparovic1/blue-tours.git',
         'php_fpm_service' => 'php7.4-fpm',
     ],
 
@@ -110,7 +111,7 @@ return [
 
     'hosts' => [
         '46.101.232.182' => [
-            'deploy_path' => '/home/forge/default',
+            'deploy_path' => '/home/forge/bluelagoontrip.com',
             'user' => 'forge',
             'branch' => 'master',
             'configFile'   => '~/.ssh/config',

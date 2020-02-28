@@ -25,12 +25,6 @@ class Tour extends Model implements HasMedia
         return 'slug';
     }
 
-    /**
-     * Itinerary mutator
-     *
-     * @param string $itiernaryAsJson
-     * @return mixed
-     */
     public function getItineraryAttribute(string $itineraryAsJson)
     {
         return json_decode($itineraryAsJson, true);
