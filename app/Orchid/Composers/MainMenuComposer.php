@@ -30,20 +30,6 @@ class MainMenuComposer
      */
     public function compose()
     {
-        // Profile
-        $this->dashboard->menu
-            ->add(Menu::PROFILE,
-                ItemMenu::label('Action')
-                    ->icon('icon-compass')
-                    ->badge(function () {
-                        return 6;
-                    })
-            )
-            ->add(Menu::PROFILE,
-                ItemMenu::label('Another action')
-                    ->icon('icon-heart')
-            );
-
         // Main
         $this->dashboard->menu
             ->add(Menu::MAIN,
@@ -57,25 +43,6 @@ class MainMenuComposer
                     ->icon('icon-list')
                     ->route('platform.example.fields')
             )
-            ->add(Menu::MAIN,
-                ItemMenu::label('Overview layouts')
-                    ->icon('icon-layers')
-                    ->route('platform.example.layouts')
-            )
-            ->add(Menu::MAIN,
-                ItemMenu::label('Dropdown menu')
-                    ->title('Sub menu')
-                    ->slug('example-menu')
-                    ->icon('icon-code')
-                    ->childs()
-            )
-            ->add('example-menu',
-                ItemMenu::label('Sub element item 1')
-                    ->icon('icon-bag')
-            )
-            ->add('example-menu',
-                ItemMenu::label('Sub element item 2')
-                    ->icon('icon-heart')
-            );
+        ;
     }
 }
