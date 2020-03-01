@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Orchid\Screen\AsSource;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
@@ -11,7 +12,18 @@ use Spatie\Sluggable\SlugOptions;
 
 class Tour extends Model implements HasMedia
 {
-    use HasMediaTrait, HasSlug;
+    use HasMediaTrait, HasSlug, AsSource;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'type',
+        'price',
+        'description',
+        'hero_description',
+        'short_description',
+        'itinerary',
+    ];
 
     protected $casts = [
         'featured' => 'boolean',
@@ -23,11 +35,6 @@ class Tour extends Model implements HasMedia
     public function getRouteKeyName(): string
     {
         return 'slug';
-    }
-
-    public function getItineraryAttribute(string $itineraryAsJson)
-    {
-        return json_decode($itineraryAsJson, true);
     }
 
     public function getSlugOptions() : SlugOptions

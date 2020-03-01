@@ -19,13 +19,13 @@
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Map</div>
                 </scrool-spy>
                 <div class="tour-content mb-4 p-4">
-                    {!! $tour->details !!}
+                    {!! $tour->description !!}
                     @include('tours._partials.price', [
                         'price' => $tour->price,
                     ])
 
                     @if($tour->itinerary !== 'null')
-                        @include('tours._partials.itinerary', ['itinerary' => json_decode($tour->itinerary, true)])
+                        @include('tours._partials.itinerary', ['itinerary' => $tour->itinerary])
                     @endisset
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,

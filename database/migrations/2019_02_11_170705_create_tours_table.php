@@ -17,14 +17,14 @@ class CreateToursTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('slug');
-            $table->text('details')->nullable();
+            $table->text('description')->nullable();
             $table->integer('price');
             $table->string('type')->default('normal');
             $table->boolean('featured')->default(1);
             $table->text('hero_description')->nullable();
             $table->boolean('recommended')->default(1);
             $table->text('short_description')->nullable();
-            $table->json('itinerary')->nullable();
+            $table->jsonb('itinerary')->nullable();
             $table->string('departure_location')->nullable();
             $table->string('departure_time')->nullable();
             $table->string('included')->nullable();

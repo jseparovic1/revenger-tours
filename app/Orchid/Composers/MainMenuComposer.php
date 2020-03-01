@@ -10,16 +10,8 @@ use Orchid\Platform\Menu;
 
 class MainMenuComposer
 {
-    /**
-     * @var Dashboard
-     */
-    private $dashboard;
+    private Dashboard $dashboard;
 
-    /**
-     * MenuComposer constructor.
-     *
-     * @param Dashboard $dashboard
-     */
     public function __construct(Dashboard $dashboard)
     {
         $this->dashboard = $dashboard;
@@ -28,15 +20,14 @@ class MainMenuComposer
     /**
      * Registering the main menu items.
      */
-    public function compose()
+    public function compose(): void
     {
-        // Main
         $this->dashboard->menu
             ->add(Menu::MAIN,
-                ItemMenu::label('Example screen')
-                    ->icon('icon-monitor')
-                    ->route('platform.example')
-                    ->title('Navigation')
+                ItemMenu::label('Tours')
+                    ->icon('icon-boat')
+                    ->route('platform.tour.list')
+                    ->title('Tours')
             )
             ->add(Menu::MAIN,
                 ItemMenu::label('Form controls')

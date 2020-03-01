@@ -8,6 +8,8 @@ use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
+use App\Orchid\Screens\TourEditScreen;
+use App\Orchid\Screens\TourListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
 use App\Orchid\Screens\User\UserListScreen;
 
@@ -39,3 +41,7 @@ $this->router->screen('example', ExampleScreen::class)->name('platform.example')
 $this->router->screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 $this->router->screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
 //Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
+
+//Tours
+$this->router->screen('tour/{tour?}', TourEditScreen::class)->name('platform.tour.edit');
+$this->router->screen('tours', TourListScreen::class)->name('platform.tour.list');
