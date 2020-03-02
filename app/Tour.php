@@ -7,12 +7,10 @@ use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
 
 class Tour extends Model implements HasMedia
 {
-    use HasMediaTrait, HasSlug, AsSource;
+    use HasMediaTrait, AsSource;
 
     protected $fillable = [
         'title',
@@ -22,8 +20,6 @@ class Tour extends Model implements HasMedia
         'description',
         'hero_description',
         'short_description',
-        'included',
-        'excluded',
         'departure_location',
         'departure_time',
     ];
@@ -33,21 +29,6 @@ class Tour extends Model implements HasMedia
         'recommended' => 'boolean',
         'price' => 'integer',
     ];
-
-    public function getRouteKeyName(): string
-    {
-        return 'slug';
-    }
-
-    public function getSlugOptions() : SlugOptions
-    {
-        return SlugOptions::create()
-            ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug')
-            ->doNotGenerateSlugsOnUpdate()
-            ->slugsShouldBeNoLongerThan(20)
-        ;
-    }
 
     public function registerMediaCollections(): void
     {
@@ -73,5 +54,10 @@ class Tour extends Model implements HasMedia
         return $this->getFirstMedia('hero_original') !== null
             ? $this->getFirstMedia('hero_original')->getUrl('hero')
             : null;
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }
