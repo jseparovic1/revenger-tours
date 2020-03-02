@@ -3,8 +3,8 @@
         <div class="sm:flex mb-4 justify-between">
             <div class="sm:w-1/3 sm:mt-0 mt-8 h-auto mb-5">
                 <div class="mb-2">
-                    <span class="text-brand font-bold text-xl">Revenger</span>
-                    <span class="text-white font-bold text-xl">Tours</span>
+                    <span class="text-brand font-bold text-xl">Blue Lagoon</span>
+                    <span class="text-white font-bold text-xl">Trip</span>
                 </div>
                 <p class="text-white">{{ config('settings.footer.description') }}</p>
                 <div class="mt-4 flex">

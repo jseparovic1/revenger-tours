@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Composers;
+namespace App\Orchid\Menu;
 
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;

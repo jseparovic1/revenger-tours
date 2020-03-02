@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\Composers;
+namespace App\Orchid\Menu;
 
 use Orchid\Platform\Dashboard;
 use Orchid\Platform\ItemMenu;
@@ -25,7 +25,7 @@ class MainMenuComposer
         $this->dashboard->menu
             ->add(Menu::MAIN,
                 ItemMenu::label('Tours')
-                    ->icon('icon-boat')
+                    ->icon('icon-diamond')
                     ->route('platform.tour.list')
                     ->title('Tours')
             )

@@ -1,5 +1,6 @@
 <?php
 
+use App\User;
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\Str;
@@ -17,12 +18,67 @@ use Illuminate\Support\Str;
 
 /** @var $factory Factory */
 
-$factory->define(App\User::class, function (Faker $faker) {
+$factory->define(User::class, function (Faker $faker) {
+    static $password;
+
+    $roles = [
+        'admin'  => [
+            'platform.index'                      => 1,
+            'platform.systems'                    => 1,
+            'platform.systems.index'              => 1,
+            'platform.systems.roles'              => 1,
+            'platform.systems.settings'           => 1,
+            'platform.systems.users'              => 1,
+            'platform.systems.menu'               => 1,
+            'platform.systems.category'           => 1,
+            'platform.systems.comment'            => 1,
+            'platform.systems.attachment'         => 1,
+            'platform.systems.media'              => 1,
+            'platform.pages'                      => 1,
+            'platform.posts'                      => 1,
+            'platform.entities.type.example-post' => 1,
+            'platform.entities.type.example-page' => 1,
+            'platform.bulldozer'                  => 1,
+        ],
+        'user'   => [
+            'platform.index'                       => 1,
+            'platform.systems'                     => 1,
+            'platform.systems.roles'               => 0,
+            'platform.systems.settings'            => 1,
+            'platform.systems.users'               => 0,
+            'platform.systems.menu'                => 0,
+            'platform.systems.category'            => 0,
+            'platform.systems.comment'             => 1,
+            'platform.systems.attachment'          => 1,
+            'platform.systems.media'               => 1,
+            'platform.pages'                       => 0,
+            'platform.entities.type..example-page' => 0,
+            'platform.posts'                       => 0,
+            'platform.entities.type..example-post' => 0,
+        ],
+        'author' => [
+            'platform.index'                      => 1,
+            'platform.systems'                    => 1,
+            'platform.systems.roles'              => 0,
+            'platform.systems.settings'           => 1,
+            'platform.systems.users'              => 0,
+            'platform.systems.menu'               => 0,
+            'platform.systems.category'           => 0,
+            'platform.systems.comment'            => 1,
+            'platform.systems.attachment'         => 1,
+            'platform.systems.media'              => 1,
+            'platform.pages'                      => 1,
+            'platform.entities.type.example-page' => 1,
+            'platform.entities.type.example-post' => 1,
+        ],
+    ];
+
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$TKh8H1.PfQx37YgCzwiKb.KjNyWgaHb9cbcoQgdIVFlYg7B77UdFm', // secret
+        'name'           => $faker->firstName,
+        'email'          => $faker->unique()->safeEmail,
+        'password'       => $password ?: bcrypt('secret'),
         'remember_token' => Str::random(10),
+        'last_login'     => $faker->dateTimeBetween('-6 days', 'this week'),
+        'permissions'    => $roles['admin'],
     ];
 });

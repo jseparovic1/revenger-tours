@@ -8,11 +8,10 @@
     <section>
         <div class="max-w-3xl mx-auto flex flex-col lg:flex-row blog-content">
             <main class="w-full flex-1 mb-10 mr-0 lg:mr-12">
-                <h1 class="mt-0 text-brand">Speedboat transfers</h1>
                 <div>
                     <p class="pb-10">
                         Speedboat transfers are fast and reliable option for people who wants to avoid traffic jams and slow ferry lines.
-                        Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">8</span>.
+                        Our service is available 0-24 and maximum number of passenger is <span class="font-bold text-brand">10</span>.
                     </p>
                     <h3>Included</h3>
                     <ul>
@@ -22,7 +21,6 @@
                         <li>fuel</li>
                     </ul>
 
-                    <h3 class="mb-4">Pricing</h3>
                     <table class="table">
                         <thead class="border-transparent border-0">
                         <tr>

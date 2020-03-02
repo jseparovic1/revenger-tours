@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Orchid;
 
-use App\Orchid\Composers\MainMenuComposer;
-use App\Orchid\Composers\SystemMenuComposer;
+use App\Orchid\Menu\MainMenuComposer;
+use App\Orchid\Menu\SystemMenuComposer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Orchid\Platform\Dashboard;
