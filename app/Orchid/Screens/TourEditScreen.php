@@ -9,7 +9,6 @@ use Illuminate\Routing\Redirector;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Matrix;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\RadioButtons;
 use Orchid\Screen\Fields\Switcher;
@@ -47,6 +46,8 @@ class TourEditScreen extends Screen
         if ($this->exists) {
             $this->name = 'Edit tour';
         }
+
+        $tour->load('attachment');
 
         return ['tour' => $tour];
     }
@@ -130,6 +131,13 @@ class TourEditScreen extends Screen
         );
 
         $settings = Layout::rows([
+            Upload::make('tour.hero')
+                ->help('Tour hero image is showed at the top of the page.')
+                ->multiple(false)
+                ->resizeWidth(1600)
+                ->resizeQuality(0.6)
+                ->title('Tour hero image'),
+
             Input::make('tour.hero_description')
                 ->title('Hero description')
                 ->popover('One sentence description for main page image.')
@@ -175,7 +183,12 @@ class TourEditScreen extends Screen
             'tour.hero_description' => 'required|string',
         ]);
 
+
         $tour->fill($request->get('tour'))->save();
+
+        $tour->attachment()->syncWithoutDetaching(
+            $request->input('tour.hero', [])
+        );
 
         Alert::info('You have successfully created new tour.');
 

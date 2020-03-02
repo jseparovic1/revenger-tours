@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Orchid\Attachment\Attachable;
 use Orchid\Screen\AsSource;
 use Spatie\Image\Manipulations;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
@@ -10,7 +11,7 @@ use Spatie\MediaLibrary\Models\Media;
 
 class Tour extends Model implements HasMedia
 {
-    use HasMediaTrait, AsSource;
+    use HasMediaTrait, AsSource, Attachable;
 
     protected $fillable = [
         'title',
