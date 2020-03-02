@@ -88,39 +88,10 @@ section {
     @screen lg {
         @apply text-4xl;
     }
-    background-image: url("/images/line.png");
-    background-repeat: no-repeat;
-    background-position: center bottom;
-    position: relative;
-    &::after {
-        position: absolute;
-        content: '';
-        display: block;
-        width: 110px;
-        height: 1px;
-        bottom: 3.8px;
-        left: -170px;
-        right: 0;
-        margin: 0 auto;
-        background: hsl(41, 13%, 23%) none repeat scroll 0 0;
-        z-index: 1;
-    }
-    &::before {
-        position: absolute;
-        content: '';
-        display: block;
-        width: 110px;
-        height: 1px;
-        bottom: 3.8px;
-        left: 170px;
-        right: 0;
-        margin: 0 auto;
-        background: #454545 none repeat scroll 0 0;
-        z-index: 1;
-    }
 }
 
 .page {
+    //Make page hero images darker
     &::after {
         position: absolute;
         width: 100%;
@@ -131,10 +102,6 @@ section {
         top: 0;
         z-index: 2;
     }
-}
-
-.admin__sidebar .active {
-    @apply border-brand;
 }
 
 @tailwind utilities;

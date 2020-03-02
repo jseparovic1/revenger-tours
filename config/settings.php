@@ -42,4 +42,21 @@ return [
         'title' => '',
         'description' => ''
     ],
+
+    'tour' => [
+        'included' => [
+            'Boat ride',
+            'English speaking skipper and crew',
+            'Bottled water',
+            'Snorkeling  equipment',
+            'Blue cave entrance ticket',
+            'All taxes and VAT',
+            'Insurance'
+        ],
+        'excluded' => [
+            'Lunch',
+            'Hotel pickup and drop off',
+            'Gratuities (optional)'
+        ]
+    ]
 ];

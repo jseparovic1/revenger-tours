@@ -24,14 +24,11 @@
                         'price' => $tour->price,
                     ])
 
-                    @if($tour->itinerary !== 'null')
-                        @include('tours._partials.itinerary', ['itinerary' => $tour->itinerary])
-                    @endisset
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,
                         'departureLocation' => $tour->departure_location,
-                        'included'  => \Illuminate\Support\Arr::pluck($tour->included, 'included'),
-                        'excluded'  => \Illuminate\Support\Arr::pluck($tour->excluded, 'excluded'),
+                        'included'  => config('settings.tour.included'),
+                        'excluded'  => config('settings.tour.excluded'),
                     ])
                     @include('tours._partials.note')
                 </div>

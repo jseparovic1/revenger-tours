@@ -123,12 +123,6 @@ class TourEditScreen extends Screen
                     ->placeholder('07:30 every day.')
                     ->required(),
 
-                Matrix::make('tour.included')
-                    ->columns(['included']),
-
-                Matrix::make('tour.excluded')
-                    ->columns(['excluded']),
-
                 Upload::make('tour.gallery')
                     ->title('Gallery')
                     ->groups('tour_gallery'),
@@ -176,8 +170,6 @@ class TourEditScreen extends Screen
 
             'tour.departure_location' => 'sometimes|string',
             'tour.departure_time' => 'sometimes|string',
-            'tour.included' => 'sometimes|required',
-            'tour.excluded' => 'sometimes|required',
 
             'tour.short_description' => 'required|string',
             'tour.hero_description' => 'required|string',

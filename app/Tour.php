@@ -32,8 +32,6 @@ class Tour extends Model implements HasMedia
         'featured' => 'boolean',
         'recommended' => 'boolean',
         'price' => 'integer',
-        'included' => 'array',
-        'excluded' => 'array',
     ];
 
     public function getRouteKeyName(): string
