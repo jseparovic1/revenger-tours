@@ -91,7 +91,6 @@ class TourEditScreen extends Screen
                     ->placeholder('Dalmatia island tour of your life')
                     ->required(),
 
-                //@todo autogenerate slug based on title...
                 Input::make('tour.slug')
                     ->title('Slug')
                     ->placeholder('dalmatia-island-tour-of-your-life')
@@ -124,8 +123,11 @@ class TourEditScreen extends Screen
                     ->placeholder('07:30 every day.')
                     ->required(),
 
-                Matrix::make('tour.itinerary')
-                    ->columns(['description']),
+                Matrix::make('tour.included')
+                    ->columns(['included']),
+
+                Matrix::make('tour.excluded')
+                    ->columns(['excluded']),
 
                 Upload::make('tour.gallery')
                     ->title('Gallery')
@@ -171,12 +173,11 @@ class TourEditScreen extends Screen
             'tour.type' => 'required',
             'tour.price' => 'required|numeric',
             'tour.description' => 'required',
-            'tour.itinerary' => 'sometimes|required',
 
             'tour.departure_location' => 'sometimes|string',
             'tour.departure_time' => 'sometimes|string',
-            'tour.included' => 'sometimes|string',
-            'tour.excluded' => 'sometimes|string',
+            'tour.included' => 'sometimes|required',
+            'tour.excluded' => 'sometimes|required',
 
             'tour.short_description' => 'required|string',
             'tour.hero_description' => 'required|string',

@@ -30,8 +30,8 @@
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,
                         'departureLocation' => $tour->departure_location,
-                        'included'  => explode(',', $tour->included),
-                        'excluded'  => explode(',', $tour->excluded)
+                        'included'  => \Illuminate\Support\Arr::pluck($tour->included, 'included'),
+                        'excluded'  => \Illuminate\Support\Arr::pluck($tour->excluded, 'excluded'),
                     ])
                     @include('tours._partials.note')
                 </div>

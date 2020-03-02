@@ -22,14 +22,18 @@ class Tour extends Model implements HasMedia
         'description',
         'hero_description',
         'short_description',
-        'itinerary',
+        'included',
+        'excluded',
+        'departure_location',
+        'departure_time',
     ];
 
     protected $casts = [
         'featured' => 'boolean',
         'recommended' => 'boolean',
         'price' => 'integer',
-        'itinerary' => 'array',
+        'included' => 'array',
+        'excluded' => 'array',
     ];
 
     public function getRouteKeyName(): string
