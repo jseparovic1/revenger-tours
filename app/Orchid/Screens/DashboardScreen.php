@@ -1,27 +1,29 @@
 <?php
 
-namespace App\Orchid\Screens\Examples;
+declare(strict_types=1);
+
+namespace App\Orchid\Screens;
 
 use Orchid\Screen\Action;
-use Orchid\Screen\Fields\Input;
+use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
 
-class ExampleLayoutsScreen extends Screen
+class DashboardScreen extends Screen
 {
     /**
      * Display header name.
      *
      * @var string
      */
-    public $name = 'Overview layouts';
+    public $name = 'Dashboard';
 
     /**
      * Display header description.
      *
      * @var string
      */
-    public $description = 'Components for laying out your project';
+    public $description = 'Welcome';
 
     /**
      * Query data.
@@ -30,7 +32,8 @@ class ExampleLayoutsScreen extends Screen
      */
     public function query(): array
     {
-        return [];
+        return [
+        ];
     }
 
     /**
@@ -40,28 +43,22 @@ class ExampleLayoutsScreen extends Screen
      */
     public function commandBar(): array
     {
-        return [];
+        return [
+            Link::make('Website')
+                ->href('https://bluelagoontrip.com/')
+                ->icon('icon-globe-alt'),
+        ];
     }
 
     /**
      * Views.
      *
-     * @throws \Throwable
-     *
-     * @return array
+     * @return Layout[]
      */
     public function layout(): array
     {
         return [
-            Layout::view('platform::dummy.block'),
-
-            Layout::columns([
-                Layout::view('platform::dummy.block'),
-                Layout::view('platform::dummy.block'),
-                Layout::view('platform::dummy.block'),
-            ]),
-
-
+            Layout::view('platform::partials.welcome'),
         ];
     }
 }

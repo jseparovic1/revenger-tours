@@ -25,15 +25,27 @@ class MainMenuComposer
         $this->dashboard->menu
             ->add(Menu::MAIN,
                 ItemMenu::label('Tours')
-                    ->icon('icon-diamond')
+                    ->icon('icon-list')
                     ->route('platform.tour.list')
                     ->title('Tours')
             )
             ->add(Menu::MAIN,
-                ItemMenu::label('Form controls')
-                    ->icon('icon-list')
-                    ->route('platform.example.fields')
+                ItemMenu::label('Private tours')
+                    ->icon('icon-diamond')
+//                    ->route('platform.example.fields')
             )
+            ->add(Menu::MAIN,
+                ItemMenu::label('Transfers')
+                    ->icon('icon-grid')
+//                    ->route('platform.example.fields')
+            )
+            ->add(Menu::MAIN,
+                ItemMenu::label('Posts')
+                    ->icon('icon-list')
+                    ->title('Other')
+//                    ->route('platform.example.fields')
+            )
+
         ;
     }
 }

@@ -2,12 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Orchid\Screens\Examples\ExampleFieldsScreen;
-use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
-use App\Orchid\Screens\Examples\ExampleScreen;
-use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\DashboardScreen;
 use App\Orchid\Screens\Role\RoleEditScreen;
-use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\TourEditScreen;
 use App\Orchid\Screens\TourListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -25,7 +21,7 @@ use App\Orchid\Screens\User\UserListScreen;
 */
 
 // Main
-$this->router->screen('/main', PlatformScreen::class)->name('platform.main');
+$this->router->screen('/main', DashboardScreen::class)->name('platform.main');
 
 // Users...
 $this->router->screen('users/{users}/edit', UserEditScreen::class)->name('platform.systems.users.edit');
@@ -35,12 +31,6 @@ $this->router->screen('users', UserListScreen::class)->name('platform.systems.us
 $this->router->screen('roles/{roles}/edit', RoleEditScreen::class)->name('platform.systems.roles.edit');
 $this->router->screen('roles/create', RoleEditScreen::class)->name('platform.systems.roles.create');
 $this->router->screen('roles', RoleListScreen::class)->name('platform.systems.roles');
-
-// Example...
-$this->router->screen('example', ExampleScreen::class)->name('platform.example');
-$this->router->screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
-$this->router->screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
-//Route::screen('/dashboard/screen/idea', 'Idea::class','platform.screens.idea');
 
 //Tours
 $this->router->screen('tour/{tour?}', TourEditScreen::class)->name('platform.tour.edit');

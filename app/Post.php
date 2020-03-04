@@ -2,11 +2,6 @@
 
 namespace App;
 
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
-
 class Post extends Model
 {
     public function getRouteKeyName()
