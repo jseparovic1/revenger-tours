@@ -2,6 +2,7 @@
 
 namespace App\Orchid\Screens;
 
+use App\Post;
 use App\Tour;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -11,6 +12,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\RadioButtons;
+use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Fields\Upload;
@@ -128,17 +130,15 @@ class TourEditScreen extends Screen
                     ->acceptedFiles('image/*')
                     ->parallelUploads(5)
                     ->maxFiles(10)
-                    ->addBeforeRender(fn() => dump($this->get('value')))
                     ->groups('gallery'),
             ],
-        );
+            );
 
         $settings = Layout::rows([
             Upload::make('tour.hero')
                 ->help('Tour hero image is showed at the top of the page.')
                 ->multiple(false)
                 ->groups('hero')
-                ->addBeforeRender(fn() => dump($this->get('value')))
                 ->title('Tour hero image'),
 
             Input::make('tour.hero_description')
@@ -163,10 +163,14 @@ class TourEditScreen extends Screen
                 ->sendTrueOrFalse()
                 ->placeholder('Featured')
                 ->help('If checked this tour is shown on main slider.'),
+
+            Relation::make('tour.post')
+                ->fromModel(Post::class, 'title')
+                ->title('Select blog post related to this tour.'),
         ]);
 
         return [
-            Layout::tabs(['Details' => $tour, 'Settings'  => $settings]),
+            Layout::tabs(['Details' => $tour, 'Settings' => $settings]),
         ];
     }
 
