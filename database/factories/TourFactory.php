@@ -2,15 +2,18 @@
 
 use Faker\Generator as Faker;
 use Illuminate\Database\Eloquent\Factory as EloquentFactory;
+use Illuminate\Support\Str;
 
 /** @var EloquentFactory $factory */
 $factory->define(App\Tour::class, function (Faker $faker) {
     $price = $faker->numberBetween(100, 500);
+    $title = 'Tour title';
+    $slug = Str::slug($title);
 
     return [
         'hero_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
-        'title' => 'Blue cave',
-        'slug' => \Illuminate\Support\Str::slug($faker->slug()),
+        'title' => $title,
+        'slug' => $slug,
         'featured' => true,
         'type' => 'normal',
         'recommended' => true,

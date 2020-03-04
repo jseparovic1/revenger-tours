@@ -15,5 +15,9 @@ class PostSeeder extends Seeder
         factory(Post::class)
             ->times(5)
             ->create();
+
+        factory(Post::class)->create([
+            'slug' => 'blue-lagoon-diary'
+        ]);
     }
 }

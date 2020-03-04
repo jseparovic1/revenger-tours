@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Blog\ShowPostListAction;
 use App\Http\Controllers\Blog\ShowPostAction;
 use App\Http\Controllers\Contact\SendContactRequestAction;
@@ -16,13 +15,6 @@ use App\Http\Controllers\Tour\ShowToursListAction;
 use Illuminate\Routing\Router;
 
 return function (Router $router) {
-    /**
-     * Auth
-     */
-    $router->get('login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-    $router->post('login', [LoginController::class, 'login'])->name('auth.login');
-    $router->post('logout', [LoginController::class, 'logout'])->name('auth.logout');
-
     $router->get('/',ShowHomepageAction::class);
     $router->get('/tours', ShowToursListAction::class)->name('tours.index');
     $router->get('/tours/{tour}', ShowTourAction::class)->name('tours.show');
