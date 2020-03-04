@@ -16,12 +16,4 @@ class CreateTableSettings extends Migration
             $table->json('value');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
-    {
-        Schema::dropIfExists('settings');
-    }
 }

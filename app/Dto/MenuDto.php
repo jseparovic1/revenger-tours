@@ -8,17 +8,11 @@ use Spatie\Menu\Laravel\Menu;
 
 class MenuDto
 {
-    /**
-     * @var string
-     */
-    public $menuName;
+    public string $menuName;
 
-    /**
-     * @var Menu
-     */
-    public $menu;
+    public Menu $menu;
 
-    public static function create(string $menuName, Menu $menu)
+    public static function create(string $menuName, Menu $menu): MenuDto
     {
         return new self($menuName, $menu);
     }

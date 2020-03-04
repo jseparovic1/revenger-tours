@@ -15,21 +15,11 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('title');
-            $table->text('slug');
+            $table->string('title');
+            $table->string('slug');
             $table->text('description');
             $table->text('content');
             $table->timestamps();
         });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('posts');
     }
 }

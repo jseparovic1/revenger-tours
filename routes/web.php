@@ -1,11 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\GetImageAction;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\UploadImageAction;
-use App\Http\Controllers\Admin\TourController;
-use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Blog\ShowPostListAction;
 use App\Http\Controllers\Blog\ShowPostAction;
 use App\Http\Controllers\Contact\SendContactRequestAction;
@@ -21,13 +15,6 @@ use App\Http\Controllers\Tour\ShowToursListAction;
 use Illuminate\Routing\Router;
 
 return function (Router $router) {
-    /**
-     * Auth
-     */
-    $router->get('login', [LoginController::class, 'showLoginForm'])->name('auth.login');
-    $router->post('login', [LoginController::class, 'login'])->name('auth.login');
-    $router->post('logout', [LoginController::class, 'logout'])->name('auth.logout');
-
     $router->get('/',ShowHomepageAction::class);
     $router->get('/tours', ShowToursListAction::class)->name('tours.index');
     $router->get('/tours/{tour}', ShowTourAction::class)->name('tours.show');
@@ -44,20 +31,5 @@ return function (Router $router) {
 
     $router->get('/blog', ShowPostListAction::class)->name('posts.index');
     $router->get('/blog/{post}', ShowPostAction::class)->name('posts.show');
-
-    /**
-     * Admin Routes
-     */
-    $router->group(['middleware' => 'auth', 'prefix' => 'admin'], function (Router $router) {
-        $router->post('upload',  [ImageController::class, 'store']);
-        $router->get('media/{mediaId}', [ImageController::class, 'show']);
-        $router->post('media/{mediaId}', [ImageController::class, 'destroy']);
-
-        $router->resource('tours', TourController::class)
-            ->names('admin.tours');
-
-        $router->resource('posts', PostController::class)
-            ->names('admin.posts');
-    });
 };
 

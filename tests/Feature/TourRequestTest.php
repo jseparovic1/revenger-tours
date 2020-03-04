@@ -6,7 +6,7 @@ use App\Mail\TourRequested;
 use App\Tour;
 use Carbon\Carbon;
 use Illuminate\Http\Response;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 
 class TourRequestTest extends TestCase

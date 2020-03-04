@@ -9,10 +9,12 @@ class ToursSeeder extends Seeder
     {
         factory(Tour::class)->create([
             'title' => 'Trogir - Blue lagoon',
+            'slug' => 'blue-lagoon'
         ]);
 
         factory(Tour::class)->create([
             'title' => 'Blue cave',
+            'slug' => 'blue-cave'
         ]);
 
         factory(Tour::class)->create([
