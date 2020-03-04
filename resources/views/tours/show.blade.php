@@ -19,19 +19,16 @@
                     <div class="tab flex-1 py-4 hover:bg-brand hover:text-white">Map</div>
                 </scrool-spy>
                 <div class="tour-content mb-4 p-4">
-                    {!! $tour->details !!}
+                    {!! $tour->description !!}
                     @include('tours._partials.price', [
                         'price' => $tour->price,
                     ])
 
-                    @if($tour->itinerary !== 'null')
-                        @include('tours._partials.itinerary', ['itinerary' => json_decode($tour->itinerary, true)])
-                    @endisset
                     @include('tours._partials.summary', [
                         'departureTime' => $tour->departure_time,
                         'departureLocation' => $tour->departure_location,
-                        'included'  => explode(',', $tour->included),
-                        'excluded'  => explode(',', $tour->excluded)
+                        'included'  => config('settings.tour.included'),
+                        'excluded'  => config('settings.tour.excluded'),
                     ])
                     @include('tours._partials.note')
                 </div>

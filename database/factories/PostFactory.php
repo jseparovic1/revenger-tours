@@ -12,10 +12,3 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->text(40),
     ];
 });
-
-$factory->afterMaking(Post::class, function(Post $post, Faker $faker) {
-    $post
-        ->addMediaFromUrl('https://source.unsplash.com/random')
-        ->withResponsiveImages()
-        ->toMediaCollection(Post::COVER_COLLECTION);
-});

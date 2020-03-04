@@ -2,54 +2,23 @@
 
 namespace App;
 
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
-
-class Post extends Model implements HasMedia
+class Post extends Model
 {
-    use HasMediaTrait, HasSlug;
-
-    const COVER_COLLECTION = 'cover';
-
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    public function getSlugOptions(): SlugOptions
+    public function getCoverImage(): string
     {
-        return SlugOptions::create()
-            ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug')
-            ->doNotGenerateSlugsOnUpdate()
-            ->slugsShouldBeNoLongerThan(20);
+        /** @TODO make cover image */
+        return 'https://source.unsplash.com/1600x900/';
     }
 
-    public function registerMediaCollections()
+    public function getThumbImg($attributes = []): string
     {
-        $this->addMediaCollection(self::COVER_COLLECTION)
-            ->singleFile()
-            ->registerMediaConversions(function(Media $media) {
-                $this
-                    ->addMediaConversion('thumb')
-                    ->fit(Manipulations::FIT_CONTAIN, 640, 460)
-                    ->withResponsiveImages()
-                ;
-            })
-        ;
-    }
+        /** @TODO make thumb image */
 
-    public function coverImageUrl(): ?string
-    {
-        return $this->getFirstMediaUrl(self::COVER_COLLECTION);
-    }
-
-    public function getThumbImg($attributes = [])
-    {
-        return self::getFirstMedia(self::COVER_COLLECTION)->img('thumb', $attributes);
+        return 'https://source.unsplash.com/800x600/?sea,boat,summer';
     }
 }

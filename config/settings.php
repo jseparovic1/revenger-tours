@@ -7,7 +7,7 @@ return [
         'company_address' => 'Šegedinova 12',
         'company_city' => '21000 Split',
     ],
-    'main_description' => 'Revenger tours is travel agency from Split  specialized in  daily excursions, as well as sea transfers from Split to nearby islands.',
+    'main_description' => 'BlueLagoonTrip is travel agency from Split  specialized in  daily excursions, as well as sea transfers from Split to nearby islands.',
     'main_chose_us' => [
         'title' => 'Why chose us?',
         'description' => 'Enjoy beautiful islands of Croatia by choosing one of our carefully crafted tour.',
@@ -42,4 +42,21 @@ return [
         'title' => '',
         'description' => ''
     ],
+
+    'tour' => [
+        'included' => [
+            'Boat ride',
+            'English speaking skipper and crew',
+            'Bottled water',
+            'Snorkeling  equipment',
+            'Blue cave entrance ticket',
+            'All taxes and VAT',
+            'Insurance'
+        ],
+        'excluded' => [
+            'Lunch',
+            'Hotel pickup and drop off',
+            'Gratuities (optional)'
+        ]
+    ]
 ];

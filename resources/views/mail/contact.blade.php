@@ -5,7 +5,7 @@
 @component('mail::message')
 # Hi Đoni,
 
-You have new contact from revenger website.
+You have new contact from blue lagoon trip website.
 
 @component('mail::panel')
     Subject: {{ $contactRequest->subject }}

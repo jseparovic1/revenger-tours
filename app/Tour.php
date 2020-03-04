@@ -2,67 +2,53 @@
 
 namespace App;
 
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
-use Spatie\Sluggable\HasSlug;
-use Spatie\Sluggable\SlugOptions;
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
+use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
+use Orchid\Screen\AsSource;
 
-class Tour extends Model implements HasMedia
+class Tour extends Model
 {
-    use HasMediaTrait, HasSlug;
+    use AsSource, Attachable;
+
+    protected $fillable = [
+        'title',
+        'slug',
+        'type',
+        'price',
+        'description',
+        'hero_description',
+        'short_description',
+        'departure_location',
+        'departure_time',
+    ];
 
     protected $casts = [
         'featured' => 'boolean',
         'recommended' => 'boolean',
         'price' => 'integer',
-        'itinerary' => 'array',
     ];
+
+    public function hero(): MorphToMany
+    {
+        return $this->attachment('hero');
+    }
+
+    public function gallery(): MorphToMany
+    {
+        return $this->attachment('gallery');
+    }
+
+    public function getHeroImage(): string
+    {
+        /** @var Attachment $heroImage */
+        $heroImage = $this->hero()->first();
+
+        return $heroImage !== null ? $heroImage->getUrlAttribute(): 'https://source.unsplash.com/1600x900/?sea,boat,summer';
+    }
 
     public function getRouteKeyName(): string
     {
         return 'slug';
-    }
-
-    public function getItineraryAttribute(string $itineraryAsJson)
-    {
-        return json_decode($itineraryAsJson, true);
-    }
-
-    public function getSlugOptions() : SlugOptions
-    {
-        return SlugOptions::create()
-            ->generateSlugsFrom('title')
-            ->saveSlugsTo('slug')
-            ->doNotGenerateSlugsOnUpdate()
-            ->slugsShouldBeNoLongerThan(20)
-        ;
-    }
-
-    public function registerMediaCollections(): void
-    {
-        $this
-            ->addMediaCollection('hero_original')
-            ->singleFile()
-            ->registerMediaConversions(function (Media $media) {
-                $this->addMediaConversion('hero')
-                    ->fit(Manipulations::FIT_CONTAIN, 1920, 1080)
-                    ->withResponsiveImages()
-                ;
-
-                $this->addMediaConversion('card')
-                    ->fit(Manipulations::FIT_CONTAIN, 800, 600)
-                    ->withResponsiveImages()
-                ;
-            })
-        ;
-    }
-
-    public function getHeroImageUrl(): ?string
-    {
-        return $this->getFirstMedia('hero_original') !== null
-            ? $this->getFirstMedia('hero_original')->getUrl('hero')
-            : null;
     }
 }

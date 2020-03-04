@@ -1,8 +1,12 @@
+@php
+    /** @var \App\Tour $tour */
+@endphp
+
 <section class="h-full m-0 p-0 relative">
     <div class="hidden lg:block swiper-container h-half lg:h-screen">
         <div class="swiper-wrapper">
             @foreach($featured as $tour)
-                @component('components.slide', ['image' => $tour->getHeroImageUrl()])
+                @component('components.slide', ['image' => $tour->getHeroImage()])
                     @include('home.hero', [
                        'title' => $tour->title,
                        'description' => $tour->hero_description,

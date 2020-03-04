@@ -1,3 +1,7 @@
+@php
+ /** @var \App\Tour $tour */
+@endphp
+
 <section class="bg-white md:bg-transparent">
     <div class="max-w-3xl mx-auto">
         <div class="flex flex-col items-center space-between">
@@ -10,13 +14,14 @@
                     @include('home.featured.tour', [
                         'title' => $tour->title,
                         'description' => $tour->hero_description,
+                        'image' => $tour->getHeroImage(),
                         'action' => route('tours.show', $tour->slug)
                     ])
                 @endforeach
                 @include('home.featured.tour', [
                     'title' => 'Private tour',
                     'description' => 'Your wish is our command. Being smaller or larger group, we offer any tour that suits your needs. With our expertise and your wishes we will compose amazing tour.',
-                    'imageSrc' => asset('images/tour-private/card.jpg'),
+                    'image' => asset('images/tour-private/card.jpg'),
                     'action' => route('toursPrivate.show'),
                 ])
             </div>
