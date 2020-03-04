@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use App\Menu\Factory\MenuFactory;
 use App\Menu\Factory\ResponsiveMenuFactory;
-use App\Menu\Factory\AdminMenuFactory;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -17,13 +17,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if(config('app.env') === 'production') {
-            \URL::forceScheme('https');
+            URL::forceScheme('https');
         }
 
         $this->app->tag([
             MenuFactory::class,
             ResponsiveMenuFactory::class,
-            AdminMenuFactory::class,
         ], 'menu_factory');
     }
 

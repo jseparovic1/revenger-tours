@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\GetImageAction;
-use App\Http\Controllers\Admin\ImageController;
-use App\Http\Controllers\Admin\PostController;
-use App\Http\Controllers\Admin\UploadImageAction;
-use App\Http\Controllers\Admin\TourController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Blog\ShowPostListAction;
 use App\Http\Controllers\Blog\ShowPostAction;
@@ -44,20 +39,5 @@ return function (Router $router) {
 
     $router->get('/blog', ShowPostListAction::class)->name('posts.index');
     $router->get('/blog/{post}', ShowPostAction::class)->name('posts.show');
-
-    /**
-     * Admin Routes
-     */
-    $router->group(['middleware' => 'auth', 'prefix' => 'admin'], function (Router $router) {
-        $router->post('upload',  [ImageController::class, 'store']);
-        $router->get('media/{mediaId}', [ImageController::class, 'show']);
-        $router->post('media/{mediaId}', [ImageController::class, 'destroy']);
-
-        $router->resource('tours', TourController::class)
-            ->names('admin.tours');
-
-        $router->resource('posts', PostController::class)
-            ->names('admin.posts');
-    });
 };
 

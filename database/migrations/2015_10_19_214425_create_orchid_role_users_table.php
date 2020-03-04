@@ -27,12 +27,4 @@ class CreateOrchidRoleUsersTable extends Migration
                 ->onDelete('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
-    {
-        Schema::dropIfExists('role_users');
-    }
 }

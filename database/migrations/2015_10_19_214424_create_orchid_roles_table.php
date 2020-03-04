@@ -19,12 +19,4 @@ class CreateOrchidRolesTable extends Migration
             $table->timestamps();
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
-    {
-        Schema::dropIfExists('roles');
-    }
 }

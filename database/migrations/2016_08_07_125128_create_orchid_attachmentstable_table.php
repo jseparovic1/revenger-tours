@@ -44,13 +44,4 @@ class CreateOrchidAttachmentstableTable extends Migration
                 ->onDelete('cascade');
         });
     }
-
-    /**
-     * Reverse the migrations.
-     */
-    public function down()
-    {
-        Schema::drop('attachmentable');
-        Schema::drop('attachments');
-    }
 }
