@@ -5,9 +5,8 @@
 @extends('layouts.page', [
     'title' => $tour->title,
     'breadcrumbUrl' => route('tours.show', $tour->slug),
-    'imageUrl' => optional($tour->getFirstMedia('hero_original'))->getFullUrl('hero'),
+    'imageUrl' => $tour->getHeroImage(),
     'description' => $tour->short_description,
-    'turnOffFixedNav' => true
 ])
 
 @section('page')
