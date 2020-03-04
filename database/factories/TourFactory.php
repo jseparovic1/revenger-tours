@@ -10,6 +10,7 @@ $factory->define(App\Tour::class, function (Faker $faker) {
     return [
         'hero_description' => 'Saling around the labryinth of pakleni ilands! Find hidden beautiful beaches and deserted lagoons',
         'title' => 'Blue cave',
+        'slug' => \Illuminate\Support\Str::slug($faker->slug()),
         'featured' => true,
         'type' => 'normal',
         'recommended' => true,
