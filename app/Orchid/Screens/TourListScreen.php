@@ -47,8 +47,8 @@ class TourListScreen extends Screen
     public function commandBar(): array
     {
         return [
-            Link::make('Create new')
-                ->icon('icon-add')
+            Link::make('Add tour')
+                ->icon('icon-plus-alt')
                 ->route('platform.tour.edit')
         ];
     }

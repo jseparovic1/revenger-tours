@@ -18,10 +18,7 @@
                     <a href="{{ route('tours.show', $tour->slug) }}" class="h-75 w-full max-w-xl lg:w-1/2 px-4 flex-no-shrink mb-10 mx-auto">
                         <div class="tour h-full flex flex-col sm:flex-row justify-between shadow mb-4 lg:mb-8 overflow-hidden rounded-lg">
                             <div class="w-full flex img-zoom-wrapper">
-                                {!! $tour->getFirstMedia('hero_original')->img('card', [
-                                    'class' => 'h-auto w-full img-zoom lozad',
-                                    'alt' => $tour->title . 'image'
-                                ]) !!}
+                                <img data-src="{{$tour->getHeroImage()}}" class="h-auto w-full img-zoom lozad" alt="{{$tour->title}}. image">
                             </div>
                             <div class="w-full lg:w-5/6 flex flex-col justify-around px-5 pb-5 group">
                                 <h1 class="text-lg font-bold text-black mb-2">{{ $tour->title }}</h1>

@@ -7,38 +7,23 @@ use Spatie\MediaLibrary\HasMedia\HasMedia;
 use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
 use Spatie\MediaLibrary\Models\Media;
 
-class Post extends Model implements HasMedia
+class Post extends Model
 {
-    use HasMediaTrait;
-
-    const COVER_COLLECTION = 'cover';
-
     public function getRouteKeyName()
     {
         return 'slug';
     }
 
-    public function registerMediaCollections()
+    public function getCoverImage(): string
     {
-        $this->addMediaCollection(self::COVER_COLLECTION)
-            ->singleFile()
-            ->registerMediaConversions(function(Media $media) {
-                $this
-                    ->addMediaConversion('thumb')
-                    ->fit(Manipulations::FIT_CONTAIN, 640, 460)
-                    ->withResponsiveImages()
-                ;
-            })
-        ;
+        /** @TODO make cover image */
+        return 'https://source.unsplash.com/1600x900/';
     }
 
-    public function coverImageUrl(): ?string
+    public function getThumbImg($attributes = []): string
     {
-        return $this->getFirstMediaUrl(self::COVER_COLLECTION);
-    }
+        /** @TODO make thumb image */
 
-    public function getThumbImg($attributes = [])
-    {
-        return self::getFirstMedia(self::COVER_COLLECTION)->img('thumb', $attributes);
+        return 'https://source.unsplash.com/800x600/?sea,boat,summer';
     }
 }

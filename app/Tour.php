@@ -2,16 +2,14 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Orchid\Attachment\Attachable;
+use Orchid\Attachment\Models\Attachment;
 use Orchid\Screen\AsSource;
-use Spatie\Image\Manipulations;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
-use Spatie\MediaLibrary\Models\Media;
 
-class Tour extends Model implements HasMedia
+class Tour extends Model
 {
-    use HasMediaTrait, AsSource, Attachable;
+    use AsSource, Attachable;
 
     protected $fillable = [
         'title',
@@ -31,30 +29,22 @@ class Tour extends Model implements HasMedia
         'price' => 'integer',
     ];
 
-    public function registerMediaCollections(): void
+    public function hero(): MorphToMany
     {
-        $this
-            ->addMediaCollection('hero_original')
-            ->singleFile()
-            ->registerMediaConversions(function (Media $media) {
-                $this->addMediaConversion('hero')
-                    ->fit(Manipulations::FIT_CONTAIN, 1920, 1080)
-                    ->withResponsiveImages()
-                ;
-
-                $this->addMediaConversion('card')
-                    ->fit(Manipulations::FIT_CONTAIN, 800, 600)
-                    ->withResponsiveImages()
-                ;
-            })
-        ;
+        return $this->attachment('hero');
     }
 
-    public function getHeroImageUrl(): ?string
+    public function gallery(): MorphToMany
     {
-        return $this->getFirstMedia('hero_original') !== null
-            ? $this->getFirstMedia('hero_original')->getUrl('hero')
-            : null;
+        return $this->attachment('gallery');
+    }
+
+    public function getHeroImage(): string
+    {
+        /** @var Attachment $heroImage */
+        $heroImage = $this->hero()->first();
+
+        return $heroImage !== null ? $heroImage->getUrlAttribute(): 'https://source.unsplash.com/1600x900/?sea,boat,summer';
     }
 
     public function getRouteKeyName(): string

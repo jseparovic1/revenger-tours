@@ -1750,16 +1750,16 @@
         },
         {
             "name": "orchid/platform",
-            "version": "6.10.2",
+            "version": "6.11.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/orchidsoftware/platform.git",
-                "reference": "9833c7499a4289e4aa0a4ab6066190a2bfa954f2"
+                "reference": "28d9cd02d5b10d894d6ecefc89b72bb2e65608fd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/9833c7499a4289e4aa0a4ab6066190a2bfa954f2",
-                "reference": "9833c7499a4289e4aa0a4ab6066190a2bfa954f2",
+                "url": "https://api.github.com/repos/orchidsoftware/platform/zipball/28d9cd02d5b10d894d6ecefc89b72bb2e65608fd",
+                "reference": "28d9cd02d5b10d894d6ecefc89b72bb2e65608fd",
                 "shasum": ""
             },
             "require": {
@@ -1822,7 +1822,7 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Basis for back-office applications , admin panel or CMS.",
+            "description": "Platform for back-office applications, admin panel or CMS your Laravel app.",
             "homepage": "https://orchid.software",
             "keywords": [
                 "admin",
@@ -1835,7 +1835,7 @@
                 "platform",
                 "rad"
             ],
-            "time": "2020-02-20T16:57:25+00:00"
+            "time": "2020-03-03T09:36:07+00:00"
         },
         {
             "name": "org_heigl/ghostscript",

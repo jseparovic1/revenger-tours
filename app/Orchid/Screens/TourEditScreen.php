@@ -61,7 +61,7 @@ class TourEditScreen extends Screen
     {
         return [
             Button::make('Create tour')
-                ->icon('icon-pencil')
+                ->icon('icon-save')
                 ->method('createOrUpdate')
                 ->canSee(!$this->exists),
 
@@ -84,7 +84,6 @@ class TourEditScreen extends Screen
      */
     public function layout(): array
     {
-
         $tour = Layout::rows(
             [
                 Input::make('tour.title')
@@ -126,7 +125,11 @@ class TourEditScreen extends Screen
 
                 Upload::make('tour.gallery')
                     ->title('Gallery')
-                    ->groups('tour_gallery'),
+                    ->acceptedFiles('image/*')
+                    ->parallelUploads(5)
+                    ->maxFiles(10)
+                    ->addBeforeRender(fn() => dump($this->get('value')))
+                    ->groups('gallery'),
             ],
         );
 
@@ -134,8 +137,8 @@ class TourEditScreen extends Screen
             Upload::make('tour.hero')
                 ->help('Tour hero image is showed at the top of the page.')
                 ->multiple(false)
-                ->resizeWidth(1600)
-                ->resizeQuality(0.6)
+                ->groups('hero')
+                ->addBeforeRender(fn() => dump($this->get('value')))
                 ->title('Tour hero image'),
 
             Input::make('tour.hero_description')
@@ -183,11 +186,13 @@ class TourEditScreen extends Screen
             'tour.hero_description' => 'required|string',
         ]);
 
-
         $tour->fill($request->get('tour'))->save();
 
         $tour->attachment()->syncWithoutDetaching(
-            $request->input('tour.hero', [])
+            [
+                ...$request->input('tour.hero', []),
+                ...$request->input('tour.gallery', [])
+            ]
         );
 
         Alert::info('You have successfully created new tour.');
