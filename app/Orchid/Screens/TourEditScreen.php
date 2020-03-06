@@ -133,8 +133,12 @@ class TourEditScreen extends Screen
                     ->parallelUploads(5)
                     ->maxFiles(10)
                     ->groups('gallery'),
+
+                Relation::make('tour.post')
+                    ->fromModel(Post::class, 'title')
+                    ->title('Select blog post related to this tour.'),
             ],
-            );
+        );
 
         $settings = Layout::rows([
             Upload::make('tour.hero')
@@ -167,10 +171,6 @@ class TourEditScreen extends Screen
                 ->sendTrueOrFalse()
                 ->placeholder('Featured')
                 ->help('If checked this tour is shown on main slider.'),
-
-            Relation::make('tour.post')
-                ->fromModel(Post::class, 'title')
-                ->title('Select blog post related to this tour.'),
         ]);
 
         return [
