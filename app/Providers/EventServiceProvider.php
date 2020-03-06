@@ -2,11 +2,11 @@
 
 namespace App\Providers;
 
+use App\Listeners\UploadListener;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
-use App\Events\ResourceChanged;
-use App\Events\ClearCacheOnResourceChange;
+use Orchid\Platform\Events\UploadFileEvent;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -19,8 +19,8 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        ResourceChanged::class => [
-            ClearCacheOnResourceChange::class
+        UploadFileEvent::class => [
+            UploadListener::class
         ],
     ];
 

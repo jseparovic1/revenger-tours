@@ -10,11 +10,11 @@ use Illuminate\Routing\Redirector;
 use Orchid\Screen\Action;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
-use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\RadioButtons;
 use Orchid\Screen\Fields\Relation;
 use Orchid\Screen\Fields\Switcher;
 use Orchid\Screen\Fields\TextArea;
+use Orchid\Screen\Fields\TinyMCE;
 use Orchid\Screen\Fields\Upload;
 use Orchid\Screen\Layout;
 use Orchid\Screen\Screen;
@@ -109,9 +109,11 @@ class TourEditScreen extends Screen
                 Input::make('tour.price')
                     ->title('Price')
                     ->placeholder('240')
+                    ->help('Price in eur. ')
                     ->required(),
 
-                Quill::make('tour.description')
+                TinyMCE::make('tour.description')
+                    ->help('Describe where you would go and what would you do.')
                     ->placeholder('Describe where you would go and what would you do.')
                     ->title('Full tour description.'),
 
@@ -131,14 +133,20 @@ class TourEditScreen extends Screen
                     ->parallelUploads(5)
                     ->maxFiles(10)
                     ->groups('gallery'),
+
+                Relation::make('tour.post')
+                    ->fromModel(Post::class, 'title')
+                    ->title('Select blog post related to this tour.'),
             ],
-            );
+        );
 
         $settings = Layout::rows([
             Upload::make('tour.hero')
                 ->help('Tour hero image is showed at the top of the page.')
                 ->multiple(false)
                 ->groups('hero')
+                ->acceptedFiles('image/*')
+                ->maxFiles(1)
                 ->title('Tour hero image'),
 
             Input::make('tour.hero_description')
@@ -163,10 +171,6 @@ class TourEditScreen extends Screen
                 ->sendTrueOrFalse()
                 ->placeholder('Featured')
                 ->help('If checked this tour is shown on main slider.'),
-
-            Relation::make('tour.post')
-                ->fromModel(Post::class, 'title')
-                ->title('Select blog post related to this tour.'),
         ]);
 
         return [
