@@ -14,7 +14,7 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^6.17",
         "laravel/tinker": "^2.2.0",
-        "lorisleiva/laravel-deployer": "^0.2.17",
+        "lorisleiva/laravel-deployer": "^0.3.0",
         "orchid/platform": "^6.10",
         "spatie/laravel-menu": "^3.4"
     },
