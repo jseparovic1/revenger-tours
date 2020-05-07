@@ -22,7 +22,7 @@
         "sass": "^1.26.2",
         "sass-loader": "^8.0.0",
         "swiper": "^4.5.1",
-        "tailwindcss": "^0.7.4",
+        "tailwindcss": "^1.4.5",
         "tailwindcss-tables": "^0.4.0",
         "toastr": "^2.1.4",
         "trix": "^1.2.2",
