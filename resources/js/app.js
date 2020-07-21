@@ -21,7 +21,7 @@ const app = new Vue({
     el: '#app',
 });
 
-import Swiper from "swiper";
+import Swiper from "swiper/swiper-bundle.esm.browser.min.js";
 import lozad from "lozad";
 
 let swiper = new Swiper('.swiper-container', {

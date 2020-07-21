@@ -1,6 +1,5 @@
 
 window._ = require('lodash');
-require('swiper/dist/js/swiper.min');
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
