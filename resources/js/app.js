@@ -6,9 +6,6 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
-
-Vue.config.ignoredElements = ['trix-editor'];
-
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -18,7 +15,7 @@ Vue.config.ignoredElements = ['trix-editor'];
  */
 
 const files = require.context('./', true, /\.vue$/i);
-files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 const app = new Vue({
     el: '#app',
@@ -26,7 +23,6 @@ const app = new Vue({
 
 import Swiper from "swiper";
 import lozad from "lozad";
-
 
 let swiper = new Swiper('.swiper-container', {
     slidesPerView: 1,
@@ -65,7 +61,7 @@ let swiper = new Swiper('.swiper-container', {
 
 const nav = document.querySelector('.navigation.absolute');
 
-if (nav !== null ){
+if (nav !== null) {
     window.addEventListener('scroll', _.throttle(menuToggle, 300));
 }
 
