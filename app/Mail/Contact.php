@@ -35,7 +35,7 @@ class Contact extends Mailable implements ShouldQueue
     {
         return $this
             ->from('admin@revengertours.com')
-            ->subject('Revenger- ' . $this->contactRequestDto->subject)
+            ->subject('Blue Lagoon Trip ' . $this->contactRequestDto->subject)
             ->to(config('settings.contact.email'))
             ->replyTo($this->contactRequestDto->email)
             ->markdown('mail.contact', [

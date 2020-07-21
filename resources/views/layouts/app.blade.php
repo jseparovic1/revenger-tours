@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ Illuminate\Support\Str::replaceFirst('_', '-', app()->getLocale()) }}">
 <head>
-    <title>{{ $title ?? 'Home' }} | Revenger Tours</title>
+    <title>{{ $title ?? 'Home' }} | Blue Lagoon Trip</title>
     @isset($description) <meta name="description" content="{{ $description }}"/>@endisset
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
