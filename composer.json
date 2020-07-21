@@ -21,7 +21,6 @@
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.5",
-        "beyondcode/laravel-dump-server": "^1.0",
         "doctrine/dbal": "^2.9",
         "facade/ignition": "^1.4",
         "fzaninotto/faker": "^1.9.1",
