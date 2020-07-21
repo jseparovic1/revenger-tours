@@ -110,7 +110,7 @@ return [
     */
 
     'hosts' => [
-        '46.101.232.182' => [
+        '164.90.191.224' => [
             'deploy_path' => '/home/forge/bluelagoontrip.com',
             'user' => 'forge',
             'branch' => 'master',
