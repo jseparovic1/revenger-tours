@@ -22,7 +22,7 @@
         "sass": "^1.26.10",
         "sass-loader": "^8.0.0",
         "swiper": "^6.0.4",
-        "tailwindcss": "^0.7.4",
+        "tailwindcss": "^1.8.10",
         "tailwindcss-tables": "^0.4.0",
         "vue": "^2.6.11",
         "vue-tabs-component": "^1.5.0",
